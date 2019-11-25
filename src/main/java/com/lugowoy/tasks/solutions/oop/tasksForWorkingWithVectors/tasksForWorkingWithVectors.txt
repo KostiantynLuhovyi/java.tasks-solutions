@@ -1,0 +1,18 @@
+Create classes of vectors on the plane and in space. Implement the following functionality:
+1. The length (modulus) of the vector.
+3. Equality of vectors.
+4. Angle between vectors.
+5. Addition of vectors.
+6. Subtract vectors.
+7. Multiplication vectors.
+8. Incrementing and decrementing.
+9. Indexing.
+10. The multiplication of the vector by the number.
+11. Scalar product of vectors.
+12. Vector product of vectors.
+13. Mixed product of vectors.
+14. Orthogonality of vectors.
+15. Collinearity of vectors.
+16. Coplanarity of vectors.
+17. Linearly dependent and linearly independent vectors.
+18. Decomposition of a vector in basis.
