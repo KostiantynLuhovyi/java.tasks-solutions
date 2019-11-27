@@ -1,11 +1,11 @@
-package com.lugowoy.tasks.multidimensional.constructPascalTriangle;
+package com.lugowoy.tasks.solutions.arrays.multidimensional.constructPascalTriangle;
 
 /**
  * Write a program that builds a Pascal triangle to a depth of 12.
  * Each number of a triangle is stored in an array of the appropriate length, and the array of rows is stored in an array,
  * the elements of which are 12 arrays of type int.
- * <p>
- * Created by Konstantin Lugowoy on 28.06.2017.
+ *
+ * <p> Created by Konstantin Lugowoy on 28.06.2017.
  */
 
 public class Main {

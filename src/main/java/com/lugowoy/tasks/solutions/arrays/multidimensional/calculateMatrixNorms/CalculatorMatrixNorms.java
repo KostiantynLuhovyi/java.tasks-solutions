@@ -1,9 +1,6 @@
-package com.lugowoy.tasks.multidimensional.calculateMatrixNorms;
+package com.lugowoy.tasks.solutions.arrays.multidimensional.calculateMatrixNorms;
 
-import com.lugowoy.helper.models.Matrix;
-
-import static java.lang.Math.abs;
-import static java.lang.Math.max;
+import com.lugowoy.helper.models.matrices.MatrixDoubles;
 
 /**
  * Created by Konstantin Lugowoy on 30.10.2018.
@@ -12,28 +9,28 @@ import static java.lang.Math.max;
 @FunctionalInterface
 public interface CalculatorMatrixNorms {
 
-    double calculateMatrixNorm(Matrix<Double> matrix);
+    double calculateMatrixNorm(MatrixDoubles matrix);
 
-    static double calculateMatrixColumnsNorm(Matrix<Double> matrix) {
+    static double calculateMatrixColumnsNorm(MatrixDoubles matrix) {
         double resultNorm = 0;
         for (int i = 0; i < matrix.getRows(); i++) {
             double sum = 0;
             for (int j = 0; j < matrix.getColumns(); j++) {
-                sum += abs(matrix.getElement(i, j));
+                sum += Math.abs(matrix.getElement(i, j));
             }
-            resultNorm = max(resultNorm, sum);
+            resultNorm = Math.max(resultNorm, sum);
         }
         return resultNorm;
     }
 
-    static double calculateMatrixRowsNorm(Matrix<Double> matrix) {
+    static double calculateMatrixRowsNorm(MatrixDoubles matrix) {
         double resultNorm = 0;
         for (int i = 0; i < matrix.getRows(); i++) {
             double sum = 0;
             for (int j = 0; j < matrix.getColumns(); j++) {
-                sum += abs(matrix.getElement(j, i));
+                sum += Math.abs(matrix.getElement(j, i));
             }
-            resultNorm = max(resultNorm, sum);
+            resultNorm = Math.max(resultNorm, sum);
         }
         return resultNorm;
     }

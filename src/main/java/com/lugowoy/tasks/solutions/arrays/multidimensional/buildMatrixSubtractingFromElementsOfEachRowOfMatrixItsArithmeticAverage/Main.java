@@ -1,56 +1,66 @@
-package com.lugowoy.tasks.multidimensional.buildMatrixSubtractingFromElementsOfEachRowOfMatrixItsArithmeticAverage;
+package com.lugowoy.tasks.solutions.arrays.multidimensional.buildMatrixSubtractingFromElementsOfEachRowOfMatrixItsArithmeticAverage;
 
-import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomDouble;
+import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomPrimitiveDoubles;
+import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Matrix;
-import com.lugowoy.helper.other.MatrixAttributes;
+import com.lugowoy.helper.models.matrices.MatrixDoubles;
+import com.lugowoy.helper.utils.execution.Executor;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
-import static com.lugowoy.helper.filling.DefaultValuesForFilling.POSITIVE_DOUBLE_BOUND;
-import static com.lugowoy.helper.other.MatrixAttributes.MSG_ENTER_CONSOLE_COLUMN;
-import static com.lugowoy.helper.other.MatrixAttributes.MSG_ENTER_CONSOLE_ROW;
+import static com.lugowoy.helper.filling.ValuesToFilling.DOUBLE_UPPER_BOUND;
+import static com.lugowoy.helper.utils.execution.OutputExecutorResult.MSG_STRING_RESULT;
+import static com.lugowoy.helper.utils.execution.OutputExecutorTimer.MSG_MINUTES_AND_SECONDS;
+import static java.math.RoundingMode.HALF_DOWN;
 
 /**
  * Build a matrix, subtracting from the elements of each row of the matrix its arithmetic average.
- * <p>
- * Created by LugowoyKonstantin on 30.10.2018.
+ *
+ * <p> Created by Konstantin Lugowoy on 30.10.2018.
  */
-
 public class Main {
+
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     public static void main(String[] args) {
 
-        MatrixAttributes matrixAttributes = new MatrixAttributes();
-        matrixAttributes.setMatrixAttributes(new ReadingConsole(), System.out, MSG_ENTER_CONSOLE_ROW, MSG_ENTER_CONSOLE_COLUMN);
+        System.out.println("Enter rows of the matrix : ");
+        int rows = READER.readInt();
+        System.out.println("Enter columns of the matrix : ");
+        int columns = READER.readInt();
 
-        Matrix<Double> matrix = new Matrix<>(new FillingMatrixRandomDouble().fill(matrixAttributes.getRows(),
-                                                                                  matrixAttributes.getColumns(),
-                                                                                  POSITIVE_DOUBLE_BOUND));
+        MatrixDoubles matrix = new MatrixDoubles(new FillingMatrixRandomPrimitiveDoubles().fill(rows, columns, DOUBLE_UPPER_BOUND));
 
         System.out.println("Original matrix : ");
         System.out.println(matrix);
 
-        subtractArithmeticAverageValueFromElementsOfMatrix(matrix);
-
-        System.out.println("Result matrix : ");
-        System.out.println(matrix);
+        Executor.execute(() -> subtractArithmeticAverageValueFromElementsOfMatrix(matrix), MSG_MINUTES_AND_SECONDS, MSG_STRING_RESULT);
 
     }
 
-    private static void subtractArithmeticAverageValueFromElementsOfMatrix(Matrix<Double> matrix) {
+    private static MatrixDoubles subtractArithmeticAverageValueFromElementsOfMatrix(MatrixDoubles matrix) {
+        int scale = 2;
+        double arithmeticAverage = calculateArithmeticAverageOfMatrix(matrix);
+        for (int i = 0; i < matrix.getRows(); i++){
+            for (int j = 0; j < matrix.getColumns(); j++) {
+                double element = matrix.getElement(i, j);
+                BigDecimal newValue = new BigDecimal(element - arithmeticAverage).setScale(scale, HALF_DOWN);
+                matrix.setElement(i, j, newValue.doubleValue());
+            }
+            arithmeticAverage = 0;
+        }
+        return matrix;
+    }
+
+    private static double calculateArithmeticAverageOfMatrix(MatrixDoubles matrix) {
         double resultArithmeticAverage = 0;
         for (int i = 0; i < matrix.getRows(); i++) {
             for (int j = 0; j < matrix.getColumns(); j++) {
                 resultArithmeticAverage += matrix.getElement(i, j);
             }
             resultArithmeticAverage /= matrix.getColumns();
-            for (int j = 0; j < matrix.getColumns(); j++) {
-                matrix.setElement(i, j, new BigDecimal(matrix.getElement(i, j) - resultArithmeticAverage).setScale(2, RoundingMode.HALF_DOWN).doubleValue());
-            }
-            resultArithmeticAverage = 0;
         }
+        return resultArithmeticAverage;
     }
 
 }

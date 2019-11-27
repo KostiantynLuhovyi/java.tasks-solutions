@@ -1,12 +1,11 @@
-package com.lugowoy.tasks.multidimensional.findAllLocalMaximumsOfMatrixAndTheirNumber;
+package com.lugowoy.tasks.solutions.arrays.multidimensional.findAllLocalMaximumsOfMatrixAndTheirNumber;
 
-import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomInteger;
+import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomPrimitiveIntegers;
+import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Matrix;
-import com.lugowoy.helper.other.MatrixAttributes;
+import com.lugowoy.helper.models.matrices.MatrixInts;
 
-import static com.lugowoy.helper.other.MatrixAttributes.MSG_ENTER_CONSOLE_COLUMN;
-import static com.lugowoy.helper.other.MatrixAttributes.MSG_ENTER_CONSOLE_ROW;
+import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 
 /**
  * Find all local maximums of the matrix and their number.
@@ -16,16 +15,18 @@ import static com.lugowoy.helper.other.MatrixAttributes.MSG_ENTER_CONSOLE_ROW;
 
 public class Main {
 
-    private static final int UPPER_BOUND = 10;
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     public static void main(String[] args) {
 
-        MatrixAttributes matrixAttributes = new MatrixAttributes();
-        matrixAttributes.setMatrixAttributes(new ReadingConsole(), System.out, MSG_ENTER_CONSOLE_ROW, MSG_ENTER_CONSOLE_COLUMN);
+        System.out.println("Enter rows of the matrix : ");
+        int rows = READER.readInt();
+        System.out.println("Enter columns of the matrix : ");
+        int columns = READER.readInt();
 
-        Matrix<Integer> matrix = new Matrix<>(new FillingMatrixRandomInteger().fill(matrixAttributes.getRows(),
-                                                                                    matrixAttributes.getColumns(),
-                                                                                    UPPER_BOUND));
+        FillingMatrixRandomPrimitiveIntegers filler = new FillingMatrixRandomPrimitiveIntegers();
+
+        MatrixInts matrix = new MatrixInts(filler.fill(rows, columns, INT_UPPER_BOUND));
 
         System.out.println("Matrix : ");
         System.out.println(matrix);
@@ -34,7 +35,7 @@ public class Main {
 
     }
 
-    private static void findAllLocalMaximumsOfMatrixAndTheirNumber(Matrix<Integer> matrix) {
+    private static void findAllLocalMaximumsOfMatrixAndTheirNumber(MatrixInts matrix) {
         int countLocalMaximum = 0;
         for (int i = 0; i < matrix.getRows(); i++) {
             for (int j = 0; j < matrix.getColumns(); j++) {
@@ -54,7 +55,7 @@ public class Main {
     }
 
     //todo optimize algorithm, because it is very complex implementation.
-    private static boolean isLocalMaximum(Matrix<Integer> matrix, int row, int column) {
+    private static boolean isLocalMaximum(MatrixInts matrix, int row, int column) {
         int countRowFrom = row - 1;
         int countRowFor = row + 1;
         int countColumnFrom = column - 1;

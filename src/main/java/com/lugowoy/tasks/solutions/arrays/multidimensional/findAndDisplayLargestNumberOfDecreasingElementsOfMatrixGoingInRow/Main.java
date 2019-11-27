@@ -1,13 +1,13 @@
-package com.lugowoy.tasks.multidimensional.findAndDisplayLargestNumberOfDecreasingElementsOfMatrixGoingInRow;
+package com.lugowoy.tasks.solutions.arrays.multidimensional.findAndDisplayLargestNumberOfDecreasingElementsOfMatrixGoingInRow;
 
-import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomInteger;
+import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomPrimitiveIntegers;
+import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.models.Matrix;
-import com.lugowoy.helper.other.MatrixAttributes;
+import com.lugowoy.helper.models.matrices.MatrixInts;
+import com.lugowoy.helper.models.storages.arrays.ArrayInts;
+import com.lugowoy.helper.utils.execution.Executor;
 
-import static com.lugowoy.helper.other.MatrixAttributes.MSG_ENTER_CONSOLE_COLUMN;
-import static com.lugowoy.helper.other.MatrixAttributes.MSG_ENTER_CONSOLE_ROW;
+import static com.lugowoy.helper.utils.execution.OutputExecutorTimer.MSG_MILLISECONDS;
 
 /**
  * Find and display the largest number of decreasing elements of the matrix, going in a row.
@@ -17,32 +17,35 @@ import static com.lugowoy.helper.other.MatrixAttributes.MSG_ENTER_CONSOLE_ROW;
 
 public class Main {
 
+    private static final Reader READER = new Reader(new ReadingConsole());
+
     private static final int LOWER_BOUND = -20;
     private static final int UPPER_BOUND = 20;
 
     public static void main(String[] args) {
 
-        MatrixAttributes matrixAttributes = new MatrixAttributes();
-        matrixAttributes.setMatrixAttributes(new ReadingConsole(), System.out, MSG_ENTER_CONSOLE_ROW, MSG_ENTER_CONSOLE_COLUMN);
+        System.out.println("Enter rows of the matrix : ");
+        int rows = READER.readInt();
+        System.out.println("Enter columns of the matrix : ");
+        int columns = READER.readInt();
 
-        Matrix<Integer> matrix = new Matrix<>(new FillingMatrixRandomInteger().fill(matrixAttributes.getRows(),
-                                                                                    matrixAttributes.getColumns(),
-                                                                                    LOWER_BOUND, UPPER_BOUND));
+        FillingMatrixRandomPrimitiveIntegers filler = new FillingMatrixRandomPrimitiveIntegers();
+
+        MatrixInts matrix = new MatrixInts(filler.fill(rows, columns, LOWER_BOUND, UPPER_BOUND));
 
         System.out.println("Matrix : ");
         System.out.println(matrix);
 
-        System.out.println("Result sequence : ");
-        System.out.println(findLargestNumberOfDecreasingElementsOfMatrixGoingInRow(matrix));
+        Executor.execute(() -> findLargestNumberOfDecreasingElementsOfMatrixGoingInRow(matrix), MSG_MILLISECONDS, "Result sequence : %s");
 
     }
 
-    private static Array<Integer> findLargestNumberOfDecreasingElementsOfMatrixGoingInRow(Matrix<Integer> matrix) {
-        Array<Integer> tmpArray = convertMatrixIntoArray(matrix);
+    private static ArrayInts findLargestNumberOfDecreasingElementsOfMatrixGoingInRow(MatrixInts matrix) {
+        ArrayInts tmpArray = convertMatrixIntoArray(matrix);
         int countIncreasingElements = 0;
         int maxSequence = 0;
         int indexLastIncreasingElement = 0;
-        for (int i = 0; i < tmpArray.getLength() - 1; i++) {
+        for (int i = 0; i < tmpArray.size() - 1; i++) {
             if (tmpArray.get(i) > tmpArray.get(i + 1)) {
                 countIncreasingElements++;
                 if (countIncreasingElements > maxSequence) {
@@ -53,14 +56,13 @@ public class Main {
                 countIncreasingElements = 0;
             }
         }
-        Integer[] integers = new Integer[maxSequence + 1];
-        System.arraycopy(tmpArray.toArray(new Integer[tmpArray.getLength()]), indexLastIncreasingElement - maxSequence,
-                integers, 0, maxSequence + 1);
-        return new Array<>(integers);
+        int[] ints = new int[maxSequence + 1];
+        System.arraycopy(tmpArray.toArray(), indexLastIncreasingElement - maxSequence, ints, 0, maxSequence + 1);
+        return new ArrayInts(ints);
     }
 
-    private static Array<Integer> convertMatrixIntoArray(Matrix<Integer> matrix) {
-        Array<Integer> resultArray = new Array<>(0);
+    private static ArrayInts convertMatrixIntoArray(MatrixInts matrix) {
+        ArrayInts resultArray = new ArrayInts();
         for (int i = 0; i < matrix.getRows(); i++) {
             for (int j = 0; j < matrix.getColumns(); j++) {
                 resultArray.add(matrix.getElement(i, j));

@@ -1,40 +1,41 @@
-package com.lugowoy.tasks.multidimensional.calculateMatrixNorms;
+package com.lugowoy.tasks.solutions.arrays.multidimensional.calculateMatrixNorms;
 
-import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomDouble;
+import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomPrimitiveDoubles;
+import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Matrix;
-import com.lugowoy.helper.other.MatrixAttributes;
+import com.lugowoy.helper.models.matrices.MatrixDoubles;
 
-import static com.lugowoy.helper.filling.DefaultValuesForFilling.NEGATIVE_DOUBLE_BOUND;
-import static com.lugowoy.helper.filling.DefaultValuesForFilling.POSITIVE_DOUBLE_BOUND;
-import static com.lugowoy.helper.other.MatrixAttributes.MSG_ENTER_CONSOLE_COLUMN;
-import static com.lugowoy.helper.other.MatrixAttributes.MSG_ENTER_CONSOLE_ROW;
+import static com.lugowoy.helper.filling.ValuesToFilling.DOUBLE_LOWER_BOUND;
+import static com.lugowoy.helper.filling.ValuesToFilling.DOUBLE_UPPER_BOUND;
 
 /**
  * Calculate the matrix norms.
- * <p>
- * Created by Konstantin Lugowoy on 30.10.2018.
+ *
+ * <p> Created by Konstantin Lugowoy on 30.10.2018.
  */
 
 public class Main {
 
+    private static final Reader READER = new Reader(new ReadingConsole());
+
     public static void main(String[] args) {
 
-        MatrixAttributes matrixAttributes = new MatrixAttributes();
-        matrixAttributes.setMatrixAttributes(new ReadingConsole(), System.out, MSG_ENTER_CONSOLE_ROW, MSG_ENTER_CONSOLE_COLUMN);
+        System.out.println("Enter rows of the matrix : ");
+        int rows = READER.readInt();
+        System.out.println("Enter columns of the matrix : ");
+        int columns = READER.readInt();
 
-        Matrix<Double> matrix = new Matrix<>(new FillingMatrixRandomDouble().fill(matrixAttributes.getRows(),
-                                                                                  matrixAttributes.getColumns(),
-                                                                                  NEGATIVE_DOUBLE_BOUND,
-                                                                                  POSITIVE_DOUBLE_BOUND));
+        FillingMatrixRandomPrimitiveDoubles filler = new FillingMatrixRandomPrimitiveDoubles();
+
+        MatrixDoubles matrix = new MatrixDoubles(filler.fill(rows, columns, DOUBLE_LOWER_BOUND, DOUBLE_UPPER_BOUND));
 
         System.out.println("Matrix : ");
         System.out.println(matrix);
 
-        CalculatorMatrixNorms calculatorMatrixNorms = CalculatorMatrixNorms::calculateMatrixColumnsNorm;
+        CalculatorMatrixNorms calculatorMatrixNorms = CalculatorMatrixNorms::calculateMatrixRowsNorm;
         double normMatrixRows = calculatorMatrixNorms.calculateMatrixNorm(matrix);
 
-        calculatorMatrixNorms = CalculatorMatrixNorms::calculateMatrixRowsNorm;
+        calculatorMatrixNorms = CalculatorMatrixNorms::calculateMatrixColumnsNorm;
         double normMatrixColumns = calculatorMatrixNorms.calculateMatrixNorm(matrix);
 
         System.out.printf("Norm of rows : %.3f", normMatrixRows);

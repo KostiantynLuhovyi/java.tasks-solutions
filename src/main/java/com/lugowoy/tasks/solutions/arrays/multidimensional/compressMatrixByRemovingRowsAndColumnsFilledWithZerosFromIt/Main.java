@@ -1,43 +1,46 @@
-package com.lugowoy.tasks.multidimensional.compressMatrixByRemovingRowsAndColumnsFilledWithZerosFromIt;
+package com.lugowoy.tasks.solutions.arrays.multidimensional.compressMatrixByRemovingRowsAndColumnsFilledWithZerosFromIt;
 
-import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomInteger;
+import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomPrimitiveIntegers;
+import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Matrix;
-import com.lugowoy.helper.other.MatrixAttributes;
+import com.lugowoy.helper.models.matrices.MatrixInts;
+import com.lugowoy.helper.utils.execution.Executor;
 
-import static com.lugowoy.helper.other.MatrixAttributes.MSG_ENTER_CONSOLE_COLUMN;
-import static com.lugowoy.helper.other.MatrixAttributes.MSG_ENTER_CONSOLE_ROW;
+import static com.lugowoy.helper.utils.execution.OutputExecutorTimer.MSG_MILLISECONDS;
 
 /**
  * Compact the matrix by removing rows and columns filled with zeros from it.
- * <p>
- * Created by Konstantin Lugowoy on 01.11.2018.
+ *
+ * <p> Created by Konstantin Lugowoy on 01.11.2018.
  */
 
 public class Main {
 
+    private static final Reader READER = new Reader(new ReadingConsole());
+
     private static final int UPPER_BOUND = 1;
+
+    private static final String MSG_OUTPUT_RESULT = "Result matrix : \n %s";
 
     public static void main(String[] args) {
 
-        MatrixAttributes matrixAttributes = new MatrixAttributes();
-        matrixAttributes.setMatrixAttributes(new ReadingConsole(), System.out, MSG_ENTER_CONSOLE_ROW, MSG_ENTER_CONSOLE_COLUMN);
+        System.out.println("Enter rows of the matrix : ");
+        int rows = READER.readInt();
+        System.out.println("Enter columns of the matrix : ");
+        int columns = READER.readInt();
 
-        Matrix<Integer> matrix = new Matrix<>(new FillingMatrixRandomInteger().fill(matrixAttributes.getRows(),
-                                                                                    matrixAttributes.getColumns(),
-                                                                                    UPPER_BOUND));
+        FillingMatrixRandomPrimitiveIntegers filler = new FillingMatrixRandomPrimitiveIntegers();
+
+        MatrixInts matrix = new MatrixInts(filler.fill(rows, columns, UPPER_BOUND));
 
         System.out.println("Original matrix : ");
         System.out.println(matrix);
 
-        compressMatrix(matrix);
-
-        System.out.println("Result matrix : ");
-        System.out.println(matrix);
+        Executor.execute(() -> compressMatrix(matrix), MSG_MILLISECONDS, MSG_OUTPUT_RESULT);
 
     }
 
-    private static void compressMatrix(Matrix<Integer> matrix) {
+    private static MatrixInts compressMatrix(MatrixInts matrix) {
         for (int i = 0; i < matrix.getRows(); i++) {
             int indexRowZeros = getIndexRowFilledZeros(matrix, i);
             if (indexRowZeros != -1) {
@@ -52,9 +55,10 @@ public class Main {
                 --i;
             }
         }
+        return matrix;
     }
 
-    private static int getIndexRowFilledZeros(Matrix<Integer> matrix, int indexRow) {
+    private static int getIndexRowFilledZeros(MatrixInts matrix, int indexRow) {
         int resultIndexRow = -1;
         int counterZeros = 0;
         for (int i = 0; i < matrix.getColumns(); i++) {
@@ -70,7 +74,7 @@ public class Main {
         return resultIndexRow;
     }
 
-    private static int getIndexColumnFilledZeros(Matrix<Integer> matrix, int indexColumn) {
+    private static int getIndexColumnFilledZeros(MatrixInts matrix, int indexColumn) {
         int resultIndexColumn = -1;
         int counterZeros = 0;
         for (int i = 0; i < matrix.getRows(); i++) {
