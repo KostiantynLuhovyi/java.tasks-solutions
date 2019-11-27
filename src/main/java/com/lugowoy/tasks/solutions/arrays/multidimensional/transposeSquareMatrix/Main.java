@@ -1,11 +1,11 @@
-package com.lugowoy.tasks.multidimensional.transposeSquareMatrix;
+package com.lugowoy.tasks.solutions.arrays.multidimensional.transposeSquareMatrix;
 
-import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomInteger;
-import com.lugowoy.helper.models.Matrix;
+import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomPrimitiveIntegers;
+import com.lugowoy.helper.models.matrices.MatrixInts;
 
-import static com.lugowoy.helper.filling.DefaultValuesForFilling.POSITIVE_INTEGER_BOUND;
-import static com.lugowoy.helper.models.Matrix.DEFAULT_COLUMNS;
-import static com.lugowoy.helper.models.Matrix.DEFAULT_ROWS;
+import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
+import static com.lugowoy.helper.models.matrices.AbstractMatrix.DEFAULT_COLUMNS;
+import static com.lugowoy.helper.models.matrices.AbstractMatrix.DEFAULT_ROWS;
 
 /**
  * Transpose square matrix.
@@ -17,8 +17,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Matrix<Integer> matrix = new Matrix<>(new FillingMatrixRandomInteger().fill(DEFAULT_ROWS, DEFAULT_COLUMNS,
-                                                                                    POSITIVE_INTEGER_BOUND));
+        FillingMatrixRandomPrimitiveIntegers filler = new FillingMatrixRandomPrimitiveIntegers();
+
+        MatrixInts matrix = new MatrixInts(filler.fill(DEFAULT_ROWS, DEFAULT_COLUMNS, INT_UPPER_BOUND));
 
         System.out.println("Matrix : ");
         System.out.println(matrix);

@@ -1,14 +1,14 @@
-package com.lugowoy.tasks.multidimensional.rotateMatrixByCertainNumberOfDegrees;
+package com.lugowoy.tasks.solutions.arrays.multidimensional.rotateMatrixByCertainNumberOfDegrees;
 
-import com.lugowoy.helper.models.Matrix;
+import com.lugowoy.helper.models.matrices.MatrixInts;
 
 /**
  * Created by Konstantin Lugowoy on 30.10.2018.
  */
 
 @FunctionalInterface
-public interface RotatorMatrix<T> {
+public interface RotatorMatrix {
 
-    void rotateMatrix(Matrix<T> matrix);
+    void rotateMatrix(MatrixInts matrix);
 
 }

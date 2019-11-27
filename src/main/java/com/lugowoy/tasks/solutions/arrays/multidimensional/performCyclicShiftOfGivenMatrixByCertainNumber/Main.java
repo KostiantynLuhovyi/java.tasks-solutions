@@ -1,13 +1,11 @@
-package com.lugowoy.tasks.multidimensional.performCyclicShiftOfGivenMatrixByCertainNumber;
+package com.lugowoy.tasks.solutions.arrays.multidimensional.performCyclicShiftOfGivenMatrixByCertainNumber;
 
-import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomInteger;
+import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomPrimitiveIntegers;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Matrix;
-import com.lugowoy.helper.other.MatrixAttributes;
-
-import static com.lugowoy.helper.other.MatrixAttributes.MSG_ENTER_CONSOLE_COLUMN;
-import static com.lugowoy.helper.other.MatrixAttributes.MSG_ENTER_CONSOLE_ROW;
+import com.lugowoy.helper.models.matrices.MatrixInts;
+import com.lugowoy.tasks.solutions.arrays.multidimensional.performCyclicShiftOfGivenMatrixByCertainNumber.Shifter;
+import com.lugowoy.tasks.solutions.arrays.multidimensional.performCyclicShiftOfGivenMatrixByCertainNumber.ShifterIntegerMatrix;
 
 /**
  * Perform a cyclic shift of a given matrix by a certain number of positions to the right (left, up, down).
@@ -17,23 +15,25 @@ import static com.lugowoy.helper.other.MatrixAttributes.MSG_ENTER_CONSOLE_ROW;
 
 public class Main {
 
-    private static final Reader READER = Reader.getReader(new ReadingConsole());
+    private static final Reader READER = new Reader(new ReadingConsole());
 
-    private static final int UPPER_BOUND = 20;
+    private static final int BOUND = 20;
 
     public static void main(String[] args) {
 
-        MatrixAttributes matrixAttributes = new MatrixAttributes();
-        matrixAttributes.setMatrixAttributes(new ReadingConsole(), System.out, MSG_ENTER_CONSOLE_ROW, MSG_ENTER_CONSOLE_COLUMN);
+        System.out.println("Enter rows of the matrix : ");
+        int rows = READER.readInt();
+        System.out.println("Enter columns of the matrix : ");
+        int columns = READER.readInt();
 
-        Matrix<Integer> matrix = new Matrix<>(new FillingMatrixRandomInteger().fill(matrixAttributes.getRows(),
-                                                                                    matrixAttributes.getColumns(),
-                                                                                    UPPER_BOUND));
+        FillingMatrixRandomPrimitiveIntegers filler = new FillingMatrixRandomPrimitiveIntegers();
+
+        MatrixInts matrix = new MatrixInts(filler.fill(rows, columns, BOUND));
 
         System.out.println("Original matrix : ");
         System.out.println(matrix);
 
-        int numberToShiftMatrix = enterNumberToShiftMatrix(matrixAttributes.getRows());
+        int numberToShiftMatrix = enterNumberToShiftMatrix(matrix.getRows());
 
         System.out.println("Select an action to perform : ");
         System.out.println("Press 1, to shift the matrix to the right.");

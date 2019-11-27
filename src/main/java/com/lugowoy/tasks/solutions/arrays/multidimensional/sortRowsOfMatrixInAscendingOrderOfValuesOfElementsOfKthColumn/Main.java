@@ -1,17 +1,19 @@
-package com.lugowoy.tasks.multidimensional.sortRowsOfMatrixInAscendingOrderOfValuesOfElementsOfKthColumn;
+package com.lugowoy.tasks.solutions.arrays.multidimensional.sortRowsOfMatrixInAscendingOrderOfValuesOfElementsOfKthColumn;
 
-import com.lugowoy.helper.filling.matrixes.numbers.FillingMatrixRandomIntegerNumbers;
+import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomPrimitiveIntegers;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Matrix;
+import com.lugowoy.helper.models.matrices.MatrixInts;
 
 /**
- * Created by Konstantin Lugowoy on 26.10.2018.
+ * Sort the columns in ascending order of values of the elements of k-th column.
+ *
+ * <p> Created by Konstantin Lugowoy on 26.10.2018.
  */
 
 public class Main {
 
-    private static final Reader READER = Reader.getReader(new ReadingConsole());
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     private static final int BOUND = 20;
 
@@ -19,11 +21,12 @@ public class Main {
 
         System.out.println("Enter number of rows in the matrix : ");
         int rows = READER.readInt();
-
         System.out.println("Enter number of columns in the matrix : ");
         int columns = READER.readInt();
 
-        Matrix<Integer> matrix = Matrix.create(new FillingMatrixRandomIntegerNumbers().fill(rows, columns, BOUND));
+        FillingMatrixRandomPrimitiveIntegers filler = new FillingMatrixRandomPrimitiveIntegers();
+
+        MatrixInts matrix = new MatrixInts(filler.fill(rows, columns, BOUND));
 
         int indexRowToSort = enterIndexRowToSort(rows);
 
@@ -37,8 +40,8 @@ public class Main {
 
     }
 
-    private static void sortRowsOfMatrixInAscendingOrderOfValuesOfElementsOfKthColumn(Matrix<Integer> matrix, int indexRowToSort) {
-        Integer[][] ints = matrix.getMatrix(new Integer[matrix.getRows()][matrix.getColumns()]);
+    private static void sortRowsOfMatrixInAscendingOrderOfValuesOfElementsOfKthColumn(MatrixInts matrix, int indexRowToSort) {
+        int[][] ints = matrix.toMatrix(new int[matrix.getRows()][matrix.getColumns()]);
         for (int i = 0; i < ints.length; i++) {
             for (int j = i + 1; j < ints.length; j++) {
                 if (ints[i][indexRowToSort] > ints[j][indexRowToSort]) {

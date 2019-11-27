@@ -1,7 +1,7 @@
-package com.lugowoy.tasks.multidimensional.thirdTaskForFormationOfSquareMatrixAccordingToGivenPattern;
+package com.lugowoy.tasks.solutions.arrays.multidimensional.thirdTaskForFormationOfSquareMatrixAccordingToGivenPattern;
 
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.other.LengthReader;
+import com.lugowoy.helper.utils.ArrayLengthReader;
 
 /**
  * Form a square matrix of order n according to a given pattern:
@@ -22,7 +22,7 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter the length of the matrix elements : ");
-        int n = LengthReader.readLength(new ReadingConsole(), UPPER_BOUND);
+        int n = ArrayLengthReader.readLength(new ReadingConsole(), UPPER_BOUND);
 
         int[][] array = new int[n][n];
 

@@ -1,12 +1,12 @@
-package com.lugowoy.tasks.multidimensional.rebuildMatrixRearrangingRowsInItSoThatValuesOfTheirCharacteristicsIncrease;
+package com.lugowoy.tasks.solutions.arrays.multidimensional.rebuildMatrixRearrangingRowsInItSoThatValuesOfTheirCharacteristicsIncrease;
 
-import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomInteger;
+import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomPrimitiveIntegers;
+import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Matrix;
-import com.lugowoy.helper.other.MatrixAttributes;
+import com.lugowoy.helper.models.matrices.MatrixInts;
 
-import static com.lugowoy.helper.other.MatrixAttributes.MSG_ENTER_CONSOLE_COLUMN;
-import static com.lugowoy.helper.other.MatrixAttributes.MSG_ENTER_CONSOLE_ROW;
+import static com.lugowoy.helper.filling.ValuesToFilling.INT_LOWER_BOUND;
+import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 
 /**
  * Rebuild the given matrix, rearranging the rows in it so that the values of their characteristics increase.
@@ -16,17 +16,18 @@ import static com.lugowoy.helper.other.MatrixAttributes.MSG_ENTER_CONSOLE_ROW;
 
 public class Main {
 
-    private static final int LOWER_BOUND = -10;
-    private static final int UPPER_BOUND = 10;
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     public static void main(String[] args) {
 
-        MatrixAttributes matrixAttributes = new MatrixAttributes();
-        matrixAttributes.setMatrixAttributes(new ReadingConsole(), System.out, MSG_ENTER_CONSOLE_ROW, MSG_ENTER_CONSOLE_COLUMN);
+        System.out.println("Enter rows of the matrix : ");
+        int rows = READER.readInt();
+        System.out.println("Enter columns of the matrix : ");
+        int columns = READER.readInt();
 
-        Matrix<Integer> matrix = new Matrix<>(new FillingMatrixRandomInteger().fill(matrixAttributes.getRows(),
-                                                                                    matrixAttributes.getColumns(),
-                                                                                    LOWER_BOUND, UPPER_BOUND));
+        FillingMatrixRandomPrimitiveIntegers filler = new FillingMatrixRandomPrimitiveIntegers();
+
+        MatrixInts matrix = new MatrixInts(filler.fill(rows, columns, INT_LOWER_BOUND, INT_UPPER_BOUND));
 
         System.out.println("Original matrix : ");
         System.out.println(matrix);
@@ -38,19 +39,19 @@ public class Main {
 
     }
 
-    private static void rebuildMatrixBySortingRowsAscendingCharacteristics(Matrix<Integer> matrix) {
+    private static void rebuildMatrixBySortingRowsAscendingCharacteristics(MatrixInts matrix) {
         for (int i = 0; i < matrix.getRows(); i++) {
             for (int j = 0; j < matrix.getColumns() - i - 1; j++) {
                 if (calculateSumRowElement(matrix, j) < calculateSumRowElement(matrix, j + 1)) {
-                    Integer[] tmp = matrix.getRow(new Integer[matrix.getRows()], j);
-                    matrix.setRow(matrix.getRow(new Integer[matrix.getRows()], j + 1), j);
-                    matrix.setRow(tmp, j + 1);
+                    int[] tmp = matrix.getRowToArray(new int[matrix.getRows()], j);
+                    matrix.setRowFromArray(matrix.getRowToArray(new int[matrix.getRows()], j + 1), j);
+                    matrix.setRowFromArray(tmp, j + 1);
                 }
             }
         }
     }
 
-    private static int calculateSumRowElement(Matrix<Integer> matrix, int indexRow) {
+    private static int calculateSumRowElement(MatrixInts matrix, int indexRow) {
         int result = 0;
         for (int i = 0; i < matrix.getRows(); i++) {
             result = result + Math.abs(matrix.getElement(indexRow, i));

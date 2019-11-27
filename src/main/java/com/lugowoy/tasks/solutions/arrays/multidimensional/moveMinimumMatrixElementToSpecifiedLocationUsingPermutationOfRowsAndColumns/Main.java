@@ -1,13 +1,9 @@
-package com.lugowoy.tasks.multidimensional.moveMinimumMatrixElementToSpecifiedLocationUsingPermutationOfRowsAndColumns;
+package com.lugowoy.tasks.solutions.arrays.multidimensional.moveMinimumMatrixElementToSpecifiedLocationUsingPermutationOfRowsAndColumns;
 
-import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomInteger;
+import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomPrimitiveIntegers;
 import com.lugowoy.helper.io.reading.Reading;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Matrix;
-import com.lugowoy.helper.other.MatrixAttributes;
-
-import static com.lugowoy.helper.other.MatrixAttributes.MSG_ENTER_CONSOLE_COLUMN;
-import static com.lugowoy.helper.other.MatrixAttributes.MSG_ENTER_CONSOLE_ROW;
+import com.lugowoy.helper.models.matrices.MatrixInts;
 
 /**
  * Move the minimum matrix element to the specified location using permutation of rows and columns.
@@ -18,16 +14,19 @@ import static com.lugowoy.helper.other.MatrixAttributes.MSG_ENTER_CONSOLE_ROW;
 public class Main {
 
     private static final Reading READER = new ReadingConsole();
-    private static final int UPPER_BOUND = 200;
+
+    private static final int BOUND = 200;
 
     public static void main(String[] args) {
 
-        MatrixAttributes matrixAttributes = new MatrixAttributes();
-        matrixAttributes.setMatrixAttributes(new ReadingConsole(), System.out, MSG_ENTER_CONSOLE_ROW, MSG_ENTER_CONSOLE_COLUMN);
+        System.out.println("Enter rows of the matrix : ");
+        int rows = READER.readInt();
+        System.out.println("Enter columns of the matrix : ");
+        int columns = READER.readInt();
 
-        Matrix<Integer> matrix = new Matrix<>(new FillingMatrixRandomInteger().fill(matrixAttributes.getRows(),
-                                                                                    matrixAttributes.getColumns(),
-                                                                                    UPPER_BOUND));
+        FillingMatrixRandomPrimitiveIntegers filler = new FillingMatrixRandomPrimitiveIntegers();
+
+        MatrixInts matrix = new MatrixInts(filler.fill(rows, columns, BOUND));
 
         System.out.println("Original matrix : ");
         System.out.println(matrix);
@@ -49,8 +48,8 @@ public class Main {
 
     }
 
-    private static void moveMinimumMatrixElementToSpecifiedLocation(Matrix<Integer> matrix, int indexRowMinElement, int indexColumnMinElement,
-                                                                                            int indexRowToMove, int indexColumnToMove) {
+    private static void moveMinimumMatrixElementToSpecifiedLocation(MatrixInts matrix, int indexRowMinElement, int indexColumnMinElement,
+                                                                    int indexRowToMove, int indexColumnToMove) {
         if (indexRowToMove <= matrix.getRows() && indexColumnToMove <= matrix.getColumns()) {
             for (int i = 0; i < matrix.getRows(); i++) {
                 int tmp = matrix.getElement(indexRowMinElement, i);
@@ -72,7 +71,7 @@ public class Main {
         private int indexRowMinElement = 0;
         private int indexColumnMinElement = 0;
 
-        public void findAndSetIndexesMinElement(Matrix<Integer> matrix) {
+        public void findAndSetIndexesMinElement(MatrixInts matrix) {
             int minElement = Integer.MAX_VALUE;
             for (int i = 0; i < matrix.getRows(); i++) {
                 for (int j = 0; j < matrix.getColumns(); j++) {

@@ -1,12 +1,10 @@
-package com.lugowoy.tasks.multidimensional.roundAllElementsOfMatrixToInteger;
+package com.lugowoy.tasks.solutions.arrays.multidimensional.roundAllElementsOfMatrixToInteger;
 
-import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomDouble;
+import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomPrimitiveDoubles;
+import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Matrix;
-import com.lugowoy.helper.other.MatrixAttributes;
-
-import static com.lugowoy.helper.other.MatrixAttributes.MSG_ENTER_CONSOLE_COLUMN;
-import static com.lugowoy.helper.other.MatrixAttributes.MSG_ENTER_CONSOLE_ROW;
+import com.lugowoy.helper.models.matrices.MatrixDoubles;
+import com.lugowoy.helper.models.matrices.MatrixInts;
 
 /**
  * Round all elements of the matrix to an integer.
@@ -16,21 +14,25 @@ import static com.lugowoy.helper.other.MatrixAttributes.MSG_ENTER_CONSOLE_ROW;
 
 public class Main {
 
-    private static final double UPPER_BOUND = 20.0;
+    private static final Reader READER = new Reader(new ReadingConsole());
+
+    private static final double BOUND = 20.0;
 
     public static void main(String[] args) {
 
-        MatrixAttributes matrixAttributes = new MatrixAttributes();
-        matrixAttributes.setMatrixAttributes(new ReadingConsole(), System.out, MSG_ENTER_CONSOLE_ROW, MSG_ENTER_CONSOLE_COLUMN);
+        System.out.println("Enter rows of the matrix : ");
+        int rows = READER.readInt();
+        System.out.println("Enter columns of the matrix : ");
+        int columns = READER.readInt();
 
-        Matrix<Double> matrix = new Matrix<>(new FillingMatrixRandomDouble().fill(matrixAttributes.getRows(),
-                                                                                  matrixAttributes.getColumns(),
-                                                                                  UPPER_BOUND));
+        FillingMatrixRandomPrimitiveDoubles filler = new FillingMatrixRandomPrimitiveDoubles();
+
+        MatrixDoubles matrix = new MatrixDoubles(filler.fill(rows, columns, BOUND));
 
         System.out.println("Original matrix : ");
         System.out.println(matrix);
 
-        Matrix<Integer> integerMatrix = new Matrix<>(matrix.getRows(), matrix.getColumns());
+        MatrixInts integerMatrix = new MatrixInts(matrix.getRows(), matrix.getColumns());
         for (int i = 0; i < matrix.getRows(); i++) {
             for (int j = 0; j < matrix.getColumns(); j++) {
                 integerMatrix.setElement(i, j, (int) Math.round(matrix.getElement(i, j)));

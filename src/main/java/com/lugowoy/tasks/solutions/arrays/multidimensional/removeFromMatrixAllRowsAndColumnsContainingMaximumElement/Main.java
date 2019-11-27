@@ -1,12 +1,9 @@
-package com.lugowoy.tasks.multidimensional.removeFromMatrixAllRowsAndColumnsContainingMaximumElement;
+package com.lugowoy.tasks.solutions.arrays.multidimensional.removeFromMatrixAllRowsAndColumnsContainingMaximumElement;
 
-import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomInteger;
+import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomPrimitiveIntegers;
+import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Matrix;
-import com.lugowoy.helper.other.MatrixAttributes;
-
-import static com.lugowoy.helper.other.MatrixAttributes.MSG_ENTER_CONSOLE_COLUMN;
-import static com.lugowoy.helper.other.MatrixAttributes.MSG_ENTER_CONSOLE_ROW;
+import com.lugowoy.helper.models.matrices.MatrixInts;
 
 /**
  * Find the maximum element(s) in the matrix and remove from the matrix all the rows and columns containing it.
@@ -16,16 +13,20 @@ import static com.lugowoy.helper.other.MatrixAttributes.MSG_ENTER_CONSOLE_ROW;
 
 public class Main {
 
-    private static final int UPPER_BOUND = 200;
+    private static final Reader READER = new Reader(new ReadingConsole());
+
+    private static final int BOUND = 200;
 
     public static void main(String[] args) {
 
-        MatrixAttributes matrixAttributes = new MatrixAttributes();
-        matrixAttributes.setMatrixAttributes(new ReadingConsole(), System.out, MSG_ENTER_CONSOLE_ROW, MSG_ENTER_CONSOLE_COLUMN);
+        System.out.println("Enter rows of the matrix : ");
+        int rows = READER.readInt();
+        System.out.println("Enter columns of the matrix : ");
+        int columns = READER.readInt();
 
-        Matrix<Integer> matrix = new Matrix<>(new FillingMatrixRandomInteger().fill(matrixAttributes.getRows(),
-                                                                                    matrixAttributes.getColumns(),
-                                                                                    UPPER_BOUND));
+        FillingMatrixRandomPrimitiveIntegers filler = new FillingMatrixRandomPrimitiveIntegers();
+
+        MatrixInts matrix = new MatrixInts(filler.fill(rows, columns, BOUND));
 
         System.out.println("Original matrix : ");
         System.out.println(matrix);
@@ -42,9 +43,9 @@ public class Main {
 
     }
 
-    private static void removeFromMatrixAllRowsAndColumnsContainingMaximumElement(Matrix<Integer> matrix,
-                                                                                  int indexMatrixRow, int indexMatrixColumn) {
-        Integer[][] tmpInts = new Integer[matrix.getRows() - 1][matrix.getColumns() - 1];
+    private static void removeFromMatrixAllRowsAndColumnsContainingMaximumElement(MatrixInts matrix, int indexMatrixRow,
+                                                                                                     int indexMatrixColumn) {
+        int[][] tmpInts = new int[matrix.getRows() - 1][matrix.getColumns() - 1];
         int row = 0;
         for (int i = 0; i < matrix.getRows() - 1; i++) {
             if (i > indexMatrixRow - 1) {
@@ -63,12 +64,12 @@ public class Main {
 
     private static class IndexMaximumMatrixElement {
 
-        private Matrix<Integer> matrix;
+        private MatrixInts matrix;
 
         private int indexMaxElementMatrixRow;
         private int indexMaxElementMatrixColumn;
 
-        private IndexMaximumMatrixElement(Matrix<Integer> matrix) {
+        private IndexMaximumMatrixElement(MatrixInts matrix) {
             this.matrix = matrix;
         }
 

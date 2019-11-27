@@ -1,6 +1,6 @@
-package com.lugowoy.tasks.multidimensional.performCyclicShiftOfGivenMatrixByCertainNumber;
+package com.lugowoy.tasks.solutions.arrays.multidimensional.performCyclicShiftOfGivenMatrixByCertainNumber;
 
-import com.lugowoy.helper.models.Matrix;
+import com.lugowoy.helper.models.matrices.MatrixInts;
 
 /**
  * Created by Konstantin Lugowoy on 28.10.2018.
@@ -9,6 +9,6 @@ import com.lugowoy.helper.models.Matrix;
 @FunctionalInterface
 public interface Shifter<T> {
 
-    void shift(Matrix<T> matrix, int numberToShiftMatrix);
+    void shift(MatrixInts matrix, int numberToShiftMatrix);
 
 }

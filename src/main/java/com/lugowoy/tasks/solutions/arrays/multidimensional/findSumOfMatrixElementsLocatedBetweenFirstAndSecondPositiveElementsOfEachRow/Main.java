@@ -1,14 +1,14 @@
-package com.lugowoy.tasks.multidimensional.findSumOfMatrixElementsLocatedBetweenFirstAndSecondPositiveElementsOfEachRow;
+package com.lugowoy.tasks.solutions.arrays.multidimensional.findSumOfMatrixElementsLocatedBetweenFirstAndSecondPositiveElementsOfEachRow;
 
-import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomInteger;
+import com.lugowoy.helper.filling.ValuesToFilling;
+import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomPrimitiveIntegers;
+import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Matrix;
-import com.lugowoy.helper.other.MatrixAttributes;
+import com.lugowoy.helper.models.matrices.MatrixInts;
+import com.lugowoy.helper.utils.execution.Executor;
 
-import static com.lugowoy.helper.filling.DefaultValuesForFilling.NEGATIVE_INTEGER_BOUND;
-import static com.lugowoy.helper.filling.DefaultValuesForFilling.POSITIVE_INTEGER_BOUND;
-import static com.lugowoy.helper.other.MatrixAttributes.MSG_ENTER_CONSOLE_COLUMN;
-import static com.lugowoy.helper.other.MatrixAttributes.MSG_ENTER_CONSOLE_ROW;
+import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
+import static com.lugowoy.helper.utils.execution.OutputExecutorTimer.MSG_MILLISECONDS;
 
 /**
  * Find the sum of matrix elements located between the first and second positive elements of each row.
@@ -18,24 +18,28 @@ import static com.lugowoy.helper.other.MatrixAttributes.MSG_ENTER_CONSOLE_ROW;
 
 public class Main {
 
+    private static final Reader READER = new Reader(new ReadingConsole());
+
     public static void main(String[] args) {
 
-        MatrixAttributes matrixAttributes = new MatrixAttributes();
-        matrixAttributes.setMatrixAttributes(new ReadingConsole(), System.out, MSG_ENTER_CONSOLE_ROW, MSG_ENTER_CONSOLE_COLUMN);
+        System.out.println("Enter rows of the matrix : ");
+        int rows = READER.readInt();
+        System.out.println("Enter columns of the matrix : ");
+        int columns = READER.readInt();
 
-        Matrix<Integer> matrix = new Matrix<>(new FillingMatrixRandomInteger().fill(matrixAttributes.getRows(),
-                                                                                    matrixAttributes.getColumns(),
-                                                                                    NEGATIVE_INTEGER_BOUND,
-                                                                                    POSITIVE_INTEGER_BOUND));
+        FillingMatrixRandomPrimitiveIntegers filler = new FillingMatrixRandomPrimitiveIntegers();
+
+        MatrixInts matrix = new MatrixInts(filler.fill(rows, columns, ValuesToFilling.INT_LOWER_BOUND, INT_UPPER_BOUND));
 
         System.out.println("Matrix : ");
         System.out.println(matrix);
 
-        findSumOfMatrixElementsLocatedBetweenFirstAndSecondPositiveElementsOfEachRow(matrix);
+        Executor.execute(() -> findSumOfMatrixElementsLocatedBetweenFirstAndSecondPositiveElementsOfEachRow(matrix),
+                               MSG_MILLISECONDS, "Result sum elements : %.3f");
 
     }
 
-    private static void findSumOfMatrixElementsLocatedBetweenFirstAndSecondPositiveElementsOfEachRow(Matrix<Integer> matrix) {
+    private static int findSumOfMatrixElementsLocatedBetweenFirstAndSecondPositiveElementsOfEachRow(MatrixInts matrix) {
         int tmpSum = 0;
         int sumAllElements = 0;
         boolean firstPositive = false;
@@ -58,7 +62,7 @@ public class Main {
             sumAllElements += tmpSum;
             tmpSum = 0;
         }
-        System.out.println("Result tmpSum elements : " + sumAllElements);
+        return sumAllElements;
     }
 
 }
