@@ -1,6 +1,8 @@
-package com.lugowoy.tasks.onedimensional.locateSnailOnTreeAfterThirtyDays.entity;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.locateSnailOnTreeAfterThirtyDays.entity;
 
-/** Created by Konstantin Lugowoy on 11.05.2017. */
+/**
+ * Created by Konstantin Lugowoy on 11.05.2017.
+ */
 
 public class WeatherArray {
 

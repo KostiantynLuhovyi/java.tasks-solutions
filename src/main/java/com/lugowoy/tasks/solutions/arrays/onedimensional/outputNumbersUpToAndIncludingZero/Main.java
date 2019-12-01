@@ -1,9 +1,12 @@
-package com.lugowoy.tasks.onedimensional.outputNumbersUpToAndIncludingZero;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.outputNumbersUpToAndIncludingZero;
 
 import java.util.Arrays;
 import java.util.Random;
 
-/** Created by Konstantin Lugowoy on 22-Feb-17. */
+/**
+ * Given a sequence of numbers. Print out all the numbers up to and including zero.
+ *
+ * <p> Created by Konstantin Lugowoy on 22-Feb-17. */
 
 public class Main {
 

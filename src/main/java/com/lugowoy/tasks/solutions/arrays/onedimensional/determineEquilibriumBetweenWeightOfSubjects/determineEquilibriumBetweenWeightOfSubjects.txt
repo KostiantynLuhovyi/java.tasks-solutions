@@ -1,2 +1,0 @@
-Write a program that enter a sequence of integers that counts them as the masses of objects available
-and finds out whether all these items can be put on two cups of the weighing-machine so that achieve balance.

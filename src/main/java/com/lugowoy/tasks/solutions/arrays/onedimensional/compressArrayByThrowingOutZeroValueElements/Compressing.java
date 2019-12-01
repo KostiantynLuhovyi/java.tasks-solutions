@@ -1,12 +1,12 @@
-package com.lugowoy.tasks.onedimensional.compressArrayByThrowingOutZeroValueElements;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.compressArrayByThrowingOutZeroValueElements;
 
-import com.lugowoy.helper.models.Array;
+import com.lugowoy.helper.models.storages.arrays.ArrayInts;
 
 /** Created by Konstantin Lugowoy on 16.03.2017. */
 
 @FunctionalInterface
 public interface Compressing<T> {
 
-    void compress(Array<T> array);
+    void compress(ArrayInts array);
 
 }

@@ -1,2 +1,0 @@
-Write a program whose input is the age of n people.
-The program counting the number of people whose age is in the specified interval.

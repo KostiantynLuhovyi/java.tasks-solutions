@@ -1,12 +1,16 @@
-package com.lugowoy.tasks.onedimensional.findTwoNumbersWhoseArithmeticMeanIsClosestToNumberEntered;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.findTwoNumbersWhoseArithmeticMeanIsClosestToNumberEntered;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomDoubleNumbers;
-import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveDoubles;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.LengthArray;
+import com.lugowoy.helper.models.storages.arrays.ArrayDoubles;
+import com.lugowoy.helper.utils.ArrayLengthReader;
 
-/** Created by Konstantin Lugowoy on 12.04.2017. */
+/**
+ * Given a real number x and an array A [n].
+ * In the array, find two members whose arithmetic mean is closest to x.
+ *
+ * <p> Created by Konstantin Lugowoy on 12.04.2017.
+ */
 
 public class Main {
 
@@ -15,17 +19,19 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthArray.getLengthOfArray(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
-        Array<Double> array = Array.create(new FillingArrayRandomDoubleNumbers().fill(lengthOfArray, BOUND));
+        FillingArrayRandomPrimitiveDoubles filler = new FillingArrayRandomPrimitiveDoubles();
+
+        ArrayDoubles array = new ArrayDoubles(filler.fill(lengthOfArray, BOUND));
 
         System.out.println("Original array : " + array);
         System.out.println();
 
         System.out.println("Enter real number : ");
-        double enterNumber = Reader.getReader(new ReadingConsole()).readDouble();
+        double enterNumber = new ReadingConsole().readDouble();
 
-        Finding<Double, Array<Double>> findable = Finding::findTwoNumbersWhoseArithmeticMeanIsClosestToNumber;
+        Finding<Double, ArrayDoubles> findable = Finding::findTwoNumbersWhoseArithmeticMeanIsClosestToNumber;
         findable.find(enterNumber, array);
 
     }

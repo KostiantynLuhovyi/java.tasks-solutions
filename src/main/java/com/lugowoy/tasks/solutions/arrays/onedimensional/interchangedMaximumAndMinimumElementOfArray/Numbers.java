@@ -1,8 +1,10 @@
-package com.lugowoy.tasks.onedimensional.interchangedMaximumAndMinimumElementOfArray;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.interchangedMaximumAndMinimumElementOfArray;
 
 import java.util.Arrays;
 
-/** Created by Konstantin Lugowoy on 13.06.2017. */
+/**
+ * Created by Konstantin Lugowoy on 13.06.2017.
+ */
 
 public class Numbers {
 

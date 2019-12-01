@@ -1,12 +1,17 @@
-package com.lugowoy.tasks.onedimensional.determineMostRepeatedElementInArray;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.determineMostRepeatedElementInArray;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.CheckerArray;
-import com.lugowoy.helper.other.LengthArray;
+import com.lugowoy.helper.models.storages.arrays.ArrayInts;
+import com.lugowoy.helper.utils.ArrayLengthReader;
+import com.lugowoy.helper.utils.checking.CheckerArray;
 
-/** Created by Konstantin Lugowoy on 22.03.2017. */
+/**
+ * In the array of integers with the number of elements n, find the most repeated number.
+ * If there are several such numbers, then determine the smallest of them.
+ *
+ * <p>Created by Konstantin Lugowoy on 22.03.2017.
+ */
 
 public class Main {
 
@@ -15,9 +20,11 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthArray.getLengthOfArray(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> array = Array.create(new FillingArrayRandomIntegerNumbers().fill(lengthOfArray, BOUND));
+        FillingArrayRandomPrimitiveIntegers filler = new FillingArrayRandomPrimitiveIntegers();
+
+        ArrayInts array = new ArrayInts(filler.fill(lengthOfArray, BOUND));
 
         System.out.println("Original array : " + array);
         System.out.println();
@@ -28,12 +35,12 @@ public class Main {
 
     private static final Determinant<Integer> DETERMINANT = array -> {
         int count, countMax = 0, value = 1, num = 0;
-        if (CheckerArray.checkArrayNonNull(array)) {
-            if (array.getLength() > 2) {
-                for (int i = 0; i < array.getLength(); i++) {
+        if (CheckerArray.checkLengthInArray(array)) {
+            if (array.size() > 2) {
+                for (int i = 0; i < array.size(); i++) {
                     count = 1;
-                    for (int j = i + 1; j < array.getLength(); j++) {
-                        if (array.get(i).equals(array.get(j))) {
+                    for (int j = i + 1; j < array.size(); j++) {
+                        if (array.get(i) == (array.get(j))) {
                             value = array.get(j);
                             count++;
                         } else if (count > countMax) {

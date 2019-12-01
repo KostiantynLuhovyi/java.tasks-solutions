@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.onedimensional.countingNumberOfPeopleWhoseAgeIsInGivenInterval;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.countingNumberOfPeopleWhoseAgeIsInGivenInterval;
 
 /**
  * Created by Konstantin Lugowoy on 14.05.2017.

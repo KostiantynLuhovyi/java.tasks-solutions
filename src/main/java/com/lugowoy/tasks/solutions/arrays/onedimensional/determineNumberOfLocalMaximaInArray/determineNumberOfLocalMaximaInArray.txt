@@ -1,2 +1,0 @@
-Write a program that enter a non-empty array of integers and prints the number of local maxima
-(an element is a local maximum if it has neighbors elements larger than itself).

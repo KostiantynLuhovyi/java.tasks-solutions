@@ -1,39 +1,37 @@
-package com.lugowoy.tasks.onedimensional.calculateSumOfArrayElementsLocatedBetweenMinAndMaxElementsInclusive;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.calculateSumOfArrayElementsLocatedBetweenMinAndMaxElementsInclusive;
 
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.CheckerArray;
+import com.lugowoy.helper.models.storages.arrays.ArrayInts;
+import com.lugowoy.helper.utils.checking.CheckerArray;
 
-/** Created by Konstantin Lugowoy on 27.03.2017. */
+/**
+ * Created by Konstantin Lugowoy on 27.03.2017.
+ */
 
 @FunctionalInterface
 public interface Determinant {
 
-    int determine(Array<Integer> array);
+    int determine(ArrayInts array);
 
-    static int determineMinElementIndex(Array<Integer> array) {
+    static int determineMinElementIndex(ArrayInts array) {
         int indexMinElement = 0, valueForDetermineMinElementIndex = Integer.MAX_VALUE;
-        if (CheckerArray.checkArrayNonNull(array)) {
-            if (CheckerArray.checkLengthOfArrayIsEqualToOrGreaterThanZero(array.getLength())) {
-                for (int i = 0; i < array.getLength(); i++) {
-                    if (array.get(i) < valueForDetermineMinElementIndex) {
-                        valueForDetermineMinElementIndex = array.get(i);
-                        indexMinElement = i;
-                    }
+        if (CheckerArray.checkLengthInArray(array)) {
+            for (int i = 0; i < array.size(); i++) {
+                if (array.get(i) < valueForDetermineMinElementIndex) {
+                    valueForDetermineMinElementIndex = array.get(i);
+                    indexMinElement = i;
                 }
             }
         }
         return indexMinElement;
     }
 
-    static int determineMaxElementIndex(Array<Integer> array) {
+    static int determineMaxElementIndex(ArrayInts array) {
         int indexMaxElement = 0, valueForDetermineMaxElementIndex = Integer.MIN_VALUE;
-        if (CheckerArray.checkArrayNonNull(array)) {
-            if (CheckerArray.checkLengthOfArrayIsEqualToOrGreaterThanZero(array.getLength())) {
-                for (int i = 0; i < array.getLength(); i++) {
-                    if (array.get(i) > valueForDetermineMaxElementIndex) {
-                        valueForDetermineMaxElementIndex = array.get(i);
-                        indexMaxElement = i;
-                    }
+        if (CheckerArray.checkLengthInArray(array)) {
+            for (int i = 0; i < array.size(); i++) {
+                if (array.get(i) > valueForDetermineMaxElementIndex) {
+                    valueForDetermineMaxElementIndex = array.get(i);
+                    indexMaxElement = i;
                 }
             }
         }

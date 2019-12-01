@@ -1,13 +1,16 @@
-package com.lugowoy.tasks.onedimensional.findSumOfArrayOfMultipleElementsToThisPresent;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.findSumOfArrayOfMultipleElementsToThisPresent;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
-import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.CheckerArray;
-import com.lugowoy.helper.other.LengthArray;
+import com.lugowoy.helper.models.storages.arrays.ArrayInts;
+import com.lugowoy.helper.utils.ArrayLengthReader;
+import com.lugowoy.helper.utils.checking.CheckerArray;
 
-/**Created by Konstantin Lugowoy on 12-Feb-17.*/
+/**
+ * Given an array of numbers. Find the sum of the elements that are multiples of to this K.
+ *
+ * <p> Created by Konstantin Lugowoy on 12-Feb-17.
+ */
 
 public class Main {
 
@@ -16,20 +19,20 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthArray.getLengthOfArray(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> array = Array.create(new FillingArrayRandomIntegerNumbers().fill(lengthOfArray, BOUND));
+        FillingArrayRandomPrimitiveIntegers filler = new FillingArrayRandomPrimitiveIntegers();
+
+        ArrayInts array = new ArrayInts(filler.fill(lengthOfArray, BOUND));
 
         System.out.println("Result fill arrays randomly integers : ");
-        for (int i = 0; i < array.getLength(); i++) {
-            if (array.get(i) != null) {
-                System.out.print(array.get(i) + " ");
-            }
+        for (int i = 0; i < array.size(); i++) {
+            System.out.print(array.get(i) + " ");
         }
         System.out.println();
 
         System.out.println("Enter K number : ");
-        int K = Reader.getReader(new ReadingConsole()).readInt();
+        int K = new ReadingConsole().readInt();
 
         int resultOfSumNumbersOfMultipleElement = (FINDING_SUM_ELEMENTS.calculateSumOfElements(array, K));
 
@@ -39,14 +42,10 @@ public class Main {
 
     private static final Finding FINDING_SUM_ELEMENTS = (array, k) -> {
         int sumElements = 0;
-        if (CheckerArray.checkArrayNonNull(array)) {
-            if (CheckerArray.checkLengthOfArrayIsGreaterZero(array.getLength())) {
-                for (int i = 0; i < array.getLength(); i++) {
-                    if (array.get(i) != null) {
-                        if (array.get(i) % k == 0) {
-                            sumElements += array.get(i);
-                        }
-                    }
+        if (CheckerArray.checkLengthInArray(array)) {
+            for (int i = 0; i < array.size(); i++) {
+                if (array.get(i) % k == 0) {
+                    sumElements += array.get(i);
                 }
             }
         }

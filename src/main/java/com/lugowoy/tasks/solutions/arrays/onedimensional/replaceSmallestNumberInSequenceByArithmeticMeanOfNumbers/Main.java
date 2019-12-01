@@ -1,9 +1,14 @@
-package com.lugowoy.tasks.onedimensional.replaceSmallestNumberInSequenceByArithmeticMeanOfNumbers;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.replaceSmallestNumberInSequenceByArithmeticMeanOfNumbers;
 
 import java.util.Arrays;
 import java.util.Random;
 
-/** Created by Konstantin Lugowoy on 25.03.2017. */
+/**
+ * Given integers a1, a2, ..., an.
+ * The smallest member of this sequence is replaced by the integer part of the arithmetic mean of all terms, leaving the remaining terms unchanged.
+ * If there are several smaller terms in the sequence, then replace the last one in order.
+ *
+ * <p> Created by Konstantin Lugowoy on 25.03.2017. */
 
 public class Main {
 

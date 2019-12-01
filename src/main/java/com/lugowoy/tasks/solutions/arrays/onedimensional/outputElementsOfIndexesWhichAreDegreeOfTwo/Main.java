@@ -1,25 +1,29 @@
-package com.lugowoy.tasks.onedimensional.outputElementsOfIndexesWhichAreDegreeOfTwo;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.outputElementsOfIndexesWhichAreDegreeOfTwo;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.other.LengthArray;
+import com.lugowoy.helper.utils.ArrayLengthReader;
 
 import java.util.Arrays;
 
-import static com.lugowoy.helper.filling.DefaultValuesForFilling.NEGATIVE_INTEGER_BOUND;
-import static com.lugowoy.helper.filling.DefaultValuesForFilling.POSITIVE_INTEGER_BOUND;
+import static com.lugowoy.helper.filling.ValuesToFilling.INT_LOWER_BOUND;
+import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 
-/** Created by Konstantin Lugowoy on 01.03.2017. */
+/**
+ * Given an array with the number of n elements.
+ * Print those elements whose indices are degree of two (1, 2, 4, 8, 16, ...).
+ *
+ * <p> Created by Konstantin Lugowoy on 01.03.2017.
+ */
 
 public class Main {
 
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthArray.getLengthOfArray(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
-        Integer[] integersArray = new FillingArrayRandomIntegerNumbers().fill(lengthOfArray, NEGATIVE_INTEGER_BOUND,
-                                                                                             POSITIVE_INTEGER_BOUND);
+        Integer[] integersArray = new FillingArrayRandomIntegers().fill(lengthOfArray, INT_LOWER_BOUND, INT_UPPER_BOUND);
 
         System.out.println("Original : ");
         Arrays.stream(integersArray).forEachOrdered(integer -> System.out.print(integer + " "));

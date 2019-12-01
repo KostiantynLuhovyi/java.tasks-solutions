@@ -1,6 +1,7 @@
-package com.lugowoy.tasks.onedimensional.determineEquilibriumBetweenWeightOfSubjects;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.determineEquilibriumBetweenWeightOfSubjects;
 
-import com.lugowoy.helper.models.Array;
+import com.lugowoy.helper.models.storages.arrays.Array;
+
 
 /** Created by Konstantin Lugowoy on 27.05.2018. */
 
@@ -20,7 +21,7 @@ public interface Determinant {
 
     private static int calculateSumAllSubjects(Array<Subject> subjectArray) {
         int resultSum = 0;
-        for (int i = 0; i < subjectArray.getLength(); i++) {
+        for (int i = 0; i < subjectArray.size(); i++) {
             resultSum += subjectArray.get(i).getWeight();
         }
         return resultSum;

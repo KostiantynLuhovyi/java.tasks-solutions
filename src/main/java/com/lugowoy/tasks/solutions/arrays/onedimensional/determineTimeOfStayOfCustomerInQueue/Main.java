@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.onedimensional.determineTimeOfStayOfCustomerInQueue;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.determineTimeOfStayOfCustomerInQueue;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
@@ -7,11 +7,17 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Arrays;
 
-/** Created by Konstantin Lugowoy on 16.03.2017. */
+/**
+ * At the counter of the store, a line of n customers lined up.
+ * The service time of the i-th customer is tj (i = 1, ..., n).
+ * Determine the time Ci of the stay of the i-th customer in the queue.
+ *
+ * <p> Created by Konstantin Lugowoy on 16.03.2017.
+ */
 
 public class Main {
 
-    private static final Reader READER = Reader.getReader(new ReadingConsole());
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     public static void main(String[] args) {
 

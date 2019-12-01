@@ -1,1 +1,0 @@
-The sequence of numbers a1, a2, ..., an. To find out what number is found before - positive or negative.

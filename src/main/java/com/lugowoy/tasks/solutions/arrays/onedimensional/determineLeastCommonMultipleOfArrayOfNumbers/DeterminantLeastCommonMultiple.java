@@ -1,24 +1,25 @@
-package com.lugowoy.tasks.onedimensional.determineLeastCommonMultipleOfArrayOfNumbers;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.determineLeastCommonMultipleOfArrayOfNumbers;
 
-import com.lugowoy.helper.models.Array;
+import com.lugowoy.helper.models.storages.arrays.ArrayInts;
 
 /** Created by Konstantin Lugowoy on 09.05.2018. */
 
 @FunctionalInterface
 public interface DeterminantLeastCommonMultiple {
 
-    int determine(Array<Integer> array);
+    int determine(ArrayInts array);
 
-    static int determineLeastCommonMultiple(Array<Integer> array) {
+    static int determineLeastCommonMultiple(ArrayInts array) {
         int resultValueOfLeastCommonMultiple = array.get(0);
-        for (int i = 1; i < array.getLength(); i++) {
+        for (int i = 1; i < array.size(); i++) {
             resultValueOfLeastCommonMultiple = calculateLeastCommonMultipleOfTwoNumbers(array, resultValueOfLeastCommonMultiple, i);
         }
         return Math.abs(resultValueOfLeastCommonMultiple);
     }
 
-    private static int calculateLeastCommonMultipleOfTwoNumbers(Array<Integer> array, int resultValueOfLeastCommonMultiple, int i) {
-        return resultValueOfLeastCommonMultiple * array.get(i) / calculateGreatestCommonDivisorOfTwoNumbers(resultValueOfLeastCommonMultiple, array.get(i));
+    private static int calculateLeastCommonMultipleOfTwoNumbers(ArrayInts array, int resultValueOfLeastCommonMultiple, int i) {
+        return resultValueOfLeastCommonMultiple * array.get(i)
+                           / calculateGreatestCommonDivisorOfTwoNumbers(resultValueOfLeastCommonMultiple, array.get(i));
     }
 
     private static int calculateGreatestCommonDivisorOfTwoNumbers(int firstNumber, int secondNumber) {

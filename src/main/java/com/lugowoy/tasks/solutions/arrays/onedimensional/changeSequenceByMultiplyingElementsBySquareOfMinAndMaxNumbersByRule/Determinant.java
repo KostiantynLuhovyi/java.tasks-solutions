@@ -1,24 +1,24 @@
-package com.lugowoy.tasks.onedimensional.changeSequenceByMultiplyingElementsBySquareOfMinAndMaxNumbersByRule;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.changeSequenceByMultiplyingElementsBySquareOfMinAndMaxNumbersByRule;
 
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.CheckerArray;
+import com.lugowoy.helper.models.storages.arrays.ArrayInts;
+import com.lugowoy.helper.utils.checking.CheckerArray;
 
-/** Created by Konstantin Lugowoy on 25.03.2017. */
+/**
+ * Created by Konstantin Lugowoy on 25.03.2017.
+ */
 
 public interface Determinant<T> {
 
-    T determine(Array<T> array);
+    int determine(ArrayInts array);
 
-    static Integer determineMinNumber(Array<Integer> array) {
+    static int determineMinNumber(ArrayInts array) {
         int valueForDetermineMinNumber = Integer.MAX_VALUE;
         int indexMinNumber = 0, resultFindMinNumber;
-        if (CheckerArray.checkArrayNonNull(array)) {
-            if (CheckerArray.checkLengthOfArrayIsEqualToOrGreaterThanZero(array.getLength())) {
-                for (int i = 0; i < array.getLength(); i++) {
-                    if (array.get(i) <= valueForDetermineMinNumber) {
-                        valueForDetermineMinNumber = array.get(i);
-                        indexMinNumber = i;
-                    }
+        if (CheckerArray.checkLengthInArray(array)) {
+            for (int i = 0; i < array.size(); i++) {
+                if (array.get(i) <= valueForDetermineMinNumber) {
+                    valueForDetermineMinNumber = array.get(i);
+                    indexMinNumber = i;
                 }
             }
         }
@@ -26,16 +26,14 @@ public interface Determinant<T> {
         return resultFindMinNumber;
     }
 
-    static Integer determineMaxNumber(Array<Integer> array) {
+    static int determineMaxNumber(ArrayInts array) {
         int valueForDetermineMaxNumber = Integer.MIN_VALUE;
         int indexMaxNumber = 0, resultFindMaxNumber;
-        if (CheckerArray.checkArrayNonNull(array)) {
-            if (CheckerArray.checkLengthOfArrayIsEqualToOrGreaterThanZero(array.getLength())) {
-                for (int i = 0; i < array.getLength(); i++) {
-                    if (array.get(i) >= valueForDetermineMaxNumber) {
-                        valueForDetermineMaxNumber = array.get(i);
-                        indexMaxNumber = i;
-                    }
+        if (CheckerArray.checkLengthInArray(array)) {
+            for (int i = 0; i < array.size(); i++) {
+                if (array.get(i) >= valueForDetermineMaxNumber) {
+                    valueForDetermineMaxNumber = array.get(i);
+                    indexMaxNumber = i;
                 }
             }
         }
@@ -44,3 +42,4 @@ public interface Determinant<T> {
     }
 
 }
+

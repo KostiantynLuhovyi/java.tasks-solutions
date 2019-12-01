@@ -1,1 +1,0 @@
-Write a program that enter a sequence of integers that finds and prints their greatest common divisor.

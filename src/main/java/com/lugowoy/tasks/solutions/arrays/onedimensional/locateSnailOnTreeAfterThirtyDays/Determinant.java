@@ -1,12 +1,14 @@
-package com.lugowoy.tasks.onedimensional.locateSnailOnTreeAfterThirtyDays;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.locateSnailOnTreeAfterThirtyDays;
 
-import com.lugowoy.tasks.onedimensional.locateSnailOnTreeAfterThirtyDays.entity.Snail;
-import com.lugowoy.tasks.onedimensional.locateSnailOnTreeAfterThirtyDays.entity.Tree;
-import com.lugowoy.tasks.onedimensional.locateSnailOnTreeAfterThirtyDays.entity.WeatherArray;
+import com.lugowoy.tasks.solutions.arrays.onedimensional.locateSnailOnTreeAfterThirtyDays.entity.Snail;
+import com.lugowoy.tasks.solutions.arrays.onedimensional.locateSnailOnTreeAfterThirtyDays.entity.Tree;
+import com.lugowoy.tasks.solutions.arrays.onedimensional.locateSnailOnTreeAfterThirtyDays.entity.WeatherArray;
 
 import java.util.Arrays;
 
-/** Created by Konstantin Lugowoy on 11.05.2017. */
+/**
+ * Created by Konstantin Lugowoy on 11.05.2017.
+ */
 
 @FunctionalInterface
 public interface Determinant<T, V> {

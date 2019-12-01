@@ -1,20 +1,23 @@
-package com.lugowoy.tasks.onedimensional.determineNumberOfDifferentElementsInOneDimensionalArray;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.determineNumberOfDifferentElementsInOneDimensionalArray;
 
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.CheckerArray;
+import com.lugowoy.helper.models.storages.arrays.AbstractArray;
+import com.lugowoy.helper.models.storages.arrays.ArrayInts;
+import com.lugowoy.helper.utils.checking.CheckerArray;
 
-/** Created by Konstantin Lugowoy on 28.05.2017. */
+/**
+ * Created by Konstantin Lugowoy on 28.05.2017.
+ */
 
 @FunctionalInterface
-public interface Determinant<T extends Number> {
+public interface Determinant {
 
-    int determine(Array<T> array);
+    int determine(ArrayInts array);
 
-    static int determineTheNumberOfDifferentElementsInOneDimensionalArray(Array<Integer> array) {
+    static int determineTheNumberOfDifferentElementsInOneDimensionalArray(ArrayInts array) {
         int resultCountOfDifferentElements = 0;
-        if (CheckerArray.checkArrayNonNull(array)) {
-            if (array.getLength() > 2) {
-                for (int i = 0; i < array.getLength(); i++) {
+        if (CheckerArray.checkLengthInArray(array)) {
+            if (array.size() > 2) {
+                for (int i = 0; i < array.size(); i++) {
                     if (isUnique(array.get(i), array)) {
                         resultCountOfDifferentElements++;
                     }
@@ -24,13 +27,13 @@ public interface Determinant<T extends Number> {
         return resultCountOfDifferentElements;
     }
 
-    private static boolean isUnique(int number, Array<Integer> array) {
+    private static boolean isUnique(int number, ArrayInts array) {
         boolean isUnique = false;
         int countUnique = 0;
-        if (CheckerArray.checkArrayNonNull(array)) {
-            if (array.getLength() > 2) {
+        if (CheckerArray.checkLengthInArray(array)) {
+            if (array.size() > 2) {
                 if (number >= 0) {
-                    for (int i = 0; i < array.getLength(); i++) {
+                    for (int i = 0; i < array.size(); i++) {
                         if (number == array.get(i)) {
                             countUnique++;
                         }

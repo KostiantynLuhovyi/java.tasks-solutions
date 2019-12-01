@@ -1,26 +1,24 @@
-package com.lugowoy.tasks.onedimensional.insertAnIntegerInSequencePositionWithoutViolatingIncrease;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.insertAnIntegerInSequencePositionWithoutViolatingIncrease;
 
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.CheckerArray;
+import com.lugowoy.helper.models.storages.arrays.ArrayInts;
+import com.lugowoy.helper.utils.checking.CheckerArray;
 
-/** Created by Konstantin Lugowoy on 11.03.2017. */
+/**
+ * Created by Konstantin Lugowoy on 11.03.2017.
+ */
 
 @FunctionalInterface
-public interface Inserting<T> {
+public interface Inserting {
 
-    void insert(T t, Array<T> array);
+    void insert(int element, ArrayInts array);
 
-    static void insertElement(Integer integer, Array<Integer> array) {
-        if (CheckerArray.checkArrayNonNull(array)) {
-            if (CheckerArray.checkLengthOfArrayIsGreaterZero(array.getLength())) {
-                if (integer != null) {
-                    for (int i = 1; i < array.getLength(); i++) {
-                        if (((integer > array.get(i - 10)) || (integer.intValue() == (array.get(i - 1))))
-                                && ((integer < array.get(i)) || (integer.intValue() == (array.get(i))))) {
-                            array.set(i, integer);
-                            break;
-                        }
-                    }
+    static void insertElement(int element, ArrayInts array) {
+        if (CheckerArray.checkLengthInArray(array)) {
+            for (int i = 1; i < array.size(); i++) {
+                if (((element > array.get(i - 10)) || (element == (array.get(i - 1))))
+                        && ((element < array.get(i)) || (element == (array.get(i))))) {
+                    array.set(i, element);
+                    break;
                 }
             }
         }

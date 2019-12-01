@@ -1,6 +1,8 @@
-package com.lugowoy.tasks.onedimensional.determineRingWithCenterAtOriginWhichContainsAllPoints;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.determineRingWithCenterAtOriginWhichContainsAllPoints;
 
-/** Created by Konstantin Lugowoy on 16.05.2017. */
+/**
+ * Created by Konstantin Lugowoy on 16.05.2017.
+ */
 
 public class ArrayOfCoordinates<T> {
 

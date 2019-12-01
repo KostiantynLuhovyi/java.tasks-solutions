@@ -1,11 +1,18 @@
-package com.lugowoy.tasks.onedimensional.determineEquilibriumBetweenWeightOfSubjects;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.determineEquilibriumBetweenWeightOfSubjects;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.LengthArray;
+import com.lugowoy.helper.models.storages.arrays.Array;
+import com.lugowoy.helper.utils.ArrayLengthReader;
 
-/** Created by Konstantin Lugowoy on 27.05.2018. */
+
+/**
+ * Write a program that enter a sequence of integers that counts them as the masses of objects available
+ * and finds out whether all these items can be put on two cups of the weighing-machine so that achieve balance.
+ *
+ *
+ * <p>Created by Konstantin Lugowoy on 27.05.2018.
+ */
 
 public class Main {
 
@@ -14,13 +21,15 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthArray.getLengthOfArray(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> integerArray = Array.create(new FillingArrayRandomIntegerNumbers().fill(lengthOfArray, BOUND));
+        FillingArrayRandomIntegers filler = new FillingArrayRandomIntegers();
+
+        Array<Integer> integerArray = new Array<>(filler.fill(lengthOfArray, BOUND));
 
         System.out.println("The array of integer numbers : " + integerArray);
 
-        Array<Subject> subjectArray = Array.create(new FillingArraySubjects(integerArray).fill(lengthOfArray));
+        Array<Subject> subjectArray = new Array<>(new FillingArraySubjects(integerArray).fill(lengthOfArray));
 
         System.out.println("The array of subjects : " + subjectArray);
 

@@ -1,8 +1,10 @@
-package com.lugowoy.tasks.onedimensional.determineTimeOfStayOfCustomerInQueue;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.determineTimeOfStayOfCustomerInQueue;
 
 import java.math.BigDecimal;
 
-/** Created by Konstantin Lugowoy on 16.03.2017. */
+/**
+ * Created by Konstantin Lugowoy on 16.03.2017.
+ */
 
 public interface Determinant<T, V> {
 

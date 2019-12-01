@@ -1,39 +1,43 @@
-package com.lugowoy.tasks.onedimensional.replaceWithZerosElementsThatAreModuloGreaterThanTheMaximumElement;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.replaceWithZerosElementsThatAreModuloGreaterThanTheMaximumElement;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.LengthArray;
+import com.lugowoy.helper.models.storages.arrays.ArrayInts;
+import com.lugowoy.helper.utils.ArrayLengthReader;
 
 import java.util.Arrays;
 
-import static com.lugowoy.helper.filling.DefaultValuesForFilling.NEGATIVE_INTEGER_BOUND;
-import static com.lugowoy.helper.filling.DefaultValuesForFilling.POSITIVE_INTEGER_BOUND;
+import static com.lugowoy.helper.filling.ValuesToFilling.INT_LOWER_BOUND;
+import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 
-/** Created by Konstantin Lugowoy on 11.03.2017. */
+/**
+ * Given integers a1, a2, ..., an. Among them there are positive and negative.
+ * Replace the zeros with those numbers that they are more modular than a certain number (| ai |> max {a1, a2, ..., an}).
+ *
+ * <p> Created by Konstantin Lugowoy on 11.03.2017.
+ */
 
 public class Main {
 
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthArray.getLengthOfArray(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> array = Array.create(new FillingArrayRandomIntegerNumbers().fill(lengthOfArray, NEGATIVE_INTEGER_BOUND,
-                                                                                                       POSITIVE_INTEGER_BOUND));
+        ArrayInts array = new ArrayInts(new FillingArrayRandomPrimitiveIntegers().fill(lengthOfArray, INT_LOWER_BOUND, INT_UPPER_BOUND));
 
         System.out.println("Original sequence : " + array);
         System.out.println();
 
         int maximumNumberElement = 0;
 
-        if (Arrays.stream(array.toArray(new Integer[array.getLength()])).max(Integer::compareTo).isPresent()) {
-            maximumNumberElement = Arrays.stream(array.toArray(new Integer[array.getLength()])).max(Integer::compareTo).get();
+        if (Arrays.stream(array.toArray(new int[array.size()])).max().isPresent()) {
+            maximumNumberElement = Arrays.stream(array.toArray(new int[array.size()])).max().getAsInt();
         }
 
         System.out.println("Result sequence : ");
         int finalMaximumNumberElement = maximumNumberElement;
-        Arrays.stream(array.toArray(new Integer[array.getLength()])).forEachOrdered(integer -> {
+        Arrays.stream(array.toArray(new int[array.size()])).forEachOrdered(integer -> {
             if (finalMaximumNumberElement != 0) {
                 if (Math.abs(integer) > finalMaximumNumberElement) {
                     integer = 0;

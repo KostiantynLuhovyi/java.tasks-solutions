@@ -1,12 +1,12 @@
-package com.lugowoy.tasks.onedimensional.findSumOfArrayOfMultipleElementsToThisPresent;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.findSumOfArrayOfMultipleElementsToThisPresent;
 
-import com.lugowoy.helper.models.Array;
+import com.lugowoy.helper.models.storages.arrays.ArrayInts;
 
 /**Created by Konstantin Lugowoy on 12-Feb-17.*/
 
 @FunctionalInterface
 public interface Finding {
 
-    int calculateSumOfElements(Array<Integer> array, int k);
+    int calculateSumOfElements(ArrayInts array, int k);
 
 }

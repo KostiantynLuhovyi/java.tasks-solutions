@@ -1,9 +1,11 @@
-package com.lugowoy.tasks.onedimensional.locateSnailOnTreeAfterThirtyDays.entity;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.locateSnailOnTreeAfterThirtyDays.entity;
 
 import java.io.Serializable;
 import java.util.Objects;
 
-/** Created by Konstantin Lugowoy on 11.05.2017. */
+/**
+ * Created by Konstantin Lugowoy on 11.05.2017.
+ */
 
 public class Weather implements Serializable, Cloneable {
 

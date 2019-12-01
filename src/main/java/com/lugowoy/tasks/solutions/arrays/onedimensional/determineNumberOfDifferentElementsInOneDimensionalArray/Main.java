@@ -1,22 +1,28 @@
-package com.lugowoy.tasks.onedimensional.determineNumberOfDifferentElementsInOneDimensionalArray;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.determineNumberOfDifferentElementsInOneDimensionalArray;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.LengthArray;
+import com.lugowoy.helper.models.storages.arrays.ArrayInts;
+import com.lugowoy.helper.utils.ArrayLengthReader;
 
-/** Created by Konstantin Lugowoy on 28.05.2017. */
+/**
+ * Given a one-dimensional array of numbers. Find the number of different numbers in this array.
+ *
+ * <p> Created by Konstantin Lugowoy on 28.05.2017.
+ */
 
 public class Main {
 
-    private static final Determinant<Integer> DETERMINANT = Determinant::determineTheNumberOfDifferentElementsInOneDimensionalArray;
+    private static final Determinant DETERMINANT = Determinant::determineTheNumberOfDifferentElementsInOneDimensionalArray;
 
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthArray.getLengthOfArray(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> array = Array.create(new FillingArrayRandomIntegerNumbers().fill(lengthOfArray));
+        FillingArrayRandomPrimitiveIntegers filler = new FillingArrayRandomPrimitiveIntegers();
+
+        ArrayInts array = new ArrayInts(filler.fill(lengthOfArray));
 
         System.out.println("Original array : " + array);
         System.out.println();

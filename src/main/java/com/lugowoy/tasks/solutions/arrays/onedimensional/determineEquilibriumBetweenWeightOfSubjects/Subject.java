@@ -1,9 +1,11 @@
-package com.lugowoy.tasks.onedimensional.determineEquilibriumBetweenWeightOfSubjects;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.determineEquilibriumBetweenWeightOfSubjects;
 
 import java.io.Serializable;
 import java.util.Objects;
 
-/** Created by Konstantin Lugowoy on 27.05.2018. */
+/**
+ * Created by Konstantin Lugowoy on 27.05.2018.
+ */
 
 public class Subject implements Serializable {
 

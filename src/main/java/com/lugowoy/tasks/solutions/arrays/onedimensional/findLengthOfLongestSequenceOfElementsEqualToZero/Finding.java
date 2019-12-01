@@ -1,30 +1,30 @@
-package com.lugowoy.tasks.onedimensional.findLengthOfLongestSequenceOfElementsEqualToZero;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.findLengthOfLongestSequenceOfElementsEqualToZero;
 
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.CheckerArray;
+import com.lugowoy.helper.models.storages.arrays.ArrayInts;
+import com.lugowoy.helper.utils.checking.CheckerArray;
 
-/** Created by Konstantin Lugowoy on 18.06.2017. */
+/**
+ * Created by Konstantin Lugowoy on 18.06.2017.
+ */
 
 @FunctionalInterface
-public interface Finding<T, V> {
+public interface Finding {
 
-     T find(V v);
+    int find(ArrayInts arrayInts);
 
-     static Integer findLengthOfLongestSequenceOfElementsEqualToZero(Array<Integer> array) {
-         int resultCount = 0, count = 0;
-         if (CheckerArray.checkArrayNonNull(array)) {
-             if (CheckerArray.checkLengthOfArrayIsGreaterZero(array.getLength())) {
-                 for (int i = 0; i < array.getLength(); i++) {
-                     if (array.get(i) == 0) {
-                         count++;
-                     } else {
-                         count = 0;
-                     }
-                     resultCount = resultCount < count ? count : resultCount;
-                     }
-                 }
-             }
-         return resultCount;
-     }
+    static Integer findLengthOfLongestSequenceOfElementsEqualToZero(ArrayInts array) {
+        int resultCount = 0, count = 0;
+        if (CheckerArray.checkLengthInArray(array)) {
+            for (int i = 0; i < array.size(); i++) {
+                if (array.get(i) == 0) {
+                    count++;
+                } else {
+                    count = 0;
+                }
+                resultCount = resultCount < count ? count : resultCount;
+            }
+        }
+        return resultCount;
+    }
 
 }

@@ -1,13 +1,15 @@
-package com.lugowoy.tasks.onedimensional.determinePairsOfNumbersFromSequenceWhoseSumIsEqualToEnteredNumber;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.determinePairsOfNumbersFromSequenceWhoseSumIsEqualToEnteredNumber;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
-import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.LengthArray;
+import com.lugowoy.helper.models.storages.arrays.ArrayInts;
+import com.lugowoy.helper.utils.ArrayLengthReader;
 
-/** Created by Konstantin Lugowoy on 19.03.2017. */
-
+/**
+ * Given a sequence of integers a1, a2, ..., an. Indicate pairs of numbers ai, aj such that ai + aj = m.
+ *
+ * <p> Created by Konstantin Lugowoy on 19.03.2017.
+ */
 public class Main {
 
     private static final Determinant<Integer> DETERMINANT = Determinant::determinePairsOfNumbersFromTheSequenceWhoseSumIsEqualToEnteredNumber;
@@ -17,9 +19,11 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthArray.getLengthOfArray(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> array = Array.create(new FillingArrayRandomIntegerNumbers().fill(lengthOfArray, BOUND));
+        FillingArrayRandomPrimitiveIntegers filler = new FillingArrayRandomPrimitiveIntegers();
+
+        ArrayInts array = new ArrayInts(filler.fill(lengthOfArray, BOUND));
 
         System.out.println(array);
         System.out.println();
@@ -32,7 +36,7 @@ public class Main {
 
     private static int enterNumber() {
         System.out.println("Enter number : ");
-        return Reader.getReader(new ReadingConsole()).readInt();
+        return new ReadingConsole().readInt();
     }
 
 }

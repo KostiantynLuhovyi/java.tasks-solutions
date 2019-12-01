@@ -1,30 +1,32 @@
-package com.lugowoy.tasks.onedimensional.determineTriangleForWhichDifferenceInNumberOfPointsOutsideAndInsideIsMinimal;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.determineTriangleForWhichDifferenceInNumberOfPointsOutsideAndInsideIsMinimal;
 
-import com.lugowoy.helper.calculating.CalculationUsingThreeParameters;
-import com.lugowoy.helper.models.Point;
+import com.lugowoy.helper.calculating.CalculationThreeParameters;
+import com.lugowoy.helper.models.points.Point2D;
 
-/** Created by Konstantin Lugowoy on 08.07.2017. */
+/**
+ * Created by Konstantin Lugowoy on 08.07.2017.
+ */
 
 @FunctionalInterface
 public interface CheckInsidePoint {
 
-    CalculationUsingThreeParameters<Double, Point<Double>, Point<Double>, Point<Double>> CALCULATION = (kFirst, vSecond, zThird) -> {
-        double tmpResFirst = Math.hypot(kFirst.getCoordinateX() - vSecond.getCoordinateX(),
-                                        kFirst.getCoordinateY() - vSecond.getCoordinateY());
-        double tmpResSecond = Math.hypot(vSecond.getCoordinateX() - zThird.getCoordinateX(),
-                                         vSecond.getCoordinateY() - zThird.getCoordinateY());
-        double tmpResThird = Math.hypot(zThird.getCoordinateX() - kFirst.getCoordinateX(),
-                                        zThird.getCoordinateY() - kFirst.getCoordinateY());
+    CalculationThreeParameters<Double, Point2D<Double>, Point2D<Double>, Point2D<Double>> CALCULATION = (kFirst, vSecond, zThird) -> {
+        double tmpResFirst = Math.hypot(kFirst.getX() - vSecond.getX(),
+                                        kFirst.getY() - vSecond.getY());
+        double tmpResSecond = Math.hypot(vSecond.getX() - zThird.getX(),
+                                         vSecond.getY() - zThird.getY());
+        double tmpResThird = Math.hypot(zThird.getX() - kFirst.getX(),
+                                        zThird.getY() - kFirst.getY());
 
         double tmp = (tmpResFirst + tmpResSecond + tmpResThird) / 2;
 
         return Math.sqrt(tmp * (tmp - tmpResFirst) * (tmp - tmpResSecond) * (tmp - tmpResThird));
     };
 
-    int isInside(Point<Double> pointToCheck, Point<Double> firstPoint, Point<Double> secondPoint, Point<Double> thirdPoint);
+    int isInside(Point2D<Double> pointToCheck, Point2D<Double> firstPoint, Point2D<Double> secondPoint, Point2D<Double> thirdPoint);
 
-    static int isInsideTrianglePoints(Point<Double> pointToCheck, Point<Double> firstPoint,
-                                      Point<Double> secondPoint, Point<Double> thirdPoint) {
+    static int isInsideTrianglePoints(Point2D<Double> pointToCheck, Point2D<Double> firstPoint,
+                                      Point2D<Double> secondPoint, Point2D<Double> thirdPoint) {
         double areaTriangle = CALCULATION.calculate(firstPoint, secondPoint, thirdPoint);
 
         double firstAreaToCheck = CALCULATION.calculate(pointToCheck, firstPoint, secondPoint);

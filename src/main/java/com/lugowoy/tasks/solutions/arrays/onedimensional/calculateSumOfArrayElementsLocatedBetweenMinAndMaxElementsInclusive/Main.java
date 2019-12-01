@@ -1,25 +1,31 @@
-package com.lugowoy.tasks.onedimensional.calculateSumOfArrayElementsLocatedBetweenMinAndMaxElementsInclusive;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.calculateSumOfArrayElementsLocatedBetweenMinAndMaxElementsInclusive;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.CheckerArray;
-import com.lugowoy.helper.other.LengthArray;
+import com.lugowoy.helper.models.storages.arrays.ArrayInts;
+import com.lugowoy.helper.utils.ArrayLengthReader;
+import com.lugowoy.helper.utils.checking.CheckerArray;
+import com.lugowoy.helper.utils.checking.CheckerIndex;
 
-import static com.lugowoy.helper.filling.DefaultValuesForFilling.NEGATIVE_INTEGER_BOUND;
-import static com.lugowoy.helper.filling.DefaultValuesForFilling.POSITIVE_INTEGER_BOUND;
+import static com.lugowoy.helper.filling.ValuesToFilling.INT_LOWER_BOUND;
+import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 
-/** Created by Konstantin Lugowoy on 27.03.2017. */
+/**
+ * Calculate the sum of array elements located between the minimum and maximum elements inclusive.
+ *
+ * <p>Created by Konstantin Lugowoy on 27.03.2017.
+ */
 
 public class Main {
 
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthArray.getLengthOfArray(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> array = Array.create(new FillingArrayRandomIntegerNumbers().fill(lengthOfArray, NEGATIVE_INTEGER_BOUND,
-                                                                                                       POSITIVE_INTEGER_BOUND));
+        FillingArrayRandomPrimitiveIntegers filler = new FillingArrayRandomPrimitiveIntegers();
+
+        ArrayInts array = new ArrayInts(filler.fill(lengthOfArray, INT_LOWER_BOUND, INT_UPPER_BOUND));
 
         System.out.println("Original array : " + array);
         System.out.println();
@@ -39,21 +45,19 @@ public class Main {
 
     }
 
-    private static final Calculating CALCULATING = (Array<Integer> array, int indexMinElement, int indexMaxElement) -> {
+    private static final Calculating CALCULATING = (ArrayInts array, int indexMinElement, int indexMaxElement) -> {
         int resultSum = 0;
-        if (CheckerArray.checkArrayNonNull(array)) {
-            if (CheckerArray.checkLengthOfArrayIsEqualToOrGreaterThanZero(array.getLength())) {
-                if ((indexMinElement < indexMaxElement)) {
-                    if ((indexMinElement >= 0) && (indexMaxElement > 0)) {
-                        for (int i = indexMinElement; i <= indexMaxElement; i++) {
-                            resultSum += array.get(i);
-                        }
-                    } else {
-                        System.err.println("The index of the min or max value is less than zero.");
+        if (CheckerArray.checkLengthInArray(array)) {
+            if ((indexMinElement < indexMaxElement)) {
+                if ((indexMinElement >= 0) && (indexMaxElement > 0)) {
+                    for (int i = indexMinElement; i <= indexMaxElement; i++) {
+                        resultSum += array.get(i);
                     }
                 } else {
-                    System.err.println("The index of the min value is greater than the index of the max value.");
+                    throw new IllegalArgumentException("The index of the min or max value is less than zero.");
                 }
+            } else {
+                throw new IllegalArgumentException("The index of the min value is greater than the index of the max value.");
             }
         }
         return resultSum;

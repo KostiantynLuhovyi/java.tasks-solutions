@@ -1,17 +1,22 @@
-package com.lugowoy.tasks.onedimensional.countingNumberOfPeopleWhoseAgeIsInGivenInterval;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.countingNumberOfPeopleWhoseAgeIsInGivenInterval;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
+import com.lugowoy.tasks.solutions.arrays.onedimensional.countingNumberOfPeopleWhoseAgeIsInGivenInterval.ArrayOfHumans;
 
 import java.util.Random;
 
-/** Created by Konstantin Lugowoy on 14.05.2017. */
+/**
+ * Write a program whose input is the age of n people.
+ * The program counting the number of people whose age is in the specified interval.
+ *
+ * <p>Created by Konstantin Lugowoy on 14.05.2017. */
 
 public class Main {
 
     private static final Random RANDOM_AGE = new Random();
 
-    private static final Reader READER = Reader.getReader(new ReadingConsole());
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     public static void main(String[] args) {
 

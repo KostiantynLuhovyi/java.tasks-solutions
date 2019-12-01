@@ -1,12 +1,16 @@
-package com.lugowoy.tasks.onedimensional.findNumbersInSequenceThatAreSquareOfNumber;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.findNumbersInSequenceThatAreSquareOfNumber;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
-import com.lugowoy.helper.io.reading.Reader;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.LengthArray;
+import com.lugowoy.helper.models.storages.arrays.ArrayInts;
+import com.lugowoy.helper.utils.ArrayLengthReader;
 
-/** Created by Konstantin Lugowoy on 12.03.2017. */
+/**
+ * Given positive integers a1, a2, a3, ..., an.
+ * Find among them those whose square is equal to a certain number n.
+ *
+ * <p> Created by Konstantin Lugowoy on 12.03.2017.
+ */
 
 public class Main {
 
@@ -15,23 +19,25 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthArray.getLengthOfArray(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> array = Array.create(new FillingArrayRandomIntegerNumbers().fill(lengthOfArray, BOUND));
+        FillingArrayRandomPrimitiveIntegers filler = new FillingArrayRandomPrimitiveIntegers();
+
+        ArrayInts array = new ArrayInts(filler.fill(lengthOfArray, BOUND));
 
         System.out.println("Original sequence : " + array);
         System.out.println();
 
         System.out.println("Enter a number to compare : ");
-        int compareNumber = Reader.getReader(new ReadingConsole()).readInt();
+        int compareNumber = new ReadingConsole().readInt();
 
         System.out.println("Result : ");
         int quantityResult = 0;
-        for (int i = 0; i < array.getLength(); i++) {
+        for (int i = 0; i < array.size(); i++) {
             int number = array.get(i);
-            int squareRootNumber = (int)Math.pow(number, 2);
+            int squareRootNumber = (int) Math.pow(number, 2);
             if (compareNumber == squareRootNumber) {
-                System.out.printf("Sequence index : %d, element : %d", i,number);
+                System.out.printf("Sequence index : %d, element : %d", i, number);
                 quantityResult++;
             }
         }

@@ -1,6 +1,8 @@
-package com.lugowoy.tasks.onedimensional.outputToDisplayNumberForParticularCondition;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.outputToDisplayNumberForParticularCondition;
 
-/**Created by Konstantin Lugowoy on 14-Feb-17.*/
+/**
+ * Created by Konstantin Lugowoy on 14-Feb-17.
+ */
 
 public class Numbers {
 

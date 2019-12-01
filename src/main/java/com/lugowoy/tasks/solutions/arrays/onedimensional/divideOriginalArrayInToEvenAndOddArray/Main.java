@@ -1,11 +1,16 @@
-package com.lugowoy.tasks.onedimensional.divideOriginalArrayInToEvenAndOddArray;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.divideOriginalArrayInToEvenAndOddArray;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.LengthArray;
+import com.lugowoy.helper.models.storages.arrays.ArrayInts;
+import com.lugowoy.helper.utils.ArrayLengthReader;
 
-/** Created by Konstantin Lugowoy on 16.03.2017. */
+/**
+ * Given an array with the number of elements of N.
+ * Form two arrays: the first include elements of the original array with even numbers, and in the second - with odd numbers.
+ *
+ * <p> Created by Konstantin Lugowoy on 16.03.2017.
+ */
 
 public class Main {
 
@@ -14,17 +19,19 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthArray.getLengthOfArray(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> originalArray = Array.create(new FillingArrayRandomIntegerNumbers().fill(lengthOfArray, BOUND));
+        FillingArrayRandomPrimitiveIntegers filler = new FillingArrayRandomPrimitiveIntegers();
+
+        ArrayInts originalArray = new ArrayInts(filler.fill(lengthOfArray, BOUND));
 
         System.out.println("Original array : " + originalArray);
         System.out.println();
 
-        Selecting<Array<Integer>> selecting = Selecting::selectArray;
+        Selecting<ArrayInts> selecting = Selecting::selectArray;
 
-        Array<Integer> evenNumbersArray = selecting.select(originalArray, Selecting.STATUS_EVEN_NUMBERS);
-        Array<Integer> oddNumbersArray = selecting.select(originalArray, Selecting.STATUS_ODD_NUMBERS);
+        ArrayInts evenNumbersArray = selecting.select(originalArray, Selecting.STATUS_EVEN_NUMBERS);
+        ArrayInts oddNumbersArray = selecting.select(originalArray, Selecting.STATUS_ODD_NUMBERS);
 
         System.out.println("Even number array created based on the original array : " + evenNumbersArray);
         System.out.println();

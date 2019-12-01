@@ -1,25 +1,32 @@
-package com.lugowoy.tasks.onedimensional.compressArrayByThrowingEverySecondElement;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.compressArrayByThrowingEverySecondElement;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.CheckerArray;
-import com.lugowoy.helper.other.LengthArray;
+import com.lugowoy.helper.models.storages.arrays.ArrayInts;
+import com.lugowoy.helper.utils.ArrayLengthReader;
+import com.lugowoy.helper.utils.checking.CheckerArray;
+import com.lugowoy.tasks.solutions.arrays.onedimensional.compressArrayByThrowingEverySecondElement.Compressing;
 
-import static com.lugowoy.helper.filling.DefaultValuesForFilling.NEGATIVE_INTEGER_BOUND;
-import static com.lugowoy.helper.filling.DefaultValuesForFilling.POSITIVE_INTEGER_BOUND;
+import static com.lugowoy.helper.filling.ValuesToFilling.INT_LOWER_BOUND;
+import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 
-/** Created by Konstantin Lugowoy on 13.03.2017. */
+/**
+ * Given an array with the number of n elements.
+ * Compress the array, throwing out every second element from it.
+ *
+ * Created by Konstantin Lugowoy on 13.03.2017.
+ */
 
 public class Main {
 
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthArray.getLengthOfArray(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> array = Array.create(new FillingArrayRandomIntegerNumbers().fill(lengthOfArray, NEGATIVE_INTEGER_BOUND,
-                                                                                                       POSITIVE_INTEGER_BOUND));
+        FillingArrayRandomPrimitiveIntegers filler = new FillingArrayRandomPrimitiveIntegers();
+
+        ArrayInts array = new ArrayInts(filler.fill(lengthOfArray, INT_LOWER_BOUND, INT_UPPER_BOUND));
 
         System.out.println("Original array : " + array);
 
@@ -29,16 +36,16 @@ public class Main {
 
     }
 
-    private static final Compressing<Array<Integer>> COMPRESSING = array -> {
-        if (CheckerArray.checkArrayNonNull(array)) {
-            if (array.getLength() >= 2) {
-                Array<Integer> tmpArray = Array.create(0);
-                for (int i = 0; i < array.getLength(); i++) {
+    private static final Compressing<ArrayInts> COMPRESSING = array -> {
+        if (CheckerArray.checkLengthInArray(array)) {
+            if (array.size() >= 2) {
+                ArrayInts tmpArray = new ArrayInts();
+                for (int i = 0; i < array.size(); i++) {
                     if ((i % 2 == 0) || (i == 0)) {
                         tmpArray.add(array.get(i));
                     }
                 }
-                array.setArray(tmpArray.toArray(new Integer[tmpArray.getLength()]));
+                array.setArray(tmpArray.toArray(new int[tmpArray.size()]));
             }
         }
     };

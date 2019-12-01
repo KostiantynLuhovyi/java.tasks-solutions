@@ -1,12 +1,14 @@
-package com.lugowoy.tasks.onedimensional.determineTimeOfStayOfCustomerInQueue;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.determineTimeOfStayOfCustomerInQueue;
 
-import com.lugowoy.helper.other.DeepCloning;
+import com.rits.cloning.Cloner;
 
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
-/** Created by Konstantin Lugowoy on 16.03.2017. */
+/**
+ * Created by Konstantin Lugowoy on 16.03.2017.
+ */
 public class Customer implements Serializable, Cloneable {
 
     private static final AtomicInteger ATOMIC_INTEGER = new AtomicInteger();
@@ -48,7 +50,7 @@ public class Customer implements Serializable, Cloneable {
         try {
             customer = (Customer) super.clone();
             customer.idCustomer = this.getIdCustomer();
-            customer.nameCustomer = DeepCloning.CLONER.deepClone(this.getNameCustomer());
+            customer.nameCustomer = new Cloner().deepClone(this.getNameCustomer());
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }

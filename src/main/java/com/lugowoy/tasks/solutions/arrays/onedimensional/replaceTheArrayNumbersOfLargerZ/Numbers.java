@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.onedimensional.replaceTheArrayNumbersOfLargerZ;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.replaceTheArrayNumbersOfLargerZ;
 
 /**Created by Konstantin Lugowoy on 13-Feb-17.*/
 

@@ -1,2 +1,0 @@
-In a one-dimensional array, rearrange the elements so that negative elements are first located, then zero, and then positive.
-The relative arrangement of the elements does not change.

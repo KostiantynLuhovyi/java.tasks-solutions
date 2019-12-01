@@ -1,10 +1,12 @@
-package com.lugowoy.tasks.onedimensional.countApplicantsWithAssessmentIsNotAllowedForSecondExam;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.countApplicantsWithAssessmentIsNotAllowedForSecondExam;
 
 import java.io.Serializable;
 
-/** Created by Konstantin Lugowoy on 23-Feb-17. */
+/**
+ * Created by Konstantin Lugowoy on 23-Feb-17.
+ */
 
-public class Applicant implements Serializable {
+public class Applicant implements Serializable, Cloneable {
 
     private int rating;
 

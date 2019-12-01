@@ -1,34 +1,39 @@
-package com.lugowoy.tasks.onedimensional.createArrayOfZeroElementsOfAnotherArray;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.createArrayOfZeroElementsOfAnotherArray;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.CheckerArray;
-import com.lugowoy.helper.other.LengthArray;
+import com.lugowoy.helper.models.storages.arrays.ArrayInts;
+import com.lugowoy.helper.utils.ArrayLengthReader;
+import com.lugowoy.helper.utils.checking.CheckerArray;
 
-import static com.lugowoy.helper.filling.DefaultValuesForFilling.NEGATIVE_INTEGER_BOUND;
-import static com.lugowoy.helper.filling.DefaultValuesForFilling.POSITIVE_INTEGER_BOUND;
+import static com.lugowoy.helper.filling.ValuesToFilling.INT_LOWER_BOUND;
+import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 
-/**Created by Konstantin Lugowoy on 12-Feb-17.*/
+/**
+ * There are zero elements in an integer array. Create an array of the index of these elements.
+ *
+ * <p>Created by Konstantin Lugowoy on 12-Feb-17.
+ */
 
 public class Main {
 
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthArray.getLengthOfArray(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> originalIntegerArray = Array.create(new FillingArrayRandomIntegerNumbers().fill(lengthOfArray, NEGATIVE_INTEGER_BOUND,
-                                                                                                                      POSITIVE_INTEGER_BOUND));
+        FillingArrayRandomPrimitiveIntegers filler = new FillingArrayRandomPrimitiveIntegers();
+
+        ArrayInts originalIntegerArray = new ArrayInts(filler.fill(lengthOfArray, INT_LOWER_BOUND, INT_UPPER_BOUND));
 
         System.out.println("Elements of of the original array : " + originalIntegerArray);
         System.out.println();
 
-        Array<Integer> integerArrayIndexZero = FILLING.fillArray(originalIntegerArray);
+        ArrayInts integerArrayIndexZero = FILLING.fillArray(originalIntegerArray);
 
         System.out.print("Index of zero elements of the original array : ");
-        if (integerArrayIndexZero.getLength() != 0) {
-            for (int i = 0; i < integerArrayIndexZero.getLength(); i++) {
+        if (integerArrayIndexZero.size() != 0) {
+            for (int i = 0; i < integerArrayIndexZero.size(); i++) {
                 System.out.print(integerArrayIndexZero.get(i) + " ");
             }
         } else {
@@ -38,13 +43,11 @@ public class Main {
     }
 
     private static final Filling FILLING = originalArray -> {
-        Array<Integer> tmpArray = Array.create(0);
-        if (CheckerArray.checkArrayNonNull(originalArray)) {
-            if (CheckerArray.checkLengthOfArrayIsGreaterZero(originalArray.getLength())) {
-                for (int i = 0; i < originalArray.getLength(); i++) {
-                    if (originalArray.get(i) == 0) {
-                        tmpArray.add(i);
-                    }
+        ArrayInts tmpArray = new ArrayInts();
+        if (CheckerArray.checkLengthInArray(originalArray)) {
+            for (int i = 0; i < originalArray.size(); i++) {
+                if (originalArray.get(i) == 0) {
+                    tmpArray.add(i);
                 }
             }
         }

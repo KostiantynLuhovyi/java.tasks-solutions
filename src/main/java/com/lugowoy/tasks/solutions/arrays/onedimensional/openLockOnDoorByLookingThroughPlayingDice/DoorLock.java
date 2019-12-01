@@ -1,9 +1,11 @@
-package com.lugowoy.tasks.onedimensional.openLockOnDoorByLookingThroughPlayingDice;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.openLockOnDoorByLookingThroughPlayingDice;
 
 import java.util.Arrays;
 import java.util.Random;
 
-/** Created by Konstantin Lugowoy on 27.03.2017. */
+/**
+ * Created by Konstantin Lugowoy on 27.03.2017.
+ */
 
 public class DoorLock {
 
@@ -14,7 +16,7 @@ public class DoorLock {
     public DoorLock() {
         Random random = new Random();
         for (int i = 0; i < 2; i++) {
-            playingDices[random.nextInt(10)] = new PlayingDice((int)(Math.random() * 6) + 1);
+            playingDices[random.nextInt(10)] = new PlayingDice((int) (Math.random() * 6) + 1);
         }
     }
 

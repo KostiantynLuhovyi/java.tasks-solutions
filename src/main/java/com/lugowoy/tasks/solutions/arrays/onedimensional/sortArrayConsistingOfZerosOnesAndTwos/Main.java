@@ -1,11 +1,16 @@
-package com.lugowoy.tasks.onedimensional.sortArrayConsistingOfZerosOnesAndTwos;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.sortArrayConsistingOfZerosOnesAndTwos;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.LengthArray;
+import com.lugowoy.helper.models.storages.arrays.ArrayInts;
+import com.lugowoy.helper.utils.ArrayLengthReader;
 
-/** Created by Konstantin Lugowoy on 17.06.2017. */
+/**
+ * In the array, each element is 0, 1, 2.
+ * Rearrange the elements of the array so that all zeros are first, then all the ones, and finally all the deuces.
+ *
+ * <p> Created by Konstantin Lugowoy on 17.06.2017.
+ */
 
 public class Main {
 
@@ -14,13 +19,13 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthArray.getLengthOfArray(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> array = Array.create(new FillingArrayRandomIntegerNumbers().fill(lengthOfArray, BOUND));
+        ArrayInts array = new ArrayInts(new FillingArrayRandomPrimitiveIntegers().fill(lengthOfArray, BOUND));
 
         System.out.println("Original " + array);
 
-        Sorting<Array<Integer>> sorting = Sorting::sortArray;
+        Sorting<ArrayInts> sorting = Sorting::sortArray;
         sorting.sort(array);
 
         System.out.println("After sort " + array);

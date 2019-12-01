@@ -1,13 +1,18 @@
-package com.lugowoy.tasks.onedimensional.interchangeElementsStandingOnOddAndEvenPositionsInArray;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.interchangeElementsStandingOnOddAndEvenPositionsInArray;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
 
 import java.util.Arrays;
 
-import static com.lugowoy.helper.filling.DefaultValuesForFilling.NEGATIVE_INTEGER_BOUND;
-import static com.lugowoy.helper.filling.DefaultValuesForFilling.POSITIVE_INTEGER_BOUND;
+import static com.lugowoy.helper.filling.ValuesToFilling.INT_LOWER_BOUND;
+import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 
-/** Created by Konstantin Lugowoy on 22-Feb-17. */
+/**
+ * The specified one-dimensional array interchange the adjacent elements standing on even places,
+ * with standing on the odd elements.
+ *
+ * <p> Created by Konstantin Lugowoy on 22-Feb-17.
+ */
 
 public class Main {
 
@@ -16,10 +21,7 @@ public class Main {
     public static void main(String[] args) {
 
         Numbers numbers = new Numbers();
-        numbers.setNumbers(Arrays.stream(new FillingArrayRandomIntegerNumbers().fill(LENGTH_ARRAY, NEGATIVE_INTEGER_BOUND,
-                                                                                                   POSITIVE_INTEGER_BOUND))
-                                 .mapToInt(Integer::intValue)
-                                 .toArray());
+        numbers.setNumbers(new FillingArrayRandomPrimitiveIntegers().fill(LENGTH_ARRAY, INT_LOWER_BOUND, INT_UPPER_BOUND));
 
         System.out.println("Original array : ");
         Arrays.stream(numbers.getNumbers()).forEachOrdered(value -> System.out.print(value + " "));
@@ -29,7 +31,7 @@ public class Main {
 
         System.out.println("Array after exchange of places of elements of even and odd positions : ");
         Arrays.stream(numbers.getNumbers()).forEachOrdered(value -> System.out.print(value + " "));
-        
+
     }
 
     private static final Interchanging INTERCHANGING = numbers -> {

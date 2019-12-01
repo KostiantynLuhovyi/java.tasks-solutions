@@ -1,11 +1,10 @@
-package com.lugowoy.tasks.onedimensional.determineEquilibriumBetweenWeightOfSubjects;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.determineEquilibriumBetweenWeightOfSubjects;
 
 import com.lugowoy.helper.filling.array.FillingArray;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.CheckerArray;
-
-import static com.lugowoy.helper.filling.array.CheckerFillingArray.checkNonNullArray;
-import static com.lugowoy.helper.models.Array.DEFAULT_LENGTH_ARRAY;
+import com.lugowoy.helper.models.storages.arrays.AbstractArray;
+import com.lugowoy.helper.models.storages.arrays.Array;
+import com.lugowoy.helper.utils.checking.CheckerArray;
+import com.lugowoy.tasks.solutions.arrays.onedimensional.determineEquilibriumBetweenWeightOfSubjects.Subject;
 
 /**
  * Created by Konstantin Lugowoy on 27.05.2018.
@@ -43,12 +42,9 @@ public class FillingArraySubjects implements FillingArray<Subject> {
      * @throws IllegalArgumentException If object of the {@link Array} class argument is null.
      * */
     @Override
-    public void fill(Array<Subject> array) throws IllegalArgumentException {
-        //todo delete exception
-        if (checkNonNullArray(array)) {
+    public void fill(Array<Subject> array) {
+        if (CheckerArray.checkLengthInArray(array)) {
             this.initializeArrayElements(array, this.numbersArray);
-        } else {
-            throw new IllegalArgumentException(new NullPointerException("The argument object is null."));
         }
     }
 
@@ -60,12 +56,9 @@ public class FillingArraySubjects implements FillingArray<Subject> {
      * @throws IllegalArgumentException If the array argument is null.
      * */
     @Override
-    public void fill(Subject[] subjects) throws IllegalArgumentException {
-        //todo delete exception
-        if (subjects != null) {
-            this.initializeArrayElements(Array.create(subjects), this.numbersArray);
-        } else {
-            throw new IllegalArgumentException(new NullPointerException("The argument array is null."));
+    public void fill(Subject[] subjects) {
+        if (CheckerArray.checkLengthInArray(subjects)) {
+            this.initializeArrayElements(new Array<>(subjects), this.numbersArray);
         }
     }
 
@@ -73,7 +66,7 @@ public class FillingArraySubjects implements FillingArray<Subject> {
      * Fills an array with data of the object of the {@link Subject} class.
      * <p>The array is created based on the "lengthArray" parameter.
      * The parameter "lengthArray" determines the length(size) of the created array.
-     * If the value of "lengthArray" is less than "0" or is greatest than "32767", created array of length {@link Array#DEFAULT_LENGTH_ARRAY}.
+     * If the value of "lengthArray" is less than "0" or is greatest than "32767", created array of length {@link Array#DEFAULT_LENGTH}.
      *
      * @param lengthArray The length(size) of the array to be filled with data of the object of the {@link Subject} class type.
      *
@@ -82,19 +75,19 @@ public class FillingArraySubjects implements FillingArray<Subject> {
     @Override
     public Subject[] fill(int lengthArray) {
         Subject[] subjects;
-        if (CheckerArray.checkLengthOfArrayIsEqualToOrGreaterThanZero(lengthArray)) {
+        if (CheckerArray.checkLengthArray(lengthArray)) {
             subjects = new Subject[lengthArray];
-            this.initializeArrayElements(Array.create(subjects), this.numbersArray);
+            this.initializeArrayElements(new Array<>(subjects), this.numbersArray);
         } else {
-            subjects = new Subject[DEFAULT_LENGTH_ARRAY];
-            this.initializeArrayElements(Array.create(subjects), this.numbersArray);
+            subjects = new Subject[AbstractArray.DEFAULT_LENGTH];
+            this.initializeArrayElements(new Array<>(subjects), this.numbersArray);
         }
         return subjects;
     }
 
     private void initializeArrayElements(Array<Subject> subjectArray, Array<Integer> numbersArray) {
         int idCounter = 1;
-        for (int i = 0; i < subjectArray.getLength(); i++) {
+        for (int i = 0; i < subjectArray.size(); i++) {
             subjectArray.set(i, new Subject(idCounter, numbersArray.get(i)));
         }
     }

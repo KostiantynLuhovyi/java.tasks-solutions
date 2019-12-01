@@ -1,8 +1,15 @@
-package com.lugowoy.tasks.onedimensional.determineNumberOfPairsOfPointsDistanceBetweenWhichIsMaximally;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.determineNumberOfPairsOfPointsDistanceBetweenWhichIsMaximally;
+
+import com.lugowoy.helper.models.points.Point2D;
 
 import java.util.Arrays;
 
-/** Created by Konstantin Lugowoy on 27.03.2017. */
+/**
+ * The coordinates of n points on the plane are given: (X1, Y2), ..., (Xn, Yn) (n ≤ 40).
+ * Find the number of pairs of points, the distance between which is maximally (assume that such a pair is unique).
+ *
+ * <p> Created by Konstantin Lugowoy on 27.03.2017.
+ */
 
 public class Main {
 
@@ -12,23 +19,23 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Point[] pointsArray = new Point[NUMBER_OF_POINTS];
+        Point2D<Double>[] pointsArray = new Point2D[NUMBER_OF_POINTS];
 
         fill(pointsArray);
 
         System.out.println("Original points array : ");
         Arrays.stream(pointsArray).forEachOrdered(System.out::println);
 
-        Point[] resultPointArray = DETERMINANT.determine(pointsArray);
+        Point2D[] resultPointArray = DETERMINANT.determine(pointsArray);
 
         System.out.println("Result pair of points : ");
         Arrays.stream(resultPointArray).forEachOrdered(System.out::println);
 
     }
 
-    private static void fill(Point[] pointsArray) {
+    private static void fill(Point2D[] pointsArray) {
         for (int i = 0; i < pointsArray.length; i++) {
-            pointsArray[i] = new Point((Math.random() * 40) + 1, (Math.random() * 40) + 1);
+            pointsArray[i] = new Point2D((Math.random() * 40) + 1, (Math.random() * 40) + 1);
         }
     }
 

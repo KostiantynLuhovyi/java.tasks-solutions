@@ -1,6 +1,8 @@
-package com.lugowoy.tasks.onedimensional.determineRingWithCenterAtOriginWhichContainsAllPoints;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.determineRingWithCenterAtOriginWhichContainsAllPoints;
 
-/** Created by Konstantin Lugowoy on 16.05.2017. */
+/**
+ * Created by Konstantin Lugowoy on 16.05.2017.
+ */
 
 @FunctionalInterface
 public interface Determinant<T> {
@@ -22,7 +24,7 @@ public interface Determinant<T> {
                     resultCoordinates[1] = Math.sqrt(resultCoordinates[1]);
                     System.out.printf("The circle containing all points has %.2f the radius " +
                                       "of the inner circle and %.2f the radius of the outer circle.",
-                                                                            resultCoordinates[0], resultCoordinates[1]);
+                                      resultCoordinates[0], resultCoordinates[1]);
                 }
             }
         }

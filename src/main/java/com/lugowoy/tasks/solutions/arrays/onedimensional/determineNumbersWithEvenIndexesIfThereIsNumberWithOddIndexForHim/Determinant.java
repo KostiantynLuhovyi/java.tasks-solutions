@@ -1,25 +1,25 @@
-package com.lugowoy.tasks.onedimensional.determineNumbersWithEvenIndexesIfThereIsNumberWithOddIndexForHim;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.determineNumbersWithEvenIndexesIfThereIsNumberWithOddIndexForHim;
 
-import com.lugowoy.helper.models.Array;
+import com.lugowoy.helper.models.storages.arrays.ArrayInts;
 
-/** Created by Konstantin Lugowoy on 07.05.2018. */
+/**
+ * Created by Konstantin Lugowoy on 07.05.2018.
+ */
 
 @FunctionalInterface
 public interface Determinant {
 
-    void determine(Array<Integer> array);
+    void determine(ArrayInts array);
 
-    static void determineNumbersWithEvenIndexesIfThereIsNumberWithOddIndexForHim(Array<Integer> array) {
+    static void determineNumbersWithEvenIndexesIfThereIsNumberWithOddIndexForHim(ArrayInts array) {
         int counterOfResult = 0;
-        for (int i = 0; i < array.getLength(); i++) {
+        for (int i = 0; i < array.size(); i++) {
             if (checkEvenIndex(i)) {
-                for (int j = 0; j < array.getLength(); j++) {
+                for (int j = 0; j < array.size(); j++) {
                     if (checkOddIndex(j) && checkIndexesNotEqual(i, j)) {
-                        if (array.get(i).compareTo(array.get(j)) == 0) {
-                            System.out.printf("The number %d with even index %d is equal " +
-                                               "to the number %d with an odd index of %d.\n",
-                                                array.get(i), i,
-                                                array.get(j), j);
+                        if (array.get(i) == (array.get(j))) {
+                            System.out.printf("The number %d with even index %d is equal to the number %d with an odd index of %d.\n",
+                                    array.get(i), i, array.get(j), j);
                             counterOfResult++;
                         }
                     }

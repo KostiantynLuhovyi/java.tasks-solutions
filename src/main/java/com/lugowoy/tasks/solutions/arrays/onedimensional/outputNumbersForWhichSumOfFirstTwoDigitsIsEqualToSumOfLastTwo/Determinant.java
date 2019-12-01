@@ -1,6 +1,8 @@
-package com.lugowoy.tasks.onedimensional.outputNumbersForWhichSumOfFirstTwoDigitsIsEqualToSumOfLastTwo;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.outputNumbersForWhichSumOfFirstTwoDigitsIsEqualToSumOfLastTwo;
 
-/** Created by Konstantin Lugowoy on 30.05.2017. */
+/**
+ * Created by Konstantin Lugowoy on 30.05.2017.
+ */
 
 @FunctionalInterface
 public interface Determinant {

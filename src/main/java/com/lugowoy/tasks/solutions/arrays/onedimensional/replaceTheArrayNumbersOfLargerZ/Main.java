@@ -1,31 +1,33 @@
-package com.lugowoy.tasks.onedimensional.replaceTheArrayNumbersOfLargerZ;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.replaceTheArrayNumbersOfLargerZ;
 
-import com.lugowoy.helper.filling.DefaultValuesForFilling;
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.other.LengthArray;
+import com.lugowoy.helper.utils.ArrayLengthReader;
 
 import java.util.Arrays;
 
-import static com.lugowoy.helper.filling.DefaultValuesForFilling.NEGATIVE_INTEGER_BOUND;
-import static com.lugowoy.helper.filling.DefaultValuesForFilling.POSITIVE_INTEGER_BOUND;
+import static com.lugowoy.helper.filling.ValuesToFilling.INT_LOWER_BOUND;
+import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 
-/**Created by Konstantin Lugowoy on 13-Feb-17.*/
+/**
+ * Given a sequence of integer numbers a1, a2, ..., an.
+ * Replace all of its members, of the Z larger, this number. Count the number of substitutions.
+ *
+ * <p> Created by Konstantin Lugowoy on 13-Feb-17.
+ */
 
 public class Main {
 
-    private static final Reader READER = Reader.getReader(new ReadingConsole());
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthArray.getLengthOfArray(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
         Numbers numbersSequence = new Numbers();
-        numbersSequence.setNumbers(Arrays.stream(new FillingArrayRandomIntegerNumbers().fill(lengthOfArray, NEGATIVE_INTEGER_BOUND, POSITIVE_INTEGER_BOUND))
-                                         .mapToInt(Integer::intValue)
-                                         .toArray());
+        numbersSequence.setNumbers(new FillingArrayRandomPrimitiveIntegers().fill(lengthOfArray, INT_LOWER_BOUND, INT_UPPER_BOUND));
 
         System.out.println("Enter number of replace : ");
         int numberToReplace = READER.readInt();

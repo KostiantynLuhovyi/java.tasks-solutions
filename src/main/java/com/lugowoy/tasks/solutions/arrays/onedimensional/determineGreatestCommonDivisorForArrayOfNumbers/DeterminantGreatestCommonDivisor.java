@@ -1,17 +1,17 @@
-package com.lugowoy.tasks.onedimensional.determineGreatestCommonDivisorForArrayOfNumbers;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.determineGreatestCommonDivisorForArrayOfNumbers;
 
-import com.lugowoy.helper.models.Array;
+import com.lugowoy.helper.models.storages.arrays.ArrayInts;
 
 /** Created by Konstantin Lugowoy on 09.05.2018. */
 
 @FunctionalInterface
 public interface DeterminantGreatestCommonDivisor {
 
-    int determine(Array<Integer> array);
+    int determine(ArrayInts array);
 
-    static int determineGreatestCommonDivisor(Array<Integer> array) {
+    static int determineGreatestCommonDivisor(ArrayInts array) {
         int resultValueOfGCD = array.get(0);
-        for (int i = 1; i < array.getLength(); i++) {
+        for (int i = 1; i < array.size(); i++) {
             resultValueOfGCD = determineGCDOfTwoNumbers(resultValueOfGCD, array.get(i));
         }
         return resultValueOfGCD;

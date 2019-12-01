@@ -1,11 +1,13 @@
-package com.lugowoy.tasks.onedimensional.countingNumberOfPeopleWhoseAgeIsInGivenInterval;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.countingNumberOfPeopleWhoseAgeIsInGivenInterval;
 
-import com.lugowoy.helper.other.DeepCloning;
+import com.rits.cloning.Cloner;
 
 import java.io.Serializable;
 import java.util.Objects;
 
-/** Created by Konstantin Lugowoy on 14.05.2017. */
+/**
+ * Created by Konstantin Lugowoy on 14.05.2017.
+ */
 
 public class Human implements Serializable, Cloneable {
 
@@ -13,7 +15,7 @@ public class Human implements Serializable, Cloneable {
     private int age;
 
     public Human() {
-     this.name = "name";
+        this.name = "name";
     }
 
     @Override
@@ -44,7 +46,7 @@ public class Human implements Serializable, Cloneable {
         try {
             human = (Human) super.clone();
             human.setAge(this.getAge());
-            human.name = DeepCloning.CLONER.deepClone(this.name);
+            human.name = new Cloner().deepClone(this.name);
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }
@@ -59,7 +61,6 @@ public class Human implements Serializable, Cloneable {
         this.age = age;
         this.name = this.name + age;
     }
-
 
 
 }

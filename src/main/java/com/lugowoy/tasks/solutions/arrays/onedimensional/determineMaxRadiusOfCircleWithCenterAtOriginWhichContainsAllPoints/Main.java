@@ -1,19 +1,24 @@
-package com.lugowoy.tasks.onedimensional.determineMaxRadiusOfCircleWithCenterAtOriginWhichContainsAllPoints;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.determineMaxRadiusOfCircleWithCenterAtOriginWhichContainsAllPoints;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.other.GeneratorRandomNumber;
+import com.lugowoy.helper.utils.generating.GeneratorRandomNumber;
 
 import java.util.Arrays;
 
-import static com.lugowoy.helper.filling.DefaultValuesForFilling.NEGATIVE_INTEGER_BOUND;
-import static com.lugowoy.helper.filling.DefaultValuesForFilling.POSITIVE_INTEGER_BOUND;
+import static com.lugowoy.helper.filling.ValuesToFilling.INT_LOWER_BOUND;
+import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 
-/** Created by Konstantin Lugowoy on 14.05.2017. */
+/**
+ * In a one-dimensional array with an even number of elements (2N) there are coordinates of N points of the plane.
+ * They are arranged in the following order: x1, y1, x2, y2, x3, y3, etc.
+ * Determine the maximal radius of the circle with the center at the origin, which contains all the points.
+ *
+ * <p>Created by Konstantin Lugowoy on 14.05.2017. */
 
 public class Main {
 
-    private static final Reader READER = Reader.getReader(new ReadingConsole());
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     private static final Determinant DETERMINANT = Determinant::determineTeMaxRadius;
 
@@ -24,15 +29,14 @@ public class Main {
         System.out.println("Enter the number of points to define : ");
         int numberOfPoints = READER.readInt();
 
-        arrayOfCoordinates.setCoordinatesOfPoints(Arrays.stream(new Integer[numberOfPoints * 2])
-                                                        .mapToInt(value -> value = GeneratorRandomNumber.generateInt(NEGATIVE_INTEGER_BOUND,
-                                                                                                                     POSITIVE_INTEGER_BOUND))
-                                                        .toArray());
+        arrayOfCoordinates.setCoorOfPoints(Arrays.stream(new Integer[numberOfPoints * 2])
+                                                 .mapToInt(value -> value = GeneratorRandomNumber.generateInt(INT_LOWER_BOUND, INT_UPPER_BOUND))
+                                                 .toArray());
 
         System.out.println("Coordinates of points : ");
         int countLn = 0;
-        for (int i = 0; i < arrayOfCoordinates.getCoordinatesOfPoints().length; i++) {
-            System.out.print(arrayOfCoordinates.getCoordinatesOfPoints()[i] + " ");
+        for (int i = 0; i < arrayOfCoordinates.getCoorOfPoints().length; i++) {
+            System.out.print(arrayOfCoordinates.getCoorOfPoints()[i] + " ");
             countLn++;
             if (countLn == 2) {
                 System.out.println();

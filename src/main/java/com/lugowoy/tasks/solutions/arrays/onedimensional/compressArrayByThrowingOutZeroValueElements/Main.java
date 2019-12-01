@@ -1,25 +1,31 @@
-package com.lugowoy.tasks.onedimensional.compressArrayByThrowingOutZeroValueElements;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.compressArrayByThrowingOutZeroValueElements;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.CheckerArray;
-import com.lugowoy.helper.other.LengthArray;
+import com.lugowoy.helper.models.storages.arrays.ArrayInts;
+import com.lugowoy.helper.utils.ArrayLengthReader;
+import com.lugowoy.helper.utils.checking.CheckerArray;
 
-import static com.lugowoy.helper.filling.DefaultValuesForFilling.NEGATIVE_INTEGER_BOUND;
-import static com.lugowoy.helper.filling.DefaultValuesForFilling.POSITIVE_INTEGER_BOUND;
+import static com.lugowoy.helper.filling.ValuesToFilling.INT_LOWER_BOUND;
+import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 
-/** Created by Konstantin Lugowoy on 16.03.2017. */
+/**
+ * An array containing integers is specified.
+ * Compress it, throwing out the zero elements.
+ *
+ * <p>Created by Konstantin Lugowoy on 16.03.2017.
+ */
 
 public class Main {
 
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthArray.getLengthOfArray(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> array = Array.create(new FillingArrayRandomIntegerNumbers().fill(lengthOfArray, NEGATIVE_INTEGER_BOUND,
-                                                                                                       POSITIVE_INTEGER_BOUND));
+        FillingArrayRandomPrimitiveIntegers filler = new FillingArrayRandomPrimitiveIntegers();
+
+        ArrayInts array = new ArrayInts(filler.fill(lengthOfArray, INT_LOWER_BOUND, INT_UPPER_BOUND));
 
         System.out.println("Original array : " + array);
         System.out.println();
@@ -32,18 +38,16 @@ public class Main {
 
     private static final Compressing<Integer> COMPRESSING = array -> {
         int numberZeroElements = 0;
-        if (CheckerArray.checkArrayNonNull(array)) {
-            if (CheckerArray.checkLengthOfArrayIsGreaterZero(array.getLength())) {
-                Array<Integer> tmpArray = Array.create(0);
-                for (int i = 0; i < array.getLength(); i++) {
-                    if (array.get(i) != 0) {
-                        tmpArray.add(array.get(i));
-                    } else {
-                        numberZeroElements++;
-                    }
+        if (CheckerArray.checkLengthInArray(array)) {
+            ArrayInts tmpArray = new ArrayInts();
+            for (int i = 0; i < array.size(); i++) {
+                if (array.get(i) != 0) {
+                    tmpArray.add(array.get(i));
+                } else {
+                    numberZeroElements++;
                 }
-                array.setArray(tmpArray.toArray(new Integer[tmpArray.getLength()]));
             }
+            array.setArray(tmpArray.toArray(new int[tmpArray.size()]));
         }
         System.out.printf("Number of zero elements in the array : %d .", numberZeroElements);
         System.out.println();

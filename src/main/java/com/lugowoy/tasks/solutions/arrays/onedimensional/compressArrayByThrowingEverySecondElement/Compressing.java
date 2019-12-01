@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.onedimensional.compressArrayByThrowingEverySecondElement;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.compressArrayByThrowingEverySecondElement;
 
 /** Created by Konstantin Lugowoy on 13.03.2017. */
 

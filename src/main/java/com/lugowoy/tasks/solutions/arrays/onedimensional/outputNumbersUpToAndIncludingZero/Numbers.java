@@ -1,6 +1,8 @@
-package com.lugowoy.tasks.onedimensional.outputNumbersUpToAndIncludingZero;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.outputNumbersUpToAndIncludingZero;
 
-/** Created by Konstantin Lugowoy on 22-Feb-17. */
+/**
+ * Created by Konstantin Lugowoy on 22-Feb-17.
+ */
 
 public class Numbers {
 

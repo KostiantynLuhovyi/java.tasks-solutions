@@ -1,25 +1,23 @@
-package com.lugowoy.tasks.onedimensional.determineNumberOfElementsThatAreIdenticalInTwoSequences;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.determineNumberOfElementsThatAreIdenticalInTwoSequences;
 
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.CheckerArray;
+import com.lugowoy.helper.models.storages.arrays.ArrayInts;
+import com.lugowoy.helper.utils.checking.CheckerArray;
 
-/** Created by Konstantin Lugowoy on 30.05.2017. */
-
+/**
+ * Created by Konstantin Lugowoy on 30.05.2017.
+ */
 @FunctionalInterface
-public interface Determinant<T> {
+public interface Determinant {
 
-    int determine(T firstT, T secondT);
+    int determine(ArrayInts firstArray, ArrayInts secondArray);
 
-    static int determineTheNumberOfElementsThatAreIdenticalInTwoSequences(Array<Integer> firstArray, Array<Integer> secondArray) {
+    static int determineTheNumberOfElementsThatAreIdenticalInTwoSequences(ArrayInts firstArray, ArrayInts secondArray) {
         int resultNumberOfIdenticalElements = 0;
-        if (CheckerArray.checkArrayNonNull(firstArray) && CheckerArray.checkArrayNonNull(secondArray)) {
-            if (CheckerArray.checkLengthOfArrayIsGreaterZero(firstArray.getLength())
-                    && CheckerArray.checkLengthOfArrayIsGreaterZero(secondArray.getLength())) {
-                for (int i = 0; i < firstArray.getLength(); i++) {
-                    for (int j = 0; j < secondArray.getLength(); j++) {
-                        if (firstArray.get(i).intValue() == secondArray.get(j).intValue()) {
-                            resultNumberOfIdenticalElements++;
-                        }
+        if (CheckerArray.checkLengthInArray(firstArray) && CheckerArray.checkLengthInArray(secondArray)) {
+            for (int i = 0; i < firstArray.size(); i++) {
+                for (int j = 0; j < secondArray.size(); j++) {
+                    if (firstArray.get(i) == secondArray.get(j)) {
+                        resultNumberOfIdenticalElements++;
                     }
                 }
             }

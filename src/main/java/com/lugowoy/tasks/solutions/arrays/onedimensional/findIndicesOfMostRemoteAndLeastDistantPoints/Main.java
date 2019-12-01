@@ -1,15 +1,20 @@
-package com.lugowoy.tasks.onedimensional.findIndicesOfMostRemoteAndLeastDistantPoints;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.findIndicesOfMostRemoteAndLeastDistantPoints;
 
-import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.models.Point;
-import com.lugowoy.helper.other.CheckerArray;
-import com.lugowoy.helper.other.GeneratorRandomNumber;
+import com.lugowoy.helper.models.points.Point2D;
+import com.lugowoy.helper.models.storages.arrays.Array;
+import com.lugowoy.helper.utils.checking.CheckerArray;
+import com.lugowoy.helper.utils.generating.GeneratorRandomNumber;
 
 import java.util.Arrays;
 
-/** Created by Konstantin Lugowoy on 03.07.2017. */
+/**
+ * In a one-dimensional array with an even number of elements (2N) there are coordinates of N points of the plane.
+ * They are arranged in the following order: x1, y1, x2, y2, x3, y3, etc.
+ * Find the numbers of the most distant points and the points that are the least distant from each other.
+ *
+ * <p> Created by Konstantin Lugowoy on 03.07.2017.
+ */
 
 public class Main {
 
@@ -17,7 +22,7 @@ public class Main {
 
         int numberPointOfPlane = getNumberQuantityPointsOfPlane();
 
-        Array<Point<Double>> pointsArray = Array.create(numberPointOfPlane);
+        Array<Point2D<Double>> pointsArray = new Array<>(numberPointOfPlane);
 
         fillArrayPoints(pointsArray);
 
@@ -25,7 +30,7 @@ public class Main {
         Arrays.stream(pointsArray.toArray()).forEachOrdered(System.out::println);
         System.out.println();
 
-        Finding<Array<Point<Double>>> finding = Finding::findIndicesOfMaxDistanceBetweenPoints;
+        Finding<Array<Point2D<Double>>> finding = Finding::findIndicesOfMaxDistanceBetweenPoints;
         finding.find(pointsArray);
 
         System.out.println();
@@ -37,7 +42,7 @@ public class Main {
 
     private static int getNumberQuantityPointsOfPlane() {
         System.out.println("Enter the number points of the plane : ");
-        Reader reader = Reader.getReader(new ReadingConsole());
+        ReadingConsole reader = new ReadingConsole();
         int numberQuantityPointOfPlane;
         while (true) {
             numberQuantityPointOfPlane = reader.readInt();
@@ -51,12 +56,12 @@ public class Main {
         return numberQuantityPointOfPlane;
     }
 
-    private static void fillArrayPoints(Array<Point<Double>> pointArray) {
-        if (CheckerArray.checkArrayNonNull(pointArray)) {
-            for (int i = 0; i < pointArray.getLength(); i++) {
+    private static void fillArrayPoints(Array<Point2D<Double>> pointArray) {
+        if (CheckerArray.checkLengthInArray(pointArray)) {
+            for (int i = 0; i < pointArray.size(); i++) {
                 double coordinateX = GeneratorRandomNumber.generateDouble();
                 double coordinateY = GeneratorRandomNumber.generateDouble();
-                pointArray.set(i, Point.create(coordinateX, coordinateY));
+                pointArray.set(i, new Point2D<>(coordinateX, coordinateY));
             }
         }
     }

@@ -1,11 +1,13 @@
-package com.lugowoy.tasks.onedimensional.locateSnailOnTreeAfterThirtyDays.entity;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.locateSnailOnTreeAfterThirtyDays.entity;
 
-import com.lugowoy.helper.other.DeepCloning;
+import com.rits.cloning.Cloner;
 
 import java.io.Serializable;
 import java.util.Objects;
 
-/** Created by Konstantin Lugowoy on 11.05.2017. */
+/**
+ * Created by Konstantin Lugowoy on 11.05.2017.
+ */
 
 public class Tree implements Serializable, Cloneable {
 
@@ -57,7 +59,7 @@ public class Tree implements Serializable, Cloneable {
         try {
             tree = (Tree) super.clone();
             tree.setHeight(this.getHeight());
-            tree.setSnail(DeepCloning.CLONER.deepClone(this.getSnail()));
+            tree.setSnail(new Cloner().deepClone(this.getSnail()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }

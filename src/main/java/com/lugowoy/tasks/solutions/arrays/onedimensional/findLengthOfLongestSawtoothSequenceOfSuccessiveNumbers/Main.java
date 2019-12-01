@@ -1,12 +1,16 @@
-package com.lugowoy.tasks.onedimensional.findLengthOfLongestSawtoothSequenceOfSuccessiveNumbers;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.findLengthOfLongestSawtoothSequenceOfSuccessiveNumbers;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegerNumbers;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.CheckerArray;
-import com.lugowoy.helper.other.LengthArray;
+import com.lugowoy.helper.models.storages.arrays.ArrayInts;
+import com.lugowoy.helper.utils.ArrayLengthReader;
+import com.lugowoy.helper.utils.checking.CheckerArray;
 
-/** Created by Konstantin Lugowoy on 27.06.2017. */
+/**
+ * Find the length of the longest "sawtooth" sequence of successive numbers Xk <Xk + 1> Xk + 2> ...> Xk + m <Xk + m + 1 <... <Xn.
+ *
+ * <p> Created by Konstantin Lugowoy on 27.06.2017.
+ */
 
 public class Main {
 
@@ -15,9 +19,11 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthArray.getLengthOfArray(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> array = Array.create(new FillingArrayRandomIntegerNumbers().fill(lengthOfArray, BOUND));
+        FillingArrayRandomPrimitiveIntegers filler = new FillingArrayRandomPrimitiveIntegers();
+
+        ArrayInts array = new ArrayInts(filler.fill(lengthOfArray, BOUND));
 
         System.out.println("Original " + array);
 
@@ -25,25 +31,23 @@ public class Main {
 
     }
 
-    private static int getLengthSawOfArrayElements(Array<Integer> array) {
+    private static int getLengthSawOfArrayElements(ArrayInts array) {
         int lengthSaw = 0, maxLengthSaw = 0;
         boolean isPrev = false;
-        if (CheckerArray.checkArrayNonNull(array)) {
-            if (CheckerArray.checkLengthOfArrayIsGreaterZero(array.getLength())) {
-                for (int i = 1; i < array.getLength() - 1; i++) {
-                    if ((array.get(i - 1) < array.get(i))
-                            && (array.get(i) > array.get(i + 1))) {
-                        if (isPrev) {
-                            lengthSaw += 2;
-                        } else {
-                            lengthSaw = 3;
-                            isPrev = true;
-                        }
-                        i++;
+        if (CheckerArray.checkLengthInArray(array)) {
+            for (int i = 1; i < array.size() - 1; i++) {
+                if ((array.get(i - 1) < array.get(i))
+                        && (array.get(i) > array.get(i + 1))) {
+                    if (isPrev) {
+                        lengthSaw += 2;
                     } else {
-                        isPrev = false;
-                        maxLengthSaw = Math.max(maxLengthSaw, lengthSaw);
+                        lengthSaw = 3;
+                        isPrev = true;
                     }
+                    i++;
+                } else {
+                    isPrev = false;
+                    maxLengthSaw = Math.max(maxLengthSaw, lengthSaw);
                 }
             }
         }
