@@ -1,15 +1,15 @@
-package com.lugowoy.tasks.printLongestString;
+package com.lugowoy.tasks.solutions.strings.printLongestString;
 
 import com.lugowoy.helper.filling.array.strings.FillingArrayRandomValueStrings;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.LengthReader;
-import com.lugowoy.tasks.printShortestString.Determinant;
+import com.lugowoy.helper.models.storages.arrays.Array;
+import com.lugowoy.helper.utils.ArrayLengthReader;
+import com.lugowoy.tasks.solutions.strings.printShortestString.Determinant;
 
 /**
  * Enter n strings. Find the longest string. Print the string and its length.
- * <p>
- * Created by LugowoyKonstantin on 08.06.2018.
+ *
+ * <p> Created by LugowoyKonstantin on 08.06.2018.
  */
 
 public class Main {
@@ -19,7 +19,7 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthReader.readLength(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
         Array<String> stringArray = new Array<>(new FillingArrayRandomValueStrings("english").fill(lengthOfArray, LENGTH_STRING));
 

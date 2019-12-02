@@ -1,14 +1,15 @@
-package com.lugowoy.tasks.printStringsWhoseLengthIsLessThanAverage;
+package com.lugowoy.tasks.solutions.strings.printStringsWhoseLengthIsLessThanAverage;
 
-import com.lugowoy.helper.filling.array.strings.FillingArrayRandomLengthValueStrings;
+import com.lugowoy.helper.filling.array.strings.FillingArrayRandomLengthStrings;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.LengthReader;
+import com.lugowoy.helper.models.storages.arrays.Array;
+import com.lugowoy.helper.utils.ArrayLengthReader;
+import com.lugowoy.helper.utils.checking.CheckerArray;
 
 /**
  * Print strings whose length is less than the average of the arithmetic length.
- * <p>
- * Created by LugowoyKonstantin on 20.08.2018.
+ *
+ * <p> Created by LugowoyKonstantin on 20.08.2018.
  */
 
 public class Main {
@@ -18,9 +19,9 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthReader.readLength(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
-        Array<String> stringArray = new Array<>(new FillingArrayRandomLengthValueStrings("english").fill(lengthOfArray, LENGTH_STRING));
+        Array<String> stringArray = new Array<>(new FillingArrayRandomLengthStrings("english").fill(lengthOfArray, LENGTH_STRING));
 
         System.out.println("Strings in an array : " + stringArray);
 
@@ -34,20 +35,24 @@ public class Main {
     }
 
     private static void printStringsWhoseLengthIsLessThanAverage(Array<String> stringArray, double valueArithmeticMean) {
-        for (int i = 0; i < stringArray.getLength(); i++) {
-            String value = stringArray.get(i);
-            if (value.length() < valueArithmeticMean) {
-                System.out.print(value + " ");
+        if (CheckerArray.checkLengthInArray(stringArray)) {
+            for (int i = 0; i < stringArray.size(); i++) {
+                String value = stringArray.get(i);
+                if (value.length() < valueArithmeticMean) {
+                    System.out.print(value + " ");
+                }
             }
         }
     }
 
     private static double calculateArithmeticMeanOfLengthsOfAllStrings(Array<String> stringArray) {
         double resultToCalculateArithmeticMean = 0;
-        for (int i = 0; i < stringArray.getLength(); i++) {
-            resultToCalculateArithmeticMean += stringArray.get(i).length();
+        if (CheckerArray.checkLengthInArray(stringArray)) {
+            for (int i = 0; i < stringArray.size(); i++) {
+                resultToCalculateArithmeticMean += stringArray.get(i).length();
+            }
         }
-        return resultToCalculateArithmeticMean / stringArray.getLength();
+        return resultToCalculateArithmeticMean / stringArray.size();
     }
 
 }

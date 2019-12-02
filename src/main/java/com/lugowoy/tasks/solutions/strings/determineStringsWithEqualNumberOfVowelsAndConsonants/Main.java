@@ -1,14 +1,15 @@
-package com.lugowoy.tasks.determineStringsWithEqualNumberOfVowelsAndConsonants;
+package com.lugowoy.tasks.solutions.strings.determineStringsWithEqualNumberOfVowelsAndConsonants;
 
 import com.lugowoy.helper.filling.array.strings.FillingArrayRandomValueStrings;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.LengthReader;
+import com.lugowoy.helper.models.storages.arrays.Array;
+import com.lugowoy.helper.utils.ArrayLengthReader;
+import com.lugowoy.helper.utils.checking.CheckerArray;
 
 /**
  * Determine strings with an equal number of vowels and consonants.
- * <p>
- * Created by LugowoyKonstantin on 19.09.2018.
+ *
+ * <p> Created by LugowoyKonstantin on 19.09.2018.
  */
 
 public class Main {
@@ -16,7 +17,7 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthReader.readLength(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
         System.out.println("Enter length of all strings : ");
         int lengthStrings = new ReadingConsole().readInt();
@@ -36,25 +37,27 @@ public class Main {
         System.out.print("Result : ");
         int countOfVowels = 0, countOfConsonants = 0;
         int countOfStrings = 0;
-        for (int i = 0; i < stringArray.getLength(); i++) {
-            char[] chars = stringArray.get(i).toCharArray();
-            for (int j = 0; j < chars.length; j++) {
-                String str = String.valueOf(chars[j]);
-                if (str.matches("[AaEeIiOoUuYy]")) {
-                    countOfVowels++;
-                } else {
-                    countOfConsonants++;
+        if (CheckerArray.checkLengthInArray(stringArray)) {
+            for (int i = 0; i < stringArray.size(); i++) {
+                char[] chars = stringArray.get(i).toCharArray();
+                for (int j = 0; j < chars.length; j++) {
+                    String str = String.valueOf(chars[j]);
+                    if (str.matches("[AaEeIiOoUuYy]")) {
+                        countOfVowels++;
+                    } else {
+                        countOfConsonants++;
+                    }
                 }
+                if (countOfVowels == countOfConsonants) {
+                    countOfStrings++;
+                    System.out.println(stringArray.get(i) + " ");
+                }
+                countOfVowels = 0;
+                countOfConsonants = 0;
             }
-            if (countOfVowels == countOfConsonants) {
-                countOfStrings++;
-                System.out.println(stringArray.get(i) + " ");
+            if (countOfStrings == 0) {
+                System.out.println("No strings were found with an equal number of vowels and consonants.");
             }
-            countOfVowels = 0;
-            countOfConsonants = 0;
-        }
-        if (countOfStrings == 0) {
-            System.out.println("No strings were found with an equal number of vowels and consonants.");
         }
     }
 
