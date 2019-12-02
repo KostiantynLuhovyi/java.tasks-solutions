@@ -1,7 +1,7 @@
-package com.lugowoy.tasks.writeProgramToGetNumberOfMostFrequentAnswersInQuizAndTheirPercentages.voting;
+package com.lugowoy.tasks.solutions.oop.writeProgramToGetNumberOfMostFrequentAnswersInQuizAndTheirPercentages.voting;
 
-import com.lugowoy.tasks.writeProgramToGetNumberOfMostFrequentAnswersInQuizAndTheirPercentages.models.Option;
-import com.lugowoy.tasks.writeProgramToGetNumberOfMostFrequentAnswersInQuizAndTheirPercentages.models.Quiz;
+import com.lugowoy.tasks.solutions.oop.writeProgramToGetNumberOfMostFrequentAnswersInQuizAndTheirPercentages.models.Option;
+import com.lugowoy.tasks.solutions.oop.writeProgramToGetNumberOfMostFrequentAnswersInQuizAndTheirPercentages.models.Quiz;
 
 import java.util.Random;
 

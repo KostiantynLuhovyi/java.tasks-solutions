@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.models;
+package com.lugowoy.tasks.solutions.oop.calculationOfAmountOfPaintNeededToPaintRoom.models;
 
 import com.rits.cloning.Cloner;
 
@@ -6,7 +6,9 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
-/**Created by LugowoyKonstantin on 17-Feb-17.*/
+/**
+ * Created by LugowoyKonstantin on 17-Feb-17.
+ */
 
 public class Room implements Serializable, Cloneable {
 

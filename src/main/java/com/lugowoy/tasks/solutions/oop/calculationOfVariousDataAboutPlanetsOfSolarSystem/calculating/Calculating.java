@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculationOfVariousDataAboutPlanetsOfSolarSystem.calculating;
+package com.lugowoy.tasks.solutions.oop.calculationOfVariousDataAboutPlanetsOfSolarSystem.calculating;
 
 import java.util.Collection;
 

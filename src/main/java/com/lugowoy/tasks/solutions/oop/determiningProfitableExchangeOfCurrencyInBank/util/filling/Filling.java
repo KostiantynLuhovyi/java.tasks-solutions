@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.util.filling;
+package com.lugowoy.tasks.solutions.oop.determiningProfitableExchangeOfCurrencyInBank.util.filling;
 
 import java.util.List;
 

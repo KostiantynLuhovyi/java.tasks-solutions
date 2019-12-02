@@ -1,14 +1,14 @@
-package com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank;
+package com.lugowoy.tasks.solutions.oop.determiningProfitableExchangeOfCurrencyInBank;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.determination.DeterminerCurrencyProfitabilityOfBanksList;
-import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.models.Bank;
-import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.models.Currency;
-import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.models.TypeOfCurrency;
-import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.util.filling.Filling;
-import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.util.filling.FillingBankCurrency;
-import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.util.filling.FillingBankList;
+import com.lugowoy.tasks.solutions.oop.determiningProfitableExchangeOfCurrencyInBank.determination.DeterminerCurrencyProfitabilityOfBanksList;
+import com.lugowoy.tasks.solutions.oop.determiningProfitableExchangeOfCurrencyInBank.models.Bank;
+import com.lugowoy.tasks.solutions.oop.determiningProfitableExchangeOfCurrencyInBank.models.Currency;
+import com.lugowoy.tasks.solutions.oop.determiningProfitableExchangeOfCurrencyInBank.models.TypeOfCurrency;
+import com.lugowoy.tasks.solutions.oop.determiningProfitableExchangeOfCurrencyInBank.util.filling.Filling;
+import com.lugowoy.tasks.solutions.oop.determiningProfitableExchangeOfCurrencyInBank.util.filling.FillingBankCurrency;
+import com.lugowoy.tasks.solutions.oop.determiningProfitableExchangeOfCurrencyInBank.util.filling.FillingBankList;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -18,13 +18,13 @@ import java.util.Objects;
 
 /**
  * Identify the bank from the available for the most beneficial exchange of selected currencies and amounts.
- * <p>
- * Created by LugowoyKonstantin on 09.03.2017.
+ *
+ * <p> Created by LugowoyKonstantin on 09.03.2017.
  */
 
 public class Main {
 
-    private static final Reader READER = Reader.getReader(new ReadingConsole());
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     private static final Filling<Bank> FILLING_BANK = FillingBankList::fillingBankList;
     private static final Filling<Bank> FILLING_CURRENCY = FillingBankCurrency::fillingBankCurrency;

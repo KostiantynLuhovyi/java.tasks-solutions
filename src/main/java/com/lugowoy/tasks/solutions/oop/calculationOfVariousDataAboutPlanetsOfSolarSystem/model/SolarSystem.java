@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculationOfVariousDataAboutPlanetsOfSolarSystem.model;
+package com.lugowoy.tasks.solutions.oop.calculationOfVariousDataAboutPlanetsOfSolarSystem.model;
 
 import java.io.Serializable;
 import java.util.List;

@@ -1,9 +1,9 @@
-package com.lugowoy.tasks.programForCalculatingStudentRequiredFundsForLiving;
+package com.lugowoy.tasks.solutions.oop.programForCalculatingStudentRequiredFundsForLiving;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-import static com.lugowoy.tasks.programForCalculatingStudentRequiredFundsForLiving.PlaceOfResidence.PERCENTAGE_OF_MONTHLY_INCREASE_IN_COST_OF_LIVING;
+import static com.lugowoy.tasks.solutions.oop.programForCalculatingStudentRequiredFundsForLiving.PlaceOfResidence.PERCENTAGE_OF_MONTHLY_INCREASE_IN_COST_OF_LIVING;
 
 /**
  * Created by LugowoyKonstantin on 02.11.2017.

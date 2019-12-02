@@ -1,8 +1,8 @@
-package com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.factory;
+package com.lugowoy.tasks.solutions.oop.calculationOfAmountOfPaintNeededToPaintRoom.factory;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.Reading;
-import com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.models.Window;
+import com.lugowoy.tasks.solutions.oop.calculationOfAmountOfPaintNeededToPaintRoom.models.Window;
 
 import java.math.BigDecimal;
 

@@ -1,8 +1,8 @@
-package com.lugowoy.tasks.determineSuitabilityOfComponent;
+package com.lugowoy.tasks.solutions.oop.determineSuitabilityOfComponent;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.other.GeneratorRandomNumber;
+import com.lugowoy.helper.utils.generating.GeneratorRandomNumber;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -16,7 +16,7 @@ import java.util.Collection;
 
 public class Main {
 
-    private static final Reader reader = Reader.getReader(new ReadingConsole());
+    private static final Reader reader = new Reader(new ReadingConsole());
 
     private static final int CAPACITY = 30;
 
@@ -33,7 +33,7 @@ public class Main {
 
 
         DeterminatorSuitabilityOfComponent determinatorSuitabilityOfComponent =
-                                                  new DeterminatorSuitabilityOfComponent(firstInterval, secondInterval);
+                new DeterminatorSuitabilityOfComponent(firstInterval, secondInterval);
 
         determinatorSuitabilityOfComponent.determineSuitabilityOfComponent(batchOfComponents);
 

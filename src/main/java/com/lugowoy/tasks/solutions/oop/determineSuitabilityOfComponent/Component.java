@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.determineSuitabilityOfComponent;
+package com.lugowoy.tasks.solutions.oop.determineSuitabilityOfComponent;
 
 import java.io.Serializable;
 

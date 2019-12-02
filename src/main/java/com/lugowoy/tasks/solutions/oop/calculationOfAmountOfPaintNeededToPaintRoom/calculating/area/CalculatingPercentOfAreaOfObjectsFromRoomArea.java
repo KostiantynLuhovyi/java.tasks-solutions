@@ -1,6 +1,6 @@
-package com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.calculating.area;
+package com.lugowoy.tasks.solutions.oop.calculationOfAmountOfPaintNeededToPaintRoom.calculating.area;
 
-import com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.models.Room;
+import com.lugowoy.tasks.solutions.oop.calculationOfAmountOfPaintNeededToPaintRoom.models.Room;
 
 import java.math.BigDecimal;
 

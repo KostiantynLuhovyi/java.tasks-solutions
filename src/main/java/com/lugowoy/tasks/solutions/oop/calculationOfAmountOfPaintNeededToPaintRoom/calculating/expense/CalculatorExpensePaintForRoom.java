@@ -1,7 +1,7 @@
-package com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.calculating.expense;
+package com.lugowoy.tasks.solutions.oop.calculationOfAmountOfPaintNeededToPaintRoom.calculating.expense;
 
-import com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.models.Paint;
-import com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.models.Room;
+import com.lugowoy.tasks.solutions.oop.calculationOfAmountOfPaintNeededToPaintRoom.models.Paint;
+import com.lugowoy.tasks.solutions.oop.calculationOfAmountOfPaintNeededToPaintRoom.models.Room;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -15,7 +15,7 @@ public class CalculatorExpensePaintForRoom implements CalculatingExpensePaintFor
     @Override
     public BigDecimal calculateExpensePaintForRoom(Room room, Paint paint) {
         return room.getAreaRoomWithoutAreaDoorsAndWindows().multiply(new BigDecimal(paint.getExpenseOfPaintPerSquareMeter()
-                .doubleValue())).setScale(2, RoundingMode.DOWN);
+                                                           .doubleValue())).setScale(2, RoundingMode.DOWN);
     }
 
 }

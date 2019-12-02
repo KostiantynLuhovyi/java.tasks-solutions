@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.factory;
+package com.lugowoy.tasks.solutions.oop.calculationOfAmountOfPaintNeededToPaintRoom.factory;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.Reading;
@@ -16,7 +16,7 @@ public abstract class FactoryModel<T> {
     }
 
     public FactoryModel(Reading reading) {
-        this.reader = Reader.getReader(reading);
+        this.reader = new Reader(reading);
     }
 
     public Reader getReader() {

@@ -1,7 +1,7 @@
-package com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.determination;
+package com.lugowoy.tasks.solutions.oop.determiningProfitableExchangeOfCurrencyInBank.determination;
 
-import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.models.Bank;
-import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.models.TypeOfCurrency;
+import com.lugowoy.tasks.solutions.oop.determiningProfitableExchangeOfCurrencyInBank.models.Bank;
+import com.lugowoy.tasks.solutions.oop.determiningProfitableExchangeOfCurrencyInBank.models.TypeOfCurrency;
 
 import java.util.List;
 
@@ -11,6 +11,7 @@ import java.util.List;
 
 public interface DeterminatorBestRateForCurrencyExchange extends Determinator {
 
-    Bank determineBankToBestRateForConcreteCurrencyExchange(List<Bank> bankList, TypeOfCurrency fromTypeOfCurrency, TypeOfCurrency inTypeOfCurrency);
+    Bank determineBankToBestRateForConcreteCurrencyExchange(List<Bank> bankList, TypeOfCurrency fromTypeOfCurrency,
+                                                                                 TypeOfCurrency inTypeOfCurrency);
 
 }

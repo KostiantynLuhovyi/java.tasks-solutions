@@ -1,14 +1,14 @@
-package com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom;
+package com.lugowoy.tasks.solutions.oop.calculationOfAmountOfPaintNeededToPaintRoom;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.calculating.area.*;
-import com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.calculating.expense.CalculatingExpensePaintForRoom;
-import com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.calculating.expense.CalculatorExpensePaintForRoom;
-import com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.determination.Determinator;
-import com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.determination.DeterminatorExpensesOfPaintPerSquareMeterOfConcreteSurface;
-import com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.factory.*;
-import com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.models.*;
+import com.lugowoy.tasks.solutions.oop.calculationOfAmountOfPaintNeededToPaintRoom.calculating.area.*;
+import com.lugowoy.tasks.solutions.oop.calculationOfAmountOfPaintNeededToPaintRoom.calculating.expense.CalculatingExpensePaintForRoom;
+import com.lugowoy.tasks.solutions.oop.calculationOfAmountOfPaintNeededToPaintRoom.calculating.expense.CalculatorExpensePaintForRoom;
+import com.lugowoy.tasks.solutions.oop.calculationOfAmountOfPaintNeededToPaintRoom.determination.Determinator;
+import com.lugowoy.tasks.solutions.oop.calculationOfAmountOfPaintNeededToPaintRoom.determination.DeterminatorExpensesOfPaintPerSquareMeterOfConcreteSurface;
+import com.lugowoy.tasks.solutions.oop.calculationOfAmountOfPaintNeededToPaintRoom.factory.*;
+import com.lugowoy.tasks.solutions.oop.calculationOfAmountOfPaintNeededToPaintRoom.models.*;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -20,13 +20,13 @@ import java.util.List;
  * Calculate how much paint will go to painting the walls of this room,
  * if there are N liters of paint per 1 m2 of wall and M% of the wall surface is occupied by windows and doors.
  * Also, calculate the total cost of paint, taking into account that one liter of paint costs R UAH.
- * <p>
- * Created by LugowoyKonstantin on 17-Feb-17.
+ *
+ * <p> Created by LugowoyKonstantin on 17-Feb-17.
  */
 
 public class Main {
 
-    private static final Reader READER = Reader.getReader(new ReadingConsole());
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     private static final Factory<Window> FACTORY_WINDOW = new FactoryWindow(READER)::createWindow;
     private static final Factory<Door> FACTORY_DOOR = new FactoryDoor(READER)::createDoor;

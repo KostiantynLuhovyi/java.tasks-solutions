@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.factory;
+package com.lugowoy.tasks.solutions.oop.calculationOfAmountOfPaintNeededToPaintRoom.factory;
 
 /**
  * Created by LugowoyKonstantin on 17-Feb-17.

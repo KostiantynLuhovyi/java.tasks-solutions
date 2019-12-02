@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.writeProgramToGetNumberOfMostFrequentAnswersInQuizAndTheirPercentages.voting;
+package com.lugowoy.tasks.solutions.oop.writeProgramToGetNumberOfMostFrequentAnswersInQuizAndTheirPercentages.voting;
 
 /**
  * Created by LugowoyKonstantin on 10.04.2017.

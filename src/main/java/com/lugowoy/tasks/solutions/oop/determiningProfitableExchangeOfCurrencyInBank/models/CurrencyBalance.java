@@ -1,5 +1,6 @@
-package com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.models;
+package com.lugowoy.tasks.solutions.oop.determiningProfitableExchangeOfCurrencyInBank.models;
 
+import com.lugowoy.tasks.solutions.oop.determiningProfitableExchangeOfCurrencyInBank.models.TypeOfCurrency;
 import com.rits.cloning.Cloner;
 
 import java.io.Serializable;

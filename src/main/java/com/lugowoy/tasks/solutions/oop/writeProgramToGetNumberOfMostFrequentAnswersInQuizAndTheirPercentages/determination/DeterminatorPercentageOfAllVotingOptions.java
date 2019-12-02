@@ -1,7 +1,7 @@
-package com.lugowoy.tasks.writeProgramToGetNumberOfMostFrequentAnswersInQuizAndTheirPercentages.determination;
+package com.lugowoy.tasks.solutions.oop.writeProgramToGetNumberOfMostFrequentAnswersInQuizAndTheirPercentages.determination;
 
-import com.lugowoy.tasks.writeProgramToGetNumberOfMostFrequentAnswersInQuizAndTheirPercentages.models.Option;
-import com.lugowoy.tasks.writeProgramToGetNumberOfMostFrequentAnswersInQuizAndTheirPercentages.models.Quiz;
+import com.lugowoy.tasks.solutions.oop.writeProgramToGetNumberOfMostFrequentAnswersInQuizAndTheirPercentages.models.Option;
+import com.lugowoy.tasks.solutions.oop.writeProgramToGetNumberOfMostFrequentAnswersInQuizAndTheirPercentages.models.Quiz;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -16,8 +16,9 @@ public class DeterminatorPercentageOfAllVotingOptions extends Determinator imple
     public void determinePercentageOfAllVotingOptions(Quiz quiz) {
         for (Option option : quiz.getOptionList()) {
             if (option.getCountChoice() != 0) {
-                option.setPercentageOfOption(new BigDecimal(option.getCountChoice()).divide(new BigDecimal(Quiz.getNumberOfParticipantsInVoting()), 2, RoundingMode.HALF_DOWN)
-                        .multiply(new BigDecimal(100)).doubleValue());
+                option.setPercentageOfOption(new BigDecimal(option.getCountChoice())
+                                                    .divide(new BigDecimal(Quiz.getNumberOfParticipantsInVoting()), 2, RoundingMode.HALF_DOWN)
+                                                        .multiply(new BigDecimal(100)).doubleValue());
             }
         }
     }

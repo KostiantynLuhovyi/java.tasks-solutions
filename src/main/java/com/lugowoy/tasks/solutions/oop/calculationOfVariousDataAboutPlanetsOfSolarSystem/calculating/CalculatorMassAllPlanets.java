@@ -1,6 +1,6 @@
-package com.lugowoy.tasks.calculationOfVariousDataAboutPlanetsOfSolarSystem.calculating;
+package com.lugowoy.tasks.solutions.oop.calculationOfVariousDataAboutPlanetsOfSolarSystem.calculating;
 
-import com.lugowoy.tasks.calculationOfVariousDataAboutPlanetsOfSolarSystem.model.Planet;
+import com.lugowoy.tasks.solutions.oop.calculationOfVariousDataAboutPlanetsOfSolarSystem.model.Planet;
 
 import java.math.BigDecimal;
 import java.util.Collection;

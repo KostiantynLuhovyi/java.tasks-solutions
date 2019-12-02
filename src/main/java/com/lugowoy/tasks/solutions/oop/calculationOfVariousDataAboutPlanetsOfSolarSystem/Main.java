@@ -1,10 +1,10 @@
-package com.lugowoy.tasks.calculationOfVariousDataAboutPlanetsOfSolarSystem;
+package com.lugowoy.tasks.solutions.oop.calculationOfVariousDataAboutPlanetsOfSolarSystem;
 
-import com.lugowoy.tasks.calculationOfVariousDataAboutPlanetsOfSolarSystem.calculating.Calculating;
-import com.lugowoy.tasks.calculationOfVariousDataAboutPlanetsOfSolarSystem.calculating.CalculatorArithmeticMeanOfTheMassesOfAllPlanets;
-import com.lugowoy.tasks.calculationOfVariousDataAboutPlanetsOfSolarSystem.calculating.CalculatorMassAllPlanets;
-import com.lugowoy.tasks.calculationOfVariousDataAboutPlanetsOfSolarSystem.model.DataOfPlanet;
-import com.lugowoy.tasks.calculationOfVariousDataAboutPlanetsOfSolarSystem.model.Planet;
+import com.lugowoy.tasks.solutions.oop.calculationOfVariousDataAboutPlanetsOfSolarSystem.calculating.Calculating;
+import com.lugowoy.tasks.solutions.oop.calculationOfVariousDataAboutPlanetsOfSolarSystem.calculating.CalculatorArithmeticMeanOfTheMassesOfAllPlanets;
+import com.lugowoy.tasks.solutions.oop.calculationOfVariousDataAboutPlanetsOfSolarSystem.calculating.CalculatorMassAllPlanets;
+import com.lugowoy.tasks.solutions.oop.calculationOfVariousDataAboutPlanetsOfSolarSystem.model.DataOfPlanet;
+import com.lugowoy.tasks.solutions.oop.calculationOfVariousDataAboutPlanetsOfSolarSystem.model.Planet;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -12,14 +12,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static com.lugowoy.tasks.calculationOfVariousDataAboutPlanetsOfSolarSystem.model.SolarSystem.PLANETS_IN_THE_SOLAR_SYSTEM;
+import static com.lugowoy.tasks.solutions.oop.calculationOfVariousDataAboutPlanetsOfSolarSystem.model.SolarSystem.PLANETS_IN_THE_SOLAR_SYSTEM;
 
 /**
  * Calculate the total mass of all the planets of the solar system.
  * Calculate the arithmetic mean of the masses of the planets.
  * Then - the mass of each planet in percentages, if we take as 100% the total mass of all the planets.
- * <p>
- * Created by LugowoyKonstantin on 07.03.2017.
+ *
+ * <p> Created by LugowoyKonstantin on 07.03.2017.
  */
 
 public class Main {

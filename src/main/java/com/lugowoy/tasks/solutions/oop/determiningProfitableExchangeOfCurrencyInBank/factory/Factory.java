@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.factory;
+package com.lugowoy.tasks.solutions.oop.determiningProfitableExchangeOfCurrencyInBank.factory;
 
 /**
  * Created by LugowoyKonstantin on 09.03.2017.

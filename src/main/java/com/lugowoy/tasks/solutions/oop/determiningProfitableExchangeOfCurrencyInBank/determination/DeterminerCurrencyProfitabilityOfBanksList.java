@@ -1,9 +1,9 @@
-package com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.determination;
+package com.lugowoy.tasks.solutions.oop.determiningProfitableExchangeOfCurrencyInBank.determination;
 
-import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.models.Bank;
-import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.models.Currency;
-import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.models.CurrencyRate;
-import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.models.TypeOfCurrency;
+import com.lugowoy.tasks.solutions.oop.determiningProfitableExchangeOfCurrencyInBank.models.Bank;
+import com.lugowoy.tasks.solutions.oop.determiningProfitableExchangeOfCurrencyInBank.models.Currency;
+import com.lugowoy.tasks.solutions.oop.determiningProfitableExchangeOfCurrencyInBank.models.CurrencyRate;
+import com.lugowoy.tasks.solutions.oop.determiningProfitableExchangeOfCurrencyInBank.models.TypeOfCurrency;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

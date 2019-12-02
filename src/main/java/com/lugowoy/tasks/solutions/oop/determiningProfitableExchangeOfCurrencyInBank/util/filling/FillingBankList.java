@@ -1,8 +1,8 @@
-package com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.util.filling;
+package com.lugowoy.tasks.solutions.oop.determiningProfitableExchangeOfCurrencyInBank.util.filling;
 
-import com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.factory.Factory;
-import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.factory.FactoryBank;
-import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.models.Bank;
+import com.lugowoy.tasks.solutions.oop.determiningProfitableExchangeOfCurrencyInBank.factory.Factory;
+import com.lugowoy.tasks.solutions.oop.determiningProfitableExchangeOfCurrencyInBank.factory.FactoryBank;
+import com.lugowoy.tasks.solutions.oop.determiningProfitableExchangeOfCurrencyInBank.models.Bank;
 
 import java.util.List;
 

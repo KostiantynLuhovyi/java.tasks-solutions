@@ -1,7 +1,7 @@
-package com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.determination;
+package com.lugowoy.tasks.solutions.oop.calculationOfAmountOfPaintNeededToPaintRoom.determination;
 
-import com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.models.TypeOfPaint;
-import com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.models.TypeOfSurface;
+import com.lugowoy.tasks.solutions.oop.calculationOfAmountOfPaintNeededToPaintRoom.models.TypeOfPaint;
+import com.lugowoy.tasks.solutions.oop.calculationOfAmountOfPaintNeededToPaintRoom.models.TypeOfSurface;
 
 import java.math.BigDecimal;
 

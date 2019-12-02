@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.programForCalculatingStudentRequiredFundsForLiving;
+package com.lugowoy.tasks.solutions.oop.programForCalculatingStudentRequiredFundsForLiving;
 
 import com.rits.cloning.Cloner;
 

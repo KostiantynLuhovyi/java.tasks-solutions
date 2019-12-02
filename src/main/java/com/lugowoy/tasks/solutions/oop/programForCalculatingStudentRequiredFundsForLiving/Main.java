@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.programForCalculatingStudentRequiredFundsForLiving;
+package com.lugowoy.tasks.solutions.oop.programForCalculatingStudentRequiredFundsForLiving;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
@@ -10,13 +10,13 @@ import java.math.BigDecimal;
  * The price increase monthly increases expenses by 3%.
  * Make a program for calculating the amount of money that you need to ask at a time
  * from your parents so that you can live an academic year (10 months), using only this money and a stipend.
- * <p>
- * Created by LugowoyKonstantin on 02.11.2017.
+ *
+ * <p> Created by LugowoyKonstantin on 02.11.2017.
  */
 
 public class Main {
 
-    private static final Reader READER = Reader.getReader(new ReadingConsole());
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     public static void main(String[] args) {
 

@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.determineSuitabilityOfComponent;
+package com.lugowoy.tasks.solutions.oop.determineSuitabilityOfComponent;
 
 /**
  * Created by LugowoyKonstantin on 07.03.2017.

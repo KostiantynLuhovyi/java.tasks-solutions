@@ -1,6 +1,6 @@
-package com.lugowoy.tasks.programForCalculatingStudentRequiredFundsForLiving;
+package com.lugowoy.tasks.solutions.oop.programForCalculatingStudentRequiredFundsForLiving;
 
-import com.lugowoy.helper.other.GeneratorRandomNumber;
+import com.lugowoy.helper.utils.generating.GeneratorRandomNumber;
 
 import java.io.Serializable;
 

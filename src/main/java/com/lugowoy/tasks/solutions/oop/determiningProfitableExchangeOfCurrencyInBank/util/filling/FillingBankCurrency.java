@@ -1,16 +1,14 @@
-package com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.util.filling;
+package com.lugowoy.tasks.solutions.oop.determiningProfitableExchangeOfCurrencyInBank.util.filling;
 
-import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.calculating.CalculatingCurrencyRate;
-import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.factory.Factory;
-import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.factory.FactoryCurrency;
-import com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.models.*;
+import com.lugowoy.tasks.solutions.oop.determiningProfitableExchangeOfCurrencyInBank.calculating.CalculatingCurrencyRate;
+import com.lugowoy.tasks.solutions.oop.determiningProfitableExchangeOfCurrencyInBank.factory.Factory;
+import com.lugowoy.tasks.solutions.oop.determiningProfitableExchangeOfCurrencyInBank.factory.FactoryCurrency;
+import com.lugowoy.tasks.solutions.oop.determiningProfitableExchangeOfCurrencyInBank.models.*;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.lugowoy.tasks.determiningProfitableExchangeOfCurrencyInBank.models.CurrencyRate.Rate;
 
 /**
  * Created by LugowoyKonstantin on 09.03.2017.
@@ -56,27 +54,27 @@ public abstract class FillingBankCurrency {
         switch (currency.getTypeOfCurrency()) {
             case UAH:
                 fillingAndSetCurrencyRateList(currencyRateList,
-                        new CurrencyRate(TypeOfCurrency.USD, calculatingCurrencyRate.calculateRate(Rate.UAH_TO_USD_AND_USD_TO_UAH)),
-                        new CurrencyRate(TypeOfCurrency.EUR, calculatingCurrencyRate.calculateRate(Rate.UAH_TO_EUR_AND_EUR_TO_UAH)),
-                        new CurrencyRate(TypeOfCurrency.RUB, calculatingCurrencyRate.calculateRate(Rate.UAH_TO_RUB_AND_RUB_TO_UAH)));
+                        new CurrencyRate(TypeOfCurrency.USD, calculatingCurrencyRate.calculateRate(CurrencyRate.Rate.UAH_TO_USD_AND_USD_TO_UAH)),
+                        new CurrencyRate(TypeOfCurrency.EUR, calculatingCurrencyRate.calculateRate(CurrencyRate.Rate.UAH_TO_EUR_AND_EUR_TO_UAH)),
+                        new CurrencyRate(TypeOfCurrency.RUB, calculatingCurrencyRate.calculateRate(CurrencyRate.Rate.UAH_TO_RUB_AND_RUB_TO_UAH)));
                 break;
             case USD:
                 fillingAndSetCurrencyRateList(currencyRateList,
-                        new CurrencyRate(TypeOfCurrency.EUR, calculatingCurrencyRate.calculateRate(Rate.USD_TO_EUR_AND_EUR_TO_USD)),
-                        new CurrencyRate(TypeOfCurrency.UAH, calculatingCurrencyRate.calculateRate(Rate.UAH_TO_USD_AND_USD_TO_UAH)),
-                        new CurrencyRate(TypeOfCurrency.RUB, calculatingCurrencyRate.calculateRate(Rate.RUB_TO_USD_AND_USD_TO_RUB)));
+                        new CurrencyRate(TypeOfCurrency.EUR, calculatingCurrencyRate.calculateRate(CurrencyRate.Rate.USD_TO_EUR_AND_EUR_TO_USD)),
+                        new CurrencyRate(TypeOfCurrency.UAH, calculatingCurrencyRate.calculateRate(CurrencyRate.Rate.UAH_TO_USD_AND_USD_TO_UAH)),
+                        new CurrencyRate(TypeOfCurrency.RUB, calculatingCurrencyRate.calculateRate(CurrencyRate.Rate.RUB_TO_USD_AND_USD_TO_RUB)));
                 break;
             case EUR:
                 fillingAndSetCurrencyRateList(currencyRateList,
-                        new CurrencyRate(TypeOfCurrency.USD, calculatingCurrencyRate.calculateRate(Rate.USD_TO_EUR_AND_EUR_TO_USD)),
-                        new CurrencyRate(TypeOfCurrency.UAH, calculatingCurrencyRate.calculateRate(Rate.UAH_TO_EUR_AND_EUR_TO_UAH)),
-                        new CurrencyRate(TypeOfCurrency.RUB, calculatingCurrencyRate.calculateRate(Rate.RUB_TO_EUR_AND_EUR_TO_RUB)));
+                        new CurrencyRate(TypeOfCurrency.USD, calculatingCurrencyRate.calculateRate(CurrencyRate.Rate.USD_TO_EUR_AND_EUR_TO_USD)),
+                        new CurrencyRate(TypeOfCurrency.UAH, calculatingCurrencyRate.calculateRate(CurrencyRate.Rate.UAH_TO_EUR_AND_EUR_TO_UAH)),
+                        new CurrencyRate(TypeOfCurrency.RUB, calculatingCurrencyRate.calculateRate(CurrencyRate.Rate.RUB_TO_EUR_AND_EUR_TO_RUB)));
                 break;
             case RUB:
                 fillingAndSetCurrencyRateList(currencyRateList,
-                        new CurrencyRate(TypeOfCurrency.USD, calculatingCurrencyRate.calculateRate(Rate.RUB_TO_USD_AND_USD_TO_RUB)),
-                        new CurrencyRate(TypeOfCurrency.EUR, calculatingCurrencyRate.calculateRate(Rate.RUB_TO_EUR_AND_EUR_TO_RUB)),
-                        new CurrencyRate(TypeOfCurrency.UAH, calculatingCurrencyRate.calculateRate(Rate.UAH_TO_RUB_AND_RUB_TO_UAH)));
+                        new CurrencyRate(TypeOfCurrency.USD, calculatingCurrencyRate.calculateRate(CurrencyRate.Rate.RUB_TO_USD_AND_USD_TO_RUB)),
+                        new CurrencyRate(TypeOfCurrency.EUR, calculatingCurrencyRate.calculateRate(CurrencyRate.Rate.RUB_TO_EUR_AND_EUR_TO_RUB)),
+                        new CurrencyRate(TypeOfCurrency.UAH, calculatingCurrencyRate.calculateRate(CurrencyRate.Rate.UAH_TO_RUB_AND_RUB_TO_UAH)));
                 break;
         }
     }

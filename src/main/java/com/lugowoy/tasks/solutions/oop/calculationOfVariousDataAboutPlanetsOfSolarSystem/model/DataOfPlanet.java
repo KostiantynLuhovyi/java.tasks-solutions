@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculationOfVariousDataAboutPlanetsOfSolarSystem.model;
+package com.lugowoy.tasks.solutions.oop.calculationOfVariousDataAboutPlanetsOfSolarSystem.model;
 
 /**
  * Created by LugowoyKonstantin on 07.03.2017.

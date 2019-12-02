@@ -1,6 +1,6 @@
-package com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.calculating.area;
+package com.lugowoy.tasks.solutions.oop.calculationOfAmountOfPaintNeededToPaintRoom.calculating.area;
 
-import com.lugowoy.tasks.calculationOfAmountOfPaintNeededToPaintRoom.models.Room;
+import com.lugowoy.tasks.solutions.oop.calculationOfAmountOfPaintNeededToPaintRoom.models.Room;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -9,8 +9,7 @@ import java.math.RoundingMode;
  * Created by LugowoyKonstantin on 06.03.2017.
  */
 
-public class CalculatorPercentOfAreaOfDoorsFromRoomArea
-        implements CalculatingPercentOfAreaOfObjectsFromRoomArea {
+public class CalculatorPercentOfAreaOfDoorsFromRoomArea implements CalculatingPercentOfAreaOfObjectsFromRoomArea {
 
     @Override
     public BigDecimal calculatePercentage(Room room) {

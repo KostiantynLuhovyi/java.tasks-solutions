@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculationOfVariousDataAboutPlanetsOfSolarSystem.model;
+package com.lugowoy.tasks.solutions.oop.calculationOfVariousDataAboutPlanetsOfSolarSystem.model;
 
 import com.rits.cloning.Cloner;
 
