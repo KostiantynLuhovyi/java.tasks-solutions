@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculateRootOfLinearEquation;
+package com.lugowoy.tasks.solutions.core.calculateRootOfLinearEquation;
 
 import com.lugowoy.helper.calculating.CalculationOneParameter;
 import com.lugowoy.helper.io.reading.Reader;
@@ -12,7 +12,7 @@ import com.lugowoy.helper.io.reading.ReadingConsole;
 
 public class Main {
 
-    private static final Reader READER = Reader.getReader(new ReadingConsole());
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     public static void main(String[] args) {
 

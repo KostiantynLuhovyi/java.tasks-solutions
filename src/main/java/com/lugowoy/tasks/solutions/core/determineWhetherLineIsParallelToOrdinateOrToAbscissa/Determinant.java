@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.determineWhetherLineIsParallelToOrdinateOrToAbscissa;
+package com.lugowoy.tasks.solutions.core.determineWhetherLineIsParallelToOrdinateOrToAbscissa;
 
 import com.lugowoy.helper.models.points.Point2D;
 

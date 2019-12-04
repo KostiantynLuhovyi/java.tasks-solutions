@@ -1,28 +1,28 @@
-package com.lugowoy.tasks.calculateArithmeticMeanOfNumbers;
+package com.lugowoy.tasks.solutions.core.calculateArithmeticMeanOfNumbers;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayReadDouble;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayReadDoubles;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.LengthReader;
+import com.lugowoy.helper.models.storages.arrays.Array;
+import com.lugowoy.helper.utils.ArrayLengthReader;
 
 /**
  * Write a program that finds the arithmetic mean of the three real numbers.
- * <p>
- * Created by Konstantin Lugowoy on 03-Dec-16.
+ *
+ * <p> Created by Konstantin Lugowoy on 03-Dec-16.
  */
 
 public class Main {
 
-    private static final Reader READER = Reader.getReader(new ReadingConsole());
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     public static void main(String[] args) {
 
         System.out.println("Enter quantity numbers to calculate arithmetic mean of numbers : ");
-        int quantityNumbers = LengthReader.readLength(READER);
+        int quantityNumbers = ArrayLengthReader.readLength(READER);
 
         System.out.println("Enter numbers to calculate : ");
-        Array<Double> array = new Array<>(new FillingArrayReadDouble(READER).fill(quantityNumbers));
+        Array<Double> array = new Array<>(new FillingArrayReadDoubles(READER).fill(quantityNumbers));
 
         System.out.println();
         System.out.println("You entered the numbers : ");
@@ -36,7 +36,7 @@ public class Main {
         for (double number : array) {
             resultArithmeticMeanNumbers += number;
         }
-        resultArithmeticMeanNumbers /= array.getLength();
+        resultArithmeticMeanNumbers /= array.size();
 
         System.out.printf("The arithmetic mean of the entered real numbers equals %f", resultArithmeticMeanNumbers);
 

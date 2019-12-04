@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.identifyTwoIdenticalNumbers;
+package com.lugowoy.tasks.solutions.core.identifyTwoIdenticalNumbers;
 
 import java.io.Serializable;
 import java.util.Objects;

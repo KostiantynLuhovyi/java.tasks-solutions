@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculationOfPiNumberOnBasisOfProductOfNumbers;
+package com.lugowoy.tasks.solutions.core.calculationOfPiNumberOnBasisOfProductOfNumbers;
 
 /**
  * Calculating the number Pi on the basis of the product of numbers.

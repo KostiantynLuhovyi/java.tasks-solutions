@@ -1,7 +1,7 @@
-package com.lugowoy.tasks.calculateDistanceBetweenMostDistantPointsOnLine;
+package com.lugowoy.tasks.solutions.core.calculateDistanceBetweenMostDistantPointsOnLine;
 
 import com.lugowoy.helper.calculating.CalculationTwoParameters;
-import com.lugowoy.helper.filling.array.numbers.FillingArrayReadDouble;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayReadDoubles;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 
 import java.util.Arrays;
@@ -9,8 +9,8 @@ import java.util.Arrays;
 /**
  * Write a program for entering three numbers, as the coordinates of points on a line
  * and calculate the distance between the most distant from each other.
- * <p>
- * Created by Konstantin Lugowoy on 10.07.2017.
+ *
+ * <p> Created by Konstantin Lugowoy on 10.07.2017.
  */
 
 public class Main {
@@ -20,7 +20,7 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter numbers that are the values of points on the line : ");
-        Line<Double> line = new Line<>(new FillingArrayReadDouble(new ReadingConsole()).fill(LENGTH_ARRAY));
+        Line<Double> line = new Line<>(new FillingArrayReadDoubles(new ReadingConsole()).fill(LENGTH_ARRAY));
 
         Determinant<Double> determinator = Determinant::determineMinValueOfPointOnLine;
         line.setValueMinPoint(determinator.determine(line));

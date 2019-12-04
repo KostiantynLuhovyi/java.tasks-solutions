@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculationOfExponent;
+package com.lugowoy.tasks.solutions.core.calculationOfExponent;
 
 /**
  * Calculation of the exponent.

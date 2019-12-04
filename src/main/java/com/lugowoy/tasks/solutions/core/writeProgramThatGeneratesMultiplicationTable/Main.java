@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.writeProgramThatGeneratesMultiplicationTable;
+package com.lugowoy.tasks.solutions.core.writeProgramThatGeneratesMultiplicationTable;
 
 /**
  * Write a program that generates a multiplication table.

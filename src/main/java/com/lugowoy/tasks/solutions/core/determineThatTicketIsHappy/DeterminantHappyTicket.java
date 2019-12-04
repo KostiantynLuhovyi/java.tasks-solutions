@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.determineThatTicketIsHappy;
+package com.lugowoy.tasks.solutions.core.determineThatTicketIsHappy;
 
 /**
  * Created by Konstantin Lugowoy on 18.08.2017.

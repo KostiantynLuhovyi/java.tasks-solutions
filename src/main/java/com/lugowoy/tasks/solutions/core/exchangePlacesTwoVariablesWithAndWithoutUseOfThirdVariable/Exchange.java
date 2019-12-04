@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.exchangePlacesTwoVariablesWithAndWithoutUseOfThirdVariable;
+package com.lugowoy.tasks.solutions.core.exchangePlacesTwoVariablesWithAndWithoutUseOfThirdVariable;
 
 /**
  * Created by Konstantin Lugowoy on 18-Jan-17.

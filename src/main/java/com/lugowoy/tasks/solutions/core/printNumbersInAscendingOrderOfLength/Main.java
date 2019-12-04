@@ -1,9 +1,9 @@
-package com.lugowoy.tasks.printNumbersInAscendingOrderOfLength;
+package com.lugowoy.tasks.solutions.core.printNumbersInAscendingOrderOfLength;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomInteger;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.LengthReader;
+import com.lugowoy.helper.models.storages.arrays.Array;
+import com.lugowoy.helper.utils.ArrayLengthReader;
 
 /**
  * Sort and print the numbers in ascending order of their lengths.
@@ -18,9 +18,9 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthReader.readLength(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> integerArray = new Array<>(new FillingArrayRandomInteger().fill(lengthOfArray, MAX_VALUE));
+        Array<Integer> integerArray = new Array<>(new FillingArrayRandomIntegers().fill(lengthOfArray, MAX_VALUE));
 
         System.out.println("Numbers in an array : " + integerArray);
 
@@ -34,7 +34,7 @@ public class Main {
         boolean toSort = true;
         while (toSort) {
             toSort = false;
-            for (int j = 0; j < integerArray.getLength() - 1; j++) {
+            for (int j = 0; j < integerArray.size() - 1; j++) {
                 if (countDigitOfNumber(integerArray.get(j)) > countDigitOfNumber(integerArray.get(j + 1))) {
                     int tmp = integerArray.get(j + 1);
                     integerArray.set(j + 1, integerArray.get(j));

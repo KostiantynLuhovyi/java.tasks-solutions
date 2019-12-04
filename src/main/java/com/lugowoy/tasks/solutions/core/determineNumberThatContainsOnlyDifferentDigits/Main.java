@@ -1,10 +1,10 @@
-package com.lugowoy.tasks.determineNumberThatContainsOnlyDifferentDigits;
+package com.lugowoy.tasks.solutions.core.determineNumberThatContainsOnlyDifferentDigits;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomInteger;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.CheckerLengthArray;
-import com.lugowoy.helper.other.LengthReader;
+import com.lugowoy.helper.models.storages.arrays.Array;
+import com.lugowoy.helper.utils.ArrayLengthReader;
+import com.lugowoy.helper.utils.checking.CheckerArray;
 
 import java.util.Objects;
 
@@ -21,9 +21,9 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthReader.readLength(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> integerArray = new Array<>(new FillingArrayRandomInteger().fill(lengthOfArray, BOUND));
+        Array<Integer> integerArray = new Array<>(new FillingArrayRandomIntegers().fill(lengthOfArray, BOUND));
 
         System.out.println("Numbers in an array : " + integerArray);
 
@@ -41,8 +41,8 @@ public class Main {
         int resultNumber = 0;
         int counterDifferentDigit = 0;
         int[] ints;
-        if (Objects.nonNull(integerArray) && CheckerLengthArray.checkLengthArray(integerArray)) {
-            for (int i = 0; i < integerArray.getLength(); i++) {
+        if (Objects.nonNull(integerArray) && CheckerArray.checkLengthInArray(integerArray)) {
+            for (int i = 0; i < integerArray.size(); i++) {
                 int number = integerArray.get(i);
                 ints = getIntNumbersOfNumber(number);
                 for (int j = 0; j < ints.length; j++) {

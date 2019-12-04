@@ -1,8 +1,8 @@
-package com.lugowoy.tasks.outputVoiceThatIsEmittedByAnimal;
+package com.lugowoy.tasks.solutions.core.outputVoiceThatIsEmittedByAnimal;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.tasks.outputVoiceThatIsEmittedByAnimal.animals.*;
+import com.lugowoy.tasks.solutions.core.outputVoiceThatIsEmittedByAnimal.animals.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ import java.util.List;
 
 public class Main {
 
-    private static final Reader READER = Reader.getReader(new ReadingConsole());
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     public static void main(String[] args) {
 

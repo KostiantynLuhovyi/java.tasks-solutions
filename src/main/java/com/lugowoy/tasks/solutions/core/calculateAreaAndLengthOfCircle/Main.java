@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculateAreaAndLengthOfCircle;
+package com.lugowoy.tasks.solutions.core.calculateAreaAndLengthOfCircle;
 
 import com.lugowoy.helper.calculating.CalculationOneParameter;
 import com.lugowoy.helper.io.reading.Reader;
@@ -18,7 +18,7 @@ public class Main {
         Circle circle = new Circle();
 
         System.out.println("Enter the radius of the circle : ");
-        circle.setRadius(Reader.getReader(new ReadingConsole()).readDouble());
+        circle.setRadius(new Reader(new ReadingConsole()).readDouble());
 
         CalculationOneParameter<Circle, Circle> calculator = CalculatingAreaOfCircle::calculateAreaOfCircle;
         calculator.calculate(circle);

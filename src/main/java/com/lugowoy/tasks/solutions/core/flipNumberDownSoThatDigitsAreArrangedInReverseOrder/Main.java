@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.flipNumberDownSoThatDigitsAreArrangedInReverseOrder;
+package com.lugowoy.tasks.solutions.core.flipNumberDownSoThatDigitsAreArrangedInReverseOrder;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
@@ -12,7 +12,7 @@ import com.lugowoy.helper.io.reading.ReadingConsole;
 
 public class Main {
 
-    private static final Reader READER = Reader.getReader(new ReadingConsole());
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     public static void main(String[] args) {
 

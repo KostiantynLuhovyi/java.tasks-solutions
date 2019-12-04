@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.checkMultiplicityOfNumber;
+package com.lugowoy.tasks.solutions.core.checkMultiplicityOfNumber;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
@@ -13,7 +13,7 @@ import static java.lang.Math.abs;
 
 public class Main {
 
-    private static final Reader READER = Reader.getReader(new ReadingConsole());
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     public static void main(String[] args) {
 

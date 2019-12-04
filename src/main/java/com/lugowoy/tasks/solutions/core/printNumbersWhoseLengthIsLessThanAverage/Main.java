@@ -1,9 +1,9 @@
-package com.lugowoy.tasks.printNumbersWhoseLengthIsLessThanAverage;
+package com.lugowoy.tasks.solutions.core.printNumbersWhoseLengthIsLessThanAverage;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomInteger;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.LengthReader;
+import com.lugowoy.helper.models.storages.arrays.Array;
+import com.lugowoy.helper.utils.ArrayLengthReader;
 
 /**
  * Print numbers whose length is less than the average.
@@ -18,9 +18,9 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthReader.readLength(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> integerArray = new Array<>(new FillingArrayRandomInteger().fill(lengthOfArray, MAX_VALUE));
+        Array<Integer> integerArray = new Array<>(new FillingArrayRandomIntegers().fill(lengthOfArray, MAX_VALUE));
 
         System.out.println("Numbers in an array : " + integerArray);
 
@@ -34,7 +34,7 @@ public class Main {
     }
 
     private static void printNumbersWhoseLengthIsLessThanAverage(Array<Integer> integerArray, double valueArithmeticMean) {
-        for (int i = 0; i < integerArray.getLength(); i++) {
+        for (int i = 0; i < integerArray.size(); i++) {
             int valueOfNumber = integerArray.get(i);
             int valueDigitOfNumber = countDigitOfNumber(valueOfNumber);
             if (valueDigitOfNumber < valueArithmeticMean) {
@@ -45,10 +45,10 @@ public class Main {
 
     private static double calculateArithmeticMeanOfLengthsOfAllNumbers(Array<Integer> integerArray) {
         double resultToCalculateArithmeticMean = 0;
-        for (int i = 0; i < integerArray.getLength(); i++) {
+        for (int i = 0; i < integerArray.size(); i++) {
             resultToCalculateArithmeticMean += countDigitOfNumber(integerArray.get(i));
         }
-        return resultToCalculateArithmeticMean / integerArray.getLength();
+        return resultToCalculateArithmeticMean / integerArray.size();
     }
 
     private static int countDigitOfNumber(int number) {

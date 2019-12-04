@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.determineTimeForPersonToRetire;
+package com.lugowoy.tasks.solutions.core.determineTimeForPersonToRetire;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
@@ -11,7 +11,7 @@ import com.lugowoy.helper.io.reading.ReadingConsole;
 
 public class Main {
 
-    private static final Reader READER = Reader.getReader(new ReadingConsole());
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     private static final int AGE_MEN_FOR_RETIREMENT = 60;
     private static final int AGE_WOMAN_FOR_RETIREMENT = 55;

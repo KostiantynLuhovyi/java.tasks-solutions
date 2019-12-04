@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.determineWhichResistorToUseSoThatTotalResistanceOfCircuitIsMinimal;
+package com.lugowoy.tasks.solutions.core.determineWhichResistorToUseSoThatTotalResistanceOfCircuitIsMinimal;
 
 /**
  * Created by Konstantin Lugowoy on 10.11.2017.

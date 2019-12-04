@@ -1,8 +1,8 @@
-package com.lugowoy.tasks.determineWhichResistorToUseSoThatTotalResistanceOfCircuitIsMinimal;
+package com.lugowoy.tasks.solutions.core.determineWhichResistorToUseSoThatTotalResistanceOfCircuitIsMinimal;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.other.GeneratorRandomNumber;
+import com.lugowoy.helper.utils.generating.GeneratorRandomNumber;
 
 /**
  * Suppose that the area of the electrical circuit must consist of two blocks, in each of which two parallel resistors are located.
@@ -14,7 +14,7 @@ import com.lugowoy.helper.other.GeneratorRandomNumber;
 
 public class Main {
 
-    private static final Reader READER = Reader.getReader(new ReadingConsole());
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     private static final int BOUND = 1000;
 

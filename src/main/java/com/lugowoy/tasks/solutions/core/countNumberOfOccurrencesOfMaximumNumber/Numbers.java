@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.countNumberOfOccurrencesOfMaximumNumber;
+package com.lugowoy.tasks.solutions.core.countNumberOfOccurrencesOfMaximumNumber;
 
 import com.rits.cloning.Cloner;
 

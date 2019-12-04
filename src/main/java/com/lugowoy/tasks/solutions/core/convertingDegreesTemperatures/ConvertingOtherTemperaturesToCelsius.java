@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.convertingDegreesTemperatures;
+package com.lugowoy.tasks.solutions.core.convertingDegreesTemperatures;
 
 /**
  * Created by Konstantin Lugowoy on 17-Jan-17.

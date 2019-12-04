@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculateTotalCostOfOrderingLaptopAtDiscount;
+package com.lugowoy.tasks.solutions.core.calculateTotalCostOfOrderingLaptopAtDiscount;
 
 import com.rits.cloning.Cloner;
 

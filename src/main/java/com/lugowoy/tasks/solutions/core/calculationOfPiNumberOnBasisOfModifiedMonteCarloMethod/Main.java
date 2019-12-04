@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculationOfPiNumberOnBasisOfModifiedMonteCarloMethod;
+package com.lugowoy.tasks.solutions.core.calculationOfPiNumberOnBasisOfModifiedMonteCarloMethod;
 
 import com.lugowoy.helper.models.points.Point2D;
 

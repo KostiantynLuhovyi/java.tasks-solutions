@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculationOfIdealWeightForGrowth;
+package com.lugowoy.tasks.solutions.core.calculationOfIdealWeightForGrowth;
 
 import java.math.BigDecimal;
 

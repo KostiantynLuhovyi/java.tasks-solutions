@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculateHowManyMoviesWillFitOnUSBFlashDrive;
+package com.lugowoy.tasks.solutions.core.calculateHowManyMoviesWillFitOnUSBFlashDrive;
 
 import java.io.Serializable;
 

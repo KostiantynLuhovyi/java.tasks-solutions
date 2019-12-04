@@ -1,9 +1,9 @@
-package com.lugowoy.tasks.findNumbersThatContainOnlyEvenNumbers;
+package com.lugowoy.tasks.solutions.core.findNumbersThatContainOnlyEvenNumbers;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomInteger;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.LengthReader;
+import com.lugowoy.helper.models.storages.arrays.Array;
+import com.lugowoy.helper.utils.ArrayLengthReader;
 
 import java.util.ArrayList;
 
@@ -20,9 +20,9 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthReader.readLength(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> integerArray = new Array<>(new FillingArrayRandomInteger().fill(lengthOfArray, BOUND));
+        Array<Integer> integerArray = new Array<>(new FillingArrayRandomIntegers().fill(lengthOfArray, BOUND));
 
         System.out.println("Numbers : " + integerArray);
 
@@ -37,7 +37,7 @@ public class Main {
 
     private static ArrayList<Integer> findNumbersThatContainOnlyEvenNumbers(Array<Integer> integerArray) {
         ArrayList<Integer> resultNumbers = new ArrayList<>();
-        for (int i = 0; i < integerArray.getLength(); i++) {
+        for (int i = 0; i < integerArray.size(); i++) {
             int number = integerArray.get(i);
             resultNumbers.add(number);
             while (number > 0) {

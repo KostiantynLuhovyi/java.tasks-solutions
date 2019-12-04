@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.outputPrimeNumbersInCertainRange;
+package com.lugowoy.tasks.solutions.core.outputPrimeNumbersInCertainRange;
 
 /**
  * Write a program that displays all the prime numbers in the range from 2 to 10.000.000.

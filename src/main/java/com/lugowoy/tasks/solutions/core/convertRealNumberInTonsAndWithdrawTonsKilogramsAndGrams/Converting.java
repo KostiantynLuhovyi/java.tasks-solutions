@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.convertRealNumberInTonsAndWithdrawTonsKilogramsAndGrams;
+package com.lugowoy.tasks.solutions.core.convertRealNumberInTonsAndWithdrawTonsKilogramsAndGrams;
 
 /**
  * Created by Konstantin Lugowoy on 26.03.2017.

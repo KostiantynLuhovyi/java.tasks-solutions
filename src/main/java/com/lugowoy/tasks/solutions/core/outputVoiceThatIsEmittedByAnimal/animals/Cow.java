@@ -1,6 +1,6 @@
-package com.lugowoy.tasks.outputVoiceThatIsEmittedByAnimal.animals;
+package com.lugowoy.tasks.solutions.core.outputVoiceThatIsEmittedByAnimal.animals;
 
-import static com.lugowoy.helper.other.DeepCloning.CLONER;
+import com.rits.cloning.Cloner;
 
 /** Created by Konstantin Lugowoy on 04.10.2017. */
 
@@ -20,7 +20,7 @@ public class Cow extends Animal {
         Cow cow = new Cow();
         try {
             cow = (Cow) super.clone();
-            cow.setVoice(CLONER.deepClone(this.getVoice()));
+            cow.setVoice(new Cloner().deepClone(this.getVoice()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }

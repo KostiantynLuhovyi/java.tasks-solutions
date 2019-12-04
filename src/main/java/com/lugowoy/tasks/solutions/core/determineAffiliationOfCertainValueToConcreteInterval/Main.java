@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.determineAffiliationOfCertainValueToConcreteInterval;
+package com.lugowoy.tasks.solutions.core.determineAffiliationOfCertainValueToConcreteInterval;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
@@ -17,7 +17,7 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter value to check : ");
-        int valueToCheck = Reader.getReader(new ReadingConsole()).readInt();
+        int valueToCheck = new Reader(new ReadingConsole()).readInt();
 
         determineAffiliationOfCertainValueToConcreteInterval(valueToCheck, INTERVALS);
 

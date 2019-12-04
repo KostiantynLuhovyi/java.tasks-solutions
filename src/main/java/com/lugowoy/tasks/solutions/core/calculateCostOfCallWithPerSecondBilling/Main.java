@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculateCostOfCallWithPerSecondBilling;
+package com.lugowoy.tasks.solutions.core.calculateCostOfCallWithPerSecondBilling;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
@@ -10,8 +10,8 @@ import static java.math.RoundingMode.HALF_DOWN;
 /**
  * The user enters the start time and the end time of the telephone conversation from the keyboard (hours, minutes and seconds).
  * Calculate the cost of the call, if the cost of the minute is 15 cents, taking into account per second charging.
- * <p>
- * Created by Konstantin Lugowoy on 06.06.2017.
+ *
+ * <p> Created by Konstantin Lugowoy on 06.06.2017.
  */
 
 public class Main {
@@ -24,7 +24,7 @@ public class Main {
         long timeOfFinishCallInSeconds = enterCallTimeInSeconds("Enter the finish time of the call.");
 
         System.out.println("Enter the cost of the minutes : ");
-        BigDecimal costOfMinutes = new BigDecimal(Reader.getReader(new ReadingConsole()).readDouble());
+        BigDecimal costOfMinutes = new BigDecimal(new Reader(new ReadingConsole()).readDouble());
 
         BigDecimal costOfTheCall = calculateCostOfCall(costOfMinutes, timeOfStartCallInSeconds, timeOfFinishCallInSeconds);
 
@@ -39,7 +39,7 @@ public class Main {
     }
 
     private static long enterCallTimeInSeconds(String msg) {
-        Reader reader = Reader.getReader(new ReadingConsole());
+        Reader reader = new Reader(new ReadingConsole());
         System.out.println(msg);
         int hours, minutes, seconds;
         while (true) {
@@ -55,7 +55,7 @@ public class Main {
                 break;
             }
         }
-        return (long) (hours * 3600 + minutes * 60 + seconds);
+        return (hours * 3600) + ((minutes * 60) + seconds);
     }
 
 }

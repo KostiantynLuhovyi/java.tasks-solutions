@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.printDayOfWeekAccordingToNumber;
+package com.lugowoy.tasks.solutions.core.printDayOfWeekAccordingToNumber;
 
 /**
  * Created by Konstantin Lugowoy on 01.10.2017.

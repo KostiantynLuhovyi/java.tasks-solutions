@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculatingFibonacciNumbers;
+package com.lugowoy.tasks.solutions.core.calculatingFibonacciNumbers;
 
 /**
  * Created by Konstantin Lugowoy on 02.09.2017.

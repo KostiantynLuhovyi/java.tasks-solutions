@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculationOfPiNumberOnBasisOfFourierSeries;
+package com.lugowoy.tasks.solutions.core.calculationOfPiNumberOnBasisOfFourierSeries;
 
 /**
  * Calculation of the Pi number on the basis of the Fourier series.

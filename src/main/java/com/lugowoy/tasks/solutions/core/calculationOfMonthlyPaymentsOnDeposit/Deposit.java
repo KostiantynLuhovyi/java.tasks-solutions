@@ -1,5 +1,6 @@
-package com.lugowoy.tasks.calculationOfMonthlyPaymentsOnDeposit;
+package com.lugowoy.tasks.solutions.core.calculationOfMonthlyPaymentsOnDeposit;
 
+import com.lugowoy.tasks.solutions.core.calculationOfMonthlyPaymentsOnDeposit.BankingService;
 import com.rits.cloning.Cloner;
 
 import java.io.Serializable;

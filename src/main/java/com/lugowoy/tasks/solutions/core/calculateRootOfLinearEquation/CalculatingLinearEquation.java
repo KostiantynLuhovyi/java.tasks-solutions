@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculateRootOfLinearEquation;
+package com.lugowoy.tasks.solutions.core.calculateRootOfLinearEquation;
 
 /**
  * Created by Konstantin Lugowoy on 14-Dec-16.

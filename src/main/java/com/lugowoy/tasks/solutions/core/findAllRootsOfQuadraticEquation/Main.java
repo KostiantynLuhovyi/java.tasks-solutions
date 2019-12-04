@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.findAllRootsOfQuadraticEquation;
+package com.lugowoy.tasks.solutions.core.findAllRootsOfQuadraticEquation;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
@@ -42,7 +42,7 @@ public class Main {
 
     private static double getNumber() {
         double number;
-        Reader reader = Reader.getReader(new ReadingConsole());
+        Reader reader = new Reader(new ReadingConsole());
         while (true) {
             number = reader.readDouble();
             if (number > 0) {

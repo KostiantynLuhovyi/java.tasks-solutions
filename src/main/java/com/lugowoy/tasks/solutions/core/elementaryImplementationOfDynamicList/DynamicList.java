@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.elementaryImplementationOfDynamicList;
+package com.lugowoy.tasks.solutions.core.elementaryImplementationOfDynamicList;
 
 /**
  * Created by Konstantin Lugowoy on 18.11.2017.

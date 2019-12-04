@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.determineTimeForWhichMovieIsDownloaded;
+package com.lugowoy.tasks.solutions.core.determineTimeForWhichMovieIsDownloaded;
 
 import com.rits.cloning.Cloner;
 

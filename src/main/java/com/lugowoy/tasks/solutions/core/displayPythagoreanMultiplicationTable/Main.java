@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.displayPythagoreanMultiplicationTable;
+package com.lugowoy.tasks.solutions.core.displayPythagoreanMultiplicationTable;
 
 /**
  * Display the multiplication table (Pythagoras table).

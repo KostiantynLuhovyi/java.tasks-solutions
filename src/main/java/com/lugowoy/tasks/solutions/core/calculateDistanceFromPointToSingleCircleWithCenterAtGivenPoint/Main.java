@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculateDistanceFromPointToSingleCircleWithCenterAtGivenPoint;
+package com.lugowoy.tasks.solutions.core.calculateDistanceFromPointToSingleCircleWithCenterAtGivenPoint;
 
 import com.lugowoy.helper.calculating.CalculationTwoParameters;
 import com.lugowoy.helper.io.reading.Reader;
@@ -19,7 +19,7 @@ import static java.lang.Math.sqrt;
 
 public class Main {
 
-    private static final Reader READER = Reader.getReader(new ReadingConsole());
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     private static final String POINT_M = "M";
     private static final String POINT_C = "C";

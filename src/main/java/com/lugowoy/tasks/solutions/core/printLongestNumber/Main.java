@@ -1,10 +1,10 @@
-package com.lugowoy.tasks.printLongestNumber;
+package com.lugowoy.tasks.solutions.core.printLongestNumber;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomInteger;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.LengthReader;
-import com.lugowoy.tasks.printShortestNumber.DeterminantShortestNumber;
+import com.lugowoy.helper.models.storages.arrays.Array;
+import com.lugowoy.helper.utils.ArrayLengthReader;
+import com.lugowoy.tasks.solutions.core.printShortestNumber.DeterminantShortestNumber;
 
 /**
  * Find the longest number. Print the found number and their length.
@@ -17,9 +17,9 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthReader.readLength(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> integerArray = new Array<>(new FillingArrayRandomInteger().fill(lengthOfArray, Integer.MAX_VALUE));
+        Array<Integer> integerArray = new Array<>(new FillingArrayRandomIntegers().fill(lengthOfArray, Integer.MAX_VALUE));
 
         System.out.println("Numbers in an array : " + integerArray);
 

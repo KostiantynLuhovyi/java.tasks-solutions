@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.convertingDegreesTemperatures;
+package com.lugowoy.tasks.solutions.core.convertingDegreesTemperatures;
 
 import java.io.Serializable;
 import java.util.Objects;

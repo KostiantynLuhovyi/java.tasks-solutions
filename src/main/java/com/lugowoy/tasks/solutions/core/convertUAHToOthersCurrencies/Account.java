@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.convertUAHToOthersCurrencies;
+package com.lugowoy.tasks.solutions.core.convertUAHToOthersCurrencies;
 
 import com.rits.cloning.Cloner;
 

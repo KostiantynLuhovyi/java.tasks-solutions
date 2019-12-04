@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculationOfMonthlyPaymentsOnDeposit;
+package com.lugowoy.tasks.solutions.core.calculationOfMonthlyPaymentsOnDeposit;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

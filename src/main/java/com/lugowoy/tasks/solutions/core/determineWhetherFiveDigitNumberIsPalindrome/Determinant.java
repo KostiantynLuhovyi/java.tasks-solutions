@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.determineWhetherFiveDigitNumberIsPalindrome;
+package com.lugowoy.tasks.solutions.core.determineWhetherFiveDigitNumberIsPalindrome;
 
 /**
  * Created by Konstantin Lugowoy on 14.09.2017.

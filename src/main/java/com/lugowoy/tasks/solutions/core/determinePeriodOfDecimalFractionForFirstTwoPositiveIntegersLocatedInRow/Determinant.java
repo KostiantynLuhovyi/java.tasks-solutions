@@ -1,6 +1,6 @@
-package com.lugowoy.tasks.determinePeriodOfDecimalFractionForFirstTwoPositiveIntegersLocatedInRow;
+package com.lugowoy.tasks.solutions.core.determinePeriodOfDecimalFractionForFirstTwoPositiveIntegersLocatedInRow;
 
-import com.lugowoy.helper.models.Array;
+import com.lugowoy.helper.models.storages.arrays.Array;
 
 /**
  * Created by Konstantin Lugowoy on 03.09.2017.
@@ -12,8 +12,8 @@ public interface Determinant {
 
     static void determinePeriodOfDecimalFractionForFirstTwoPositiveIntegersLocatedInRow(Array<Integer> array) {
         long p, q, r, l, t, n;
-        for (int i = 0; i < array.getLength() - 1; i++) {
-            if (array.getLength() < 2) {
+        for (int i = 0; i < array.size() - 1; i++) {
+            if (array.size() < 2) {
                 break;
             } else if ((array.get(i) >= 0) && (array.get(i + 1) >= 0)) {
                 p = array.get(i);

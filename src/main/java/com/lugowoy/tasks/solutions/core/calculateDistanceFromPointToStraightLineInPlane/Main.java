@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculateDistanceFromPointToStraightLineInPlane;
+package com.lugowoy.tasks.solutions.core.calculateDistanceFromPointToStraightLineInPlane;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
@@ -16,7 +16,7 @@ import java.util.Objects;
 
 public class Main {
 
-    private static final Reader READER = Reader.getReader(new ReadingConsole());
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     private static final String POINT_M = "M";
     private static final String POINT_A = "A";

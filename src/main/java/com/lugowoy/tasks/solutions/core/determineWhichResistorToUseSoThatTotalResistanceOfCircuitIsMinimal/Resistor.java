@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.determineWhichResistorToUseSoThatTotalResistanceOfCircuitIsMinimal;
+package com.lugowoy.tasks.solutions.core.determineWhichResistorToUseSoThatTotalResistanceOfCircuitIsMinimal;
 
 import java.io.Serializable;
 import java.util.Objects;

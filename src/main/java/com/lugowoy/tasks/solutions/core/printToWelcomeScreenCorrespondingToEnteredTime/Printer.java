@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.printToWelcomeScreenCorrespondingToEnteredTime;
+package com.lugowoy.tasks.solutions.core.printToWelcomeScreenCorrespondingToEnteredTime;
 
 /**
  * Created by Konstantin Lugowoy on 04.10.2017.

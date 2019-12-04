@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.determineThatNumberIsHappy;
+package com.lugowoy.tasks.solutions.core.determineThatNumberIsHappy;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
@@ -11,7 +11,7 @@ import com.lugowoy.helper.io.reading.ReadingConsole;
 
 public class Main {
 
-    private static final Reader reader = Reader.getReader(new ReadingConsole());
+    private static final Reader reader = new Reader(new ReadingConsole());
 
     public static void main(String[] args) {
 

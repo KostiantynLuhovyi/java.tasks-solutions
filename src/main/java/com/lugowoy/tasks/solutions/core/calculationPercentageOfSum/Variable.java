@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculationPercentageOfSum;
+package com.lugowoy.tasks.solutions.core.calculationPercentageOfSum;
 
 import com.rits.cloning.Cloner;
 

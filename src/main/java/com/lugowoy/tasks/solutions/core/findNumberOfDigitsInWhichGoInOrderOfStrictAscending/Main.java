@@ -1,9 +1,9 @@
-package com.lugowoy.tasks.findNumberOfDigitsInWhichGoInOrderOfStrictAscending;
+package com.lugowoy.tasks.solutions.core.findNumberOfDigitsInWhichGoInOrderOfStrictAscending;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomInteger;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.LengthReader;
+import com.lugowoy.helper.models.storages.arrays.Array;
+import com.lugowoy.helper.utils.ArrayLengthReader;
 
 /**
  * Find the number of digits in which go in the order of strict ascending.
@@ -19,9 +19,9 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthReader.readLength(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> integerArray = new Array<>(new FillingArrayRandomInteger().fill(lengthOfArray, BOUND));
+        Array<Integer> integerArray = new Array<>(new FillingArrayRandomIntegers().fill(lengthOfArray, BOUND));
 
         System.out.println("Numbers : " + integerArray);
 
@@ -37,7 +37,7 @@ public class Main {
         int resultNumber = 0;
         boolean checkResult = false;
         int i = 0;
-        while (i < integerArray.getLength()) {
+        while (i < integerArray.size()) {
             int number = integerArray.get(i);
             resultNumber = number;
             while (number != 0) {

@@ -1,7 +1,7 @@
-package com.lugowoy.tasks.scalarAndVectorProductOfVectors;
+package com.lugowoy.tasks.solutions.core.scalarAndVectorProductOfVectors;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomInteger;
-import com.lugowoy.helper.models.Array;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegers;
+import com.lugowoy.helper.models.storages.arrays.Array;
 
 /**
  * Scalar and vector product of vectors.
@@ -17,10 +17,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Array<Integer> firstArray = new Array<>(new FillingArrayRandomInteger().fill(LENGTH_ARRAY, MIN_BOUND, MAX_BOUND));
+        Array<Integer> firstArray = new Array<>(new FillingArrayRandomIntegers().fill(LENGTH_ARRAY, MIN_BOUND, MAX_BOUND));
         System.out.println("First array : " + firstArray);
 
-        Array<Integer> secondArray = new Array<>(new FillingArrayRandomInteger().fill(LENGTH_ARRAY, MIN_BOUND, MAX_BOUND));
+        Array<Integer> secondArray = new Array<>(new FillingArrayRandomIntegers().fill(LENGTH_ARRAY, MIN_BOUND, MAX_BOUND));
         System.out.println("Second array : " + secondArray);
 
         Array<Integer> vectorProductOfVectors = new Array<>(LENGTH_ARRAY);

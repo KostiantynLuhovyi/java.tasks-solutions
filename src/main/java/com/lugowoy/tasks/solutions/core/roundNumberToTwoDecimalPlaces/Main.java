@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.roundNumberToTwoDecimalPlaces;
+package com.lugowoy.tasks.solutions.core.roundNumberToTwoDecimalPlaces;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
@@ -24,7 +24,7 @@ public class Main {
 
     private static double enterNumber() {
         double number;
-        Reader reader = Reader.getReader(new ReadingConsole());
+        Reader reader = new Reader(new ReadingConsole());
         System.out.println("Enter real number : ");
         while (true) {
             number = reader.readDouble();

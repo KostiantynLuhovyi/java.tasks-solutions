@@ -1,9 +1,9 @@
-package com.lugowoy.tasks.determineNumbersWithEqualNumberOfEvenAndOddDigits;
+package com.lugowoy.tasks.solutions.core.determineNumbersWithEqualNumberOfEvenAndOddDigits;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomInteger;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.LengthReader;
+import com.lugowoy.helper.models.storages.arrays.Array;
+import com.lugowoy.helper.utils.ArrayLengthReader;
 
 /**
  * Determine numbers with an equal number of even and odd digits.
@@ -16,15 +16,15 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthReader.readLength(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> integerArray = new Array<>(new FillingArrayRandomInteger().fill(lengthOfArray, Integer.MAX_VALUE));
+        Array<Integer> integerArray = new Array<>(new FillingArrayRandomIntegers().fill(lengthOfArray, Integer.MAX_VALUE));
 
         System.out.println("Numbers : " + integerArray);
 
         Array<Integer> resultArray = determineNumbersWithEqualNumberOfEvenAndOddDigits(integerArray);
         System.out.print("Result numbers : ");
-        if (resultArray.getLength() > 0) {
+        if (resultArray.size() > 0) {
             System.out.print(resultArray);
             System.out.println();
         } else {
@@ -36,7 +36,7 @@ public class Main {
     private static Array<Integer> determineNumbersWithEqualNumberOfEvenAndOddDigits(Array<Integer> integerArray) {
         Array<Integer> resultArray = new Array<>(0);
         int counterEvenNumbers = 0, counterOddNumbers = 0;
-        for (int i = 0; i < integerArray.getLength(); i++) {
+        for (int i = 0; i < integerArray.size(); i++) {
             int number = integerArray.get(i);
             while (number > 0) {
                 int tmpNumber = number % 10;

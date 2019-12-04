@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.cyclicallyShiftDigitsOfFiveDigitNumber;
+package com.lugowoy.tasks.solutions.core.cyclicallyShiftDigitsOfFiveDigitNumber;
 
 /**
  * Created by Konstantin Lugowoy on 06.03.2017.

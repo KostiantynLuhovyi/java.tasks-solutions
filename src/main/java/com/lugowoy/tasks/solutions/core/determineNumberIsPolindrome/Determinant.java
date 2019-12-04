@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.determineNumberIsPolindrome;
+package com.lugowoy.tasks.solutions.core.determineNumberIsPolindrome;
 
 /**
  * Created by Konstantin Lugowoy on 03.09.2017.

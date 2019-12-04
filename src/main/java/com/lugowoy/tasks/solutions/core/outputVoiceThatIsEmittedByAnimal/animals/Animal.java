@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.outputVoiceThatIsEmittedByAnimal.animals;
+package com.lugowoy.tasks.solutions.core.outputVoiceThatIsEmittedByAnimal.animals;
 
 import java.io.Serializable;
 import java.util.Objects;

@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.convertKilometersToMilesOfSeaAndLand;
+package com.lugowoy.tasks.solutions.core.convertKilometersToMilesOfSeaAndLand;
 
 /**
  * Created by Konstantin Lugowoy on 31-Dec-16.

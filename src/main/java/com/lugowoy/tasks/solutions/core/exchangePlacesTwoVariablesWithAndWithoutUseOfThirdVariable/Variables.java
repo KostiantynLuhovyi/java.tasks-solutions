@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.exchangePlacesTwoVariablesWithAndWithoutUseOfThirdVariable;
+package com.lugowoy.tasks.solutions.core.exchangePlacesTwoVariablesWithAndWithoutUseOfThirdVariable;
 
 import java.io.Serializable;
 import java.util.Objects;

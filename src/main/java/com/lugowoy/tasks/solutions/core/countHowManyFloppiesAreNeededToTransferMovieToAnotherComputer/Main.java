@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.countHowManyFloppiesAreNeededToTransferMovieToAnotherComputer;
+package com.lugowoy.tasks.solutions.core.countHowManyFloppiesAreNeededToTransferMovieToAnotherComputer;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
@@ -12,7 +12,7 @@ import com.lugowoy.helper.io.reading.ReadingConsole;
 
 public class Main {
 
-    private static final Reader reader = Reader.getReader(new ReadingConsole());
+    private static final Reader reader = new Reader(new ReadingConsole());
 
     private static final double SIZE_OF_FLOPPY_DISK_IN_MB = 1.44;
 

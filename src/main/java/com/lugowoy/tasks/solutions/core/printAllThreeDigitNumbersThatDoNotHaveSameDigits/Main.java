@@ -1,9 +1,9 @@
-package com.lugowoy.tasks.printAllThreeDigitNumbersThatDoNotHaveSameDigits;
+package com.lugowoy.tasks.solutions.core.printAllThreeDigitNumbersThatDoNotHaveSameDigits;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomInteger;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.LengthReader;
+import com.lugowoy.helper.models.storages.arrays.Array;
+import com.lugowoy.helper.utils.ArrayLengthReader;
 
 /**
  * Output all three-digit numbers, in the decimal notation of which there are no identical digits.
@@ -16,15 +16,15 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter length of array : ");
-        int lengthOfArray = LengthReader.readLength(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> array = new Array<>(new FillingArrayRandomInteger().fill(lengthOfArray));
+        Array<Integer> array = new Array<>(new FillingArrayRandomIntegers().fill(lengthOfArray));
 
         System.out.println("Numbers : " + array);
         System.out.println();
 
         Array<Integer> resultArray = getAllThreeDigitNumbersThatDoNotHaveSameDigits(array);
-        if (resultArray.getLength() > 0) {
+        if (resultArray.size() > 0) {
             System.out.println("Result numbers : " + resultArray);
         } else {
             System.out.println("No numbers are found that satisfy the condition.");
@@ -34,7 +34,7 @@ public class Main {
 
     private static Array<Integer> getAllThreeDigitNumbersThatDoNotHaveSameDigits(Array<Integer> array) {
         Array<Integer> resultArray = new Array<>(0);
-        for (int i = 0; i < array.getLength(); i++) {
+        for (int i = 0; i < array.size(); i++) {
             String stringOfValue = Integer.toString(array.get(i));
             if ((stringOfValue.startsWith("-") && (stringOfValue.length() == 4)) || (stringOfValue.matches("\\d{3}"))) {
                 int tmpValue = array.get(i);

@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculationOfMonthlyPaymentsOnDeposit;
+package com.lugowoy.tasks.solutions.core.calculationOfMonthlyPaymentsOnDeposit;
 
 import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicInteger;

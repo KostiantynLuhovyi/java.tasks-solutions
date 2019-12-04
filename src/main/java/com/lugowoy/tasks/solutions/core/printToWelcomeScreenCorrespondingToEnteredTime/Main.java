@@ -1,11 +1,11 @@
-package com.lugowoy.tasks.printToWelcomeScreenCorrespondingToEnteredTime;
+package com.lugowoy.tasks.solutions.core.printToWelcomeScreenCorrespondingToEnteredTime;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.tasks.checkCorrectnessOfEnteredTimeData.Checker;
-import com.lugowoy.tasks.checkCorrectnessOfEnteredTimeData.CheckerHours;
-import com.lugowoy.tasks.checkCorrectnessOfEnteredTimeData.CheckerMinutes;
-import com.lugowoy.tasks.checkCorrectnessOfEnteredTimeData.CheckerSeconds;
+import com.lugowoy.tasks.solutions.core.checkCorrectnessOfEnteredTimeData.Checker;
+import com.lugowoy.tasks.solutions.core.checkCorrectnessOfEnteredTimeData.CheckerHours;
+import com.lugowoy.tasks.solutions.core.checkCorrectnessOfEnteredTimeData.CheckerMinutes;
+import com.lugowoy.tasks.solutions.core.checkCorrectnessOfEnteredTimeData.CheckerSeconds;
 
 /**
  * The time (hours and minutes) is entered - the program displays a greeting corresponding to the entered time
@@ -16,7 +16,7 @@ import com.lugowoy.tasks.checkCorrectnessOfEnteredTimeData.CheckerSeconds;
 
 public class Main {
 
-    private static final Reader READER = Reader.getReader(new ReadingConsole());
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     public static void main(String[] args) {
 

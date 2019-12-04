@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.checkMultiplicityOfNumberByThreeNumbers;
+package com.lugowoy.tasks.solutions.core.checkMultiplicityOfNumberByThreeNumbers;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
@@ -13,7 +13,7 @@ import static java.lang.Math.abs;
 
 public class Main {
 
-    private static final Reader READER = Reader.getReader(new ReadingConsole());
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     private static final int NUMBER_FIRST_FOR_CHECK_MULTIPLICITY = 3;
     private static final int NUMBER_SECOND_FOR_CHECK_MULTIPLICITY = 5;

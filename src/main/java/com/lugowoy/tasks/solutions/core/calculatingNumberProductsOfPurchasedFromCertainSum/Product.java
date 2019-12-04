@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculatingNumberProductsOfPurchasedFromCertainSum;
+package com.lugowoy.tasks.solutions.core.calculatingNumberProductsOfPurchasedFromCertainSum;
 
 import com.rits.cloning.Cloner;
 

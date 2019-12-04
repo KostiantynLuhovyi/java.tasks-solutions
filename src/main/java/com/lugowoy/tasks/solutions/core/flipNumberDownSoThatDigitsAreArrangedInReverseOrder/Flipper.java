@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.flipNumberDownSoThatDigitsAreArrangedInReverseOrder;
+package com.lugowoy.tasks.solutions.core.flipNumberDownSoThatDigitsAreArrangedInReverseOrder;
 
 /**
  * Created by Konstantin Lugowoy on 06.10.2017.

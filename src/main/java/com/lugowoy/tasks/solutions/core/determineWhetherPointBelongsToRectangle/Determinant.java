@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.determineWhetherPointBelongsToRectangle;
+package com.lugowoy.tasks.solutions.core.determineWhetherPointBelongsToRectangle;
 
 import com.lugowoy.helper.models.points.Point2D;
 

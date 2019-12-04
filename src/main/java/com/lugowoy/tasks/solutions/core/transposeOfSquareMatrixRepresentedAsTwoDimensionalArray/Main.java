@@ -1,6 +1,6 @@
-package com.lugowoy.tasks.transposeOfSquareMatrixRepresentedAsTwoDimensionalArray;
+package com.lugowoy.tasks.solutions.core.transposeOfSquareMatrixRepresentedAsTwoDimensionalArray;
 
-import com.lugowoy.helper.other.GeneratorRandomNumber;
+import com.lugowoy.helper.utils.generating.GeneratorRandomNumber;
 
 /**
  * Transpose of a square matrix represented as a two-dimensional array.

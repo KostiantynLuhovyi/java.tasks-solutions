@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.exchangeCentralNumberOfTwoNumbers;
+package com.lugowoy.tasks.solutions.core.exchangeCentralNumberOfTwoNumbers;
 
 import java.io.Serializable;
 import java.util.Objects;

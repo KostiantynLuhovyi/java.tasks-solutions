@@ -1,8 +1,8 @@
-package com.lugowoy.tasks.countNumberOfOccurrencesOfMaximumNumber;
+package com.lugowoy.tasks.solutions.core.countNumberOfOccurrencesOfMaximumNumber;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayReadInteger;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayReadIntegers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.other.LengthReader;
+import com.lugowoy.helper.utils.ArrayLengthReader;
 
 /**
  * Created by Konstantin Lugowoy on 14.11.2016.
@@ -12,9 +12,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int lengthOfArray = LengthReader.readLength(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
-        Numbers numbers = new Numbers(new FillingArrayReadInteger(new ReadingConsole()).fill(lengthOfArray));
+        Numbers numbers = new Numbers(new FillingArrayReadIntegers(new ReadingConsole()).fill(lengthOfArray));
 
         Counting counting = CountingNumbers::countMaximumNumbers;
 

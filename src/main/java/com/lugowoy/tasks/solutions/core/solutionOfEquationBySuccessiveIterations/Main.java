@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.solutionOfEquationBySuccessiveIterations;
+package com.lugowoy.tasks.solutions.core.solutionOfEquationBySuccessiveIterations;
 
 /**
  * The solution of an equation of the form x = f (x) by the method of successive iterations.

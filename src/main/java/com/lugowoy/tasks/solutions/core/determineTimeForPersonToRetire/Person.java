@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.determineTimeForPersonToRetire;
+package com.lugowoy.tasks.solutions.core.determineTimeForPersonToRetire;
 
 import java.io.Serializable;
 

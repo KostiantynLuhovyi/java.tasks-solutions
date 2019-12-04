@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.operationsWithSeparateDigitsOfNumber;
+package com.lugowoy.tasks.solutions.core.operationsWithSeparateDigitsOfNumber;
 
 import java.util.InputMismatchException;
 

@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculateAreaAndLengthOfCircle;
+package com.lugowoy.tasks.solutions.core.calculateAreaAndLengthOfCircle;
 
 import java.util.Objects;
 

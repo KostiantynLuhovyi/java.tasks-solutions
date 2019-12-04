@@ -1,7 +1,8 @@
-package com.lugowoy.tasks.checkCorrectnessOfEnteredTimeData;
+package com.lugowoy.tasks.solutions.core.checkCorrectnessOfEnteredTimeData;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
+import com.lugowoy.tasks.solutions.core.checkCorrectnessOfEnteredTimeData.Checker;
 
 /**
  * Enter the current time (number of hours, minutes, seconds) from the keyboard.
@@ -12,7 +13,7 @@ import com.lugowoy.helper.io.reading.ReadingConsole;
 
 public class Main {
 
-    private static final Reader READER = Reader.getReader(new ReadingConsole());
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     public static void main(String[] args) {
 

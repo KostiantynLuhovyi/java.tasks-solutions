@@ -1,6 +1,6 @@
-package com.lugowoy.tasks.productOfSquareMatrices;
+package com.lugowoy.tasks.solutions.core.productOfSquareMatrices;
 
-import com.lugowoy.helper.other.GeneratorRandomNumber;
+import com.lugowoy.helper.utils.generating.GeneratorRandomNumber;
 
 /**
  * Product of square matrices.

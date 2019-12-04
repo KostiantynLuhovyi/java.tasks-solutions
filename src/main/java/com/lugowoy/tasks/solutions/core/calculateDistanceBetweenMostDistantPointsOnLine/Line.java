@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculateDistanceBetweenMostDistantPointsOnLine;
+package com.lugowoy.tasks.solutions.core.calculateDistanceBetweenMostDistantPointsOnLine;
 
 import com.rits.cloning.Cloner;
 

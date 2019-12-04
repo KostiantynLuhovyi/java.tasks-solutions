@@ -1,10 +1,10 @@
-package com.lugowoy.tasks.determineSecondNumberOfPalindrome;
+package com.lugowoy.tasks.solutions.core.determineSecondNumberOfPalindrome;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayReadInteger;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayReadIntegers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.CheckerLengthArray;
-import com.lugowoy.helper.other.LengthReader;
+import com.lugowoy.helper.models.storages.arrays.Array;
+import com.lugowoy.helper.utils.ArrayLengthReader;
+import com.lugowoy.helper.utils.checking.CheckerArray;
 
 import java.util.Objects;
 
@@ -21,9 +21,9 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthReader.readLength(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> integerArray = new Array<>(new FillingArrayReadInteger(new ReadingConsole()).fill(lengthOfArray, BOUND));
+        Array<Integer> integerArray = new Array<>(new FillingArrayReadIntegers(new ReadingConsole()).fill(lengthOfArray, BOUND));
 
         System.out.println("Numbers in an array : " + integerArray);
 
@@ -39,9 +39,9 @@ public class Main {
 
     private static int determineSecondNumberOfPolindrome(Array<Integer> integerArray) {
         int resultNumber = 0;
-        if (Objects.nonNull(integerArray) && CheckerLengthArray.checkLengthArray(integerArray)) {
+        if (Objects.nonNull(integerArray) && CheckerArray.checkLengthInArray(integerArray)) {
             int counterPolindromeNumber = 0;
-            for (int i = 0; i < integerArray.getLength(); i++) {
+            for (int i = 0; i < integerArray.size(); i++) {
                 int number = integerArray.get(i);
                 String numberValue = Integer.toString(number);
                 int duplicateNumber = number;

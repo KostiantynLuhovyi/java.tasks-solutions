@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.showNumbersAndTotalNumberOfAllSixDigitHappyTickets;
+package com.lugowoy.tasks.solutions.core.showNumbersAndTotalNumberOfAllSixDigitHappyTickets;
 
 /**
  * Created by Konstantin Lugowoy on 21.10.2017.

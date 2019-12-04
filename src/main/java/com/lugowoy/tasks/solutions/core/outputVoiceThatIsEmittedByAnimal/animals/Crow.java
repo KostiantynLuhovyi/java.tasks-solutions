@@ -1,6 +1,7 @@
-package com.lugowoy.tasks.outputVoiceThatIsEmittedByAnimal.animals;
+package com.lugowoy.tasks.solutions.core.outputVoiceThatIsEmittedByAnimal.animals;
 
-import static com.lugowoy.helper.other.DeepCloning.CLONER;
+import com.lugowoy.tasks.solutions.core.outputVoiceThatIsEmittedByAnimal.animals.Animal;
+import com.rits.cloning.Cloner;
 
 /** Created by Konstantin Lugowoy on 04.10.2017. */
 
@@ -20,7 +21,7 @@ public class Crow extends Animal {
         Crow crow = new Crow();
         try {
             crow = (Crow) super.clone();
-            crow.setVoice(CLONER.deepClone(this.getVoice()));
+            crow.setVoice(new Cloner().deepClone(this.getVoice()));
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }

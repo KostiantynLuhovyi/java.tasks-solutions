@@ -1,9 +1,9 @@
-package com.lugowoy.tasks.determineThatTicketIsHappy;
+package com.lugowoy.tasks.solutions.core.determineThatTicketIsHappy;
 
-import com.lugowoy.helper.other.GeneratorRandomNumber;
+import com.lugowoy.helper.utils.generating.GeneratorRandomNumber;
 
-import static com.lugowoy.tasks.determineThatTicketIsHappy.DeterminantHappyTicket.MAX_VALUE_OF_NUMBER_TICKET;
-import static com.lugowoy.tasks.determineThatTicketIsHappy.DeterminantHappyTicket.MIN_VALUE_OF_NUMBER_TICKET;
+import static com.lugowoy.tasks.solutions.core.determineThatTicketIsHappy.DeterminantHappyTicket.MAX_VALUE_OF_NUMBER_TICKET;
+import static com.lugowoy.tasks.solutions.core.determineThatTicketIsHappy.DeterminantHappyTicket.MIN_VALUE_OF_NUMBER_TICKET;
 
 /**
  * To determine that the ticket is happy.

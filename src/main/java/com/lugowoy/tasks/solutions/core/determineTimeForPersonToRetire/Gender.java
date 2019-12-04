@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.determineTimeForPersonToRetire;
+package com.lugowoy.tasks.solutions.core.determineTimeForPersonToRetire;
 
 /**
  * Created by Konstantin Lugowoy on 02.10.2017.

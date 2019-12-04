@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.deduceSumOfIntegerAndFractionalPartsOfTwoEnteredNumbers;
+package com.lugowoy.tasks.solutions.core.deduceSumOfIntegerAndFractionalPartsOfTwoEnteredNumbers;
 
 /**
  * Created by Konstantin Lugowoy on 25.03.2017.

@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.writeProgramToCalculateCoordinatesOfBallThrownAtArbitraryTime;
+package com.lugowoy.tasks.solutions.core.writeProgramToCalculateCoordinatesOfBallThrownAtArbitraryTime;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
@@ -15,7 +15,7 @@ import com.lugowoy.helper.models.points.Point2D;
 
 public class Main {
 
-    private static final Reader READER = Reader.getReader(new ReadingConsole());
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     private static final double g = 9.832;
 

@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculatingNumberProductsOfPurchasedFromCertainSum;
+package com.lugowoy.tasks.solutions.core.calculatingNumberProductsOfPurchasedFromCertainSum;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
@@ -14,7 +14,7 @@ import java.math.RoundingMode;
 
 public class Main {
 
-    private static final Reader READER = Reader.getReader(new ReadingConsole());
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     public static void main(String[] args) {
 

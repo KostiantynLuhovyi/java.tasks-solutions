@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.showNumbersAndTotalNumberOfAllSixDigitHappyTickets;
+package com.lugowoy.tasks.solutions.core.showNumbersAndTotalNumberOfAllSixDigitHappyTickets;
 
 /**
  * Show the numbers and the total number of all the happy tram tickets with six-digit numbers.

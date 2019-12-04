@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.determineWhetherNumberBelongsToRangeOfNumbers;
+package com.lugowoy.tasks.solutions.core.determineWhetherNumberBelongsToRangeOfNumbers;
 
 /**
  * Created by Konstantin Lugowoy on 11.09.2017.

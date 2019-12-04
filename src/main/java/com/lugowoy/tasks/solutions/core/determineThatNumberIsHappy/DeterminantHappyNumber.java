@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.determineThatNumberIsHappy;
+package com.lugowoy.tasks.solutions.core.determineThatNumberIsHappy;
 
 import java.util.ArrayList;
 import java.util.List;

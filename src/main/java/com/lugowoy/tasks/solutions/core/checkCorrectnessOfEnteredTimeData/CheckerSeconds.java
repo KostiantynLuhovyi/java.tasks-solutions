@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.checkCorrectnessOfEnteredTimeData;
+package com.lugowoy.tasks.solutions.core.checkCorrectnessOfEnteredTimeData;
 
 /**
  * Created by Konstantin Lugowoy on 02.10.2017.

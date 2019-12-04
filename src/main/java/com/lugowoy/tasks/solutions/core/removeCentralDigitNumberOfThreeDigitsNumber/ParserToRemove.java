@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.removeCentralDigitNumberOfThreeDigitsNumber;
+package com.lugowoy.tasks.solutions.core.removeCentralDigitNumberOfThreeDigitsNumber;
 
 /**
  * Created by Konstantin Lugowoy on 07-Feb-17.

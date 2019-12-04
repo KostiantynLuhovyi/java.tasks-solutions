@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculatePercentageRatioOfDifferentNumberVariantsAmongRandomlyGeneratedNumbers.calculating;
+package com.lugowoy.tasks.solutions.core.calculatePercentageRatioOfDifferentNumberVariantsAmongRandomlyGeneratedNumbers.calculating;
 
 /**
  * Created by Konstantin Lugowoy on 23.10.2017.

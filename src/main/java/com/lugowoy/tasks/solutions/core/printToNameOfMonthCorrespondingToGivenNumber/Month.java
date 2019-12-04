@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.printToNameOfMonthCorrespondingToGivenNumber;
+package com.lugowoy.tasks.solutions.core.printToNameOfMonthCorrespondingToGivenNumber;
 
 /**
  * Created by Konstantin Lugowoy on 29.09.2018.

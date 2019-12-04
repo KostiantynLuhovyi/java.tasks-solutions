@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculationPercentageOfSum;
+package com.lugowoy.tasks.solutions.core.calculationPercentageOfSum;
 
 import com.lugowoy.helper.calculating.CalculationOneParameter;
 import com.lugowoy.helper.io.reading.Reader;
@@ -15,7 +15,7 @@ import java.math.RoundingMode;
 
 public class Main {
 
-    private static final Reader READER = Reader.getReader(new ReadingConsole());
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     public static void main(String[] args) {
 

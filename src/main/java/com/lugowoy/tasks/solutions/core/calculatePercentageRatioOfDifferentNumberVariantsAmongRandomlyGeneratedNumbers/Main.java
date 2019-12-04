@@ -1,11 +1,10 @@
-package com.lugowoy.tasks.calculatePercentageRatioOfDifferentNumberVariantsAmongRandomlyGeneratedNumbers;
+package com.lugowoy.tasks.solutions.core.calculatePercentageRatioOfDifferentNumberVariantsAmongRandomlyGeneratedNumbers;
 
-import com.lugowoy.helper.filling.array.numbers.FillerArrayNumbers;
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomInteger;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.tasks.calculatePercentageRatioOfDifferentNumberVariantsAmongRandomlyGeneratedNumbers.calculating.CalculatingPercentage;
-import com.lugowoy.tasks.calculatePercentageRatioOfDifferentNumberVariantsAmongRandomlyGeneratedNumbers.calculating.Calculator;
-import com.lugowoy.tasks.calculatePercentageRatioOfDifferentNumberVariantsAmongRandomlyGeneratedNumbers.calculating.CalculatorPercentage;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegers;
+import com.lugowoy.helper.models.storages.arrays.Array;
+import com.lugowoy.tasks.solutions.core.calculatePercentageRatioOfDifferentNumberVariantsAmongRandomlyGeneratedNumbers.calculating.CalculatingPercentage;
+import com.lugowoy.tasks.solutions.core.calculatePercentageRatioOfDifferentNumberVariantsAmongRandomlyGeneratedNumbers.calculating.Calculator;
+import com.lugowoy.tasks.solutions.core.calculatePercentageRatioOfDifferentNumberVariantsAmongRandomlyGeneratedNumbers.calculating.CalculatorPercentage;
 
 /**
  * To guess randomly 100 integers in the range from -100 to 100. Calculate the percentage of positive numbers,
@@ -25,9 +24,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Array<Integer> array = new Array<>(LENGTH_ARRAY);
-
-        FillerArrayNumbers.getFillerArrayNumbers(new FillingArrayRandomInteger()).fill(array, MIN_BOUND, MAX_BOUND);
+        Array<Integer> array = new Array<>(new FillingArrayRandomIntegers().fill(LENGTH_ARRAY, MIN_BOUND, MAX_BOUND));
 
         System.out.println("Numbers : " + array);
 

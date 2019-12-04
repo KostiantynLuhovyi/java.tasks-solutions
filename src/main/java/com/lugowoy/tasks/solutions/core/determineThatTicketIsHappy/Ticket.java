@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.determineThatTicketIsHappy;
+package com.lugowoy.tasks.solutions.core.determineThatTicketIsHappy;
 
 import java.io.Serializable;
 

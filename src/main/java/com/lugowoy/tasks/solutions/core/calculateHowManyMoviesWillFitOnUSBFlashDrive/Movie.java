@@ -1,8 +1,9 @@
-package com.lugowoy.tasks.calculateHowManyMoviesWillFitOnUSBFlashDrive;
+package com.lugowoy.tasks.solutions.core.calculateHowManyMoviesWillFitOnUSBFlashDrive;
 
 import com.rits.cloning.Cloner;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * Created by Konstantin Lugowoy on 16.06.2017.
@@ -30,7 +31,7 @@ public final class Movie implements Serializable, Cloneable {
         Movie movie = (Movie) o;
 
         if (Double.compare(movie.sizeMovie, sizeMovie) != 0) return false;
-        return nameMovie != null ? nameMovie.equals(movie.nameMovie) : movie.nameMovie == null;
+        return Objects.equals(nameMovie, movie.nameMovie);
     }
 
     @Override

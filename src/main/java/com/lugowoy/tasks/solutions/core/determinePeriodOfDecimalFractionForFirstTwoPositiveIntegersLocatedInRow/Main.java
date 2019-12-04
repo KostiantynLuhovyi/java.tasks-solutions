@@ -1,9 +1,9 @@
-package com.lugowoy.tasks.determinePeriodOfDecimalFractionForFirstTwoPositiveIntegersLocatedInRow;
+package com.lugowoy.tasks.solutions.core.determinePeriodOfDecimalFractionForFirstTwoPositiveIntegersLocatedInRow;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomInteger;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.LengthReader;
+import com.lugowoy.helper.models.storages.arrays.Array;
+import com.lugowoy.helper.utils.ArrayLengthReader;
 
 /**
  * Determine the period of the decimal fraction p = m / n for the first two positive integers n and m located in a series.
@@ -19,9 +19,9 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthReader.readLength(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> array = new Array<>(new FillingArrayRandomInteger().fill(lengthOfArray, START_BOUND, END_BOUND));
+        Array<Integer> array = new Array<>(new FillingArrayRandomIntegers().fill(lengthOfArray, START_BOUND, END_BOUND));
 
         Determinant determinant = Determinant::determinePeriodOfDecimalFractionForFirstTwoPositiveIntegersLocatedInRow;
         determinant.determine(array);

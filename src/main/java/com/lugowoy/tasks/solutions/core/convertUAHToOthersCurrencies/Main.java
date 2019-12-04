@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.convertUAHToOthersCurrencies;
+package com.lugowoy.tasks.solutions.core.convertUAHToOthersCurrencies;
 
 import com.lugowoy.helper.converting.Converter;
 import com.lugowoy.helper.io.reading.Reader;
@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 
 public class Main {
 
-    private static final Reader reader = Reader.getReader(new ReadingConsole());
+    private static final Reader reader = new Reader(new ReadingConsole());
 
     private static final double EUR_EXCHANGE_RATE = 29.11;
     private static final double USD_EXCHANGE_RATE = 27.21;

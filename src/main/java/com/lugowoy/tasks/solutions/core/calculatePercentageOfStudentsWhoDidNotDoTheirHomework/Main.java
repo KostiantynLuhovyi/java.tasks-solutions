@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculatePercentageOfStudentsWhoDidNotDoTheirHomework;
+package com.lugowoy.tasks.solutions.core.calculatePercentageOfStudentsWhoDidNotDoTheirHomework;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
@@ -6,8 +6,8 @@ import com.lugowoy.helper.io.reading.ReadingConsole;
 /**
  * The teacher enters from the keyboard the number of students who submitted homework and the number of those who did not pass.
  * Calculate how many percent of students who did not pass their homework from the total number of students.
- * <p>
- * Created by Konstantin Lugowoy on 17.06.2017.
+ *
+ * <p> Created by Konstantin Lugowoy on 17.06.2017.
  */
 
 public class Main {
@@ -31,7 +31,7 @@ public class Main {
     }
 
     private static int enterNumberOfStudents(String msg) {
-        Reader reader = Reader.getReader(new ReadingConsole());
+        Reader reader = new Reader(new ReadingConsole());
         int numberOfStudents;
 
         System.out.println(msg);

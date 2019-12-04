@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculateRootOfLinearEquation;
+package com.lugowoy.tasks.solutions.core.calculateRootOfLinearEquation;
 
 import java.io.Serializable;
 import java.util.Objects;

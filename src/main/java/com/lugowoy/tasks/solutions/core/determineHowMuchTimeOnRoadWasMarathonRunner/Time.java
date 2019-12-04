@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.determineHowMuchTimeOnRoadWasMarathonRunner;
+package com.lugowoy.tasks.solutions.core.determineHowMuchTimeOnRoadWasMarathonRunner;
 
 import java.util.Calendar;
 import java.util.Objects;

@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculateHowMuchMoneyUserWillReceiveAtEndOfTermOfDeposit;
+package com.lugowoy.tasks.solutions.core.calculateHowMuchMoneyUserWillReceiveAtEndOfTermOfDeposit;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
@@ -14,7 +14,7 @@ import java.math.RoundingMode;
 
 public class Main {
 
-    private static final Reader READER = Reader.getReader(new ReadingConsole());
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     private static final int SCALE = 2;
 

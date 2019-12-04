@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.showAllEightDigitNumbersOfNumbersInWhichDoNotRepeat;
+package com.lugowoy.tasks.solutions.core.showAllEightDigitNumbersOfNumbersInWhichDoNotRepeat;
 
 /**
  * Display on the screen all eight-digit numbers, the numbers in which do not repeat.

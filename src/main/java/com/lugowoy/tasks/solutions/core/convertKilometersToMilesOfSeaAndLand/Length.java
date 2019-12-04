@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.convertKilometersToMilesOfSeaAndLand;
+package com.lugowoy.tasks.solutions.core.convertKilometersToMilesOfSeaAndLand;
 
 import java.io.Serializable;
 import java.util.Objects;

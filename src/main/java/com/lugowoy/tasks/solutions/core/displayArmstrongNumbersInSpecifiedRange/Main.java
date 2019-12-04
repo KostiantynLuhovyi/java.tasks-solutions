@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.displayArmstrongNumbersInSpecifiedRange;
+package com.lugowoy.tasks.solutions.core.displayArmstrongNumbersInSpecifiedRange;
 
 /**
  * Display on the screen all Armstrong numbers in the range from 0 to 10.000.000.

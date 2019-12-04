@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculateHeightOfSatellitesOrbitAboveEarthsSurface;
+package com.lugowoy.tasks.solutions.core.calculateHeightOfSatellitesOrbitAboveEarthsSurface;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
@@ -11,7 +11,7 @@ import com.lugowoy.helper.io.reading.ReadingConsole;
 
 public class Main {
 
-    private static final Reader READER = Reader.getReader(new ReadingConsole());
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     private static final double G = 6.672E-11;
     private static final double EARTH_MASS = 5.96e24;

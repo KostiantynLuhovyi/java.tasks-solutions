@@ -1,6 +1,6 @@
-package com.lugowoy.tasks.writeProgramUsingBernoulliScheme;
+package com.lugowoy.tasks.solutions.core.writeProgramUsingBernoulliScheme;
 
-import com.lugowoy.helper.other.GeneratorRandomNumber;
+import com.lugowoy.helper.utils.generating.GeneratorRandomNumber;
 
 /**
  * Created by Konstantin Lugowoy on 16.11.2017.

@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.implementElementaryConsoleCalculator;
+package com.lugowoy.tasks.solutions.core.implementElementaryConsoleCalculator;
 
 import java.io.Serializable;
 

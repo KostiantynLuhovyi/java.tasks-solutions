@@ -1,8 +1,8 @@
-package com.lugowoy.tasks.identifyTwoIdenticalNumbers;
+package com.lugowoy.tasks.solutions.core.identifyTwoIdenticalNumbers;
 
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.other.GeneratorRandomNumber;
+import com.lugowoy.helper.utils.generating.GeneratorRandomNumber;
 
 /**
  * Enter three numbers and define two of the same number of them.
@@ -12,7 +12,7 @@ import com.lugowoy.helper.other.GeneratorRandomNumber;
 
 public class Main {
 
-    private static final Reader READER = Reader.getReader(new ReadingConsole());
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     private static final int USER_ENTER_NUMBERS = 1;
     private static final int RANDOM_ENTER_NUMBERS = 2;

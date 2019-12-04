@@ -1,9 +1,9 @@
-package com.lugowoy.tasks.printMaxAndMinNumber;
+package com.lugowoy.tasks.solutions.core.printMaxAndMinNumber;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomInteger;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.Array;
-import com.lugowoy.helper.other.LengthReader;
+import com.lugowoy.helper.models.storages.arrays.Array;
+import com.lugowoy.helper.utils.ArrayLengthReader;
 
 /**
  * Print max and min value number.
@@ -16,9 +16,9 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Enter length of the array : ");
-        int lengthOfArray = LengthReader.readLength(new ReadingConsole());
+        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
-        Array<Integer> array = new Array<>(new FillingArrayRandomInteger().fill(lengthOfArray));
+        Array<Integer> array = new Array<>(new FillingArrayRandomIntegers().fill(lengthOfArray));
 
         System.out.println("Original number : " + array);
         System.out.println();
@@ -34,7 +34,7 @@ public class Main {
     private static int getIndexMaxNumber(Array<Integer> array) {
         int value = Integer.MIN_VALUE;
         int index = 0;
-        for (int i = 0; i < array.getLength(); i++) {
+        for (int i = 0; i < array.size(); i++) {
             if (array.get(i) > value) {
                 value = array.get(i);
                 index = i;
@@ -46,7 +46,7 @@ public class Main {
     private static int getIndexMinNumber(Array<Integer> array) {
         int value = Integer.MAX_VALUE;
         int index = 0;
-        for (int i = 0; i < array.getLength(); i++) {
+        for (int i = 0; i < array.size(); i++) {
             if (array.get(i) < value) {
                 value = array.get(i);
                 index = i;

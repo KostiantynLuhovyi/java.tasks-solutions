@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.calculateTotalCostOfOrderingLaptopAtDiscount;
+package com.lugowoy.tasks.solutions.core.calculateTotalCostOfOrderingLaptopAtDiscount;
 
 import com.lugowoy.helper.calculating.CalculationThreeParameters;
 import com.lugowoy.helper.io.reading.Reader;
@@ -17,7 +17,7 @@ import java.util.Random;
 
 public class Main {
 
-    private static final Reader READER = Reader.getReader(new ReadingConsole());
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     private static final int SCALE = 2;
 
