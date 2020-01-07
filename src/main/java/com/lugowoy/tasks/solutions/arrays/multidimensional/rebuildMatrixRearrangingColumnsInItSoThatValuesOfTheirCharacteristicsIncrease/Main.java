@@ -9,9 +9,9 @@ import static com.lugowoy.helper.filling.ValuesToFilling.INT_LOWER_BOUND;
 import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 
 /**
- * Created by Konstantin Lugowoy on 27.11.2018.
+ * Rebuild the given matrix, rearranging the columns in it so that the values of their characteristics increase.
+ * <p> Created by Konstantin Lugowoy on 27.11.2018.
  */
-
 public class Main {
 
     private static final Reader READER = new Reader(new ReadingConsole());

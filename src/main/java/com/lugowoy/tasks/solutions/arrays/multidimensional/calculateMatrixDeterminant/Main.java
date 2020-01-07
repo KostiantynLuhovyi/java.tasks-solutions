@@ -13,15 +13,13 @@ import static java.lang.Math.pow;
 
 /**
  * Calculate the matrix determinant.
- *
  * <p> Created by Konstantin Lugowoy on 31.10.2018.
  */
-
 public class Main {
 
     private static final Reader READER = new Reader(new ReadingConsole());
 
-    private static final String MSG_OUTPUT_RESULT = "Matrix determinant : %.3f";
+    private static final String MSG_OUTPUT_RESULT = "Matrix determinant : %.3f\n";
 
     public static void main(String[] args) {
 
@@ -34,8 +32,7 @@ public class Main {
 
         MatrixInts matrix = new MatrixInts(filler.fill(rows, columns, INT_LOWER_BOUND, INT_UPPER_BOUND));
 
-        System.out.println("Matrix : ");
-        System.out.println(matrix);
+        System.out.println("Matrix : \n" + matrix);
 
         Executor.execute(() -> calculateMatrixDeterminant(matrix), MSG_MILLISECONDS, MSG_OUTPUT_RESULT);
 

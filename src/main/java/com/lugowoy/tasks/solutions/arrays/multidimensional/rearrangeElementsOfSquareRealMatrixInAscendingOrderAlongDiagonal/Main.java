@@ -4,15 +4,14 @@ import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomPrimitiveDou
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.matrices.MatrixDoubles;
+import com.lugowoy.helper.utils.checking.CheckerMatrix;
 
 import static com.lugowoy.helper.filling.ValuesToFilling.DOUBLE_UPPER_BOUND;
 
 /**
  * Rearrange the elements of a square real matrix in ascending order along the diagonal.
- * <p>
- * Created by Konstantin Lugowoy on 29.11.2018.
+ * <p> Created by Konstantin Lugowoy on 29.11.2018.
  */
-
 public class Main {
 
     private static final Reader READER = new Reader(new ReadingConsole());

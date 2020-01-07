@@ -7,10 +7,8 @@ import com.lugowoy.helper.models.matrices.MatrixInts;
 
 /**
  * Move the minimum matrix element to the specified location using permutation of rows and columns.
- * <p>
- * Created by Konstantin Lugowoy on 05.11.2018.
+ * <p> Created by Konstantin Lugowoy on 05.11.2018.
  */
-
 public class Main {
 
     private static final Reading READER = new ReadingConsole();
@@ -48,7 +46,8 @@ public class Main {
 
     }
 
-    private static void moveMinimumMatrixElementToSpecifiedLocation(MatrixInts matrix, int indexRowMinElement, int indexColumnMinElement,
+    private static void moveMinimumMatrixElementToSpecifiedLocation(MatrixInts matrix,
+                                                                    int indexRowMinElement, int indexColumnMinElement,
                                                                     int indexRowToMove, int indexColumnToMove) {
         if (indexRowToMove <= matrix.getRows() && indexColumnToMove <= matrix.getColumns()) {
             for (int i = 0; i < matrix.getRows(); i++) {

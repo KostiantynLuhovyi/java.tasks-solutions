@@ -8,10 +8,8 @@ import com.lugowoy.helper.models.matrices.MatrixInts;
 
 /**
  * Round all elements of the matrix to an integer.
- * <p>
- * Created by Konstantin Lugowoy on 07.11.2018.
+ * <p> Created by Konstantin Lugowoy on 07.11.2018.
  */
-
 public class Main {
 
     private static final Reader READER = new Reader(new ReadingConsole());

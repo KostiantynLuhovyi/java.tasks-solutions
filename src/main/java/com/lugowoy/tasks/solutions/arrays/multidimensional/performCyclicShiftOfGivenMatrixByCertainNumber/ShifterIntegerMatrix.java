@@ -1,14 +1,16 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.performCyclicShiftOfGivenMatrixByCertainNumber;
 
 import com.lugowoy.helper.models.matrices.MatrixInts;
+import com.lugowoy.helper.utils.checking.CheckerMatrix;
+import com.lugowoy.tasks.solutions.core.checkCorrectnessOfEnteredTimeData.Checker;
 
 /**
  * Created by Konstantin Lugowoy on 28.10.2018.
  */
-
 public class ShifterIntegerMatrix {
 
     public static void shiftMatrixToRight(MatrixInts matrix, int numberToShiftMatrix) {
+        CheckerMatrix.checkMatrix(matrix);
         int[][] ints = matrix.toMatrix(new int[matrix.getRows()][matrix.getColumns()]);
         int k;
         for (int i = 0; i < numberToShiftMatrix; i++) {
@@ -24,6 +26,7 @@ public class ShifterIntegerMatrix {
     }
 
     public static void shiftMatrixToLeft(MatrixInts matrix, int numberToShiftMatrix) {
+        CheckerMatrix.checkMatrix(matrix);
         int[][] ints = matrix.toMatrix(new int[matrix.getRows()][matrix.getColumns()]);
         int k;
         for (int i = 0; i < numberToShiftMatrix; i++) {
@@ -39,6 +42,7 @@ public class ShifterIntegerMatrix {
     }
 
     public static void shiftMatrixToUp(MatrixInts matrix, int numberToShiftMatrix) {
+        CheckerMatrix.checkMatrix(matrix);
         int[][] ints = matrix.toMatrix(new int[matrix.getRows()][matrix.getColumns()]);
         int k;
         for (int i = 0; i < numberToShiftMatrix; i++) {
@@ -54,6 +58,7 @@ public class ShifterIntegerMatrix {
     }
 
     public static void shiftMatrixToDown(MatrixInts matrix, int numberToShiftMatrix) {
+        CheckerMatrix.checkMatrix(matrix);
         int[][] ints = matrix.toMatrix(new int[matrix.getRows()][matrix.getColumns()]);
         int k;
         for (int i = 0; i < numberToShiftMatrix; i++) {

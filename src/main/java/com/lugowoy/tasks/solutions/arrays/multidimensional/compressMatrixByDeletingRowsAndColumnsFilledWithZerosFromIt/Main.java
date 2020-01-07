@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.solutions.arrays.multidimensional.compressMatrixByRemovingRowsAndColumnsFilledWithZerosFromIt;
+package com.lugowoy.tasks.solutions.arrays.multidimensional.compressMatrixByDeletingRowsAndColumnsFilledWithZerosFromIt;
 
 import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomPrimitiveIntegers;
 import com.lugowoy.helper.io.reading.Reader;
@@ -9,11 +9,9 @@ import com.lugowoy.helper.utils.execution.Executor;
 import static com.lugowoy.helper.utils.execution.OutputExecutorTimer.MSG_MILLISECONDS;
 
 /**
- * Compact the matrix by removing rows and columns filled with zeros from it.
- *
+ * Compress the matrix by deleting rows and columns filled with zeros from it.
  * <p> Created by Konstantin Lugowoy on 01.11.2018.
  */
-
 public class Main {
 
     private static final Reader READER = new Reader(new ReadingConsole());
@@ -41,6 +39,7 @@ public class Main {
     }
 
     private static MatrixInts compressMatrix(MatrixInts matrix) {
+        //todo Consider the solution to this problem using one cycle.
         for (int i = 0; i < matrix.getRows(); i++) {
             int indexRowZeros = getIndexRowFilledZeros(matrix, i);
             if (indexRowZeros != -1) {
@@ -58,7 +57,7 @@ public class Main {
         return matrix;
     }
 
-    private static int getIndexRowFilledZeros(MatrixInts matrix, int indexRow) {
+    private static int getIndexColumnFilledZeros(MatrixInts matrix, int indexRow) {
         int resultIndexRow = -1;
         int counterZeros = 0;
         for (int i = 0; i < matrix.getColumns(); i++) {
@@ -74,7 +73,7 @@ public class Main {
         return resultIndexRow;
     }
 
-    private static int getIndexColumnFilledZeros(MatrixInts matrix, int indexColumn) {
+    private static int getIndexRowFilledZeros(MatrixInts matrix, int indexColumn) {
         int resultIndexColumn = -1;
         int counterZeros = 0;
         for (int i = 0; i < matrix.getRows(); i++) {

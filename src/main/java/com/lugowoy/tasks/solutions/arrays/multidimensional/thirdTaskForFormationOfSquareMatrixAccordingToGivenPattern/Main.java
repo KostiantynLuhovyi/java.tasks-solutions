@@ -11,8 +11,7 @@ import com.lugowoy.helper.utils.ArrayLengthReader;
  * …	…	…	…	…	…	…
  * 0	0	0	…	0	2	0
  * 0	0	0	…	0	0	1
- * <p>
- * Created by Konstantin Lugowoy on 16.10.2017.
+ * <p> Created by Konstantin Lugowoy on 16.10.2017.
  */
 
 public class Main {

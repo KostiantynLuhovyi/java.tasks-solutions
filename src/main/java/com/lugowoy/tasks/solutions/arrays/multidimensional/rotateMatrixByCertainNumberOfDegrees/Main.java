@@ -9,10 +9,8 @@ import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 
 /**
  * Rotation of the matrix by a certain number of degrees.
- * <p>
- * Created by Konstantin Lugowoy on 30.10.2018.
+ * <p> Created by Konstantin Lugowoy on 30.10.2018.
  */
-
 public class Main {
 
     private static final Reader READER = new Reader(new ReadingConsole());

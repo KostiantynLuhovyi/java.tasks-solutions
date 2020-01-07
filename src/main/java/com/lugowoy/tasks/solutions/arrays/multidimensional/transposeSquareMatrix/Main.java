@@ -9,10 +9,8 @@ import static com.lugowoy.helper.models.matrices.AbstractMatrix.DEFAULT_ROWS;
 
 /**
  * Transpose square matrix.
- * <p>
- * Created by Konstantin Lugowoy on 29.10.2018.
+ * <p> Created by Konstantin Lugowoy on 29.10.2018.
  */
-
 public class Main {
 
     public static void main(String[] args) {

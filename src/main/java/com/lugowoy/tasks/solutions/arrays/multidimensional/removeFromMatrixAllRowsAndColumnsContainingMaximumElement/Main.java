@@ -7,10 +7,8 @@ import com.lugowoy.helper.models.matrices.MatrixInts;
 
 /**
  * Find the maximum element(s) in the matrix and remove from the matrix all the rows and columns containing it.
- * <p>
- * Created by Konstantin Lugowoy on 31.10.2018.
+ * <p> Created by Konstantin Lugowoy on 31.10.2018.
  */
-
 public class Main {
 
     private static final Reader READER = new Reader(new ReadingConsole());

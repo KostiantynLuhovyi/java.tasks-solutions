@@ -11,10 +11,8 @@ import com.lugowoy.helper.utils.ArrayLengthReader;
  * …	…	…	…	…	…	…
  * 0	n-1	0	…	0	0	0
  * n	0	0	…	0	0	0
- * <p>
- * Created by Konstantin Lugowoy on 16.10.2017.
+ * <p> Created by Konstantin Lugowoy on 16.10.2017.
  */
-
 public class Main {
 
     private static final int UPPER_BOUND = 50;

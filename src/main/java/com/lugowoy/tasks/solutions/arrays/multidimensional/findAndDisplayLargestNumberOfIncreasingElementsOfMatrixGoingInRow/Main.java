@@ -11,10 +11,8 @@ import static com.lugowoy.helper.utils.execution.OutputExecutorTimer.MSG_MILLISE
 
 /**
  * Find and display the largest number of increasing elements of the matrix, going in a row.
- * <p>
- * Created by Konstantin Lugowoy on 28.10.2018.
+ * <p> Created by Konstantin Lugowoy on 28.10.2018.
  */
-
 public class Main {
 
     private static final Reader READER = new Reader(new ReadingConsole());

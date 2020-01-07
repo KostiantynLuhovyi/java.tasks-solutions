@@ -7,10 +7,8 @@ import com.lugowoy.helper.models.matrices.MatrixInts;
 
 /**
  * Find the number of all saddle points of the matrix.
- * <p>
- * Created by Konstantin Lugowoy on 07.11.2018.
+ * <p> Created by Konstantin Lugowoy on 07.11.2018.
  */
-
 public class Main {
 
     private static final Reader READER = new Reader(new ReadingConsole());

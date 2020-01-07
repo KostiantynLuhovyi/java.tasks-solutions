@@ -5,7 +5,6 @@ import com.lugowoy.helper.models.matrices.MatrixInts;
 /**
  * Created by Konstantin Lugowoy on 30.10.2018.
  */
-
 @FunctionalInterface
 public interface RotatorMatrix {
 

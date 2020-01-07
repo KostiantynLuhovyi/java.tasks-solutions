@@ -7,8 +7,7 @@ import com.lugowoy.helper.models.matrices.MatrixInts;
 
 /**
  * Sort the columns in descending order of values of the elements of k-th row.
- * <p>
- * Created by Konstantin Lugowoy on 27.10.2018.
+ * <p> Created by Konstantin Lugowoy on 27.10.2018.
  */
 
 public class Main {

@@ -12,10 +12,8 @@ import static com.lugowoy.helper.utils.execution.OutputExecutorTimer.MSG_MILLISE
 
 /**
  * Find the sum of matrix elements located between the first and second positive elements of each row.
- * <p>
- * Created by Konstantin Lugowoy on 29.10.2018.
+ * <p> Created by Konstantin Lugowoy on 29.10.2018.
  */
-
 public class Main {
 
     private static final Reader READER = new Reader(new ReadingConsole());
@@ -35,7 +33,7 @@ public class Main {
         System.out.println(matrix);
 
         Executor.execute(() -> findSumOfMatrixElementsLocatedBetweenFirstAndSecondPositiveElementsOfEachRow(matrix),
-                               MSG_MILLISECONDS, "Result sum elements : %.3f");
+                                                                    MSG_MILLISECONDS, "Result sum elements : %d");
 
     }
 
@@ -46,13 +44,14 @@ public class Main {
         boolean secondPositive = false;
         for (int i = 0; i < matrix.getRows(); i++) {
             for (int j = 0; j < matrix.getColumns(); j++) {
-                if (matrix.getElement(i, j) > 0 && firstPositive)
+                int element = matrix.getElement(i, j);
+                if (element > 0 && firstPositive) {
                     secondPositive = true;
-                else if (firstPositive && !secondPositive){
-                    tmpSum += matrix.getElement(i, j);
-                }
-                else if (matrix.getElement(i, j) > 0 && !firstPositive)
+                } else if (firstPositive && !secondPositive) {
+                    tmpSum += element;
+                } else if (element > 0 && !firstPositive) {
                     firstPositive = true;
+                }
             }
             if (firstPositive && !secondPositive) {
                 tmpSum = 0;

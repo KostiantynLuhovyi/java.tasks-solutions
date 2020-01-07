@@ -5,12 +5,12 @@ import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.matrices.MatrixInts;
 
+import java.util.Arrays;
+
 /**
  * Rebuild the matrix, rearranging the rows in it so that the elements in the rows of the resulting matrix are increased.
- * <p>
- * Created by Konstantin Lugowoy on 23.11.2018.
+ * <p> Created by Konstantin Lugowoy on 23.11.2018.
  */
-
 public class Main {
 
     private static final Reader READER = new Reader(new ReadingConsole());
@@ -38,12 +38,6 @@ public class Main {
 
     }
 
-    private static void swap(int[][] matrixSort, int indexColumn) {
-        int[] tmp = matrixSort[indexColumn];
-        matrixSort[indexColumn] = matrixSort[indexColumn + 1];
-        matrixSort[indexColumn + 1] = tmp;
-    }
-
     private static void rebuildMatrix(MatrixInts matrix) {
         int[][] matrixSort = matrix.toMatrix(new int[matrix.getRows()][matrix.getColumns()]);
         for (int i = 0; i < matrix.getRows(); i++) {
@@ -54,6 +48,12 @@ public class Main {
             }
         }
         matrix.setMatrix(matrixSort);
+    }
+
+    private static void swap(int[][] matrixSort, int indexColumn) {
+        int[] tmp = matrixSort[indexColumn];
+        matrixSort[indexColumn] = matrixSort[indexColumn + 1];
+        matrixSort[indexColumn + 1] = tmp;
     }
 
     private static int sumLine(int[][] matrix, int indexRow) {

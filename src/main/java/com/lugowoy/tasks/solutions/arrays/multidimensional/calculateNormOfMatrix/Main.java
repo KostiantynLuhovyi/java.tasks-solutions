@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.solutions.arrays.multidimensional.calculateMatrixNorms;
+package com.lugowoy.tasks.solutions.arrays.multidimensional.calculateNormOfMatrix;
 
 import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomPrimitiveDoubles;
 import com.lugowoy.helper.io.reading.Reader;
@@ -9,11 +9,9 @@ import static com.lugowoy.helper.filling.ValuesToFilling.DOUBLE_LOWER_BOUND;
 import static com.lugowoy.helper.filling.ValuesToFilling.DOUBLE_UPPER_BOUND;
 
 /**
- * Calculate the matrix norms.
- *
+ * Calculate norm of the matrix.
  * <p> Created by Konstantin Lugowoy on 30.10.2018.
  */
-
 public class Main {
 
     private static final Reader READER = new Reader(new ReadingConsole());
@@ -29,8 +27,7 @@ public class Main {
 
         MatrixDoubles matrix = new MatrixDoubles(filler.fill(rows, columns, DOUBLE_LOWER_BOUND, DOUBLE_UPPER_BOUND));
 
-        System.out.println("Matrix : ");
-        System.out.println(matrix);
+        System.out.println("Matrix : \n" + matrix);
 
         CalculatorMatrixNorms calculatorMatrixNorms = CalculatorMatrixNorms::calculateMatrixRowsNorm;
         double normMatrixRows = calculatorMatrixNorms.calculateMatrixNorm(matrix);

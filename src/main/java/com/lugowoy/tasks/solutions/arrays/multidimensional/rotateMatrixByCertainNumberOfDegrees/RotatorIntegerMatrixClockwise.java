@@ -5,7 +5,6 @@ import com.lugowoy.helper.models.matrices.MatrixInts;
 /**
  * Created by Konstantin Lugowoy on 30.10.2018.
  */
-
 public interface RotatorIntegerMatrixClockwise {
 
     static void rotateMatrixTo90Degrees(MatrixInts matrix) {
@@ -27,7 +26,7 @@ public interface RotatorIntegerMatrixClockwise {
         rotateMatrixTo90Degrees(matrix);
     }
 
-    static void rotateMatrixTo360Degress(MatrixInts matrix) {
+    static void rotateMatrixTo360Degrees(MatrixInts matrix) {
         rotateMatrixTo270Degrees(matrix);
         rotateMatrixTo90Degrees(matrix);
     }

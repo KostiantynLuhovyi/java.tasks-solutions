@@ -9,10 +9,8 @@ import static com.lugowoy.helper.filling.ValuesToFilling.DOUBLE_UPPER_BOUND;
 
 /**
  * Rearrange the elements of a square real matrix in descending order along the diagonal.
- * <p>
- * Created by Konstantin Lugowoy on 28.11.2018.
+ * <p> Created by Konstantin Lugowoy on 28.11.2018.
  */
-
 public class Main {
 
     private static final Reader READER = new Reader(new ReadingConsole());

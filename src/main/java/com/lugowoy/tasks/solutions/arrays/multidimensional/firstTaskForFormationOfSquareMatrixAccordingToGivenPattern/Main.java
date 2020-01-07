@@ -12,7 +12,6 @@ import com.lugowoy.helper.utils.ArrayLengthReader;
  *  …   …   …   …  …
  *  n  n-1 n-2  …  1
  *      (n – even number).
- *
  * <p> Created by Konstantin Lugowoy on 15.10.2017.
  */
 public class Main {

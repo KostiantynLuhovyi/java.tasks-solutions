@@ -9,10 +9,8 @@ import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 
 /**
  * Find all local maximums of the matrix and their number.
- * <p>
- * Created by Konstantin Lugowoy on 26.11.2018.
+ * <p> Created by Konstantin Lugowoy on 26.11.2018.
  */
-
 public class Main {
 
     private static final Reader READER = new Reader(new ReadingConsole());
@@ -40,7 +38,7 @@ public class Main {
         for (int i = 0; i < matrix.getRows(); i++) {
             for (int j = 0; j < matrix.getColumns(); j++) {
                 if (isLocalMaximum(matrix, i, j)) {
-                    System.out.println("The local minimum by the index of row " + i
+                    System.out.println("The local maximum by the index of row " + i
                             + " and the index of column " + j
                             + " is equal to : " + matrix.getElement(i, j) + " .");
                     countLocalMaximum++;
@@ -48,9 +46,9 @@ public class Main {
             }
         }
         if (countLocalMaximum == 0) {
-            System.out.println("Local minimums not found.");
+            System.out.println("Local maximums not found.");
         } else {
-            System.out.println("Found " + countLocalMaximum + " local minimals in the matrix");
+            System.out.println("Found " + countLocalMaximum + " local maximums in the matrix");
         }
     }
 

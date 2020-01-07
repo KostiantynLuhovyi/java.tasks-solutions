@@ -9,10 +9,8 @@ import com.lugowoy.tasks.solutions.arrays.multidimensional.performCyclicShiftOfG
 
 /**
  * Perform a cyclic shift of a given matrix by a certain number of positions to the right (left, up, down).
- * <p>
- * Created by Konstantin Lugowoy on 28.10.2018.
+ * <p> Created by Konstantin Lugowoy on 28.10.2018.
  */
-
 public class Main {
 
     private static final Reader READER = new Reader(new ReadingConsole());

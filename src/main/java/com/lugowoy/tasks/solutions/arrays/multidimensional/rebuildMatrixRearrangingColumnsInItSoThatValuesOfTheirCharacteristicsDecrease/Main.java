@@ -10,10 +10,8 @@ import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 
 /**
  * Rebuild the given matrix, rearranging the columns in it so that the values of their characteristics decrease.
- * <p>
- * Created by Konstantin Lugowoy on 26.11.2018.
+ * <p> Created by Konstantin Lugowoy on 26.11.2018.
  */
-
 public class Main {
 
     private static final Reader READER = new Reader(new ReadingConsole());

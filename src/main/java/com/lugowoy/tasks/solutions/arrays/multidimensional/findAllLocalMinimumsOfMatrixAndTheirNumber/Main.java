@@ -9,10 +9,8 @@ import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 
 /**
  * Find all local minimums of the matrix and their number.
- * <p>
- * Created by Konstantin Lugowoy on 23.11.2018.
+ * <p> Created by Konstantin Lugowoy on 23.11.2018.
  */
-
 public class Main {
 
     private static final Reader READER = new Reader(new ReadingConsole());

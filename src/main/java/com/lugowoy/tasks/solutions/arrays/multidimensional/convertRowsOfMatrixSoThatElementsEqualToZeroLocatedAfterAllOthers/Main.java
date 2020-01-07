@@ -7,14 +7,15 @@ import com.lugowoy.helper.models.matrices.MatrixInts;
 import com.lugowoy.helper.utils.execution.Executor;
 import com.lugowoy.helper.utils.execution.OutputExecutorTimer;
 
+import java.util.Arrays;
+
 import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
+import static com.lugowoy.helper.utils.execution.OutputExecutorTimer.*;
 
 /**
  * Convert the rows of the matrix so that the elements equal to zero are located after all the others.
- *
  * <p> Created by Konstantin Lugowoy on 06.11.2018.
  */
-
 public class Main {
 
     private static final Reader READER = new Reader(new ReadingConsole());
@@ -35,22 +36,25 @@ public class Main {
         System.out.println("Original matrix : ");
         System.out.println(matrix);
 
-        Executor.execute(() -> convertRowsOfMatrixSoThatZeroElementLocatedAfterOther(matrix),
-                                    OutputExecutorTimer.MSG_MILLISECONDS, MSG_OUTPUT_RESULT);
+        Executor.execute(() -> convertRowsOfMatrixSoThatZeroElementsLocatedAfterOther(matrix), MSG_MILLISECONDS, MSG_OUTPUT_RESULT);
 
     }
 
-    private static MatrixInts convertRowsOfMatrixSoThatZeroElementLocatedAfterOther(MatrixInts matrix) {
+    private static MatrixInts convertRowsOfMatrixSoThatZeroElementsLocatedAfterOther(MatrixInts matrix) {
+        int indexElementOfRow = 0;
         for (int i = 0; i < matrix.getRows(); i++) {
-            int n = 0;
-            int[] tmp = new int[matrix.getColumns()];
+            int[] tmp = new int[matrix.getRows()];
             for (int j = 0; j < matrix.getColumns(); j++) {
                 int element = matrix.getElement(i, j);
                 if (element != 0) {
-                    tmp[n++] = element;
+                    tmp[indexElementOfRow] = element;
+                } else {
+                    continue;
                 }
+                indexElementOfRow++;
             }
-            matrix.setColumnFromArray(tmp, i);
+            matrix.setRowFromArray(tmp, i);
+            indexElementOfRow = 0;
         }
         return matrix;
     }

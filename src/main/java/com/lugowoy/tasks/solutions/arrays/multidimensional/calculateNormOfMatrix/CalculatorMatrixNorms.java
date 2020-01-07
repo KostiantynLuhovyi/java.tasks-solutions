@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.solutions.arrays.multidimensional.calculateMatrixNorms;
+package com.lugowoy.tasks.solutions.arrays.multidimensional.calculateNormOfMatrix;
 
 import com.lugowoy.helper.models.matrices.MatrixDoubles;
 
