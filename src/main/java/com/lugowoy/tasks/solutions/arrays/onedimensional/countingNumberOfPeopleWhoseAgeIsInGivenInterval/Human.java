@@ -8,7 +8,6 @@ import java.util.Objects;
 /**
  * Created by Konstantin Lugowoy on 14.05.2017.
  */
-
 public class Human implements Serializable, Cloneable {
 
     private String name;
@@ -46,7 +45,7 @@ public class Human implements Serializable, Cloneable {
         try {
             human = (Human) super.clone();
             human.setAge(this.getAge());
-            human.name = new Cloner().deepClone(this.name);
+            human.name = this.name;
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }

@@ -4,14 +4,14 @@ import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.tasks.solutions.arrays.onedimensional.countingNumberOfPeopleWhoseAgeIsInGivenInterval.ArrayOfHumans;
 
+import java.util.Arrays;
 import java.util.Random;
 
 /**
  * Write a program whose input is the age of n people.
  * The program counting the number of people whose age is in the specified interval.
- *
- * <p>Created by Konstantin Lugowoy on 14.05.2017. */
-
+ * <p> Created by Konstantin Lugowoy on 14.05.2017.
+ */
 public class Main {
 
     private static final Random RANDOM_AGE = new Random();
@@ -26,6 +26,8 @@ public class Main {
 
         int finishAgeInterval = enterFinishAgeInterval();
 
+        showHumans(humans);
+
         Counting counting = Counting::countingTheNumberOfPeopleWithAgeInGivenInterval;
         counting.counting(humans, startAgeInterval, finishAgeInterval);
 
@@ -39,7 +41,7 @@ public class Main {
             if ((finishAgeInterval > 0) && (finishAgeInterval <= 150)) {
                 break;
             } else {
-                System.err.println("Not correct value of finish age interval. Re-enter : ");
+                System.out.println("Not correct value of finish age interval. Re-enter : ");
             }
         }
         return finishAgeInterval;
@@ -53,7 +55,7 @@ public class Main {
             if ((startAgeInterval >= 0 ) && (startAgeInterval <= 140)) {
                 break;
             } else {
-                System.err.println("Not correct value of start age interval. Re-enter : ");
+                System.out.println("Not correct value of start age interval. Re-enter : ");
             }
         }
         return startAgeInterval;
@@ -68,7 +70,7 @@ public class Main {
                 humans = createArrayOfHumans(numberOfPeople);
                 break;
             } else {
-                System.err.println("The number of people for counting is less than or equal to zero. Re-enter : ");
+                System.out.println("The number of people for counting is less than or equal to zero. Re-enter : ");
             }
         }
         return humans;
@@ -82,6 +84,12 @@ public class Main {
             arrayOfHumans.getHumans()[i].setAge(RANDOM_AGE.nextInt(130));
         }
         return arrayOfHumans;
+    }
+
+    private static void showHumans(ArrayOfHumans arrayOfHumans) {
+        System.out.println();
+        Arrays.stream(arrayOfHumans.getHumans()).forEach(System.out::println);
+        System.out.println();
     }
 
 }

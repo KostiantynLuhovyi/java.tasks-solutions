@@ -10,8 +10,12 @@ import com.lugowoy.tasks.solutions.arrays.onedimensional.changeSequenceByMultipl
 import static com.lugowoy.helper.filling.ValuesToFilling.INT_LOWER_BOUND;
 import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 
-/** Created by Konstantin Lugowoy on 25.03.2017. */
-
+/**
+ * Given integers a1, a2, ..., an.
+ * It is required to multiply all the terms of the sequence a1, a2, ... by the square of its smallest term, if ak ≥ 0,
+ * and the square of its largest term, if ak ≤ 0.
+ * <p> Created by Konstantin Lugowoy on 25.03.2017.
+ */
 public class Main {
 
     private static final Changing<ArrayInts> CHANGING = Changing::changeSequenceByMultiplyingElementsBySquareOfMinAndMaxNumberByRule;

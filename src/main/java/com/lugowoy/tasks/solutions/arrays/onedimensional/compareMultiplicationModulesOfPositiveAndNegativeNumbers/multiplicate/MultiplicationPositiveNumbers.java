@@ -6,7 +6,6 @@ import com.lugowoy.helper.utils.checking.CheckerArray;
 /**
  * Created by Konstantin Lugowoy on 11.03.2017.
  */
-
 public class MultiplicationPositiveNumbers {
 
     public static int multiplication(ArrayInts array) {

@@ -2,11 +2,11 @@ package com.lugowoy.tasks.solutions.arrays.onedimensional.calculateSumOfArrayEle
 
 import com.lugowoy.helper.models.storages.arrays.ArrayInts;
 import com.lugowoy.helper.utils.checking.CheckerArray;
+import com.lugowoy.helper.utils.checking.CheckerIndex;
 
 /**
  * Created by Konstantin Lugowoy on 27.03.2017.
  */
-
 @FunctionalInterface
 public interface Determinant {
 

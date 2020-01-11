@@ -5,7 +5,6 @@ import java.io.Serializable;
 /**
  * Created by Konstantin Lugowoy on 23-Feb-17.
  */
-
 public class Applicant implements Serializable, Cloneable {
 
     private int rating;

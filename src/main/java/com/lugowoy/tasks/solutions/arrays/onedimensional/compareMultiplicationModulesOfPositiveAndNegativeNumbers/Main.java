@@ -15,10 +15,8 @@ import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
  * In the sequence of integers a1, a2, ..., an, there are positive and negative elements.
  * Calculate the multiplication of negative elements P1 and the multiplication of positive elements P2.
  * Compare the module P2 with the module P1 and indicate which of the products is larger modulo.
- *
- * <p>Created by Konstantin Lugowoy on 11.03.2017.
+ * <p> Created by Konstantin Lugowoy on 11.03.2017.
  */
-
 public class Main {
 
     public static void main(String[] args) {

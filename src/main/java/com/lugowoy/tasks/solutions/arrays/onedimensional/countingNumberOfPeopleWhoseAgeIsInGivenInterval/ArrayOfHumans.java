@@ -1,7 +1,8 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.countingNumberOfPeopleWhoseAgeIsInGivenInterval;
 
-/** Created by Konstantin Lugowoy on 14.05.2017. */
-
+/**
+ * Created by Konstantin Lugowoy on 14.05.2017.
+ */
 public class ArrayOfHumans {
 
     private Human[] humans;

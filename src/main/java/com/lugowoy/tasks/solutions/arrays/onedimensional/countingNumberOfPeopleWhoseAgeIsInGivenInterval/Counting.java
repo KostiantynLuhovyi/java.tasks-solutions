@@ -3,7 +3,6 @@ package com.lugowoy.tasks.solutions.arrays.onedimensional.countingNumberOfPeople
 /**
  * Created by Konstantin Lugowoy on 14.05.2017.
  */
-
 @FunctionalInterface
 public interface Counting {
 
@@ -22,13 +21,13 @@ public interface Counting {
                     System.out.printf("The number of people whose age is in the range from %d to %d is equal to %d .",
                                                                       startAgeInterval, finishAgeInterval, resultCount);
                 } else {
-                    System.err.println("Incorrect data. Can not count.");
+                    System.out.println("Incorrect data. Can not count.");
                 }
             } else {
-                System.err.println("Incorrect data. Can not count.");
+                System.out.println("Incorrect data. Can not count.");
             }
         } else {
-            System.err.println("The array is not valid for any operations or calculations.");
+            System.out.println("The array is not valid for any operations or calculations.");
         }
     }
 

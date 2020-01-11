@@ -5,17 +5,14 @@ import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.storages.arrays.ArrayInts;
 import com.lugowoy.helper.utils.ArrayLengthReader;
 import com.lugowoy.helper.utils.checking.CheckerArray;
-import com.lugowoy.helper.utils.checking.CheckerIndex;
 
 import static com.lugowoy.helper.filling.ValuesToFilling.INT_LOWER_BOUND;
 import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 
 /**
  * Calculate the sum of array elements located between the minimum and maximum elements inclusive.
- *
- * <p>Created by Konstantin Lugowoy on 27.03.2017.
+ * <p> Created by Konstantin Lugowoy on 27.03.2017.
  */
-
 public class Main {
 
     public static void main(String[] args) {
@@ -40,24 +37,20 @@ public class Main {
 
         System.out.println();
 
-        System.out.printf("Sum of array elements located between the min and max elements inclusive is : %d .",
-                                                        CALCULATING.calculate(array, indexMinElement, indexMaxElement));
+        CALCULATING.calculate(array, indexMinElement, indexMaxElement);
 
     }
 
     private static final Calculating CALCULATING = (ArrayInts array, int indexMinElement, int indexMaxElement) -> {
         int resultSum = 0;
         if (CheckerArray.checkLengthInArray(array)) {
-            if ((indexMinElement < indexMaxElement)) {
-                if ((indexMinElement >= 0) && (indexMaxElement > 0)) {
-                    for (int i = indexMinElement; i <= indexMaxElement; i++) {
-                        resultSum += array.get(i);
-                    }
-                } else {
-                    throw new IllegalArgumentException("The index of the min or max value is less than zero.");
+            if (indexMinElement <= indexMaxElement) {
+                for (int i = indexMinElement; i <= indexMaxElement; i++) {
+                    resultSum += array.get(i);
                 }
+                System.out.printf("Sum of array elements located between the min and max elements inclusive is : %d .", resultSum);
             } else {
-                throw new IllegalArgumentException("The index of the min value is greater than the index of the max value.");
+                System.out.println("The index of the min value is greater or equal than the index of the max value.");
             }
         }
         return resultSum;

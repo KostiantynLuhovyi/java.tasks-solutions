@@ -11,10 +11,8 @@ import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 /**
  * Given onedimensional array A[n].
  * Find: max(a2, a4, ..., a2k) + min(a1, a3, ..., a2k-1).
- *
- * <p>Created by Konstantin Lugowoy on 01.03.2017.
+ * <p> Created by Konstantin Lugowoy on 01.03.2017.
  */
-
 public class Main {
 
     public static void main(String[] args) {
