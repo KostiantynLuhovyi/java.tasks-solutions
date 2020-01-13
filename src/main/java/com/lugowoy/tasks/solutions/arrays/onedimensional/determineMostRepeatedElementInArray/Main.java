@@ -9,10 +9,8 @@ import com.lugowoy.helper.utils.checking.CheckerArray;
 /**
  * In the array of integers with the number of elements n, find the most repeated number.
  * If there are several such numbers, then determine the smallest of them.
- *
- * <p>Created by Konstantin Lugowoy on 22.03.2017.
+ * <p> Created by Konstantin Lugowoy on 22.03.2017.
  */
-
 public class Main {
 
     private static final int BOUND = 50;

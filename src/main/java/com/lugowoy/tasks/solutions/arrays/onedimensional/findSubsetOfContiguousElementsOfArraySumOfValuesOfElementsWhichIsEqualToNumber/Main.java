@@ -10,10 +10,8 @@ import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 
 /**
  * Find subset of contiguous elements of array sum of values of elements which is equal to number.
- *
  * <p> Created by Konstantin Lugowoy on 18.06.2017.
  */
-
 public class Main {
 
     public static void main(String[] args) {
@@ -26,7 +24,6 @@ public class Main {
         ArrayInts array = new ArrayInts(filler.fill(lengthOfArray, INT_UPPER_BOUND));
 
         System.out.println("Original " + array);
-        System.out.println();
 
         int number = enterNumber();
 

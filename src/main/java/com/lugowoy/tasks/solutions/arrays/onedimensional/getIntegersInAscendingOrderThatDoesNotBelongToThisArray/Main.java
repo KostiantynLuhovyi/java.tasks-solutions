@@ -11,10 +11,8 @@ import java.util.Arrays;
  * Given an array of integers.
  * Find in this array element N minimum and maximum element M. Get in ascending order of all the integers from the interval (N; M),
  * which are not included in this array.
- *
  * <p> Created by Konstantin Lugowoy on 11.04.2017.
  */
-
 public class Main {
 
     private static final int START_BOUND = -50;

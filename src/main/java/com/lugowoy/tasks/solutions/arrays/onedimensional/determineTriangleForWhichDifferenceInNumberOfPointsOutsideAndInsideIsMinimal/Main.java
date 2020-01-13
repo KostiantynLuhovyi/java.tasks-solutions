@@ -10,7 +10,6 @@ import com.lugowoy.helper.models.storages.arrays.Array;
  * In a one-dimensional array with an even number of elements (2N) there are coordinates of N points of the plane.
  * They are arranged in the following order: x1, y1, x2, y2, x3, y3, etc.
  * Identify three points that are the vertices of a triangle for which the difference in the number of points outside it and inside is minimal.
- *
  * <p> Created by Konstantin Lugowoy on 03.07.2017.
  */
 
@@ -31,13 +30,11 @@ public class Main {
 
         System.out.println("Coordinates : ");
         System.out.println(array);
-        System.out.println();
 
         Array<Point2D<Double>> pointArray = createAndFillArrayOfPoints(array);
 
         System.out.println("Points : ");
         System.out.println(pointArray);
-        System.out.println();
 
         Array<Point2D<Double>> resultPointArray = DETERMINANT.define(pointArray);
 

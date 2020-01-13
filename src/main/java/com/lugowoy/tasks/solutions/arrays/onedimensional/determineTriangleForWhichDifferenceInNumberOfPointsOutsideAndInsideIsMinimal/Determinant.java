@@ -5,8 +5,9 @@ import com.lugowoy.helper.models.points.Point2D;
 import com.lugowoy.helper.models.storages.arrays.Array;
 import com.lugowoy.helper.utils.checking.CheckerArray;
 
-/** Created by Konstantin Lugowoy on 03.07.2017. */
-
+/**
+ * Created by Konstantin Lugowoy on 03.07.2017.
+ */
 @FunctionalInterface
 public interface Determinant<T> {
 

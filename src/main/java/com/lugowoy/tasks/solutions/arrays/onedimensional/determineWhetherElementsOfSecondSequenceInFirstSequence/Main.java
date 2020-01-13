@@ -9,13 +9,11 @@ import com.lugowoy.helper.utils.ArrayLengthReader;
  * Two sequences a1, a2, ..., an and b1, b2, ..., bm (m <n) are given.
  * In each of them, the members are different.
  * Is it true that all members of the second sequence are in the first sequence?
- *
- * <p>Created by Konstantin Lugowoy on 12.04.2017.
+ * <p> Created by Konstantin Lugowoy on 12.04.2017.
  */
-
 public class Main {
 
-    private static final Determinant DETERMINANT = Determinant::determineWhetherTheElementsOfTheSecondSequenceInTheFirstSequence;
+    private static final Determinant DETERMINANT = Determinant::determineFirstArrayContainsElementsOfSecondArray;
 
     private static final int BOUND = 50;
 
@@ -32,11 +30,9 @@ public class Main {
         ArrayInts firstArray = new ArrayInts(filler.fill(lengthOfFirstArray, BOUND));
         ArrayInts secondArray = new ArrayInts(filler.fill(lengthSecondArray, BOUND));
 
-        System.out.println("First array : " + firstArray);
-        System.out.println();
+        System.out.println("First : " + firstArray);
 
-        System.out.println("Second array : " + secondArray);
-        System.out.println();
+        System.out.println("Second : " + secondArray);
 
         boolean resultDetermine = DETERMINANT.determine(firstArray, secondArray);
 

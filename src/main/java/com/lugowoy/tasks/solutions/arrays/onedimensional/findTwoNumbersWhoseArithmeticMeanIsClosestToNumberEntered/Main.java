@@ -8,10 +8,8 @@ import com.lugowoy.helper.utils.ArrayLengthReader;
 /**
  * Given a real number x and an array A [n].
  * In the array, find two members whose arithmetic mean is closest to x.
- *
  * <p> Created by Konstantin Lugowoy on 12.04.2017.
  */
-
 public class Main {
 
     private static final double BOUND = 200d;
@@ -26,7 +24,6 @@ public class Main {
         ArrayDoubles array = new ArrayDoubles(filler.fill(lengthOfArray, BOUND));
 
         System.out.println("Original array : " + array);
-        System.out.println();
 
         System.out.println("Enter real number : ");
         double enterNumber = new ReadingConsole().readDouble();

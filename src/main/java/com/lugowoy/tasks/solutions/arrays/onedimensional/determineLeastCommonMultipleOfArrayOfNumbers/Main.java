@@ -7,10 +7,8 @@ import com.lugowoy.helper.utils.ArrayLengthReader;
 
 /**
  * Write a program that enter an array of integers, finds and prints their least common multiple a number.
- *
- * <p>Created by Konstantin Lugowoy on 09.05.2018.
+ * <p> Created by Konstantin Lugowoy on 09.05.2018.
  */
-
 public class Main {
 
     public static void main(String[] args) {

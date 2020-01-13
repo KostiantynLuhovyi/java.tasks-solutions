@@ -7,10 +7,8 @@ import com.lugowoy.helper.utils.ArrayLengthReader;
 
 /**
  * Given an array A. Cyclically shift the elements of the array to K elements to the right (to the left).
- *
- * <p>Created by Konstantin Lugowoy on 19.06.2017.
+ * <p> Created by Konstantin Lugowoy on 19.06.2017.
  */
-
 public class Main {
 
     private static final Shifting SHIFTING = Shifting::shiftElementsOfArrayElementsToRightOrLeft;

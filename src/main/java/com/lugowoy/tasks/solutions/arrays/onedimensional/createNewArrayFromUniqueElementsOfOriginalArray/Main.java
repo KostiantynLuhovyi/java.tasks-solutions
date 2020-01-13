@@ -11,10 +11,8 @@ import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 /**
  * Given a one-dimensional array of numbers, among the elements of which are the same.
  * Create a new array from the various elements of the original array.
- *
- * <p>Created by Konstantin Lugowoy on 29.05.2017.
+ * <p> Created by Konstantin Lugowoy on 29.05.2017.
  */
-
 public class Main {
 
     private static final DeterminantUniqueness DETERMINANT = DeterminantUniqueness::determineTheUniqueElementsOfTheOriginalArray;
@@ -29,7 +27,6 @@ public class Main {
         ArrayInts array = new ArrayInts(filler.fill(lengthOfArray, INT_LOWER_BOUND, INT_UPPER_BOUND));
 
         System.out.println("Original array : " + array);
-        System.out.println();
 
         ArrayInts newArrayFromTheUniqueElements = DETERMINANT.determineUniqueness(array);
 

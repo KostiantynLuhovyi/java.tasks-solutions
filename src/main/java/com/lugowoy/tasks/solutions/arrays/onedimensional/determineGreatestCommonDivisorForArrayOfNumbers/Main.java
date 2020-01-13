@@ -7,10 +7,8 @@ import com.lugowoy.helper.utils.ArrayLengthReader;
 
 /**
  * Write a program that enter a sequence of integers that finds and prints their greatest common divisor.
- *
  * <p> Created by Konstantin Lugowoy on 09.05.2018.
  */
-
 public class Main {
 
     public static void main(String[] args) {
@@ -22,7 +20,7 @@ public class Main {
 
         ArrayInts array = new ArrayInts(filler.fill(lengthOfArray));
 
-        System.out.println("Array : " + array);
+        System.out.println(array);
 
         print(DeterminantGreatestCommonDivisor::determineGreatestCommonDivisor, array);
 

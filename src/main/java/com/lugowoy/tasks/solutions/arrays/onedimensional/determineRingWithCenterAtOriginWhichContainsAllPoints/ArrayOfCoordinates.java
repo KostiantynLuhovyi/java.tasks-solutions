@@ -3,7 +3,6 @@ package com.lugowoy.tasks.solutions.arrays.onedimensional.determineRingWithCente
 /**
  * Created by Konstantin Lugowoy on 16.05.2017.
  */
-
 public class ArrayOfCoordinates<T> {
 
     private T[] arrayOfCoordinates;

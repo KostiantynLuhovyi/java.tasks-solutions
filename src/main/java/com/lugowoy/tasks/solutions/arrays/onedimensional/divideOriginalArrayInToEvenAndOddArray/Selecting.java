@@ -6,7 +6,6 @@ import com.lugowoy.helper.utils.checking.CheckerArray;
 /**
  * Created by Konstantin Lugowoy on 16.03.2017.
  */
-
 public interface Selecting<T> {
 
     int STATUS_EVEN_NUMBERS = 1;
@@ -23,11 +22,11 @@ public interface Selecting<T> {
                         tmpArray.add(array.get(i));
                     }
                 }
-            }
-        } else if (statusNumbers == STATUS_ODD_NUMBERS) {
-            for (int i = 0; i < array.size(); i++) {
-                if (array.get(i) % 2 != 0) {
-                    tmpArray.add(array.get(i));
+            } else if (statusNumbers == STATUS_ODD_NUMBERS) {
+                for (int i = 0; i < array.size(); i++) {
+                    if (array.get(i) % 2 != 0) {
+                        tmpArray.add(array.get(i));
+                    }
                 }
             }
         }

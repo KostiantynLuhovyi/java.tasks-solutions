@@ -11,10 +11,8 @@ import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 
 /**
  * There are zero elements in an integer array. Create an array of the index of these elements.
- *
- * <p>Created by Konstantin Lugowoy on 12-Feb-17.
+ * <p> Created by Konstantin Lugowoy on 12-Feb-17.
  */
-
 public class Main {
 
     public static void main(String[] args) {
@@ -43,7 +41,7 @@ public class Main {
     }
 
     private static final Filling FILLING = originalArray -> {
-        ArrayInts tmpArray = new ArrayInts();
+        ArrayInts tmpArray = new ArrayInts(0);
         if (CheckerArray.checkLengthInArray(originalArray)) {
             for (int i = 0; i < originalArray.size(); i++) {
                 if (originalArray.get(i) == 0) {

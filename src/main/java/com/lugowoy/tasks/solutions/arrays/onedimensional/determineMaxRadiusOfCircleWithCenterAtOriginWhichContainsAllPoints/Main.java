@@ -13,9 +13,8 @@ import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
  * In a one-dimensional array with an even number of elements (2N) there are coordinates of N points of the plane.
  * They are arranged in the following order: x1, y1, x2, y2, x3, y3, etc.
  * Determine the maximal radius of the circle with the center at the origin, which contains all the points.
- *
- * <p>Created by Konstantin Lugowoy on 14.05.2017. */
-
+ * <p> Created by Konstantin Lugowoy on 14.05.2017.
+ */
 public class Main {
 
     private static final Reader READER = new Reader(new ReadingConsole());

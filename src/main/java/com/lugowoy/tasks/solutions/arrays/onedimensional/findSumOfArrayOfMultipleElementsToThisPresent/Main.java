@@ -8,10 +8,8 @@ import com.lugowoy.helper.utils.checking.CheckerArray;
 
 /**
  * Given an array of numbers. Find the sum of the elements that are multiples of to this K.
- *
  * <p> Created by Konstantin Lugowoy on 12-Feb-17.
  */
-
 public class Main {
 
     private static final int BOUND = 50;

@@ -7,10 +7,8 @@ import java.util.Arrays;
 /**
  * The coordinates of n points on the plane are given: (X1, Y2), ..., (Xn, Yn) (n ≤ 40).
  * Find the number of pairs of points, the distance between which is maximally (assume that such a pair is unique).
- *
  * <p> Created by Konstantin Lugowoy on 27.03.2017.
  */
-
 public class Main {
 
     private static final Determinant DETERMINANT = Determinant::determineOfPairsOfPoints;

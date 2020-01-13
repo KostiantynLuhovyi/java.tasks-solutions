@@ -5,7 +5,6 @@ import java.math.BigDecimal;
 /**
  * Created by Konstantin Lugowoy on 16.03.2017.
  */
-
 public class Queue<T> {
 
     private static BigDecimal timeService;

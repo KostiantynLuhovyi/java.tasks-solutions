@@ -2,8 +2,9 @@ package com.lugowoy.tasks.solutions.arrays.onedimensional.determineGreatestCommo
 
 import com.lugowoy.helper.models.storages.arrays.ArrayInts;
 
-/** Created by Konstantin Lugowoy on 09.05.2018. */
-
+/**
+ * Created by Konstantin Lugowoy on 09.05.2018.
+ */
 @FunctionalInterface
 public interface DeterminantGreatestCommonDivisor {
 

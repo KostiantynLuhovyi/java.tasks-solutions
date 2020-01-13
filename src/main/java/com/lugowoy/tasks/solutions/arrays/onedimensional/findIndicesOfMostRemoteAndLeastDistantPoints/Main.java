@@ -12,10 +12,8 @@ import java.util.Arrays;
  * In a one-dimensional array with an even number of elements (2N) there are coordinates of N points of the plane.
  * They are arranged in the following order: x1, y1, x2, y2, x3, y3, etc.
  * Find the numbers of the most distant points and the points that are the least distant from each other.
- *
  * <p> Created by Konstantin Lugowoy on 03.07.2017.
  */
-
 public class Main {
 
     public static void main(String[] args) {

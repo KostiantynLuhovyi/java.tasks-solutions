@@ -8,10 +8,8 @@ import com.lugowoy.helper.utils.ArrayLengthReader;
 /**
  * Two sequences of integers a1, a2, ..., an and b1, b2, ..., bm are given. All the members of the sequences are distinct numbers.
  * Find how many elements of the first sequence coincide with the elements of the second sequence.
- *
- * <p>Created by Konstantin Lugowoy on 30.05.2017.
+ * <p> Created by Konstantin Lugowoy on 30.05.2017.
  */
-
 public class Main {
 
     private static final Determinant DETERMINANT = Determinant::determineTheNumberOfElementsThatAreIdenticalInTwoSequences;
@@ -31,11 +29,9 @@ public class Main {
         ArrayInts firstArray = new ArrayInts(filler.fill(lengthOfFirstArray, BOUND));
         ArrayInts secondArray = new ArrayInts(filler.fill(lengthOfSecondArray, BOUND));
 
-        System.out.println("Elements of the first array : " + firstArray);
-        System.out.println();
+        System.out.println("First array : " + firstArray);
 
-        System.out.println("Elements of the second array : " + secondArray);
-        System.out.println();
+        System.out.println("Second array : " + secondArray);
 
         int numberOfIdenticalElementsInTheTwoSequence = DETERMINANT.determine(firstArray, secondArray);
 

@@ -1,7 +1,7 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.determineIndexOfPrimeNumbersInArray;
 
 /**
- * <p>Created by Konstantin Lugowoy on 22.05.2017.
+ * Created by Konstantin Lugowoy on 22.05.2017.
  */
 @FunctionalInterface
 public interface Determinant<T extends Number> {

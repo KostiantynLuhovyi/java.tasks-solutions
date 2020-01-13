@@ -10,21 +10,20 @@ import java.util.List;
 /**
  * Created by Konstantin Lugowoy on 24.06.2017.
  */
-
 @FunctionalInterface
-public interface Determinant<T> {
+public interface Determinant {
 
-    List<T> determine(ArrayInts firstArray, ArrayInts secondArray);
+    ArrayInts determine(ArrayInts firstArray, ArrayInts secondArray);
 
-    static List<ArrayInts> determineWhetherItIsPossibleToSelectContiguousElements(ArrayInts firstArray, ArrayInts secondArray) {
-        List<ArrayInts> resultList = new LinkedList<>();
+    static ArrayInts determineWhetherItIsPossibleToSelectContiguousElements(ArrayInts firstArray, ArrayInts secondArray) {
+        ArrayInts resultList = new ArrayInts(0);
         int n = 0, k = firstArray.size();
         if (CheckerArray.checkLengthInArray(firstArray) && CheckerArray.checkLengthInArray(secondArray)) {
             while (n + 1 < k) {
                 for (int i = 0; i < secondArray.size() - (k - 1 - n); i++) {
                     ArrayInts tempResultArray = new ArrayInts(Arrays.copyOfRange(firstArray.toArray(new int[firstArray.size()]), n, k));
                     if (Arrays.equals(tempResultArray.toArray(), Arrays.copyOfRange(secondArray.toArray(), i, k - n + i))) {
-                        resultList.add(tempResultArray);
+                        resultList = tempResultArray;
                     }
                 }
                 if (n + 1 == --k) {

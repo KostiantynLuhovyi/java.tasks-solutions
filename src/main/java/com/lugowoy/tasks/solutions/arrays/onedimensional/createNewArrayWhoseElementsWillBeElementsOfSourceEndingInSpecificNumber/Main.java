@@ -7,9 +7,9 @@ import com.lugowoy.helper.utils.ArrayLengthReader;
 import com.lugowoy.helper.utils.checking.CheckerArray;
 
 /**
- * Created by Konstantin Lugowoy on 27.03.2017.
+ * Create a new array whose elements will be elements of the source code ending in a certain number.
+ * <p> Created by Konstantin Lugowoy on 27.03.2017.
  */
-
 public class Main {
 
     private static final int START_BOUND = -10000;
@@ -32,14 +32,18 @@ public class Main {
 
         ArrayInts newArray = createNewArrayWhoseElementsWillBeElementsOfSourceEndingInSpecificNumber(array, specificEndingNumber);
 
-        System.out.println("New array : " + newArray);
-        System.out.println();
+        if (newArray.size() != 0) {
+            System.out.println("New array : " + newArray);
+            System.out.println();
+        } else {
+            System.out.println("No values were found with the specified ending.");
+        }
 
     }
 
     private static ArrayInts createNewArrayWhoseElementsWillBeElementsOfSourceEndingInSpecificNumber(ArrayInts array,
                                                                                                      int specificEndingNumber) {
-        ArrayInts resultArray = new ArrayInts();
+        ArrayInts resultArray = new ArrayInts(0);
         if (CheckerArray.checkLengthInArray(array)) {
             for (int i = 0; i < array.size(); i++) {
                 if (Math.abs(array.get(i)) % 10 == specificEndingNumber) {

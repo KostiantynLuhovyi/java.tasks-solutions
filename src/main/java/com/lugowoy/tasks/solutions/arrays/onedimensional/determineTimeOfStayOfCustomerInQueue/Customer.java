@@ -50,7 +50,7 @@ public class Customer implements Serializable, Cloneable {
         try {
             customer = (Customer) super.clone();
             customer.idCustomer = this.getIdCustomer();
-            customer.nameCustomer = new Cloner().deepClone(this.getNameCustomer());
+            customer.nameCustomer = this.getNameCustomer();
         } catch (CloneNotSupportedException ex) {
             new InternalError(ex.getMessage()).printStackTrace();
         }

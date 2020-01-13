@@ -8,10 +8,8 @@ import com.lugowoy.helper.utils.checking.CheckerArray;
 
 /**
  * Find the length of the longest "sawtooth" sequence of successive numbers Xk <Xk + 1> Xk + 2> ...> Xk + m <Xk + m + 1 <... <Xn.
- *
  * <p> Created by Konstantin Lugowoy on 27.06.2017.
  */
-
 public class Main {
 
     private static final int BOUND = 100;

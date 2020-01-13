@@ -7,7 +7,6 @@ import com.lugowoy.helper.utils.ArrayLengthReader;
 
 /**
  * Given a sequence of integers a1, a2, ..., an. Indicate pairs of numbers ai, aj such that ai + aj = m.
- *
  * <p> Created by Konstantin Lugowoy on 19.03.2017.
  */
 public class Main {
@@ -26,7 +25,6 @@ public class Main {
         ArrayInts array = new ArrayInts(filler.fill(lengthOfArray, BOUND));
 
         System.out.println(array);
-        System.out.println();
 
         int sumNumber = enterNumber();
 

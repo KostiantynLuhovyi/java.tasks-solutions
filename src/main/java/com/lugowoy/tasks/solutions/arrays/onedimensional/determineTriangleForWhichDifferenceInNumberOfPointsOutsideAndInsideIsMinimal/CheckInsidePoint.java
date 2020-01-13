@@ -6,7 +6,6 @@ import com.lugowoy.helper.models.points.Point2D;
 /**
  * Created by Konstantin Lugowoy on 08.07.2017.
  */
-
 @FunctionalInterface
 public interface CheckInsidePoint {
 

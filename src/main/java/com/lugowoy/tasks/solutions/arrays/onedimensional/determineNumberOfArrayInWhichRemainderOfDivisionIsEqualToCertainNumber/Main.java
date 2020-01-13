@@ -8,10 +8,8 @@ import com.lugowoy.helper.utils.ArrayLengthReader;
 
 /**
  * Determine the number of the array in which the number is equal to dividing a certain number.
- *
- * <p>Created by Konstantin Lugowoy on 14-Feb-17.
+ * <p> Created by Konstantin Lugowoy on 14-Feb-17.
  */
-
 public class Main {
 
     private static final Reader READER = new Reader(new ReadingConsole());
@@ -28,8 +26,7 @@ public class Main {
 
         ArrayInts array = new ArrayInts(filler.fill(lengthOfArray, LOWER_BOUND, UPPER_BOUND));
 
-        System.out.println("Original array : " + array);
-        System.out.println();
+        System.out.println(array);
 
         System.out.println("Enter number to the modulo : ");
         int numberToModulo = READER.readInt();
@@ -51,7 +48,7 @@ public class Main {
             }
         }
         if (countResult == array.size()) {
-            System.err.println("No numbers which satisfy the condition.");
+            System.out.println("No numbers which satisfy the condition.");
         }
     };
 

@@ -7,10 +7,8 @@ import com.lugowoy.helper.utils.ArrayLengthReader;
 
 /**
  * Given an array A. Find the length of the longest sequence of consecutive array elements equal to zero.
- *
  * <p> Created by Konstantin Lugowoy on 18.06.2017.
  */
-
 public class Main {
 
     private static final int BOUND = 3;
@@ -25,7 +23,6 @@ public class Main {
         ArrayInts array = new ArrayInts(filler.fill(lengthOfArray, BOUND));
 
         System.out.println("Original " + array);
-        System.out.println();
 
         Finding finding = Finding::findLengthOfLongestSequenceOfElementsEqualToZero;
         int resultZeroElementsToCount = finding.find(array);

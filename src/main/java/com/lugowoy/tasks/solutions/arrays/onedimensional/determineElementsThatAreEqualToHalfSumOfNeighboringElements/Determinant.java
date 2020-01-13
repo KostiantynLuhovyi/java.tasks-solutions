@@ -3,8 +3,9 @@ package com.lugowoy.tasks.solutions.arrays.onedimensional.determineElementsThatA
 import com.lugowoy.helper.models.storages.arrays.ArrayInts;
 import com.lugowoy.helper.utils.checking.CheckerArray;
 
-/** Created by Konstantin Lugowoy on 03.09.2017. */
-
+/**
+ * Created by Konstantin Lugowoy on 03.09.2017.
+ */
 @FunctionalInterface
 public interface Determinant {
 
@@ -23,7 +24,7 @@ public interface Determinant {
                     }
                 }
                 if (counterCoincidence == 0) {
-                    System.err.println("No items found that satisfied the condition.");
+                    System.out.println("No items found that satisfied the condition.");
                 }
             }
         }

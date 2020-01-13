@@ -6,6 +6,8 @@ import com.lugowoy.helper.models.storages.arrays.Array;
 import com.lugowoy.helper.utils.checking.CheckerArray;
 import com.lugowoy.tasks.solutions.arrays.onedimensional.determineEquilibriumBetweenWeightOfSubjects.Subject;
 
+import java.util.Arrays;
+
 /**
  * Created by Konstantin Lugowoy on 27.05.2018.
  *
@@ -18,8 +20,7 @@ import com.lugowoy.tasks.solutions.arrays.onedimensional.determineEquilibriumBet
  *
  * @see com.lugowoy.helper.filling.Filling
  * @see com.lugowoy.helper.filling.array.FillingArray
- * */
-
+ */
 public class FillingArraySubjects implements FillingArray<Subject> {
 
     private Array<Integer> numbersArray;
@@ -44,7 +45,9 @@ public class FillingArraySubjects implements FillingArray<Subject> {
     @Override
     public void fill(Array<Subject> array) {
         if (CheckerArray.checkLengthInArray(array)) {
-            this.initializeArrayElements(array, this.numbersArray);
+            Subject[] subjects = new Subject[array.size()];
+            this.initializeArrayElements(subjects, this.numbersArray);
+            array.setArray(subjects);
         }
     }
 
@@ -58,7 +61,7 @@ public class FillingArraySubjects implements FillingArray<Subject> {
     @Override
     public void fill(Subject[] subjects) {
         if (CheckerArray.checkLengthInArray(subjects)) {
-            this.initializeArrayElements(new Array<>(subjects), this.numbersArray);
+            this.initializeArrayElements(subjects, this.numbersArray);
         }
     }
 
@@ -74,21 +77,19 @@ public class FillingArraySubjects implements FillingArray<Subject> {
      * */
     @Override
     public Subject[] fill(int lengthArray) {
-        Subject[] subjects;
+        Subject[] subjects = null;
         if (CheckerArray.checkLengthArray(lengthArray)) {
             subjects = new Subject[lengthArray];
-            this.initializeArrayElements(new Array<>(subjects), this.numbersArray);
-        } else {
-            subjects = new Subject[AbstractArray.DEFAULT_LENGTH];
-            this.initializeArrayElements(new Array<>(subjects), this.numbersArray);
+            this.initializeArrayElements(subjects, this.numbersArray);
         }
         return subjects;
     }
 
-    private void initializeArrayElements(Array<Subject> subjectArray, Array<Integer> numbersArray) {
+    private void initializeArrayElements(Subject[] subjectArray, Array<Integer> numbersArray) {
         int idCounter = 1;
-        for (int i = 0; i < subjectArray.size(); i++) {
-            subjectArray.set(i, new Subject(idCounter, numbersArray.get(i)));
+        for (int i = 0; i < subjectArray.length; i++) {
+            subjectArray[i] = new Subject(idCounter, numbersArray.get(i));
+            idCounter++;
         }
     }
 

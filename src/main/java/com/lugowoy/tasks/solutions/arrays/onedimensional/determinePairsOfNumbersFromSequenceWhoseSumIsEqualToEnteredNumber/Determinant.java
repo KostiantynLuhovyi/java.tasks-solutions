@@ -6,7 +6,6 @@ import com.lugowoy.helper.utils.checking.CheckerArray;
 /**
  * Created by Konstantin Lugowoy on 19.03.2017.
  */
-
 public interface Determinant<T> {
 
     void determine(ArrayInts array, int numberForEqual);

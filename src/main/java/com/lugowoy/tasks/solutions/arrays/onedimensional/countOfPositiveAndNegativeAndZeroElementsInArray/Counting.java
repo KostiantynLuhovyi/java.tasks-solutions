@@ -8,7 +8,6 @@ import java.util.Arrays;
 /**
  * Created by Konstantin Lugowoy on 13-Feb-17.
  */
-
 @FunctionalInterface
 public interface Counting<T extends Number> {
 

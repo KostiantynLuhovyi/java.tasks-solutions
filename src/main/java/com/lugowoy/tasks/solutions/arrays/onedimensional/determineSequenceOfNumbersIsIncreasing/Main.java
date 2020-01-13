@@ -10,10 +10,8 @@ import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 
 /**
  * Given a sequence of integer numbers a1, a2, ..., an. Determine whether it is increasing.
- *
  * <p> Created by Konstantin Lugowoy on 13-Feb-17.
  */
-
 public class Main {
 
     public static void main(String[] args) {
@@ -31,8 +29,6 @@ public class Main {
         if (array.get(1) > array.get(0)) {
             resultIncreasingSequence = true;
         }
-
-        System.out.println();
 
         if (resultIncreasingSequence) {
             System.out.println("The sequence of increasing.");

@@ -8,10 +8,8 @@ import com.lugowoy.helper.utils.ArrayLengthReader;
 /**
  * Given positive integers a1, a2, a3, ..., an.
  * Find among them those whose square is equal to a certain number n.
- *
  * <p> Created by Konstantin Lugowoy on 12.03.2017.
  */
-
 public class Main {
 
     private static final int BOUND = 50;
@@ -25,19 +23,17 @@ public class Main {
 
         ArrayInts array = new ArrayInts(filler.fill(lengthOfArray, BOUND));
 
-        System.out.println("Original sequence : " + array);
-        System.out.println();
+        System.out.println("Sequence : " + array);
 
         System.out.println("Enter a number to compare : ");
         int compareNumber = new ReadingConsole().readInt();
 
-        System.out.println("Result : ");
         int quantityResult = 0;
         for (int i = 0; i < array.size(); i++) {
             int number = array.get(i);
             int squareRootNumber = (int) Math.pow(number, 2);
             if (compareNumber == squareRootNumber) {
-                System.out.printf("Sequence index : %d, element : %d", i, number);
+                System.out.printf("Sequence index : %d, element : %d;\n", i, number);
                 quantityResult++;
             }
         }

@@ -10,10 +10,8 @@ import java.util.Arrays;
  * In a one-dimensional array with an even number of elements (2N) there are coordinates of N points of the plane.
  * They are arranged in the following order: x1, y1, x2, y2, x3, y3, etc.
  * Define a ring with center at the origin, which contains all points.
- *
- * <p>Created by Konstantin Lugowoy on 16.05.2017.
+ * <p> Created by Konstantin Lugowoy on 16.05.2017.
  */
-
 public class Main {
 
     private static final Reader READER = new Reader(new ReadingConsole());

@@ -11,8 +11,7 @@ import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 
 /**
  * Given a array of positive numbers a1, a2, ..., an. Create an array of even numbers of this array.
- *
- * <p>Created by Konstantin Lugowoy on 13-Feb-17.
+ * <p> Created by Konstantin Lugowoy on 13-Feb-17.
  */
 
 public class Main {
@@ -35,7 +34,7 @@ public class Main {
     }
 
     private static ArrayInts getArrayWithEvenNumbers(ArrayInts array) {
-        ArrayInts resultArray = new ArrayInts();
+        ArrayInts resultArray = new ArrayInts(0);
         if (CheckerArray.checkLengthInArray(array)) {
             for (int i = 0; i < array.size(); i++) {
                 if (array.get(i) % 2 == 0) {

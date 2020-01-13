@@ -8,10 +8,8 @@ import com.lugowoy.helper.utils.ArrayLengthReader;
 /**
  * Write a program that enter a non-empty array of integers and prints the number of local maximum
  * (an element is a local maximum if it has neighbors elements larger than itself).
- *
- * <p>Created by Konstantin Lugowoy on 07.05.2018.
+ * <p> Created by Konstantin Lugowoy on 07.05.2018.
  */
-
 public class Main {
 
     private static final int BOUND = 200;
@@ -25,7 +23,7 @@ public class Main {
 
         ArrayInts array = new ArrayInts(filler.fill(lengthOfArray, BOUND));
 
-        System.out.println("Array : " + array);
+        System.out.println(array);
 
         Determinant determinant = Determinant::determineNumbersOfLocalMaximum;
         determinant.determine(array);

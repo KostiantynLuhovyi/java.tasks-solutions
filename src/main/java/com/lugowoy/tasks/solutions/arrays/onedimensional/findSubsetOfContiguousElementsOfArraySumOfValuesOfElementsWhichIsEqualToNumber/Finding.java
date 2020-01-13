@@ -8,7 +8,6 @@ import java.util.Arrays;
 /**
  * Created by Konstantin Lugowoy on 18.06.2017.
  */
-
 @FunctionalInterface
 public interface Finding {
 

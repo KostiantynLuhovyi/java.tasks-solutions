@@ -7,10 +7,8 @@ import com.lugowoy.helper.utils.ArrayLengthReader;
 
 /**
  * Determine the elements that are equal to the half-sum of the neighboring elements.
- *
- * <p>Created by Konstantin Lugowoy on 03.09.2017.
+ * <p> Created by Konstantin Lugowoy on 03.09.2017.
  */
-
 public class Main {
 
     private static final Determinant DETERMINANT = Determinant::determineElementsThatAreEqualToHalfSumOfNeighboringElements;
@@ -27,8 +25,6 @@ public class Main {
         ArrayInts array = new ArrayInts(filler.fill(lengthOfArray, BOUND));
 
         System.out.println("Original array : " + array);
-
-        System.out.println();
 
         System.out.println("Result : ");
         DETERMINANT.determine(array);

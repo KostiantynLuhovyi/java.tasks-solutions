@@ -2,8 +2,9 @@ package com.lugowoy.tasks.solutions.arrays.onedimensional.findSumOfArrayOfMultip
 
 import com.lugowoy.helper.models.storages.arrays.ArrayInts;
 
-/**Created by Konstantin Lugowoy on 12-Feb-17.*/
-
+/**
+ * Created by Konstantin Lugowoy on 12-Feb-17.
+ */
 @FunctionalInterface
 public interface Finding {
 

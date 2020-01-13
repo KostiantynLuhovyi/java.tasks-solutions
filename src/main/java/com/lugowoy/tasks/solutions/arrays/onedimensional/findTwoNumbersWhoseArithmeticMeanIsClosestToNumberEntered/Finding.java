@@ -6,7 +6,6 @@ import com.lugowoy.helper.utils.checking.CheckerArray;
 /**
  * Created by Konstantin Lugowoy on 12.04.2017.
  */
-
 public interface Finding<T, V> {
 
     void find(T t, V v);
@@ -28,7 +27,6 @@ public interface Finding<T, V> {
                         }
                     }
                 }
-                System.out.println();
                 System.out.println("Result numbers : " + firstNumber + " and " + secondNumber + " .");
             }
         }

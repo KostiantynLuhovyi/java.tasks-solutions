@@ -5,7 +5,6 @@ import com.lugowoy.helper.models.storages.arrays.ArrayInts;
 /**
  * Created by Konstantin Lugowoy on 07.05.2018.
  */
-
 @FunctionalInterface
 public interface Determinant {
 

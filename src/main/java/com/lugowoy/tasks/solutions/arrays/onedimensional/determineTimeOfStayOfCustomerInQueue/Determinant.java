@@ -5,7 +5,6 @@ import java.math.BigDecimal;
 /**
  * Created by Konstantin Lugowoy on 16.03.2017.
  */
-
 public interface Determinant<T, V> {
 
     V determine(Queue<T> queue, int indexOfCustomer);

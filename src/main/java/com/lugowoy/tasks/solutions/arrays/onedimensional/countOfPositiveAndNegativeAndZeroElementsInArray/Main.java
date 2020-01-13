@@ -10,10 +10,8 @@ import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 
 /**
  * Given an array of integer numbers, whose dimension is N. Counting how much it negative, positive and zero elements.
- *
- * Created by Konstantin Lugowoy on 13-Feb-17.
+ * <p> Created by Konstantin Lugowoy on 13-Feb-17.
  */
-
 public class Main {
 
     public static void main(String[] args) {
