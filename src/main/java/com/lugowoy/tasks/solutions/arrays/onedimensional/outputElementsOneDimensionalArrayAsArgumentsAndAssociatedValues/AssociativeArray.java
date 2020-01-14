@@ -3,7 +3,6 @@ package com.lugowoy.tasks.solutions.arrays.onedimensional.outputElementsOneDimen
 /**
  * Created by Konstantin Lugowoy on 23-Feb-17.
  */
-
 public class AssociativeArray<T, V> {
 
     private T[] argumentArray;

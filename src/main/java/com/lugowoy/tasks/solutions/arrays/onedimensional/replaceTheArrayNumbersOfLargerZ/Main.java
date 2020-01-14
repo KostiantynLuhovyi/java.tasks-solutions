@@ -13,10 +13,8 @@ import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 /**
  * Given a sequence of integer numbers a1, a2, ..., an.
  * Replace all of its members, of the Z larger, this number. Count the number of substitutions.
- *
  * <p> Created by Konstantin Lugowoy on 13-Feb-17.
  */
-
 public class Main {
 
     private static final Reader READER = new Reader(new ReadingConsole());

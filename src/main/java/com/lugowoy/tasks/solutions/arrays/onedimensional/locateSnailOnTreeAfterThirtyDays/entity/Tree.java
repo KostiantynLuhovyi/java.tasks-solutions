@@ -8,7 +8,6 @@ import java.util.Objects;
 /**
  * Created by Konstantin Lugowoy on 11.05.2017.
  */
-
 public class Tree implements Serializable, Cloneable {
 
     private int height;

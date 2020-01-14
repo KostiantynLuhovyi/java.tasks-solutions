@@ -3,7 +3,6 @@ package com.lugowoy.tasks.solutions.arrays.onedimensional.locateSnailOnTreeAfter
 /**
  * Created by Konstantin Lugowoy on 11.05.2017.
  */
-
 public class WeatherArray {
 
     private int numberOfDaysOfWeatherObservation;

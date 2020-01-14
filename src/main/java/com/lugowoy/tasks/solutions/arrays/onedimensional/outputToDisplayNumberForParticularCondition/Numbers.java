@@ -3,7 +3,6 @@ package com.lugowoy.tasks.solutions.arrays.onedimensional.outputToDisplayNumberF
 /**
  * Created by Konstantin Lugowoy on 14-Feb-17.
  */
-
 public class Numbers {
 
     private int[] numbers;

@@ -13,10 +13,8 @@ import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 /**
  * Given integers a1, a2, ..., an. Among them there are positive and negative.
  * Replace the zeros with those numbers that they are more modular than a certain number (| ai |> max {a1, a2, ..., an}).
- *
  * <p> Created by Konstantin Lugowoy on 11.03.2017.
  */
-
 public class Main {
 
     public static void main(String[] args) {
@@ -27,7 +25,6 @@ public class Main {
         ArrayInts array = new ArrayInts(new FillingArrayRandomPrimitiveIntegers().fill(lengthOfArray, INT_LOWER_BOUND, INT_UPPER_BOUND));
 
         System.out.println("Original sequence : " + array);
-        System.out.println();
 
         int maximumNumberElement = 0;
 

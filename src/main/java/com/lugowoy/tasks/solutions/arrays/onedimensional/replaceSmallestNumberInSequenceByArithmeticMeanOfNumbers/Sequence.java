@@ -1,7 +1,8 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.replaceSmallestNumberInSequenceByArithmeticMeanOfNumbers;
 
-/** Created by Konstantin Lugowoy on 25.03.2017. */
-
+/**
+ * Created by Konstantin Lugowoy on 25.03.2017.
+ */
 public class Sequence<T> {
 
     private T[] sequence;

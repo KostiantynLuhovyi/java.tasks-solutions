@@ -11,10 +11,8 @@ import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 /**
  * In a one-dimensional array, rearrange the elements so that negative elements are first located, then zero, and then positive.
  * The relative arrangement of the elements does not change.
- *
  * <p> Created by Konstantin Lugowoy on 14.05.2017.
  */
-
 public class Main {
 
     public static void main(String[] args) {

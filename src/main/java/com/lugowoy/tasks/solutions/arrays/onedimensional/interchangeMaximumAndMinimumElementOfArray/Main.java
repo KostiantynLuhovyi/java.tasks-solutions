@@ -1,14 +1,12 @@
-package com.lugowoy.tasks.solutions.arrays.onedimensional.interchangedMaximumAndMinimumElementOfArray;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.interchangeMaximumAndMinimumElementOfArray;
 
 import java.util.Arrays;
 import java.util.Random;
 
 /**
  * Given integer numbers a1, a2, ..., an. Interchange the maximum and minimum elements.
- *
  * <p> Created by Konstantin Lugowoy on 14-Feb-17.
  */
-
 public class Main {
 
     private static final int MIN_RANDOM_NUMBER = 0;
@@ -18,9 +16,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Numbers numbers = new Numbers(MAX_RANDOM_NUMBER,
-                MIN_RANDOM_NUMBER,
-                Arrays.stream(new Integer[20]).mapToInt(value -> RANDOM.nextInt(100)).toArray());
+        Numbers numbers = new Numbers(MAX_RANDOM_NUMBER, MIN_RANDOM_NUMBER,
+                                      Arrays.stream(new Integer[20]).mapToInt(value -> RANDOM.nextInt(100)).toArray());
 
         System.out.println("Original array : ");
         Arrays.stream(numbers.getNumbers()).forEachOrdered(value -> System.out.print(value + " "));

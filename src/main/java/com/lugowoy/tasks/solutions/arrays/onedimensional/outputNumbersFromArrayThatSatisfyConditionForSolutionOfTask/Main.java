@@ -9,10 +9,8 @@ import com.lugowoy.helper.utils.checking.CheckerArray;
 /**
  * Write a program that has an array of random integers
  * and prints three of its (not necessarily distinct) elements x, y, and z, such that x * y = z.
- *
  * <p> Created by Konstantin Lugowoy on 25.04.2018.
  */
-
 public class Main {
 
     private static final int BOUND = 20;

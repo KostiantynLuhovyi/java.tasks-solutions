@@ -15,10 +15,8 @@ import java.util.Random;
  * At the beginning of observation, the snail is A cm from the ground on a B-meter tree.
  * There is a 30-element array containing information about whether the corresponding observation day was cloudy or sunny.
  * Write a program that determines the location of the cochlea at the end of the 30th day of observation.
- *
  * <p> Created by Konstantin Lugowoy on 11.05.2017.
  */
-
 public class Main {
 
     private static final Reader READER = new Reader(new ReadingConsole());

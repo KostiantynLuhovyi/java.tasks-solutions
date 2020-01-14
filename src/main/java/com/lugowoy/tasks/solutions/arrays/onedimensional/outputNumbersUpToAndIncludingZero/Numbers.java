@@ -3,7 +3,6 @@ package com.lugowoy.tasks.solutions.arrays.onedimensional.outputNumbersUpToAndIn
 /**
  * Created by Konstantin Lugowoy on 22-Feb-17.
  */
-
 public class Numbers {
 
     private int[] numbers;

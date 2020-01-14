@@ -10,10 +10,8 @@ import java.util.Arrays;
 /**
  * An array of n four-digit natural numbers is given.
  * Output to display only numbers those on which the sum of the first two digits is equal to the sum of the last two digits.
- *
  * <p> Created by Konstantin Lugowoy on 29.05.2017.
  */
-
 public class Main {
 
     private static final int START_BOUND = 1000;
@@ -26,8 +24,7 @@ public class Main {
 
         ArrayInts array = new ArrayInts(new FillingArrayRandomPrimitiveIntegers().fill(lengthOfArray, START_BOUND, END_BOUND));
 
-        System.out.println("Original array : " + array);
-        System.out.println();
+        System.out.println(array);
 
         System.out.println("Result numbers for which the sum of the first two digits is equal to the sum of the last two : ");
         Determinant determinant = Determinant::determineNumbersForWhichTheSumOfTheFirstTwoDigitsIsEqualToTheSumOfTheLastTwo;

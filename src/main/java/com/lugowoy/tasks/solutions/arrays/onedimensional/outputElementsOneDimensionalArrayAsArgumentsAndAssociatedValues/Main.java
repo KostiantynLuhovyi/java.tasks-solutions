@@ -7,10 +7,8 @@ import java.util.Random;
  * In the one-dimensional array are placed: in the first elements of the value of the argument,
  * in the following - the corresponding values of the function.
  * Print the elements of array n parallel columns (argument and function value).
- *
  * <p> Created by Konstantin Lugowoy on 23-Feb-17.
  */
-
 public class Main {
 
     private static final Random RANDOM = new Random();

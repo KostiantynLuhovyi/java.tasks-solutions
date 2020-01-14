@@ -1,7 +1,8 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.replaceWithZerosElementsThatAreModuloGreaterThanTheMaximumElement;
 
-/** Created by Konstantin Lugowoy on 11.03.2017. */
-
+/**
+ * Created by Konstantin Lugowoy on 11.03.2017.
+ */
 public class Numbers {
 
     private Integer[] intNumbers;

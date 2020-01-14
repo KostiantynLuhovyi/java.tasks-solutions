@@ -8,13 +8,11 @@ import com.lugowoy.helper.utils.ArrayLengthReader;
 /**
  * In the array, each element is 0, 1, 2.
  * Rearrange the elements of the array so that all zeros are first, then all the ones, and finally all the deuces.
- *
  * <p> Created by Konstantin Lugowoy on 17.06.2017.
  */
-
 public class Main {
 
-    private static final int BOUND = 3;
+    private static final int BOUND = 2;
 
     public static void main(String[] args) {
 

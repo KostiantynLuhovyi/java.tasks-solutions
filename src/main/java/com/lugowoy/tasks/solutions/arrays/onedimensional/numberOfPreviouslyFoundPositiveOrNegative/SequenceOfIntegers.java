@@ -1,7 +1,8 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.numberOfPreviouslyFoundPositiveOrNegative;
 
-/**Created by Konstantin Lugowoy on 12-Feb-17.*/
-
+/**
+ * Created by Konstantin Lugowoy on 12-Feb-17.
+ */
 public class SequenceOfIntegers {
 
     private int[] sequenceOfIntegers;

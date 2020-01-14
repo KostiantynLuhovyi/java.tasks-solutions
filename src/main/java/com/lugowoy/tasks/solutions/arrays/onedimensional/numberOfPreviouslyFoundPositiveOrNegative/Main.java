@@ -11,10 +11,8 @@ import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 
 /**
  * The sequence of numbers a1, a2, ..., an. To find out what number is found before - positive or negative.
- *
  * <p> Created by Konstantin Lugowoy on 12-Feb-17.
  */
-
 public class Main {
 
     public static void main(String[] args) {

@@ -7,7 +7,6 @@ import com.lugowoy.helper.utils.checking.CheckerArray;
 /**
  * Created by Konstantin Lugowoy on 14.05.2017.
  */
-
 @FunctionalInterface
 public interface Sorting {
 

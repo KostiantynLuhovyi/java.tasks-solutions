@@ -3,7 +3,6 @@ package com.lugowoy.tasks.solutions.arrays.onedimensional.outputNumbersForWhichS
 /**
  * Created by Konstantin Lugowoy on 30.05.2017.
  */
-
 @FunctionalInterface
 public interface Determinant {
 

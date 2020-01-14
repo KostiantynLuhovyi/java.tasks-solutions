@@ -5,9 +5,7 @@ import java.util.Random;
 
 /**
  * Given a sequence of numbers. Print out all the numbers up to and including zero.
- *
  * <p> Created by Konstantin Lugowoy on 22-Feb-17. */
-
 public class Main {
 
     public static void main(String[] args) {

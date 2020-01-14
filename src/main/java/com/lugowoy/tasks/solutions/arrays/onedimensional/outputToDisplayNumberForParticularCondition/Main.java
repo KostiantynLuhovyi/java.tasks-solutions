@@ -11,10 +11,8 @@ import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 
 /**
  * Given numbers a1 a2, .... an. Print out only the number, for which the condition ai ≤ i.
- *
  * <p> Created by Konstantin Lugowoy on 14-Feb-17.
  */
-
 public class Main {
 
     public static void main(String[] args) {
@@ -35,10 +33,10 @@ public class Main {
     }
 
     private static final Display DISPLAY = numbers -> {
-        int firstValue = numbers.getNumbers()[0];
+        /*int firstValue = numbers.getNumbers()[0];*/
         for (int i = 0; i < numbers.getNumbers().length; i++) {
-            if (firstValue <= numbers.getNumbers()[i]) {
-                System.out.print(numbers.getNumbers()[i] + " ");
+            if (/*firstValue*/numbers.getNumbers()[i] <= i) {
+                System.out.println(i + " : " + numbers.getNumbers()[i]);
             }
         }
     };

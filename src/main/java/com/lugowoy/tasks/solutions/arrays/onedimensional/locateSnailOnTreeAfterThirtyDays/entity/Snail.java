@@ -6,7 +6,6 @@ import java.util.Objects;
 /**
  * Created by Konstantin Lugowoy on 11.05.2017.
  */
-
 public class Snail implements Serializable, Cloneable {
 
     private int location;

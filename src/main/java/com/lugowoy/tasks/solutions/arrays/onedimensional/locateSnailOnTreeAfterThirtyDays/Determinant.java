@@ -9,7 +9,6 @@ import java.util.Arrays;
 /**
  * Created by Konstantin Lugowoy on 11.05.2017.
  */
-
 @FunctionalInterface
 public interface Determinant<T, V> {
 
