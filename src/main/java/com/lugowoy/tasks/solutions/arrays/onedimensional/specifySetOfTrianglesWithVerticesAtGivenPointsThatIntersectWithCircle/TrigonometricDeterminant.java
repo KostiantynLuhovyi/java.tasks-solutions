@@ -10,7 +10,6 @@ import static java.lang.Math.sqrt;
 /**
  * Created by Konstantin Lugowoy on 03.07.2017.
  */
-
 @FunctionalInterface
 public interface TrigonometricDeterminant<T, V> {
 

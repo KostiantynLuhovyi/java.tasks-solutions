@@ -1,5 +1,6 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.specifySetOfTrianglesWithVerticesAtGivenPointsThatIntersectWithCircle;
 
+import com.lugowoy.helper.filling.array.points.FillingArrayPoints2DRandomIntegers;
 import com.lugowoy.helper.filling.array.points.FillingArrayPoints2DReadIntegers;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
@@ -12,21 +13,23 @@ import java.util.Arrays;
  * On the n-plane the points are given by their coordinates and a circle of radius R with center at the origin is also given.
  * Specify the set of all triangles with vertices at given points intersecting a circle;
  * The set of all triangles contained inside the circle.
- *
  * <p> Created by Konstantin Lugowoy on 02.07.2017.
  */
-
 public class Main {
 
     private static final Reader READER = new Reader(new ReadingConsole());
+
+    private static final int LOWER_BOUND_COORDINATE = -200;
+    private static final int UPPER_BOUND_COORDINATE = 200;
 
     public static void main(String[] args) {
 
         int numberOfPoints = enterNumberOfPoints();
 
-        Array<Point2D<Integer>> pointsArray = new Array<>(new FillingArrayPoints2DReadIntegers(READER).fill(numberOfPoints));
+        FillingArrayPoints2DRandomIntegers filler = new FillingArrayPoints2DRandomIntegers();
 
-        System.out.println();
+        Array<Point2D<Integer>> pointsArray = new Array<>(filler.fill(numberOfPoints, LOWER_BOUND_COORDINATE, UPPER_BOUND_COORDINATE));
+
         System.out.println("Points : ");
         Arrays.stream(pointsArray.toArray()).forEachOrdered(System.out::println);
         System.out.println();
@@ -36,7 +39,7 @@ public class Main {
         System.out.println();
         System.out.println("Result : ");
         TrigonometricDeterminant<Array<Point2D<Integer>>, Double> trigonometricDeterminant =
-                TrigonometricDeterminant::determineSetOfTrianglesWithVerticesAtGivenPointsThatIntersectWithCircle;
+                      TrigonometricDeterminant::determineSetOfTrianglesWithVerticesAtGivenPointsThatIntersectWithCircle;
         trigonometricDeterminant.determine(pointsArray, radius);
 
     }

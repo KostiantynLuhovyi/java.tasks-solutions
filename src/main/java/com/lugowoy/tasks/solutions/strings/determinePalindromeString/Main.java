@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.solutions.strings.determinePalindromeString;
 
-import com.lugowoy.helper.filling.array.strings.FillingArrayReadingValueStrings;
+import com.lugowoy.helper.filling.array.strings.FillingArrayReadValueStrings;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.storages.arrays.Array;
 import com.lugowoy.helper.utils.ArrayLengthReader;
@@ -20,7 +20,7 @@ public class Main {
         int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
         System.out.println("Enter strings : ");
-        Array<String> stringArray = new Array<>(new FillingArrayReadingValueStrings(new ReadingConsole()).fill(lengthOfArray));
+        Array<String> stringArray = new Array<>(new FillingArrayReadValueStrings(new ReadingConsole()).fill(lengthOfArray));
 
         System.out.println("Strings in an array : " + stringArray);
 

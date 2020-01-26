@@ -3,13 +3,12 @@ package com.lugowoy.tasks.solutions.arrays.onedimensional.openLockOnDoorByLookin
 /**
  * Created by Konstantin Lugowoy on 27.03.2017.
  */
-
 public class PlayingDice {
 
-    private int value;
+    public static final int LOWER_VALUE_PLAYING_DICE = 0;
+    public static final int UPPER_VALUE_PLAYING_DICE = 6;
 
-    public PlayingDice() {
-    }
+    private int value;
 
     public PlayingDice(int value) {
         this.value = value;

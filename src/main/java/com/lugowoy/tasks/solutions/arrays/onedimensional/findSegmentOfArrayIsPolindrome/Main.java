@@ -12,10 +12,8 @@ import java.util.Objects;
  * Given an array A. Find the segment of the maximum length array in which the first number equals the last,
  * the second the penultimate, and so on.
  * Output this segment and its length.
- *
  * <p> Created by Konstantin Lugowoy on 18.06.2017.
  */
-
 public class Main {
 
     private static final int BOUND = 50;
@@ -29,7 +27,7 @@ public class Main {
 
         ArrayInts array = new ArrayInts(filler.fill(lengthOfArray, BOUND));
 
-        System.out.println("Original " + array);
+        System.out.println("Original array : " + array);
 
         getPalindromeAndLength(array);
 
@@ -42,8 +40,8 @@ public class Main {
             if ((array.size() - count + 1) == 1) {
                 isPalindrome = true;
             } else {
-                for (int j = 0; j < (array.size() - count + 1) / 2; j++) {
-                    if (Objects.equals(array.get(i + j), array.get(i + array.size() - count - j))) {
+                for (int j = 0; j < ((array.size() - count + 1) / 2); j++) {
+                    if (array.get(i + j) == array.get(i + array.size() - count - j)) {
                         if (j + 1 == (array.size() - count + 1) / 2) {
                             isPalindrome = true;
                         }
@@ -58,7 +56,6 @@ public class Main {
                     System.out.println(Arrays.toString(temp) + ", length is equal " + temp.length);
                     return;
                 } else {
-                    System.out.println();
                     System.out.println("In the array there is no segment that is a palindrome.");
                     return;
                 }

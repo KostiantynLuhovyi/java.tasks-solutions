@@ -7,13 +7,14 @@ import java.util.Arrays;
 /**
  * Created by Konstantin Lugowoy on 11.03.2017.
  */
-
 public interface Sorting<T> {
 
     void sort(ArrayInts array);
 
     static void sortingIntegerSequence(ArrayInts array) {
-        Arrays.sort(array.toArray());
+        int[] ints = array.toArray();
+        Arrays.sort(ints);
+        array.setArray(ints);
     }
 
 }
