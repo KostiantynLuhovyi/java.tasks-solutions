@@ -8,10 +8,8 @@ import com.lugowoy.helper.utils.checking.CheckerArray;
 
 /**
  * Print strings whose length is less than the average of the arithmetic length.
- *
  * <p> Created by LugowoyKonstantin on 20.08.2018.
  */
-
 public class Main {
 
     private static final int LENGTH_STRING = 30;

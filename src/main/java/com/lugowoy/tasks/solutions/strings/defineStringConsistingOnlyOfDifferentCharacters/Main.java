@@ -9,10 +9,8 @@ import com.lugowoy.helper.utils.checking.CheckerArray;
 /**
  * Define a string consisting only of different characters.
  * If there are several such lines, determine the first one.
- *
  * <p> Created by LugowoyKonstantin on 28.09.2018.
  */
-
 public class Main {
 
     public static void main(String[] args) {
@@ -58,7 +56,7 @@ public class Main {
                 }
             }
         } else {
-            System.err.println("Incorrect arguments.");
+            System.out.println("Incorrect arguments.");
         }
         return resultString;
     }

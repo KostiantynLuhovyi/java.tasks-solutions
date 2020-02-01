@@ -8,10 +8,8 @@ import com.lugowoy.helper.utils.checking.CheckerArray;
 
 /**
  * Sort and print the strings in descending order of their lengths.
- *
  * <p> Created by LugowoyKonstantin on 09.08.2018.
  */
-
 public class Main {
 
     private static final int BOUND_STRINGS_LENGTH = 30;

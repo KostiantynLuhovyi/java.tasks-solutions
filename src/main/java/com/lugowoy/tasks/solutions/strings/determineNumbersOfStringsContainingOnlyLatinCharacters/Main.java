@@ -8,10 +8,8 @@ import com.lugowoy.helper.utils.checking.CheckerArray;
 
 /**
  * Determine the number of words containing only Latin characters.
- *
  * <p> Created by LugowoyKonstantin on 16.09.2018.
  */
-
 public class Main {
 
     private static final int LENGTH_STRING = 5;

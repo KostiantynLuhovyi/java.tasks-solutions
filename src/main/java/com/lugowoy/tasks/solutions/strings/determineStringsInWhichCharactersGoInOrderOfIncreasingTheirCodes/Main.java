@@ -7,12 +7,10 @@ import com.lugowoy.helper.utils.ArrayLengthReader;
 import com.lugowoy.helper.utils.checking.CheckerArray;
 
 /**
- * Define a string, the characters in which are in the strict order of increasing their codes.
+ * Determine a string, the characters in which are in the strict order of increasing their codes.
  * If there are several such strings, find the first one.
- *
  * <p> Created by LugowoyKonstantin on 27.09.2018.
  */
-
 public class Main {
 
     private static final int LENGTH_STRING = 5;
@@ -26,20 +24,25 @@ public class Main {
 
         System.out.println("Strings in an array : " + stringArray);
 
-        System.out.println("Result : ");
-        determineStringsInWhichCharactersGoInOrderOfIncreasingTheirCodes(stringArray);
-
+        String resultString = determineStringsInWhichCharactersGoInOrderOfIncreasingTheirCodes(stringArray);
+        if (resultString.equals("")) {
+            System.out.println("No strings matching the condition.");
+        } else {
+            System.out.println("Result : " + resultString);
+            for (int i = 0; i < resultString.length(); i++) {
+                System.out.print((int)resultString.charAt(i) + ", ");
+            }
+        }
     }
 
-    private static void determineStringsInWhichCharactersGoInOrderOfIncreasingTheirCodes(Array<String> stringArray) {
+    private static String determineStringsInWhichCharactersGoInOrderOfIncreasingTheirCodes(Array<String> stringArray) {
         String resultString = "";
-        int countNumberOfResult = 0;
         int codeOfCharValue = Integer.MIN_VALUE;
         if (CheckerArray.checkLengthInArray(stringArray)) {
             for (int i = 0; i < stringArray.size(); i++) {
                 String strValue = stringArray.get(i);
                 for (int j = 0; j < strValue.length(); j++) {
-                    int codeOfCurrentChar = (int) strValue.charAt(j);
+                    int codeOfCurrentChar = strValue.charAt(j);
                     if (codeOfCurrentChar > codeOfCharValue) {
                         codeOfCharValue = codeOfCurrentChar;
                         resultString = strValue;
@@ -49,15 +52,13 @@ public class Main {
                     }
                 }
                 if (!resultString.equals("")) {
-                    System.out.println(resultString);
-                    countNumberOfResult++;
+                    break;
+                } else {
+                    codeOfCharValue = Integer.MIN_VALUE;
                 }
-                codeOfCharValue = Integer.MIN_VALUE;
-            }
-            if (countNumberOfResult == 0) {
-                System.out.println("No strings matching the condition.");
             }
         }
+        return resultString;
     }
 
 }

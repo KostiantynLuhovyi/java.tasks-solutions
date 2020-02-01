@@ -8,10 +8,8 @@ import com.lugowoy.helper.utils.checking.CheckerArray;
 
 /**
  * Sort and print the strings in ascending order of their lengths.
- *
  * <p> Created by LugowoyKonstantin on 09.08.2018.
  */
-
 public class Main {
 
     private static final int BOUND_STRINGS_LENGTH = 30;
@@ -21,7 +19,9 @@ public class Main {
         System.out.println("Enter length of the array : ");
         int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
 
-        Array<String> stringsArray = new Array<>(new FillingArrayRandomLengthStrings("english").fill(lengthOfArray, BOUND_STRINGS_LENGTH));
+        FillingArrayRandomLengthStrings filler = new FillingArrayRandomLengthStrings("english");
+
+        Array<String> stringsArray = new Array<>(filler.fill(lengthOfArray, BOUND_STRINGS_LENGTH));
 
         System.out.println("Strings in an array : " + stringsArray);
 

@@ -8,10 +8,8 @@ import com.lugowoy.helper.utils.checking.CheckerArray;
 
 /**
  * Determine strings with an equal number of vowels and consonants.
- *
  * <p> Created by LugowoyKonstantin on 19.09.2018.
  */
-
 public class Main {
 
     public static void main(String[] args) {
@@ -34,7 +32,7 @@ public class Main {
     }
 
     private static void determineStringsWithEqualNumberOfVowelsAndConsonants(Array<String> stringArray) {
-        System.out.print("Result : ");
+        System.out.println("Result : ");
         int countOfVowels = 0, countOfConsonants = 0;
         int countOfStrings = 0;
         if (CheckerArray.checkLengthInArray(stringArray)) {

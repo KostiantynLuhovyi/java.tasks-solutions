@@ -6,7 +6,6 @@ import com.lugowoy.helper.utils.checking.CheckerArray;
 /**
  * Created by LugowoyKonstantin on 26.07.2018.
  */
-
 public interface Determinant {
 
     String determine(Array<String> stringArray);
