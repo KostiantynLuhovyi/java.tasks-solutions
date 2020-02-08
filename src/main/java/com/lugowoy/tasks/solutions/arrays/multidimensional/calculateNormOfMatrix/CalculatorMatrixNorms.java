@@ -5,34 +5,33 @@ import com.lugowoy.helper.models.matrices.MatrixDoubles;
 /**
  * Created by Konstantin Lugowoy on 30.10.2018.
  */
-
 @FunctionalInterface
 public interface CalculatorMatrixNorms {
 
     double calculateMatrixNorm(MatrixDoubles matrix);
 
     static double calculateMatrixColumnsNorm(MatrixDoubles matrix) {
-        double resultNorm = 0;
+        double resultColumnsNorm = 0;
         for (int i = 0; i < matrix.getRows(); i++) {
             double sum = 0;
             for (int j = 0; j < matrix.getColumns(); j++) {
                 sum += Math.abs(matrix.getElement(i, j));
             }
-            resultNorm = Math.max(resultNorm, sum);
+            resultColumnsNorm = Math.max(resultColumnsNorm, sum);
         }
-        return resultNorm;
+        return resultColumnsNorm;
     }
 
     static double calculateMatrixRowsNorm(MatrixDoubles matrix) {
-        double resultNorm = 0;
+        double resultRowsNorm = 0;
         for (int i = 0; i < matrix.getRows(); i++) {
             double sum = 0;
             for (int j = 0; j < matrix.getColumns(); j++) {
                 sum += Math.abs(matrix.getElement(j, i));
             }
-            resultNorm = Math.max(resultNorm, sum);
+            resultRowsNorm = Math.max(resultRowsNorm, sum);
         }
-        return resultNorm;
+        return resultRowsNorm;
     }
 
 }

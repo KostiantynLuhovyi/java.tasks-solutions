@@ -8,6 +8,6 @@ import com.lugowoy.helper.models.matrices.MatrixInts;
 @FunctionalInterface
 public interface RotatorMatrix {
 
-    void rotateMatrix(MatrixInts matrix);
+    MatrixInts rotateMatrix(MatrixInts matrix);
 
 }

@@ -1,13 +1,14 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.findAndDisplayLargestNumberOfDecreasingElementsOfMatrixGoingInRow;
 
 import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomPrimitiveIntegers;
-import com.lugowoy.helper.io.reading.Reader;
-import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.matrices.MatrixInts;
 import com.lugowoy.helper.models.storages.arrays.ArrayInts;
+import com.lugowoy.helper.utils.execution.ExecutionResultOutputToConsole;
+import com.lugowoy.helper.utils.execution.ExecutionTimeOutputToConsole;
 import com.lugowoy.helper.utils.execution.Executor;
+import com.lugowoy.tasks.solutions.Helper;
 
-import static com.lugowoy.helper.utils.execution.OutputExecutorTimer.MSG_MILLISECONDS;
+import static com.lugowoy.tasks.solutions.Helper.RESULT_SEQUENCE;
 
 /**
  * Find and display the largest number of decreasing elements of the matrix, going in a row.
@@ -15,26 +16,22 @@ import static com.lugowoy.helper.utils.execution.OutputExecutorTimer.MSG_MILLISE
  */
 public class Main {
 
-    private static final Reader READER = new Reader(new ReadingConsole());
-
     private static final int LOWER_BOUND = -20;
     private static final int UPPER_BOUND = 20;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
-        System.out.println("Enter rows of the matrix : ");
-        int rows = READER.readInt();
-        System.out.println("Enter columns of the matrix : ");
-        int columns = READER.readInt();
+        int rows = Helper.enterMatrixRowCountToConsole();
+        int columns = Helper.enterMatrixColumnCountToConsole();
 
-        FillingMatrixRandomPrimitiveIntegers filler = new FillingMatrixRandomPrimitiveIntegers();
-
-        MatrixInts matrix = new MatrixInts(filler.fill(rows, columns, LOWER_BOUND, UPPER_BOUND));
+        MatrixInts matrix = new MatrixInts(Helper.FILLING_MATRIX_INTS.fill(rows, columns, LOWER_BOUND, UPPER_BOUND));
 
         System.out.println("Matrix : ");
         System.out.println(matrix);
 
-        Executor.execute(() -> findLargestNumberOfDecreasingElementsOfMatrixGoingInRow(matrix), MSG_MILLISECONDS, "Result sequence : %s");
+        Executor.execute(() -> findLargestNumberOfDecreasingElementsOfMatrixGoingInRow(matrix),
+                                        ExecutionResultOutputToConsole::outputExecutionResultToConsole, RESULT_SEQUENCE,
+                                        ExecutionTimeOutputToConsole::outputExecutionTime);
 
     }
 

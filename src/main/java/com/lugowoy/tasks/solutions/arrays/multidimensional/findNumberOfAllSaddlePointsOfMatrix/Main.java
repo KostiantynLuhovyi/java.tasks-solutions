@@ -4,6 +4,9 @@ import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomPrimitiveInt
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.matrices.MatrixInts;
+import com.lugowoy.helper.utils.execution.ExecutionTimeOutputToConsole;
+import com.lugowoy.helper.utils.execution.Executor;
+import com.lugowoy.tasks.solutions.Helper;
 
 /**
  * Find the number of all saddle points of the matrix.
@@ -11,25 +14,19 @@ import com.lugowoy.helper.models.matrices.MatrixInts;
  */
 public class Main {
 
-    private static final Reader READER = new Reader(new ReadingConsole());
-
     private static final int BOUND = 100;
 
     public static void main(String[] args) {
 
-        System.out.println("Enter rows of the matrix : ");
-        int rows = READER.readInt();
-        System.out.println("Enter columns of the matrix : ");
-        int columns = READER.readInt();
+        int rows = Helper.enterMatrixRowCountToConsole();
+        int columns = Helper.enterMatrixColumnCountToConsole();
 
-        FillingMatrixRandomPrimitiveIntegers filler = new FillingMatrixRandomPrimitiveIntegers();
-
-        MatrixInts matrix = new MatrixInts(filler.fill(rows, columns, BOUND));
+        MatrixInts matrix = new MatrixInts(Helper.FILLING_MATRIX_INTS.fill(rows, columns, BOUND));
 
         System.out.println("Matrix : ");
         System.out.println(matrix);
 
-        findSaddleNumbersOfMatrix(matrix);
+        Executor.execute(() -> findSaddleNumbersOfMatrix(matrix), ExecutionTimeOutputToConsole::outputExecutionTime);
 
     }
 

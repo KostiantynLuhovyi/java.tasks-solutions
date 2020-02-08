@@ -1,11 +1,9 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.performCyclicShiftOfGivenMatrixByCertainNumber;
 
-import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomPrimitiveIntegers;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.matrices.MatrixInts;
-import com.lugowoy.tasks.solutions.arrays.multidimensional.performCyclicShiftOfGivenMatrixByCertainNumber.Shifter;
-import com.lugowoy.tasks.solutions.arrays.multidimensional.performCyclicShiftOfGivenMatrixByCertainNumber.ShifterIntegerMatrix;
+import com.lugowoy.tasks.solutions.Helper;
 
 /**
  * Perform a cyclic shift of a given matrix by a certain number of positions to the right (left, up, down).
@@ -19,14 +17,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Enter rows of the matrix : ");
-        int rows = READER.readInt();
-        System.out.println("Enter columns of the matrix : ");
-        int columns = READER.readInt();
+        int rows = Helper.enterMatrixRowCountToConsole();
+        int columns = Helper.enterMatrixColumnCountToConsole();
 
-        FillingMatrixRandomPrimitiveIntegers filler = new FillingMatrixRandomPrimitiveIntegers();
-
-        MatrixInts matrix = new MatrixInts(filler.fill(rows, columns, BOUND));
+        MatrixInts matrix = new MatrixInts(Helper.FILLING_MATRIX_INTS.fill(rows, columns, BOUND));
 
         System.out.println("Original matrix : ");
         System.out.println(matrix);

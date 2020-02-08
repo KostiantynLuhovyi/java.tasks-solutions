@@ -1,11 +1,13 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.rotateMatrixByCertainNumberOfDegrees;
 
-import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomPrimitiveIntegers;
-import com.lugowoy.helper.io.reading.Reader;
-import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.matrices.MatrixInts;
+import com.lugowoy.helper.utils.execution.ExecutionResultOutputToConsole;
+import com.lugowoy.helper.utils.execution.ExecutionTimeOutputToConsole;
+import com.lugowoy.helper.utils.execution.Executor;
+import com.lugowoy.tasks.solutions.Helper;
 
 import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
+import static com.lugowoy.tasks.solutions.Helper.RESULT_MATRIX;
 
 /**
  * Rotation of the matrix by a certain number of degrees.
@@ -13,27 +15,20 @@ import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
  */
 public class Main {
 
-    private static final Reader READER = new Reader(new ReadingConsole());
+    public static void main(String[] args) throws Exception {
 
-    public static void main(String[] args) {
+        int rows = Helper.enterMatrixRowCountToConsole();
+        int columns = Helper.enterMatrixColumnCountToConsole();
 
-        System.out.println("Enter rows of the matrix : ");
-        int rows = READER.readInt();
-        System.out.println("Enter columns of the matrix : ");
-        int columns = READER.readInt();
-
-        FillingMatrixRandomPrimitiveIntegers filler = new FillingMatrixRandomPrimitiveIntegers();
-
-        MatrixInts matrix = new MatrixInts(filler.fill(rows, columns, INT_UPPER_BOUND));
+        MatrixInts matrix = new MatrixInts(Helper.FILLING_MATRIX_INTS.fill(rows, columns, INT_UPPER_BOUND));
 
         System.out.println("Matrix : ");
         System.out.println(matrix);
 
         RotatorMatrix rotatorMatrix = RotatorIntegerMatrixClockwise::rotateMatrixTo90Degrees;
-        rotatorMatrix.rotateMatrix(matrix);
 
-        System.out.println("Result to rotate matrix clockwise to 90 degrees : ");
-        System.out.println(matrix);
+        Executor.execute(() -> rotatorMatrix.rotateMatrix(matrix), ExecutionResultOutputToConsole::outputExecutionResultToConsole,
+                                                                    RESULT_MATRIX, ExecutionTimeOutputToConsole::outputExecutionTime);
 
     }
 

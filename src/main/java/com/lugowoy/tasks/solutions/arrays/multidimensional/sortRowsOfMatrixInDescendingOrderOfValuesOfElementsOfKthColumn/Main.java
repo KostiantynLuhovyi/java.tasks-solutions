@@ -1,9 +1,14 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.sortRowsOfMatrixInDescendingOrderOfValuesOfElementsOfKthColumn;
 
-import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomPrimitiveIntegers;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.matrices.MatrixInts;
+import com.lugowoy.helper.utils.execution.ExecutionResultOutputToConsole;
+import com.lugowoy.helper.utils.execution.ExecutionTimeOutputToConsole;
+import com.lugowoy.helper.utils.execution.Executor;
+import com.lugowoy.tasks.solutions.Helper;
+
+import static com.lugowoy.tasks.solutions.Helper.RESULT_MATRIX;
 
 /**
  * Sort the rows of matrix in descending order of values of the elements of k-th column.
@@ -11,34 +16,27 @@ import com.lugowoy.helper.models.matrices.MatrixInts;
  */
 public class Main {
 
-    private static final Reader READER = new Reader(new ReadingConsole());
-
     private static final int BOUND = 20;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
-        System.out.println("Enter number of rows in the matrix : ");
-        int rows = READER.readInt();
-        System.out.println("Enter number of columns in the matrix : ");
-        int columns = READER.readInt();
+        int rows = Helper.enterMatrixRowCountToConsole();
+        int columns = Helper.enterMatrixColumnCountToConsole();
 
-        FillingMatrixRandomPrimitiveIntegers filler = new FillingMatrixRandomPrimitiveIntegers();
-
-        MatrixInts matrix = new MatrixInts(filler.fill(rows, columns, BOUND));
+        MatrixInts matrix = new MatrixInts(Helper.FILLING_MATRIX_INTS.fill(rows, columns, BOUND));
 
         int indexRowToSort = enterIndexRowToSort(rows);
 
         System.out.println("Original matrix : ");
         System.out.println(matrix);
 
-        sortRowsOfMatrixInDescendingOrderOfValuesOfElementsOfKthColumn(matrix, indexRowToSort);
-
-        System.out.println("Result : ");
-        System.out.println(matrix);
+        Executor.execute(() -> sortRowsOfMatrixInDescendingOrderOfValuesOfElementsOfKthColumn(matrix, indexRowToSort),
+                                          ExecutionResultOutputToConsole::outputExecutionResultToConsole, RESULT_MATRIX,
+                                          ExecutionTimeOutputToConsole::outputExecutionTime);
 
     }
 
-    private static void sortRowsOfMatrixInDescendingOrderOfValuesOfElementsOfKthColumn(MatrixInts matrix, int indexRowToSort) {
+    private static MatrixInts sortRowsOfMatrixInDescendingOrderOfValuesOfElementsOfKthColumn(MatrixInts matrix, int indexRowToSort) {
         int[][] ints = matrix.toMatrix(new int[matrix.getRows()][matrix.getColumns()]);
         for (int i = 0; i < ints.length; i++) {
             for (int j = i + 1; j < ints.length; j++) {
@@ -52,13 +50,15 @@ public class Main {
             }
         }
         matrix.setMatrix(ints);
+        return matrix;
     }
 
     private static int enterIndexRowToSort(int rows) {
         int resultIndexRow;
         System.out.println("Enter the row number to sort : ");
+        Reader reader = new Reader(new ReadingConsole());
         while (true) {
-            resultIndexRow = READER.readInt();
+            resultIndexRow = reader.readInt();
             if (resultIndexRow >= 0 && resultIndexRow <= rows) {
                 break;
             } else {

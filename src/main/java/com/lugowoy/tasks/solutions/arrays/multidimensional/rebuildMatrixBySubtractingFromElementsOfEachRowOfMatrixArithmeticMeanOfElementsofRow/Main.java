@@ -1,16 +1,17 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.rebuildMatrixBySubtractingFromElementsOfEachRowOfMatrixArithmeticMeanOfElementsofRow;
 
-import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomPrimitiveDoubles;
 import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.matrices.MatrixDoubles;
+import com.lugowoy.helper.utils.execution.ExecutionResultOutputToConsole;
+import com.lugowoy.helper.utils.execution.ExecutionTimeOutputToConsole;
 import com.lugowoy.helper.utils.execution.Executor;
+import com.lugowoy.tasks.solutions.Helper;
 
 import java.math.BigDecimal;
 
 import static com.lugowoy.helper.filling.ValuesToFilling.DOUBLE_UPPER_BOUND;
-import static com.lugowoy.helper.utils.execution.OutputExecutorResult.MSG_STRING_RESULT;
-import static com.lugowoy.helper.utils.execution.OutputExecutorTimer.MSG_MINUTES_AND_SECONDS;
+import static com.lugowoy.helper.utils.execution.ExecutionResultOutputToConsole.RESULT_STRING;
 import static java.math.RoundingMode.HALF_DOWN;
 
 /**
@@ -19,20 +20,18 @@ import static java.math.RoundingMode.HALF_DOWN;
  */
 public class Main {
 
-    private static final Reader READER = new Reader(new ReadingConsole());
+    public static void main(String[] args) throws Exception {
 
-    public static void main(String[] args) {
+        int rows = Helper.enterMatrixRowCountToConsole();
+        int columns = Helper.enterMatrixColumnCountToConsole();
 
-        System.out.println("Enter rows of the matrix : ");
-        int rows = READER.readInt();
-        System.out.println("Enter columns of the matrix : ");
-        int columns = READER.readInt();
-
-        MatrixDoubles matrix = new MatrixDoubles(new FillingMatrixRandomPrimitiveDoubles().fill(rows, columns, DOUBLE_UPPER_BOUND));
+        MatrixDoubles matrix = new MatrixDoubles(Helper.FILLING_MATRIX_DOUBLES.fill(rows, columns, DOUBLE_UPPER_BOUND));
 
         System.out.println("Matrix : \n" + matrix);
 
-        Executor.execute(() -> subtractArithmeticAverageValueFromEachMatrixElement(matrix), MSG_MINUTES_AND_SECONDS, "Result :\n%s");
+        Executor.execute(() -> subtractArithmeticAverageValueFromEachMatrixElement(matrix),
+                                          ExecutionResultOutputToConsole::outputExecutionResultToConsole, RESULT_STRING,
+                                          ExecutionTimeOutputToConsole::outputExecutionTime);
 
     }
 
@@ -47,7 +46,6 @@ public class Main {
                 matrix.setElement(i, j, newValue.doubleValue());
             }
         }
-
         return matrix;
     }
 

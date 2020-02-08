@@ -7,13 +7,14 @@ import com.lugowoy.helper.models.matrices.MatrixInts;
  */
 public interface RotatorIntegerMatrixClockwise {
 
-    static void rotateMatrixTo90Degrees(MatrixInts matrix) {
+    static MatrixInts rotateMatrixTo90Degrees(MatrixInts matrix) {
         int[][] tmpMatrix = new int[matrix.getRows()][matrix.getColumns()];
         for (int i = 0; i < matrix.getRows(); i++)
             for (int j = 0; j < matrix.getColumns(); j++) {
                 tmpMatrix[matrix.getColumns() - 1 - j][i] = matrix.getElement(i, j);
             }
         matrix.setMatrix(tmpMatrix);
+        return matrix;
     }
 
     static void rotateMatrixTo180Degrees(MatrixInts matrix) {

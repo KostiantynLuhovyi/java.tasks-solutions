@@ -1,9 +1,11 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.moveMinimumMatrixElementToSpecifiedLocationUsingPermutationOfRowsAndColumns;
 
 import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomPrimitiveIntegers;
+import com.lugowoy.helper.io.reading.Reader;
 import com.lugowoy.helper.io.reading.Reading;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.matrices.MatrixInts;
+import com.lugowoy.tasks.solutions.Helper;
 
 /**
  * Move the minimum matrix element to the specified location using permutation of rows and columns.
@@ -11,20 +13,16 @@ import com.lugowoy.helper.models.matrices.MatrixInts;
  */
 public class Main {
 
-    private static final Reading READER = new ReadingConsole();
+    private static final Reader READER = new Reader(new ReadingConsole());
 
     private static final int BOUND = 200;
 
     public static void main(String[] args) {
 
-        System.out.println("Enter rows of the matrix : ");
-        int rows = READER.readInt();
-        System.out.println("Enter columns of the matrix : ");
-        int columns = READER.readInt();
+        int rows = Helper.enterMatrixRowCountToConsole();
+        int columns = Helper.enterMatrixColumnCountToConsole();
 
-        FillingMatrixRandomPrimitiveIntegers filler = new FillingMatrixRandomPrimitiveIntegers();
-
-        MatrixInts matrix = new MatrixInts(filler.fill(rows, columns, BOUND));
+        MatrixInts matrix = new MatrixInts(Helper.FILLING_MATRIX_INTS.fill(rows, columns, BOUND));
 
         System.out.println("Original matrix : ");
         System.out.println(matrix);

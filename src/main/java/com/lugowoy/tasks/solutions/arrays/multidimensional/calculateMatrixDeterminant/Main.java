@@ -1,14 +1,13 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.calculateMatrixDeterminant;
 
-import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomPrimitiveIntegers;
-import com.lugowoy.helper.io.reading.Reader;
-import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.matrices.MatrixInts;
+import com.lugowoy.helper.utils.execution.ExecutionResultOutputToConsole;
+import com.lugowoy.helper.utils.execution.ExecutionTimeOutputToConsole;
 import com.lugowoy.helper.utils.execution.Executor;
+import com.lugowoy.tasks.solutions.Helper;
 
 import static com.lugowoy.helper.filling.ValuesToFilling.INT_LOWER_BOUND;
 import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
-import static com.lugowoy.helper.utils.execution.OutputExecutorTimer.MSG_MILLISECONDS;
 import static java.lang.Math.pow;
 
 /**
@@ -17,24 +16,21 @@ import static java.lang.Math.pow;
  */
 public class Main {
 
-    private static final Reader READER = new Reader(new ReadingConsole());
-
     private static final String MSG_OUTPUT_RESULT = "Matrix determinant : %.3f\n";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
-        System.out.println("Enter rows of the matrix : ");
-        int rows = READER.readInt();
-        System.out.println("Enter columns of the matrix : ");
-        int columns = READER.readInt();
+        int rows = Helper.enterMatrixRowCountToConsole();
+        int columns = Helper.enterMatrixColumnCountToConsole();
 
-        FillingMatrixRandomPrimitiveIntegers filler = new FillingMatrixRandomPrimitiveIntegers();
+        MatrixInts matrix = new MatrixInts(Helper.FILLING_MATRIX_INTS.fill(rows, columns, INT_LOWER_BOUND, INT_UPPER_BOUND));
 
-        MatrixInts matrix = new MatrixInts(filler.fill(rows, columns, INT_LOWER_BOUND, INT_UPPER_BOUND));
+        System.out.println(matrix);
+        System.out.println();
 
-        System.out.println("Matrix : \n" + matrix);
-
-        Executor.execute(() -> calculateMatrixDeterminant(matrix), MSG_MILLISECONDS, MSG_OUTPUT_RESULT);
+        Executor.execute(() -> calculateMatrixDeterminant(matrix),
+                                      ExecutionResultOutputToConsole::outputExecutionResultToConsole, MSG_OUTPUT_RESULT,
+                                      ExecutionTimeOutputToConsole::outputExecutionTime);
 
     }
 

@@ -1,12 +1,14 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.rearrangeElementsOfSquareRealMatrixInAscendingOrderAlongDiagonal;
 
-import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomPrimitiveDoubles;
-import com.lugowoy.helper.io.reading.Reader;
-import com.lugowoy.helper.io.reading.ReadingConsole;
+import com.lugowoy.helper.models.matrices.AbstractMatrix;
 import com.lugowoy.helper.models.matrices.MatrixDoubles;
-import com.lugowoy.helper.utils.checking.CheckerMatrix;
+import com.lugowoy.helper.utils.execution.ExecutionResultOutputToConsole;
+import com.lugowoy.helper.utils.execution.ExecutionTimeOutputToConsole;
+import com.lugowoy.helper.utils.execution.Executor;
+import com.lugowoy.tasks.solutions.Helper;
 
 import static com.lugowoy.helper.filling.ValuesToFilling.DOUBLE_UPPER_BOUND;
+import static com.lugowoy.tasks.solutions.Helper.RESULT_MATRIX;
 
 /**
  * Rearrange the elements of a square real matrix in ascending order along the diagonal.
@@ -14,30 +16,23 @@ import static com.lugowoy.helper.filling.ValuesToFilling.DOUBLE_UPPER_BOUND;
  */
 public class Main {
 
-    private static final Reader READER = new Reader(new ReadingConsole());
+    public static void main(String[] args) throws Exception {
 
-    public static void main(String[] args) {
+        int rows = Helper.enterMatrixRowCountToConsole();
+        int columns = Helper.enterMatrixColumnCountToConsole();
 
-        System.out.println("Enter rows of the matrix : ");
-        int rows = READER.readInt();
-        System.out.println("Enter columns of the matrix : ");
-        int columns = READER.readInt();
-
-        FillingMatrixRandomPrimitiveDoubles filler = new FillingMatrixRandomPrimitiveDoubles();
-
-        MatrixDoubles matrix = new MatrixDoubles(filler.fill(rows, columns, DOUBLE_UPPER_BOUND));
+        MatrixDoubles matrix = new MatrixDoubles(Helper.FILLING_MATRIX_DOUBLES.fill(rows, columns, DOUBLE_UPPER_BOUND));
 
         System.out.println("Original matrix : ");
         System.out.println(matrix);
 
-        rearrangeElementsOfMatrixInAscendingOrderAlongDiagonal(matrix);
-
-        System.out.println("Result matrix : ");
-        System.out.println(matrix);
+        Executor.execute(() -> rearrangeElementsOfMatrixInAscendingOrderAlongDiagonal(matrix),
+                                          ExecutionResultOutputToConsole::outputExecutionResultToConsole, RESULT_MATRIX,
+                                          ExecutionTimeOutputToConsole::outputExecutionTime);
 
     }
 
-    private static void rearrangeElementsOfMatrixInAscendingOrderAlongDiagonal(MatrixDoubles matrix) {
+    private static AbstractMatrix rearrangeElementsOfMatrixInAscendingOrderAlongDiagonal(MatrixDoubles matrix) {
         int length = matrix.getRows();
         for (int n = 0; n < length; n++) {
             int row = 0, col = 0;
@@ -58,6 +53,7 @@ public class Main {
                 matrix.setElement(row, col, tmp);
             }
         }
+        return matrix;
     }
 
 }

@@ -2,6 +2,7 @@ package com.lugowoy.tasks.solutions.arrays.multidimensional.transposeSquareMatri
 
 import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomPrimitiveIntegers;
 import com.lugowoy.helper.models.matrices.MatrixInts;
+import com.lugowoy.tasks.solutions.Helper;
 
 import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 import static com.lugowoy.helper.models.matrices.AbstractMatrix.DEFAULT_COLUMNS;
@@ -15,9 +16,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        FillingMatrixRandomPrimitiveIntegers filler = new FillingMatrixRandomPrimitiveIntegers();
-
-        MatrixInts matrix = new MatrixInts(filler.fill(DEFAULT_ROWS, DEFAULT_COLUMNS, INT_UPPER_BOUND));
+        MatrixInts matrix = new MatrixInts(Helper.FILLING_MATRIX_INTS.fill(DEFAULT_ROWS, DEFAULT_COLUMNS, INT_UPPER_BOUND));
 
         System.out.println("Matrix : ");
         System.out.println(matrix);

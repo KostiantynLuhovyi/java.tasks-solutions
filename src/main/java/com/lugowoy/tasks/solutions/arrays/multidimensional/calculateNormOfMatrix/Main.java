@@ -1,9 +1,9 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.calculateNormOfMatrix;
 
-import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomPrimitiveDoubles;
-import com.lugowoy.helper.io.reading.Reader;
-import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.matrices.MatrixDoubles;
+import com.lugowoy.tasks.solutions.Helper;
+
+import javax.swing.*;
 
 import static com.lugowoy.helper.filling.ValuesToFilling.DOUBLE_LOWER_BOUND;
 import static com.lugowoy.helper.filling.ValuesToFilling.DOUBLE_UPPER_BOUND;
@@ -14,20 +14,18 @@ import static com.lugowoy.helper.filling.ValuesToFilling.DOUBLE_UPPER_BOUND;
  */
 public class Main {
 
-    private static final Reader READER = new Reader(new ReadingConsole());
+    private static final String MSG_RESULT_ROWS_NORM = "Norm of rows : %.3f";
+    private static final String MSG_RESULT_COLUMNS_NORM = "Norm of columns : %.3f";
 
     public static void main(String[] args) {
 
-        System.out.println("Enter rows of the matrix : ");
-        int rows = READER.readInt();
-        System.out.println("Enter columns of the matrix : ");
-        int columns = READER.readInt();
+        int rows = Helper.enterMatrixRowCountToConsole();
+        int columns = Helper.enterMatrixColumnCountToConsole();
 
-        FillingMatrixRandomPrimitiveDoubles filler = new FillingMatrixRandomPrimitiveDoubles();
-
-        MatrixDoubles matrix = new MatrixDoubles(filler.fill(rows, columns, DOUBLE_LOWER_BOUND, DOUBLE_UPPER_BOUND));
+        MatrixDoubles matrix = new MatrixDoubles(Helper.FILLING_MATRIX_DOUBLES.fill(rows, columns, DOUBLE_LOWER_BOUND, DOUBLE_UPPER_BOUND));
 
         System.out.println("Matrix : \n" + matrix);
+        System.out.println();
 
         CalculatorMatrixNorms calculatorMatrixNorms = CalculatorMatrixNorms::calculateMatrixRowsNorm;
         double normMatrixRows = calculatorMatrixNorms.calculateMatrixNorm(matrix);
@@ -35,9 +33,9 @@ public class Main {
         calculatorMatrixNorms = CalculatorMatrixNorms::calculateMatrixColumnsNorm;
         double normMatrixColumns = calculatorMatrixNorms.calculateMatrixNorm(matrix);
 
-        System.out.printf("Norm of rows : %.3f", normMatrixRows);
+        System.out.printf(MSG_RESULT_ROWS_NORM, normMatrixRows);
         System.out.println();
-        System.out.printf("Norm of columns : %.3f", normMatrixColumns);
+        System.out.printf(MSG_RESULT_COLUMNS_NORM, normMatrixColumns);
 
     }
 
