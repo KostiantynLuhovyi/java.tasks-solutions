@@ -1,5 +1,6 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.calculateSumOfMaxAndMinElementOfThisParticularSequence;
 
+import com.lugowoy.helper.models.storages.arrays.AbstractArray;
 import com.lugowoy.helper.models.storages.arrays.ArrayInts;
 import com.lugowoy.helper.utils.checking.CheckerArray;
 
@@ -7,7 +8,7 @@ import com.lugowoy.helper.utils.checking.CheckerArray;
  * Created by Konstantin Lugowoy on 01.03.2017.
  */
 @FunctionalInterface
-public interface Determinant<T, V> {
+public interface DeterminantElement<T extends AbstractArray, V> {
 
     V determine(T t);
 

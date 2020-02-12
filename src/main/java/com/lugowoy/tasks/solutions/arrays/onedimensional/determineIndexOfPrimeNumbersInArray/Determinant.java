@@ -8,7 +8,7 @@ public interface Determinant<T extends Number> {
 
     boolean determine(T number);
 
-    static boolean determineTheIndexOfPrimesInAnArray(int number) {
+    static boolean determineIndexOfPrimesInArray(int number) {
         boolean isPrimeNumber = true;
         if (number != 0) {
             if (number == 1) {

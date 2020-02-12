@@ -1,7 +1,9 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.convertSecondSequenceAccordingToRuleDefinedByFirstSequence;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
 import com.lugowoy.helper.models.storages.arrays.ArrayInts;
+import com.lugowoy.helper.utils.execution.ExecutionTimeOutputToConsole;
+import com.lugowoy.helper.utils.execution.Executor;
+import com.lugowoy.tasks.solutions.Helper;
 
 import static com.lugowoy.helper.models.storages.arrays.AbstractArray.DEFAULT_LENGTH;
 
@@ -15,23 +17,18 @@ public class Main {
     private static final int LOWER_BOUND = -20;
     private static final int UPPER_BOUND = 20;
 
-    private static final Converting<Integer> CONVERTING = Converting::convertSecondSequenceAccordingToRuleDefinedByFirstSequence;
-
     public static void main(String[] args) {
 
-        FillingArrayRandomPrimitiveIntegers filler = new FillingArrayRandomPrimitiveIntegers();
-
-        ArrayInts firstArray = new ArrayInts(filler.fill(DEFAULT_LENGTH, LOWER_BOUND, UPPER_BOUND));
-        System.out.println("A : " + firstArray);
+        ArrayInts firstArray = new ArrayInts(Helper.FILLING_ARRAY_INTS.fill(DEFAULT_LENGTH, LOWER_BOUND, UPPER_BOUND));
+        System.out.println("First sequence : " + firstArray);
         System.out.println();
 
-        ArrayInts secondArray = new ArrayInts(filler.fill(DEFAULT_LENGTH, LOWER_BOUND, UPPER_BOUND));
-        System.out.println("B : " + secondArray);
+        ArrayInts secondArray = new ArrayInts(Helper.FILLING_ARRAY_INTS.fill(DEFAULT_LENGTH, LOWER_BOUND, UPPER_BOUND));
+        System.out.println("Second sequence : " + secondArray);
         System.out.println();
 
-        CONVERTING.convert(firstArray, secondArray);
-
-        System.out.println("Result second sequence after converting : " + secondArray);
+        Executor.execute(() -> ConvertingSequenceByRule.convertSecondSequenceByRuleDefinedByFirstSequence(firstArray, secondArray),
+                                                                                  ExecutionTimeOutputToConsole::outputExecutionTime);
 
     }
 

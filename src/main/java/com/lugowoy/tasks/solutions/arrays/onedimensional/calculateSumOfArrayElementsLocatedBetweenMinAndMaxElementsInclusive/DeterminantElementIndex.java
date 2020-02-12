@@ -8,9 +8,9 @@ import com.lugowoy.helper.utils.checking.CheckerIndex;
  * Created by Konstantin Lugowoy on 27.03.2017.
  */
 @FunctionalInterface
-public interface Determinant {
+public interface DeterminantElementIndex {
 
-    int determine(ArrayInts array);
+    int determineElementIndex(ArrayInts array);
 
     static int determineMinElementIndex(ArrayInts array) {
         int indexMinElement = 0, valueForDetermineMinElementIndex = Integer.MAX_VALUE;

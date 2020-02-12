@@ -1,6 +1,6 @@
 package com.lugowoy.tasks.solutions.oop.calculationOfAmountOfPaintNeededToPaintRoom.calculating.area;
 
-import com.lugowoy.tasks.solutions.oop.calculationOfAmountOfPaintNeededToPaintRoom.calculating.CalculatingArea;
+import com.lugowoy.tasks.solutions.oop.calculationOfAmountOfPaintNeededToPaintRoom.calculating.Calculating;
 import com.lugowoy.tasks.solutions.oop.calculationOfAmountOfPaintNeededToPaintRoom.models.Room;
 
 import java.math.BigDecimal;
@@ -10,9 +10,9 @@ import java.math.BigDecimal;
  */
 
 @FunctionalInterface
-public interface CalculatingAreaOfRoomWithoutDoorsAndWindows extends CalculatingArea {
+public interface CalculatingAreaOfRoomWithoutDoorsAndWindows extends Calculating<Room> {
 
-    BigDecimal calculateAreaOfTheRoomWithoutDoorsAndWindows(Room room);
+    BigDecimal calculateAreaOfRoomWithoutDoorsAndWindows(Room room);
 
     default BigDecimal calculate(Room room) {
         return room.getTotalAreaRoom().subtract(room.getTotalAreaOfDoorsInRoom()).subtract(room.getTotalAreaOfWindowsInRoom());

@@ -2,7 +2,6 @@ package com.lugowoy.tasks.solutions.arrays.onedimensional.determineEquilibriumBe
 
 import com.lugowoy.helper.models.storages.arrays.Array;
 
-
 /**
  * Created by Konstantin Lugowoy on 27.05.2018.
  */

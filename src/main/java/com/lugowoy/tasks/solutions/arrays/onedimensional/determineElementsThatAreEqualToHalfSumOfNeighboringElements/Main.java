@@ -1,9 +1,7 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.determineElementsThatAreEqualToHalfSumOfNeighboringElements;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
-import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.storages.arrays.ArrayInts;
-import com.lugowoy.helper.utils.ArrayLengthReader;
+import com.lugowoy.tasks.solutions.Helper;
 
 /**
  * Determine the elements that are equal to the half-sum of the neighboring elements.
@@ -11,18 +9,15 @@ import com.lugowoy.helper.utils.ArrayLengthReader;
  */
 public class Main {
 
-    private static final Determinant DETERMINANT = Determinant::determineElementsThatAreEqualToHalfSumOfNeighboringElements;
+    private static final Determinant DETERMINANT = Determinant::determineElementsThatEqualToHalfSumOfNeighboringElements;
 
     private static final int BOUND = 20;
 
     public static void main(String[] args) {
 
-        System.out.println("Enter length of the array : ");
-        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
+        int lengthOfArray = Helper.enterArrayLengthToConsole();
 
-        FillingArrayRandomPrimitiveIntegers filler = new FillingArrayRandomPrimitiveIntegers();
-
-        ArrayInts array = new ArrayInts(filler.fill(lengthOfArray, BOUND));
+        ArrayInts array = new ArrayInts(Helper.FILLING_ARRAY_INTS.fill(lengthOfArray, BOUND));
 
         System.out.println("Original array : " + array);
 

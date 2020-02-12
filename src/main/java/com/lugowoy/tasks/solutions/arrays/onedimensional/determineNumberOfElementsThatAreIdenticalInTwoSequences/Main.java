@@ -30,7 +30,6 @@ public class Main {
         ArrayInts secondArray = new ArrayInts(filler.fill(lengthOfSecondArray, BOUND));
 
         System.out.println("First array : " + firstArray);
-
         System.out.println("Second array : " + secondArray);
 
         int numberOfIdenticalElementsInTheTwoSequence = DETERMINANT.determine(firstArray, secondArray);

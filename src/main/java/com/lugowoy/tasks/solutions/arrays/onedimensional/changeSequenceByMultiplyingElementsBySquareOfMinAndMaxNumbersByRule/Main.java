@@ -2,13 +2,18 @@ package com.lugowoy.tasks.solutions.arrays.onedimensional.changeSequenceByMultip
 
 import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
+import com.lugowoy.helper.models.storages.arrays.AbstractArray;
+import com.lugowoy.helper.models.storages.arrays.ArrayDoubles;
 import com.lugowoy.helper.models.storages.arrays.ArrayInts;
 import com.lugowoy.helper.utils.ArrayLengthReader;
-import com.lugowoy.tasks.solutions.arrays.onedimensional.changeSequenceByMultiplyingElementsBySquareOfMinAndMaxNumbersByRule.Changing;
-import com.lugowoy.tasks.solutions.arrays.onedimensional.changeSequenceByMultiplyingElementsBySquareOfMinAndMaxNumbersByRule.Determinant;
+import com.lugowoy.helper.utils.execution.ExecutionResultOutputToConsole;
+import com.lugowoy.helper.utils.execution.ExecutionTimeOutputToConsole;
+import com.lugowoy.helper.utils.execution.Executor;
+import com.lugowoy.tasks.solutions.Helper;
 
 import static com.lugowoy.helper.filling.ValuesToFilling.INT_LOWER_BOUND;
 import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
+import static com.lugowoy.tasks.solutions.Helper.RESULT_MATRIX;
 
 /**
  * Given integers a1, a2, ..., an.
@@ -18,42 +23,35 @@ import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
  */
 public class Main {
 
-    private static final Changing<ArrayInts> CHANGING = Changing::changeSequenceByMultiplyingElementsBySquareOfMinAndMaxNumberByRule;
+    private static final MultiplyingSequenceElementsByRule<ArrayDoubles, Double> MULTIPLYING =
+                             MultiplyingSequenceElementsByRule::multiplySequenceElementsBySquareOfMinAndMaxNumberByRule;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
-        System.out.println("Enter length of the array : ");
-        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
+        int lengthOfArray = Helper.enterArrayLengthToConsole();
 
-        FillingArrayRandomPrimitiveIntegers filler = new FillingArrayRandomPrimitiveIntegers();
-
-        ArrayInts array = new ArrayInts(filler.fill(lengthOfArray, INT_LOWER_BOUND, INT_UPPER_BOUND));
+        ArrayDoubles array = new ArrayDoubles(Helper.FILLING_ARRAY_DOUBLES.fill(lengthOfArray, INT_LOWER_BOUND, INT_UPPER_BOUND));
 
         System.out.println("Original sequence : " + array);
         System.out.println();
 
-        int squareMinNumberInTheSequence = getSquareMinNumberInTheSequence(array, Determinant::determineMinNumber);
+        double squareMinNumber = squareMinNumberOfSequence(array, DeterminantElement::determineMinNumber);
+        System.out.printf("Square min number of the array is : %.3f", squareMinNumber);
+        double squareMaxNumber = squareMaxNumberOfSequence(array, DeterminantElement::determineMaxNumber);
+        System.out.printf("Square max number of the array is : %.3f", squareMaxNumber);
 
-        int squareMaxNumberInTheSequence = getSquareMaxNumberInTheSequence(array, Determinant::determineMaxNumber);
-
-        CHANGING.change(array, squareMinNumberInTheSequence, squareMaxNumberInTheSequence);
-
-        System.out.println();
-        System.out.println("Result sequence after changing : " + array);
-        System.out.println();
+        Executor.execute(() -> MULTIPLYING.multiply(array, squareMinNumber, squareMaxNumber),
+                                          ExecutionResultOutputToConsole::outputExecutionResultToConsole, RESULT_MATRIX,
+                                          ExecutionTimeOutputToConsole::outputExecutionTime);
 
     }
 
-    private static int getSquareMaxNumberInTheSequence(ArrayInts array, Determinant<Integer> determinant) {
-        int squareMaxNumberInTheSequence = (int) Math.pow(determinant.determine(array), 2);
-        System.out.println("Square max number in the array is " + squareMaxNumberInTheSequence + " .");
-        return squareMaxNumberInTheSequence;
+    private static double squareMaxNumberOfSequence(ArrayDoubles array, DeterminantElement<ArrayDoubles, Double> determinant) {
+        return Math.pow(determinant.determine(array), 2);
     }
 
-    private static int getSquareMinNumberInTheSequence(ArrayInts array, Determinant<Integer> determinant) {
-        int squareMinNumberInTheSequence = (int) Math.pow(determinant.determine(array), 2);
-        System.out.println("Square min number in the array is " + squareMinNumberInTheSequence + " .");
-        return squareMinNumberInTheSequence;
+    private static double squareMinNumberOfSequence(ArrayDoubles array, DeterminantElement<ArrayDoubles, Double> determinant) {
+        return Math.pow(determinant.determine(array), 2);
     }
 
 }

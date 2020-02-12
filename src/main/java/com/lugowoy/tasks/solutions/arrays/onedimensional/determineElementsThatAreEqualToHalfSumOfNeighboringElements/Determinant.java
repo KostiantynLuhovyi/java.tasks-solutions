@@ -11,14 +11,14 @@ public interface Determinant {
 
     void determine(ArrayInts array);
 
-    static void determineElementsThatAreEqualToHalfSumOfNeighboringElements(ArrayInts array) {
+    static void determineElementsThatEqualToHalfSumOfNeighboringElements(ArrayInts array) {
         if (CheckerArray.checkLengthInArray(array)) {
             if (array.size() > 2) {
                 int counterCoincidence = 0;
                 for (int i = 1; i < array.size() - 1; i++) {
                     if (((array.get(i - 1) + array.get((i + 1)) / 2) == array.get(i))) {
                         System.out.printf("Element %d at index %d is equal to half sum element %d at index %d and element %d at index %d.",
-                                                     array.get(i), i, array.get(i - 1), i - 1, array.get(i + 1), i + 1);
+                                                                        array.get(i), i, array.get(i - 1), i - 1, array.get(i + 1), i + 1);
                         System.out.println();
                         counterCoincidence++;
                     }

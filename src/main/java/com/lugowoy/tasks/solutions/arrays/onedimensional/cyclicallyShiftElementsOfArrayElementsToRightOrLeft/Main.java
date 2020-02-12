@@ -4,6 +4,7 @@ import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveInteg
 import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.storages.arrays.ArrayInts;
 import com.lugowoy.helper.utils.ArrayLengthReader;
+import com.lugowoy.tasks.solutions.Helper;
 
 /**
  * Given an array A. Cyclically shift the elements of the array to K elements to the right (to the left).
@@ -17,12 +18,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Enter length of the array : ");
-        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
+        int lengthOfArray = Helper.enterArrayLengthToConsole();
 
-        FillingArrayRandomPrimitiveIntegers filler = new FillingArrayRandomPrimitiveIntegers();
-
-        ArrayInts array = new ArrayInts(filler.fill(lengthOfArray, BOUND));
+        ArrayInts array = new ArrayInts(Helper.FILLING_ARRAY_INTS.fill(lengthOfArray, BOUND));
 
         System.out.println("Original : " + array);
 

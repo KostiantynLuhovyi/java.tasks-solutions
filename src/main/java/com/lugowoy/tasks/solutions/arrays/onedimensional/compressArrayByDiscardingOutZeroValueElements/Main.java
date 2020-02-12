@@ -1,18 +1,21 @@
-package com.lugowoy.tasks.solutions.arrays.onedimensional.compressArrayByThrowingEverySecondElement;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.compressArrayByDiscardingOutZeroValueElements;
 
 import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.storages.arrays.ArrayInts;
 import com.lugowoy.helper.utils.ArrayLengthReader;
 import com.lugowoy.helper.utils.checking.CheckerArray;
+import com.lugowoy.helper.utils.execution.ExecutionTimeOutputToConsole;
+import com.lugowoy.helper.utils.execution.Executor;
+import com.lugowoy.tasks.solutions.arrays.onedimensional.compressArrayByDiscardingEverySecondElement.CompressingArray;
 
 import static com.lugowoy.helper.filling.ValuesToFilling.INT_LOWER_BOUND;
 import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 
 /**
- * Given an array with the number of n elements.
- * Compress the array, throwing out every second element from it.
- * <p> Created by Konstantin Lugowoy on 13.03.2017.
+ * An array containing integers is specified.
+ * Compress it, throwing out the zero elements.
+ * <p> Created by Konstantin Lugowoy on 16.03.2017.
  */
 public class Main {
 
@@ -27,24 +30,9 @@ public class Main {
 
         System.out.println("Original array : " + array);
 
-        COMPRESSING.compress(array);
-
-        System.out.println("Result of compress array : " + array);
+        Executor.execute(() -> CompressingArray.compressArrayDiscardingZeroValueElements(array),
+                                                                     ExecutionTimeOutputToConsole::outputExecutionTime);
 
     }
-
-    private static final Compressing<ArrayInts> COMPRESSING = array -> {
-        if (CheckerArray.checkLengthInArray(array)) {
-            if (array.size() >= 2) {
-                ArrayInts tmpArray = new ArrayInts(0);
-                for (int i = 0; i < array.size(); i++) {
-                    if ((i % 2 == 0) || (i == 0)) {
-                        tmpArray.add(array.get(i));
-                    }
-                }
-                array.setArray(tmpArray.toArray(new int[tmpArray.size()]));
-            }
-        }
-    };
 
 }

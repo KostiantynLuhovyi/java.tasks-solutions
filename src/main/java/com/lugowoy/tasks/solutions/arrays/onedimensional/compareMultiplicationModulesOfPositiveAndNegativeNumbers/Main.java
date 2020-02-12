@@ -1,12 +1,7 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.compareMultiplicationModulesOfPositiveAndNegativeNumbers;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
-import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.storages.arrays.ArrayInts;
-import com.lugowoy.helper.utils.ArrayLengthReader;
-import com.lugowoy.tasks.solutions.arrays.onedimensional.compareMultiplicationModulesOfPositiveAndNegativeNumbers.multiplicate.Multiplication;
-import com.lugowoy.tasks.solutions.arrays.onedimensional.compareMultiplicationModulesOfPositiveAndNegativeNumbers.multiplicate.MultiplicationNegativeNumbers;
-import com.lugowoy.tasks.solutions.arrays.onedimensional.compareMultiplicationModulesOfPositiveAndNegativeNumbers.multiplicate.MultiplicationPositiveNumbers;
+import com.lugowoy.tasks.solutions.Helper;
 
 import static com.lugowoy.helper.filling.ValuesToFilling.INT_LOWER_BOUND;
 import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
@@ -21,20 +16,17 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Enter length of the array : ");
-        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
+        int lengthOfArray = Helper.enterArrayLengthToConsole();
 
-        FillingArrayRandomPrimitiveIntegers filler = new FillingArrayRandomPrimitiveIntegers();
-
-        ArrayInts array = new ArrayInts(filler.fill(lengthOfArray, INT_LOWER_BOUND, INT_UPPER_BOUND));
+        ArrayInts array = new ArrayInts(Helper.FILLING_ARRAY_INTS.fill(lengthOfArray, INT_LOWER_BOUND, INT_UPPER_BOUND));
 
         System.out.println("Original array : " + array);
         System.out.println();
 
-        Multiplication<ArrayInts> multiplication = MultiplicationNegativeNumbers::multiplication;
+        Multiplication<ArrayInts, Integer> multiplication = Multiplication::multiplyNegativeNumbers;
         int resultModuleOfNegativeNumbers = Math.abs(multiplication.multiply(array));
 
-        multiplication = MultiplicationPositiveNumbers::multiplication;
+        multiplication = Multiplication::multiplyPositiveNumbers;
         int resultModuleOfPositiveNumbers = Math.abs(multiplication.multiply(array));
 
         if (resultModuleOfNegativeNumbers > resultModuleOfPositiveNumbers) {

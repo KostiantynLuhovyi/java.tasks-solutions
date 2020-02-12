@@ -43,7 +43,7 @@ public class Main {
         System.out.println("Fill in the data for the room.");
         Room room = FACTORY_ROOM.create();
 
-        CalculatorObjectArea<Room> calculatorForRoomArea = new CalculatorRoomArea();
+        CalculatorArea<Room> calculatorForRoomArea = new CalculatorRoomArea();
         calculatorForRoomArea.calculateArea(room);
         System.out.println("Total area of the room : " + room.getTotalAreaRoom() + "\u33A1 .");
         System.out.println();

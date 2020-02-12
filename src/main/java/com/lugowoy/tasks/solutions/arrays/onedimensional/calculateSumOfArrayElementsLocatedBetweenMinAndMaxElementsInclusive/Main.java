@@ -1,13 +1,14 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.calculateSumOfArrayElementsLocatedBetweenMinAndMaxElementsInclusive;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
-import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.storages.arrays.ArrayInts;
-import com.lugowoy.helper.utils.ArrayLengthReader;
-import com.lugowoy.helper.utils.checking.CheckerArray;
+import com.lugowoy.helper.utils.execution.ExecutionResultOutputToConsole;
+import com.lugowoy.helper.utils.execution.ExecutionTimeOutputToConsole;
+import com.lugowoy.helper.utils.execution.Executor;
+import com.lugowoy.tasks.solutions.Helper;
 
 import static com.lugowoy.helper.filling.ValuesToFilling.INT_LOWER_BOUND;
 import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
+import static com.lugowoy.tasks.solutions.arrays.onedimensional.calculateSumOfArrayElementsLocatedBetweenMinAndMaxElementsInclusive.CalculationSumBetweenElements.calculateSumBetweenMinAndMaxElementsIndices;
 
 /**
  * Calculate the sum of array elements located between the minimum and maximum elements inclusive.
@@ -15,45 +16,34 @@ import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
  */
 public class Main {
 
-    public static void main(String[] args) {
+    private static final String RESULT_SUM_BETWEEN_MIN_AND_MAX_INDICES =
+                              "Sum of elements of the array located between the min and max elements inclusive is : %d";
 
-        System.out.println("Enter length of the array : ");
-        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
+    public static void main(String[] args) throws Exception {
 
-        FillingArrayRandomPrimitiveIntegers filler = new FillingArrayRandomPrimitiveIntegers();
+        int lengthOfArray = Helper.enterArrayLengthToConsole();
 
-        ArrayInts array = new ArrayInts(filler.fill(lengthOfArray, INT_LOWER_BOUND, INT_UPPER_BOUND));
+        ArrayInts array = new ArrayInts(Helper.FILLING_ARRAY_INTS.fill(lengthOfArray, INT_LOWER_BOUND, INT_UPPER_BOUND));
 
         System.out.println("Original array : " + array);
+
         System.out.println();
 
-        Determinant determinant = Determinant::determineMinElementIndex;
-        int indexMinElement = determinant.determine(array);
+        DeterminantElementIndex determinantElementIndex = DeterminantElementIndex::determineMinElementIndex;
+        int indexMinElement = determinantElementIndex.determineElementIndex(array);
         System.out.println("Index min element in the array is : " + indexMinElement);
 
-        determinant = Determinant::determineMaxElementIndex;
-        int indexMaxElement = determinant.determine(array);
+        determinantElementIndex = DeterminantElementIndex::determineMaxElementIndex;
+        int indexMaxElement = determinantElementIndex.determineElementIndex(array);
         System.out.println("Index max element in the array is : " + indexMaxElement);
 
         System.out.println();
 
-        CALCULATING.calculate(array, indexMinElement, indexMaxElement);
+
+        Executor.execute(() -> calculateSumBetweenMinAndMaxElementsIndices(array, indexMinElement, indexMaxElement),
+                 ExecutionResultOutputToConsole::outputExecutionResultToConsole, RESULT_SUM_BETWEEN_MIN_AND_MAX_INDICES,
+                 ExecutionTimeOutputToConsole::outputExecutionTime);
 
     }
-
-    private static final Calculating CALCULATING = (ArrayInts array, int indexMinElement, int indexMaxElement) -> {
-        int resultSum = 0;
-        if (CheckerArray.checkLengthInArray(array)) {
-            if (indexMinElement <= indexMaxElement) {
-                for (int i = indexMinElement; i <= indexMaxElement; i++) {
-                    resultSum += array.get(i);
-                }
-                System.out.printf("Sum of array elements located between the min and max elements inclusive is : %d .", resultSum);
-            } else {
-                System.out.println("The index of the min value is greater or equal than the index of the max value.");
-            }
-        }
-        return resultSum;
-    };
 
 }

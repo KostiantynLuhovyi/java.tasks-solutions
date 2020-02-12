@@ -8,7 +8,7 @@ import java.math.BigDecimal;
  * Created by LugowoyKonstantin on 22-Feb-17.
  */
 
-public class CalculatorRoomArea extends CalculatorObjectArea<Room> {
+public class CalculatorRoomArea extends CalculatorArea<Room> {
 
     @Override
     public void calculateArea(Room room) {

@@ -4,6 +4,7 @@ import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegers;
 import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.storages.arrays.Array;
 import com.lugowoy.helper.utils.ArrayLengthReader;
+import com.lugowoy.tasks.solutions.Helper;
 
 /**
  * Write a program that enter a sequence of integers that counts them as the masses of objects available
@@ -16,12 +17,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Enter length of the array : ");
-        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
+        int lengthOfArray = Helper.enterArrayLengthToConsole();
 
-        FillingArrayRandomIntegers filler = new FillingArrayRandomIntegers();
-
-        Array<Integer> integerArray = new Array<>(filler.fill(lengthOfArray, BOUND));
+        Array<Integer> integerArray = new Array<>(Helper.FILLER_ARRAY_INTEGERS.fill(lengthOfArray, BOUND));
 
         System.out.println("The array of integer numbers : " + integerArray);
 

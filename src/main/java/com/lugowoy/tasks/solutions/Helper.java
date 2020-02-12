@@ -22,8 +22,9 @@ import com.lugowoy.helper.utils.ArrayLengthReader;
  */
 public class Helper {
 
-    public static final String RESULT_MATRIX = "Result matrix : \n %s";
-    public static final String RESULT_SEQUENCE = "Result sequence : %s";
+    public static final String RESULT_MATRIX = "Result matrix : \n%s";
+    public static final String RESULT_ARRAY = "Result array : \n%s";
+    public static final String RESULT_SEQUENCE = "Result sequence : \n%s";
 
     public static final FillerArrayNumbers<Integer> FILLER_ARRAY_INTEGERS = new FillerArrayNumbers<>();
     public static final FillerArrayNumbers<Double> FILLER_ARRAY_DOUBLES = new FillerArrayNumbers<>();

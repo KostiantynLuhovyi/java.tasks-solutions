@@ -1,18 +1,21 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.changeSequenceByMultiplyingElementsBySquareOfMinAndMaxNumbersByRule;
 
+import com.lugowoy.helper.models.storages.arrays.AbstractArray;
+import com.lugowoy.helper.models.storages.arrays.ArrayDoubles;
 import com.lugowoy.helper.models.storages.arrays.ArrayInts;
 import com.lugowoy.helper.utils.checking.CheckerArray;
 
 /**
  * Created by Konstantin Lugowoy on 25.03.2017.
  */
-public interface Determinant<T> {
+public interface DeterminantElement<T extends AbstractArray, K extends Number> {
 
-    int determine(ArrayInts array);
+    K determine(T tArray);
 
-    static int determineMinNumber(ArrayInts array) {
-        int valueForDetermineMinNumber = Integer.MAX_VALUE;
-        int indexMinNumber = 0, resultFindMinNumber;
+    static double determineMinNumber(ArrayDoubles array) {
+        double valueForDetermineMinNumber = Integer.MAX_VALUE;
+        int indexMinNumber = 0;
+        double resultFindMinNumber = 0;
         if (CheckerArray.checkLengthInArray(array)) {
             for (int i = 0; i < array.size(); i++) {
                 if (array.get(i) <= valueForDetermineMinNumber) {
@@ -25,9 +28,10 @@ public interface Determinant<T> {
         return resultFindMinNumber;
     }
 
-    static int determineMaxNumber(ArrayInts array) {
-        int valueForDetermineMaxNumber = Integer.MIN_VALUE;
-        int indexMaxNumber = 0, resultFindMaxNumber;
+    static double determineMaxNumber(ArrayDoubles array) {
+        double valueForDetermineMaxNumber = Integer.MIN_VALUE;
+        int indexMaxNumber = 0;
+        double resultFindMaxNumber = 0;
         if (CheckerArray.checkLengthInArray(array)) {
             for (int i = 0; i < array.size(); i++) {
                 if (array.get(i) >= valueForDetermineMaxNumber) {

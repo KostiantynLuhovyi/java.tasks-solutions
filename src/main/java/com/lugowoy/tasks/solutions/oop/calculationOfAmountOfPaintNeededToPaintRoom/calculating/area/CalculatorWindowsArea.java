@@ -10,7 +10,7 @@ import java.util.List;
  * Created by LugowoyKonstantin on 22-Feb-17.
  */
 
-public class CalculatorWindowsArea extends CalculatorObjectArea<Window> implements CalculatingTotalAreaOfObjectInRoom<Window> {
+public class CalculatorWindowsArea extends CalculatorArea<Window> implements CalculatingTotalAreaOfObjectInRoom<Window> {
 
     @Override
     public void calculateArea(Window window) {

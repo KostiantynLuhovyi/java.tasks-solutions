@@ -1,10 +1,8 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.determineMostRepeatedElementInArray;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
-import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.storages.arrays.ArrayInts;
-import com.lugowoy.helper.utils.ArrayLengthReader;
 import com.lugowoy.helper.utils.checking.CheckerArray;
+import com.lugowoy.tasks.solutions.Helper;
 
 /**
  * In the array of integers with the number of elements n, find the most repeated number.
@@ -17,12 +15,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Enter length of the array : ");
-        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
+        int lengthOfArray = Helper.enterArrayLengthToConsole();
 
-        FillingArrayRandomPrimitiveIntegers filler = new FillingArrayRandomPrimitiveIntegers();
-
-        ArrayInts array = new ArrayInts(filler.fill(lengthOfArray, BOUND));
+        ArrayInts array = new ArrayInts(Helper.FILLING_ARRAY_INTS.fill(lengthOfArray, BOUND));
 
         System.out.println("Original array : " + array);
         System.out.println();
