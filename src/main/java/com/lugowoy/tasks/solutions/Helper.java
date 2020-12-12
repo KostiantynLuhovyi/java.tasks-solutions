@@ -18,13 +18,15 @@ import java.math.BigDecimal;
  * <p>Created by Konstantin Lugowoy on 03.02.2020.
  *
  * @author Konstantin Lugowoy
- * @version 1.1
+ * @version 1.2
  */
 public class Helper {
 
-    public static final double DEFAULT_LOWER_BOUND = -10.0;
     public static final double ZERO = BigDecimal.ZERO.doubleValue();
-    public static final double DEFAULT_UPPER_BOUND = 10.0;
+    public static final int INT_LOWER_BOUND = -10;
+    public static final int INT_UPPER_BOUND = 10;
+    public static final double DOUBLE_LOWER_BOUND = -10.0;
+    public static final double DOUBLE_UPPER_BOUND = 10.0;
 
     public static final String RESULT_MATRIX = "Result matrix : \n%s";
     public static final String RESULT_ARRAY = "Result array : \n%s";
