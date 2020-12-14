@@ -29,7 +29,7 @@
 
     <repositories>
         <repository>
-            <id>java-helper.tasks-solution-mvn-repo</id>
+            <id>java-helper.mvn-repo</id>
             <url>https://raw.github.com/LugowoyKonstantin/java-helper.tasks-solution/mvn-repo/</url>
             <snapshots>
                 <enabled>true</enabled>
@@ -41,7 +41,7 @@
         <dependency>
             <groupId>com.lugowoy</groupId>
             <artifactId>java-helper</artifactId>
-            <version>2.7.3</version>
+            <version>3.0.4</version>
         </dependency>
     </dependencies>
 
