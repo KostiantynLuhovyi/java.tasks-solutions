@@ -32,7 +32,7 @@ public class Main {
                 HelperFiller.INT_NEGATIVE_THOUSAND,
                 HelperFiller.INT_POSITIVE_THOUSAND));
 
-        System.out.println(matrix + "\n");
+        System.out.println("Matrix :\n" + matrix + "\n");
 
         Helper.EXECUTOR.execute(() -> calculateDeterminantOfMatrix(matrix),
                                 new OutputExecutionResultToConsole(),
