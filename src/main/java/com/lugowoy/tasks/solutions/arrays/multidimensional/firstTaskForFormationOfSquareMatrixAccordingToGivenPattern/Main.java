@@ -1,7 +1,9 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.firstTaskForFormationOfSquareMatrixAccordingToGivenPattern;
 
-import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.utils.ArrayLengthReader;
+import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
+import com.lugowoy.helper.models.matrices.MatrixInts;
+import com.lugowoy.helper.utils.ReaderConsole;
+import com.lugowoy.tasks.solutions.helper.Helper;
 
 /**
  * Form a square matrix of order n according to a given pattern:
@@ -12,16 +14,25 @@ import com.lugowoy.helper.utils.ArrayLengthReader;
  *  …   …   …   …  …
  *  n  n-1 n-2  …  1
  *      (n – even number).
- * <p> Created by Konstantin Lugowoy on 15.10.2017.
+ *
+ * <p>Created by Konstantin Lugowoy on 15.10.2017.
  */
 public class Main {
-
-    private static final int UPPER_BOUND = 50;
 
     public static void main(String[] args) {
 
         System.out.println("Enter the length of the matrix elements : ");
-        int n = ArrayLengthReader.readLength(new ReadingConsole(), UPPER_BOUND);
+        ReaderConsole reader = new ReaderConsole();
+        int n = reader.readInt();
+
+        Helper.EXECUTOR.execute(() -> {
+            System.out.println("Result matrix by pattern : \n"
+                               + createMatrixByPattern(n));
+        }, new OutputExecutionTimeToConsole());
+
+    }
+
+    private static MatrixInts createMatrixByPattern(final int n) {
         int[][] array = new int[n][n];
         int k = 1, num = n;
         for (int i = 0; i < array.length; i++) {
@@ -39,16 +50,7 @@ public class Main {
                 num = n;
             }
         }
-
-
-        System.out.println("Result matrix : ");
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array.length; j++) {
-                System.out.print(array[i][j] + " ");
-            }
-            System.out.println();
-        }
-
+        return new MatrixInts(array);
     }
 
 }
