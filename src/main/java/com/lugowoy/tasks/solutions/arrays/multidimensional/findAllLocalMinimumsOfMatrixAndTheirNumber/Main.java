@@ -1,39 +1,47 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.findAllLocalMinimumsOfMatrixAndTheirNumber;
 
+import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
+import com.lugowoy.helper.filling.matrix.numbers.primitives.FillingMatrixRandomPrimitiveIntegers;
 import com.lugowoy.helper.models.matrices.MatrixInts;
-import com.lugowoy.helper.utils.execution.ExecutionTimeOutputToConsole;
-import com.lugowoy.helper.utils.execution.Executor;
-import com.lugowoy.tasks.solutions.Helper;
-
-import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
+import com.lugowoy.tasks.solutions.helper.Helper;
+import com.lugowoy.tasks.solutions.helper.HelperFiller;
+import org.jetbrains.annotations.NotNull;
+import java.util.Objects;
 
 /**
  * Find all local minimums of the matrix and their number.
- * <p> Created by Konstantin Lugowoy on 23.11.2018.
+ *
+ * <p>Created by Konstantin Lugowoy on 23.11.2018.
  */
 public class Main {
 
     public static void main(String[] args) {
 
-        int rows = Helper.enterMatrixRowCountToConsole();
-        int columns = Helper.enterMatrixColumnCountToConsole();
+        int rows = Helper.readConsoleMatrixRows();
+        int columns = Helper.readConsoleMatrixColumns();
 
-        MatrixInts matrix = new MatrixInts(Helper.FILLING_MATRIX_INTS.fill(rows, columns, INT_UPPER_BOUND));
+        MatrixInts matrix = new MatrixInts(new HelperFiller().getArray(
+                new FillingMatrixRandomPrimitiveIntegers(), rows, columns,
+                HelperFiller.INT_ZERO, HelperFiller.INT_POSITIVE_TEN));
 
-        System.out.println("Matrix : ");
-        System.out.println(matrix);
+        System.out.println("Matrix : \n" + matrix + "\n");
 
-        Executor.execute(() -> findAllLocalMinimumsOfMatrix(matrix), ExecutionTimeOutputToConsole::outputExecutionTime);
+        Helper.EXECUTOR.execute(() -> findAllLocalMinimums(matrix),
+                                new OutputExecutionTimeToConsole());
 
     }
 
-    private static void findAllLocalMinimumsOfMatrix(MatrixInts matrix) {
+    private static void findAllLocalMinimums(@NotNull final MatrixInts matrix) {
+        Objects.requireNonNull(matrix, "Matrix is null");
         int countLocalMinimum = 0;
         for (int i = 0; i < matrix.getRows(); i++) {
             for (int j = 0; j < matrix.getColumns(); j++) {
                 if (isLocalMinimum(matrix, i, j)) {
-                    System.out.println("The local minimum by the index of row " + i
-                                     + " and the index of column " + j + " is equal to : " + matrix.getElement(i, j) + " .");
+                    System.out.println(
+                            "The local minimum by the index of row " + i
+                            + " and the index of column " + j
+                            + " is equal to : " + matrix.getElement(i, j)
+                            + " .");
                     countLocalMinimum++;
                 }
             }
@@ -41,12 +49,15 @@ public class Main {
         if (countLocalMinimum == 0) {
             System.out.println("Local minimums not found.");
         } else {
-            System.out.println("Found " + countLocalMinimum + " local minimals in the matrix");
+            System.out.println("Found " + countLocalMinimum
+                               + " local minimals in the matrix");
         }
     }
 
     //todo optimize algorithm, because it is very complex implementation.
-    private static boolean isLocalMinimum(MatrixInts matrix, int row, int column) {
+    private static boolean isLocalMinimum(@NotNull final MatrixInts matrix,
+                                          final int row, final int column) {
+        Objects.requireNonNull(matrix, "Matrix is null");
         int countRowFrom = row - 1;
         int countRowFor = row + 1;
         int countColumnFrom = column - 1;
@@ -81,7 +92,9 @@ public class Main {
             countColumnFor = column + 1;
         }
         //last column of matrix (except angular)
-        if ((column == matrix.getColumns() - 1) && (row > 0) && (row < matrix.getRows() - 1)) {
+        if ((column == matrix.getColumns() - 1) && (row > 0) && (row <
+                                                                 matrix.getRows()
+                                                                 - 1)) {
             countRowFrom = row - 1;
             countRowFor = row + 1;
             countColumnFrom = column - 1;
@@ -95,14 +108,17 @@ public class Main {
             countColumnFor = column + 1;
         }
         //bottom line of the matrix (except angular)
-        if ((column > 0) && (column < matrix.getColumns() - 1) && (row == matrix.getRows() - 1)) {
+        if ((column > 0) && (column < matrix.getColumns() - 1) && (row ==
+                                                                   matrix.getRows()
+                                                                   - 1)) {
             countRowFrom = row - 1;
             countRowFor = row;
             countColumnFrom = column - 1;
             countColumnFor = column + 1;
         }
         //bottom right corner
-        if ((row == matrix.getRows() - 1) && (column == matrix.getColumns() - 1)) {
+        if ((row == matrix.getRows() - 1) && (column
+                                              == matrix.getColumns() - 1)) {
             countRowFrom = row - 1;
             countRowFor = row;
             countColumnFrom = column - 1;
@@ -114,7 +130,8 @@ public class Main {
             for (int j = countColumnFrom; j <= countColumnFor; j++) {
                 if (i == row && j == column) {
                     //todo think about the implementation to get rid of the empty code block if ().
-                } else if (matrix.getElement(i, j) < matrix.getElement(row, column)) {
+                } else if (matrix.getElement(i, j) < matrix.getElement(row,
+                                                                       column)) {
                     result = false;
                     return result;
                 }
