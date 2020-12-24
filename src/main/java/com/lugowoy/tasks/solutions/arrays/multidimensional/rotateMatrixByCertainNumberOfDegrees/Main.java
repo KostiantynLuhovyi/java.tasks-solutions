@@ -1,34 +1,37 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.rotateMatrixByCertainNumberOfDegrees;
 
+import com.lugowoy.helper.execution.OutputExecutionResultToConsole;
+import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
+import com.lugowoy.helper.filling.matrix.numbers.primitives.FillingMatrixRandomPrimitiveIntegers;
 import com.lugowoy.helper.models.matrices.MatrixInts;
-import com.lugowoy.helper.utils.execution.ExecutionResultOutputToConsole;
-import com.lugowoy.helper.utils.execution.ExecutionTimeOutputToConsole;
-import com.lugowoy.helper.utils.execution.Executor;
-import com.lugowoy.tasks.solutions.Helper;
-
-import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
-import static com.lugowoy.tasks.solutions.Helper.RESULT_MATRIX;
+import com.lugowoy.tasks.solutions.helper.Helper;
+import com.lugowoy.tasks.solutions.helper.HelperFiller;
 
 /**
  * Rotation of the matrix by a certain number of degrees.
- * <p> Created by Konstantin Lugowoy on 30.10.2018.
+ *
+ * <p>Created by Konstantin Lugowoy on 30.10.2018.
  */
 public class Main {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
-        int rows = Helper.enterMatrixRowCountToConsole();
-        int columns = Helper.enterMatrixColumnCountToConsole();
+        int rows = Helper.readConsoleMatrixRows();
+        int columns = Helper.readConsoleMatrixColumns();
 
-        MatrixInts matrix = new MatrixInts(Helper.FILLING_MATRIX_INTS.fill(rows, columns, INT_UPPER_BOUND));
+        MatrixInts matrix = new MatrixInts(new HelperFiller().getArray(
+                new FillingMatrixRandomPrimitiveIntegers(), rows, columns,
+                HelperFiller.INT_ZERO, HelperFiller.INT_POSITIVE_TEN));
 
-        System.out.println("Matrix : ");
-        System.out.println(matrix);
+        System.out.println("Matrix : \n" + matrix + "\n");
 
-        RotatorMatrix rotatorMatrix = RotatorIntegerMatrixClockwise::rotateMatrixTo90Degrees;
+        RotatorMatrix rotatorMatrix
+                = RotatorMatrixIntegerClockwise::rotateMatrixTo90Degrees;
 
-        Executor.execute(() -> rotatorMatrix.rotateMatrix(matrix), ExecutionResultOutputToConsole::outputExecutionResultToConsole,
-                                                                    RESULT_MATRIX, ExecutionTimeOutputToConsole::outputExecutionTime);
+        Helper.EXECUTOR.execute(() -> rotatorMatrix.rotateMatrix(matrix),
+                                new OutputExecutionResultToConsole(),
+                                Helper.RESULT_MATRIX,
+                                new OutputExecutionTimeToConsole());
 
     }
 

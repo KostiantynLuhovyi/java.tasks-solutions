@@ -1,6 +1,7 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.rotateMatrixByCertainNumberOfDegrees;
 
 import com.lugowoy.helper.models.matrices.MatrixInts;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Created by Konstantin Lugowoy on 30.10.2018.
@@ -8,6 +9,6 @@ import com.lugowoy.helper.models.matrices.MatrixInts;
 @FunctionalInterface
 public interface RotatorMatrix {
 
-    MatrixInts rotateMatrix(MatrixInts matrix);
+    MatrixInts rotateMatrix(@NotNull final MatrixInts matrix);
 
 }
