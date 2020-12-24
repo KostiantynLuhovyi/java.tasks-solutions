@@ -1,29 +1,32 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.performCyclicShiftOfGivenMatrixByCertainNumber;
 
-import com.lugowoy.helper.io.reading.Reader;
-import com.lugowoy.helper.io.reading.ReadingConsole;
+import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
+import com.lugowoy.helper.filling.matrix.numbers.primitives.FillingMatrixRandomPrimitiveIntegers;
 import com.lugowoy.helper.models.matrices.MatrixInts;
-import com.lugowoy.tasks.solutions.Helper;
+import com.lugowoy.helper.utils.ReaderConsole;
+import com.lugowoy.tasks.solutions.helper.Helper;
+import com.lugowoy.tasks.solutions.helper.HelperFiller;
 
 /**
- * Perform a cyclic shift of a given matrix by a certain number of positions to the right (left, up, down).
- * <p> Created by Konstantin Lugowoy on 28.10.2018.
+ * Perform a cyclic shift of a given matrix by a certain number of positions to
+ * the right (left, up, down).
+ *
+ * <p>Created by Konstantin Lugowoy on 28.10.2018.
  */
 public class Main {
-
-    private static final Reader READER = new Reader(new ReadingConsole());
 
     private static final int BOUND = 20;
 
     public static void main(String[] args) {
 
-        int rows = Helper.enterMatrixRowCountToConsole();
-        int columns = Helper.enterMatrixColumnCountToConsole();
+        int rows = Helper.readConsoleMatrixRows();
+        int columns = Helper.readConsoleMatrixColumns();
 
-        MatrixInts matrix = new MatrixInts(Helper.FILLING_MATRIX_INTS.fill(rows, columns, BOUND));
+        MatrixInts matrix = new MatrixInts(new HelperFiller().getArray(
+                new FillingMatrixRandomPrimitiveIntegers(), rows, columns,
+                HelperFiller.INT_ZERO, BOUND));
 
-        System.out.println("Original matrix : ");
-        System.out.println(matrix);
+        System.out.println("Matrix : \n" + matrix + "\n");
 
         int numberToShiftMatrix = enterNumberToShiftMatrix(matrix.getRows());
 
@@ -34,36 +37,39 @@ public class Main {
         System.out.println("Press 4, to shift the matrix to the down.");
         int selectValue = selectionActionToPerform();
 
-        Shifter<Integer> shifter;
-        switch (selectValue) {
-            case 1:
-                shifter = ShifterIntegerMatrix::shiftMatrixToRight;
-                shifter.shift(matrix, numberToShiftMatrix);
-                break;
-            case 2:
-                shifter = ShifterIntegerMatrix::shiftMatrixToLeft;
-                shifter.shift(matrix, numberToShiftMatrix);
-                break;
-            case 3:
-                shifter = ShifterIntegerMatrix::shiftMatrixToUp;
-                shifter.shift(matrix, numberToShiftMatrix);
-                break;
-            case 4:
-                shifter = ShifterIntegerMatrix::shiftMatrixToDown;
-                shifter.shift(matrix, numberToShiftMatrix);
-                break;
-        }
+        Helper.EXECUTOR.execute(() -> {
+            Shifter<Integer> shifter;
+            switch (selectValue) {
+                case 1:
+                    shifter = ShifterMatrixPrimitiveInteger::shiftMatrixToRight;
+                    shifter.shift(matrix, numberToShiftMatrix);
+                    break;
+                case 2:
+                    shifter = ShifterMatrixPrimitiveInteger::shiftMatrixToLeft;
+                    shifter.shift(matrix, numberToShiftMatrix);
+                    break;
+                case 3:
+                    shifter = ShifterMatrixPrimitiveInteger::shiftMatrixToUp;
+                    shifter.shift(matrix, numberToShiftMatrix);
+                    break;
+                case 4:
+                    shifter = ShifterMatrixPrimitiveInteger::shiftMatrixToDown;
+                    shifter.shift(matrix, numberToShiftMatrix);
+                    break;
+            }
 
-        System.out.println("Result matrix : ");
-        System.out.println(matrix);
+            System.out.println("Result matrix : ");
+            System.out.println(matrix);
+        }, new OutputExecutionTimeToConsole());
 
     }
 
     private static int enterNumberToShiftMatrix(int rows) {
         int resultNumber;
+        ReaderConsole reader = new ReaderConsole();
         System.out.println("Enter the number to shift the matrix");
         while (true) {
-            resultNumber = READER.readInt();
+            resultNumber = reader.readInt();
             if (resultNumber >= 0 && resultNumber <= rows) {
                 break;
             } else {
@@ -75,8 +81,9 @@ public class Main {
 
     private static int selectionActionToPerform() {
         int resultSelection;
+        ReaderConsole reader = new ReaderConsole();
         while (true) {
-            resultSelection = READER.readInt();
+            resultSelection = reader.readInt();
             if (resultSelection > 0 && resultSelection <= 4) {
                 break;
             } else {

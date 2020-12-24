@@ -1,16 +1,18 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.performCyclicShiftOfGivenMatrixByCertainNumber;
 
+import com.lugowoy.helper.checkers.CheckerMatrix;
 import com.lugowoy.helper.models.matrices.MatrixInts;
-import com.lugowoy.helper.utils.checking.CheckerMatrix;
-import com.lugowoy.tasks.solutions.core.checkCorrectnessOfEnteredTimeData.Checker;
+import com.lugowoy.helper.utils.Capacity;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Created by Konstantin Lugowoy on 28.10.2018.
  */
-public class ShifterIntegerMatrix {
+public class ShifterMatrixPrimitiveInteger {
 
-    public static void shiftMatrixToRight(MatrixInts matrix, int numberToShiftMatrix) {
-        CheckerMatrix.checkMatrix(matrix);
+    public static void shiftMatrixToRight(@NotNull final MatrixInts matrix,
+                                          final int numberToShiftMatrix) {
+        CheckerMatrix.check(matrix, Capacity.UPPER.get(), Capacity.UPPER.get());
         int[][] ints = matrix.toMatrix(new int[matrix.getRows()][matrix.getColumns()]);
         int k;
         for (int i = 0; i < numberToShiftMatrix; i++) {
@@ -25,8 +27,9 @@ public class ShifterIntegerMatrix {
         matrix.setMatrix(ints);
     }
 
-    public static void shiftMatrixToLeft(MatrixInts matrix, int numberToShiftMatrix) {
-        CheckerMatrix.checkMatrix(matrix);
+    public static void shiftMatrixToLeft(@NotNull final MatrixInts matrix,
+                                         final int numberToShiftMatrix) {
+        CheckerMatrix.check(matrix, Capacity.UPPER.get(), Capacity.UPPER.get());
         int[][] ints = matrix.toMatrix(new int[matrix.getRows()][matrix.getColumns()]);
         int k;
         for (int i = 0; i < numberToShiftMatrix; i++) {
@@ -41,8 +44,9 @@ public class ShifterIntegerMatrix {
         matrix.setMatrix(ints);
     }
 
-    public static void shiftMatrixToUp(MatrixInts matrix, int numberToShiftMatrix) {
-        CheckerMatrix.checkMatrix(matrix);
+    public static void shiftMatrixToUp(@NotNull final MatrixInts matrix,
+                                       final int numberToShiftMatrix) {
+        CheckerMatrix.check(matrix, Capacity.UPPER.get(), Capacity.UPPER.get());
         int[][] ints = matrix.toMatrix(new int[matrix.getRows()][matrix.getColumns()]);
         int k;
         for (int i = 0; i < numberToShiftMatrix; i++) {
@@ -57,8 +61,9 @@ public class ShifterIntegerMatrix {
         matrix.setMatrix(ints);
     }
 
-    public static void shiftMatrixToDown(MatrixInts matrix, int numberToShiftMatrix) {
-        CheckerMatrix.checkMatrix(matrix);
+    public static void shiftMatrixToDown(@NotNull final MatrixInts matrix,
+                                         final int numberToShiftMatrix) {
+        CheckerMatrix.check(matrix, Capacity.UPPER.get(), Capacity.UPPER.get());
         int[][] ints = matrix.toMatrix(new int[matrix.getRows()][matrix.getColumns()]);
         int k;
         for (int i = 0; i < numberToShiftMatrix; i++) {
