@@ -1,41 +1,46 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.rearrangeElementsOfSquareRealMatrixInDescendingOrderAlongDiagonal;
 
-import com.lugowoy.helper.filling.matrix.numbers.FillingMatrixRandomPrimitiveDoubles;
-import com.lugowoy.helper.models.matrices.AbstractMatrix;
+import com.lugowoy.helper.execution.OutputExecutionResultToConsole;
+import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
+import com.lugowoy.helper.filling.matrix.numbers.primitives.FillingMatrixRandomPrimitiveDoubles;
 import com.lugowoy.helper.models.matrices.MatrixDoubles;
-import com.lugowoy.helper.utils.execution.ExecutionResultOutputToConsole;
-import com.lugowoy.helper.utils.execution.ExecutionTimeOutputToConsole;
-import com.lugowoy.helper.utils.execution.Executor;
-import com.lugowoy.tasks.solutions.Helper;
+import com.lugowoy.tasks.solutions.helper.Helper;
+import com.lugowoy.tasks.solutions.helper.HelperFiller;
+import org.jetbrains.annotations.NotNull;
+import java.util.Objects;
 
-import static com.lugowoy.helper.filling.ValuesToFilling.DOUBLE_UPPER_BOUND;
-import static com.lugowoy.tasks.solutions.Helper.RESULT_MATRIX;
+import static com.lugowoy.tasks.solutions.helper.Helper.RESULT_MATRIX;
 
 /**
- * Rearrange the elements of a square real matrix in descending order along the diagonal.
- * <p> Created by Konstantin Lugowoy on 28.11.2018.
+ * Rearrange the elements of a square real matrix in descending order along the
+ * diagonal.
+ *
+ * <p>Created by Konstantin Lugowoy on 28.11.2018.
  */
 public class Main {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
-        int rows = Helper.enterMatrixRowCountToConsole();
-        int columns = Helper.enterMatrixColumnCountToConsole();
+        int rows = Helper.readConsoleMatrixRows();
+        int columns = Helper.readConsoleMatrixColumns();
 
-        FillingMatrixRandomPrimitiveDoubles filler = new FillingMatrixRandomPrimitiveDoubles();
-
-        MatrixDoubles matrix = new MatrixDoubles(filler.fill(rows, columns, DOUBLE_UPPER_BOUND));
+        MatrixDoubles matrix = new MatrixDoubles(new HelperFiller().getArray(
+                new FillingMatrixRandomPrimitiveDoubles(), rows, columns,
+                HelperFiller.DOUBLE_ZERO, HelperFiller.DOUBLE_POSITIVE_TEN));
 
         System.out.println("Original matrix : ");
         System.out.println(matrix);
 
-        Executor.execute(() -> rearrangeElementsOfMatrixInDescendingOrderAlongDiagonal(matrix),
-                                          ExecutionResultOutputToConsole::outputExecutionResultToConsole, RESULT_MATRIX,
-                                          ExecutionTimeOutputToConsole::outputExecutionTime);
+        Helper.EXECUTOR.execute(
+                () -> rearrangeMatrixInDescendingOrderAlongDiagonal(matrix),
+                new OutputExecutionResultToConsole(), RESULT_MATRIX,
+                new OutputExecutionTimeToConsole());
 
     }
 
-    private static AbstractMatrix rearrangeElementsOfMatrixInDescendingOrderAlongDiagonal(MatrixDoubles matrix) {
+    private static MatrixDoubles rearrangeMatrixInDescendingOrderAlongDiagonal(
+            @NotNull final MatrixDoubles matrix) {
+        Objects.requireNonNull(matrix, "Matrix is null");
         int length = matrix.getRows();
         for (int n = 0; n < length; n++) {
             int row = 0, col = 0;
@@ -52,8 +57,8 @@ public class Main {
                     }
                 }
                 double tmp = matrix.getElement(n, n);
-                matrix.setElement(n, n, matrix.getElement(row, col));
-                matrix.setElement(row, col, tmp);
+                matrix.setElement(matrix.getElement(row, col), n, n);
+                matrix.setElement(tmp, row, col);
             }
         }
         return matrix;
