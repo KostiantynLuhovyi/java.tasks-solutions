@@ -1,42 +1,51 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.removeFromMatrixAllRowsAndColumnsContainingMaximumElement;
 
+import com.lugowoy.helper.execution.OutputExecutionResultToConsole;
+import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
+import com.lugowoy.helper.filling.matrix.numbers.primitives.FillingMatrixRandomPrimitiveIntegers;
 import com.lugowoy.helper.models.matrices.MatrixInts;
-import com.lugowoy.helper.utils.execution.ExecutionResultOutputToConsole;
-import com.lugowoy.helper.utils.execution.ExecutionTimeOutputToConsole;
-import com.lugowoy.helper.utils.execution.Executor;
-import com.lugowoy.tasks.solutions.Helper;
+import com.lugowoy.tasks.solutions.helper.Helper;
+import com.lugowoy.tasks.solutions.helper.HelperFiller;
+import org.jetbrains.annotations.NotNull;
+import java.util.Objects;
 
 /**
- * Find the maximum element(s) in the matrix and remove from the matrix all the rows and columns containing it.
- * <p> Created by Konstantin Lugowoy on 31.10.2018.
+ * Find the maximum element(s) in the matrix and remove from the matrix all the
+ * rows and columns containing it.
+ *
+ * <p>Created by Konstantin Lugowoy on 31.10.2018.
  */
 public class Main {
 
     private static final int BOUND = 200;
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
-        int rows = Helper.enterMatrixRowCountToConsole();
-        int columns = Helper.enterMatrixColumnCountToConsole();
+        int rows = Helper.readConsoleMatrixRows();
+        int columns = Helper.readConsoleMatrixColumns();
 
-        MatrixInts matrix = new MatrixInts(Helper.FILLING_MATRIX_INTS.fill(rows, columns, BOUND));
+        MatrixInts matrix = new MatrixInts(new HelperFiller().getArray(
+                new FillingMatrixRandomPrimitiveIntegers(), rows, columns,
+                HelperFiller.INT_ZERO, BOUND));
 
-        System.out.println("Original matrix : ");
-        System.out.println(matrix);
-
+        System.out.println("Matrix : \n" + matrix + "\n");
 
         IndexMaximumMatrixElement indexMax = new IndexMaximumMatrixElement(matrix);
         indexMax.setIndexesMatrixRowAndColumn();
 
-        Executor.execute(() -> removeFromMatrixAllRowsAndColumnsContainingMaximumElement(matrix, indexMax.indexMaxElementMatrixRow,
-                                                                                                 indexMax.indexMaxElementMatrixColumn),
-                               ExecutionResultOutputToConsole::outputExecutionResultToConsole, Helper.RESULT_MATRIX,
-                               ExecutionTimeOutputToConsole::outputExecutionTime);
+        Helper.EXECUTOR.execute(
+                () -> removeFromMatrixAllRowsAndColumnsContainingMaximumElement(
+                        matrix, indexMax.indexMaxElementMatrixRow,
+                        indexMax.indexMaxElementMatrixColumn),
+                new OutputExecutionResultToConsole(), Helper.RESULT_MATRIX,
+                new OutputExecutionTimeToConsole());
 
     }
 
-    private static MatrixInts removeFromMatrixAllRowsAndColumnsContainingMaximumElement(MatrixInts matrix, int indexMatrixRow,
-                                                                                                     int indexMatrixColumn) {
+    private static MatrixInts removeFromMatrixAllRowsAndColumnsContainingMaximumElement(
+            @NotNull final MatrixInts matrix, final int indexMatrixRow,
+            final int indexMatrixColumn) {
+        Objects.requireNonNull(matrix, "Matrix is null");
         int[][] tmpInts = new int[matrix.getRows() - 1][matrix.getColumns() - 1];
         int row = 0;
         for (int i = 0; i < matrix.getRows() - 1; i++) {
