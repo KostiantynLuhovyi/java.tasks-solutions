@@ -1,48 +1,53 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.calculateSumOfArrayElementsLocatedBetweenMinAndMaxElementsInclusive;
 
-import com.lugowoy.helper.models.storages.arrays.ArrayInts;
-import com.lugowoy.helper.utils.execution.ExecutionResultOutputToConsole;
-import com.lugowoy.helper.utils.execution.ExecutionTimeOutputToConsole;
-import com.lugowoy.helper.utils.execution.Executor;
-import com.lugowoy.tasks.solutions.Helper;
-
-import static com.lugowoy.helper.filling.ValuesToFilling.INT_LOWER_BOUND;
-import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
-import static com.lugowoy.tasks.solutions.arrays.onedimensional.calculateSumOfArrayElementsLocatedBetweenMinAndMaxElementsInclusive.CalculationSumBetweenElements.calculateSumBetweenMinAndMaxElementsIndices;
+import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
+import com.lugowoy.helper.filling.array.numbers.primitives.FillingArrayRandomPrimitiveIntegers;
+import com.lugowoy.helper.models.arrays.ArrayInts;
+import com.lugowoy.helper.utils.Capacity;
+import com.lugowoy.tasks.solutions.helper.Helper;
+import com.lugowoy.tasks.solutions.helper.HelperFiller;
 
 /**
- * Calculate the sum of array elements located between the minimum and maximum elements inclusive.
- * <p> Created by Konstantin Lugowoy on 27.03.2017.
+ * Calculate the sum of array elements located between the minimum and maximum
+ * elements inclusive.
+ *
+ * <p>Created by Konstantin Lugowoy on 27.03.2017.
  */
 public class Main {
 
     private static final String RESULT_SUM_BETWEEN_MIN_AND_MAX_INDICES =
-                              "Sum of elements of the array located between the min and max elements inclusive is : %d";
+            "Sum of elements of the array located between the min and max elements inclusive is : %d";
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
-        int lengthOfArray = Helper.enterArrayLengthToConsole();
+        int lengthArray = Helper.readConsoleArrayLength(
+                Helper.INPUT_LENGTH_ARRAY, Capacity.UPPER.get());
 
-        ArrayInts array = new ArrayInts(Helper.FILLING_ARRAY_INTS.fill(lengthOfArray, INT_LOWER_BOUND, INT_UPPER_BOUND));
+        ArrayInts array = new ArrayInts(new HelperFiller().getArray(
+                new FillingArrayRandomPrimitiveIntegers(), lengthArray,
+                HelperFiller.INT_NEGATIVE_TEN, HelperFiller.INT_POSITIVE_TEN));
 
-        System.out.println("Original array : " + array);
+        System.out.println("Original array : " + array + "\n");
 
-        System.out.println();
-
-        DeterminantElementIndex determinantElementIndex = DeterminantElementIndex::determineMinElementIndex;
-        int indexMinElement = determinantElementIndex.determineElementIndex(array);
+        Helper.EXECUTOR.execute(() -> {
+        DeterminantIndexElement determinantIndexElement =
+                DeterminantIndexElement::determineMinElementIndex;
+        int indexMinElement = determinantIndexElement.determineElementIndex(array);
         System.out.println("Index min element in the array is : " + indexMinElement);
 
-        determinantElementIndex = DeterminantElementIndex::determineMaxElementIndex;
-        int indexMaxElement = determinantElementIndex.determineElementIndex(array);
+        determinantIndexElement =
+                DeterminantIndexElement::determineMaxElementIndex;
+        int indexMaxElement = determinantIndexElement.determineElementIndex(array);
         System.out.println("Index max element in the array is : " + indexMaxElement);
 
-        System.out.println();
+        CalculationSum calc = new CalculationSum();
+        int resultSum = calc.calculateSumBetweenMinAndMaxElementsIndices(array,
+                                                                         indexMinElement,
+                                                                         indexMaxElement);
 
+        System.out.printf(RESULT_SUM_BETWEEN_MIN_AND_MAX_INDICES, resultSum);
 
-        Executor.execute(() -> calculateSumBetweenMinAndMaxElementsIndices(array, indexMinElement, indexMaxElement),
-                 ExecutionResultOutputToConsole::outputExecutionResultToConsole, RESULT_SUM_BETWEEN_MIN_AND_MAX_INDICES,
-                 ExecutionTimeOutputToConsole::outputExecutionTime);
+        }, new OutputExecutionTimeToConsole());
 
     }
 
