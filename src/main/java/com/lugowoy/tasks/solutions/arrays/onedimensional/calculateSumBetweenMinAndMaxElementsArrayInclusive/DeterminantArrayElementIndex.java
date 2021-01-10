@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.solutions.arrays.onedimensional.calculateSumOfArrayElementsLocatedBetweenMinAndMaxElementsInclusive;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.calculateSumBetweenMinAndMaxElementsArrayInclusive;
 
 import com.lugowoy.helper.checkers.CheckerArray;
 import com.lugowoy.helper.models.arrays.ArrayInts;
@@ -9,9 +9,9 @@ import org.jetbrains.annotations.NotNull;
  * Created by Konstantin Lugowoy on 27.03.2017.
  */
 @FunctionalInterface
-public interface DeterminantIndexElement {
+public interface DeterminantArrayElementIndex {
 
-    int determineElementIndex(@NotNull final ArrayInts array);
+    int determineArrayElementIndex(@NotNull final ArrayInts array);
 
     static int determineMinElementIndex(@NotNull final ArrayInts array) {
         CheckerArray.check(array, Capacity.UPPER.get());

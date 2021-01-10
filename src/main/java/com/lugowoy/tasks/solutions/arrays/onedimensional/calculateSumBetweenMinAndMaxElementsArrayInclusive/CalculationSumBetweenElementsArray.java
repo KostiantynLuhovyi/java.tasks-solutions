@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.solutions.arrays.onedimensional.calculateSumOfArrayElementsLocatedBetweenMinAndMaxElementsInclusive;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.calculateSumBetweenMinAndMaxElementsArrayInclusive;
 
 import com.lugowoy.helper.checkers.CheckerArray;
 import com.lugowoy.helper.checkers.CheckerIndex;
@@ -9,12 +9,13 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Created by Konstantin Lugowoy on 27.03.2017.
  */
-public class CalculationSum {
+public class CalculationSumBetweenElementsArray {
 
-    public CalculationSum() {
+    public CalculationSumBetweenElementsArray() {
+        super();
     }
 
-    public int calculateSumBetweenMinAndMaxElementsIndices(
+    public int calculateSumBetweenMinAndMaxInclusive(
             @NotNull final ArrayInts array, final int indexMinElement,
             final int indexMaxElement) {
         CheckerArray.check(array, Capacity.UPPER.get());
