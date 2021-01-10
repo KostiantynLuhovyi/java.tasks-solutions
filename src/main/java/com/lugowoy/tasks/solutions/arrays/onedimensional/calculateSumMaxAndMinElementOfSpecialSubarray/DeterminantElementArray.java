@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.solutions.arrays.onedimensional.calculateSumOfMaxAndMinElementOfParticularSequences;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.calculateSumMaxAndMinElementOfSpecialSubarray;
 
 import com.lugowoy.helper.checkers.CheckerArray;
 import com.lugowoy.helper.models.arrays.AbstractArray;
@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
  * Created by Konstantin Lugowoy on 01.03.2017.
  */
 @FunctionalInterface
-public interface DeterminantElement<T extends AbstractArray> {
+public interface DeterminantElementArray<T extends AbstractArray> {
 
     int determine(@NotNull T array);
 

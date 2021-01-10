@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.solutions.arrays.onedimensional.calculateSumOfMaxAndMinElementOfParticularSequences;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.calculateSumMaxAndMinElementOfSpecialSubarray;
 
 import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
 import com.lugowoy.helper.filling.array.numbers.primitives.FillingArrayRandomPrimitiveIntegers;
@@ -8,8 +8,8 @@ import com.lugowoy.tasks.solutions.helper.Helper;
 import com.lugowoy.tasks.solutions.helper.HelperFiller;
 
 /**
- * Given onedimensional array A[n].
- * Find: max(a2, a4, ..., a2k) + min(a1, a3, ..., a2k-1).
+ * Given onedimensional array A[n]. Find: max(a2, a4, ..., a2k) + min(a1, a3,
+ * ..., a2k-1).
  *
  * <p>Created by Konstantin Lugowoy on 01.03.2017.
  */
@@ -27,19 +27,22 @@ public class Main {
         System.out.println("Array : " + array + "\n");
 
         Helper.EXECUTOR.execute(() -> {
-            DeterminantSequence determinantSequence = DeterminantSequence::determineEvenSequence;
-            ArrayInts evenSequence = determinantSequence.determine(array);
 
-            determinantSequence = DeterminantSequence::determineOddSequence;
-            ArrayInts oddSequence = determinantSequence.determine(array);
+            DeterminantSubarray determinantSubarray =
+                    DeterminantSubarray::determineEvenSubarray;
+            ArrayInts evenSubarray = determinantSubarray.determine(array);
 
-            DeterminantElement<ArrayInts> determinant = DeterminantElement::determineMaxElement;
-            int maxElement = determinant.determine(evenSequence);
-            System.out.println("Max element in the sequence even numbers is " + maxElement);
+            determinantSubarray = DeterminantSubarray::determineOddSubarray;
+            ArrayInts oddSubarray = determinantSubarray.determine(array);
 
-            determinant = DeterminantElement::determineMinElement;
-            int minElement = determinant.determine(oddSequence);
-            System.out.println("Min element in the sequence odd number is " + minElement);
+            DeterminantElementArray<ArrayInts> determinant =
+                    DeterminantElementArray::determineMaxElement;
+            int maxElement = determinant.determine(evenSubarray);
+            System.out.println("Max element in the even numbers subarray is " + maxElement);
+
+            determinant = DeterminantElementArray::determineMinElement;
+            int minElement = determinant.determine(oddSubarray);
+            System.out.println("Min element in the odd numbers subarray is " + minElement);
 
             System.out.println();
             System.out.println("Result summation : " + (maxElement + minElement));
