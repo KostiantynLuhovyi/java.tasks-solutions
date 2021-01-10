@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.solutions.arrays.onedimensional.changeSequenceByMultiplyingElementsBySquareOfMinAndMaxNumbersByRule;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.changeArrayByMultiplyingElementsByNumbersByRule;
 
 import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
 import com.lugowoy.helper.filling.array.numbers.primitives.FillingArrayRandomPrimitiveIntegers;
@@ -28,18 +28,20 @@ public class Main {
         System.out.println("Array : " + array + "\n");
 
         Helper.EXECUTOR.execute(() -> {
-            DeterminantElement determinantElement =
-                    DeterminantElement::determineMinNumber;
-            int minValue = determinantElement.determine(array);
 
-            determinantElement = DeterminantElement::determineMaxNumber;
-            int maxValue = determinantElement.determine(array);
+            DeterminantElementArray determinant =
+                    DeterminantElementArray::determineMinElement;
+            int minValue = determinant.determine(array);
 
-            MultiplyingSequenceElements multiply =
-                    MultiplyingSequenceElements::multiplySequenceElementsBySquareOfMinOrMaxNumber;
+            determinant = DeterminantElementArray::determineMaxElement;
+            int maxValue = determinant.determine(array);
+
+            MultiplyingArrayElements multiply =
+                    MultiplyingArrayElements::multiplyElementsBySquareMinOrMaxValue;
             multiply.multiply(array, minValue, maxValue);
 
             System.out.println("Result array : " + array);
+
         }, new OutputExecutionTimeToConsole());
 
     }

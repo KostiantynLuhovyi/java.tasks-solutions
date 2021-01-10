@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.solutions.arrays.onedimensional.changeSequenceByMultiplyingElementsBySquareOfMinAndMaxNumbersByRule;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.changeArrayByMultiplyingElementsByNumbersByRule;
 
 import com.lugowoy.helper.checkers.CheckerArray;
 import com.lugowoy.helper.models.arrays.ArrayInts;
@@ -9,11 +9,11 @@ import org.jetbrains.annotations.NotNull;
  * Created by Konstantin Lugowoy on 25.03.2017.
  */
 @FunctionalInterface
-public interface DeterminantElement {
+public interface DeterminantElementArray {
 
     int determine(@NotNull final ArrayInts array);
 
-    static int determineMinNumber(@NotNull final ArrayInts array) {
+    static int determineMinElement(@NotNull final ArrayInts array) {
         CheckerArray.check(array, Capacity.UPPER.get());
         int minNumber = Integer.MAX_VALUE;
         for (int i = 0; i < array.size(); i++) {
@@ -24,7 +24,7 @@ public interface DeterminantElement {
         return minNumber;
     }
 
-    static int determineMaxNumber(@NotNull final ArrayInts array) {
+    static int determineMaxElement(@NotNull final ArrayInts array) {
         CheckerArray.check(array, Capacity.UPPER.get());
         int maxNumber = Integer.MIN_VALUE;
         for (int i = 0; i < array.size(); i++) {
