@@ -14,3 +14,23 @@ If you have any questions about this repository or the solution of the tasks in 
 **skype:** _live:kostya_lugowoy_  
 **linkedin:** _[Konstantin Lugowoy](https://www.linkedin.com/in/lugowoy-konstantin/)_  
 **facebook:** _[Konstantin Lugowoy](https://www.facebook.com/lugowoy.konstantin)_  
+
+---
+
+**Description of packages with solved tasks.**
+
+**com.lugowoy.tasks.solutions** <br> 
+* **arrays**
+    * multidimensional
+        * <details>
+            <summary>Click me to collapse/fold.</summary><br>
+            • dfjgkldfkgdsg<br>
+            • fsdfsfdsfsdfdsf<br>
+          </details>
+        * 
+    * onedimensional
+* **core**
+
+* **oop**
+
+* **strings**
