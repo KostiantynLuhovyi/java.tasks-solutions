@@ -23,11 +23,37 @@ If you have any questions about this repository or the solution of the tasks in 
 * **arrays**
     * multidimensional
         * <details>
-            <summary>Click me to collapse/fold.</summary><br>
-            • dfjgkldfkgdsg<br>
-            • fsdfsfdsfsdfdsf<br>
+            <summary>calculateMatrixDeterminant</summary><br>
+                • Calculate the matrix determinant.<br>
+                • Рассчитать определитель матрицы.<br>
           </details>
-        * 
+        * <details>
+            <summary>calculateNormsOfMatrix</summary><br>
+                • Calculate norms of the matrix.<br>
+                • Рассчитать нормы матрицы.<br>
+          </details>
+        * <details>
+            <summary>compressMatrixByDeletingRowsAndColumnsWithZeros</summary><br>
+                • Compress the matrix by deleting rows and columns filled with zeros from it.<br>
+                • Сжать матрицу, удалив из нее строки и столбцы, заполненные нулями.<br>
+          </details>
+        * <details>
+            <summary>constructPascalTriangle</summary><br>
+                • Write a program that builds a Pascal triangle to a depth of 12.
+                Each number of a triangle is stored in an array of the appropriate length,
+                and the array of rows is stored in an array,
+                the elements of which are 12 arrays of type int.<br>
+                • Напишите программу, которая строит треугольник Паскаля на глубину до 12.
+                Каждое число треугольника сохраняется в массиве соответствующей длины,
+                а массив строк хранится в массиве, элементами которого являются 12 массивов типа int.<br>
+          </details>
+        * <details>
+            <summary>convertMatrixRowsSoThatZeroLocatedAfterAllOthers</summary><br>
+                • Convert the rows of the matrix so that the elements equal to zero are located
+                after all the others.<br>
+                • Преобразуйте строки матрицы так, чтобы элементы, равные нулю,
+                были расположены после всех остальных.<br>
+          </details>
     * onedimensional
 * **core**
 
