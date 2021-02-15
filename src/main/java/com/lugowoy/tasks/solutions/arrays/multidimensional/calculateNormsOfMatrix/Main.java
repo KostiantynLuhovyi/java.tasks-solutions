@@ -1,10 +1,12 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.calculateNormsOfMatrix;
 
+import com.lugowoy.helper.execution.Executor;
 import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
 import com.lugowoy.helper.filling.matrix.numbers.primitives.FillingMatrixRandomPrimitiveDoubles;
 import com.lugowoy.helper.models.matrices.MatrixDoubles;
-import com.lugowoy.tasks.solutions.helper.Helper;
-import com.lugowoy.tasks.solutions.helper.HelperFiller;
+import com.lugowoy.helper.utils.HelperFillerValues;
+import com.lugowoy.helper.utils.HelperMatrixFiller;
+import com.lugowoy.helper.utils.ReaderMatrixLength;
 
 /**
  * Calculate norms of the matrix.
@@ -14,21 +16,27 @@ import com.lugowoy.tasks.solutions.helper.HelperFiller;
 public class Main {
 
     private static final String MSG_RESULT_ROWS_NORM = "Norm of rows : %.3f";
-    private static final String MSG_RESULT_COLUMNS_NORM = "Norm of columns : %.3f";
+    private static final String MSG_RESULT_COLUMNS_NORM =
+            "Norm of columns : %.3f";
 
     public static void main(String[] args) {
 
-        int rows = Helper.readConsoleMatrixRows();
-        int columns = Helper.readConsoleMatrixColumns();
+        ReaderMatrixLength readerMatrixLength = new ReaderMatrixLength();
+        int rows = readerMatrixLength.readRows(System.in, System.out,
+                                               ReaderMatrixLength.MSG_ENTER_MATRIX_ROWS);
+        int columns = readerMatrixLength.readColumns(System.in, System.out,
+                                                     ReaderMatrixLength.MSG_ENTER_MATRIX_COLUMNS);
 
-        MatrixDoubles matrix = new MatrixDoubles(new HelperFiller().getArray(
+        HelperMatrixFiller fillerMatrix = new HelperMatrixFiller();
+
+        MatrixDoubles matrix = new MatrixDoubles(fillerMatrix.getArray(
                 new FillingMatrixRandomPrimitiveDoubles(), rows, columns,
-                HelperFiller.DOUBLE_NEGATIVE_TEN,
-                HelperFiller.DOUBLE_POSITIVE_TEN));
+                HelperFillerValues.DOUBLE_NEGATIVE_TEN,
+                HelperFillerValues.DOUBLE_POSITIVE_TEN));
 
         System.out.println("Matrix : \n" + matrix + "\n");
 
-        Helper.EXECUTOR.execute(() -> {
+        new Executor().execute(() -> {
             CalculatorMatrixNorms calculatorMatrixNorms =
                     CalculatorMatrixNorms::calculateMatrixRowsNorm;
             double normMatrixRows = calculatorMatrixNorms.calculateMatrixNorm(

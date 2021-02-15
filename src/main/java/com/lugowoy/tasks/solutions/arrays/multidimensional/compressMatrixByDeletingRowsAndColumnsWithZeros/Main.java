@@ -1,12 +1,15 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.compressMatrixByDeletingRowsAndColumnsWithZeros;
 
+import com.lugowoy.helper.execution.Executor;
 import com.lugowoy.helper.execution.OutputExecutionResultToConsole;
 import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
 import com.lugowoy.helper.filling.matrix.numbers.primitives.FillingMatrixRandomPrimitiveIntegers;
 import com.lugowoy.helper.models.matrices.MatrixInts;
-import com.lugowoy.tasks.solutions.helper.Helper;
-import com.lugowoy.tasks.solutions.helper.HelperFiller;
+import com.lugowoy.helper.utils.HelperFillerValues;
+import com.lugowoy.helper.utils.HelperMatrixFiller;
+import com.lugowoy.helper.utils.ReaderMatrixLength;
 import org.jetbrains.annotations.NotNull;
+
 import java.util.Objects;
 
 /**
@@ -18,19 +21,25 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int rows = Helper.readConsoleMatrixRows();
-        int columns = Helper.readConsoleMatrixColumns();
+        ReaderMatrixLength readerMatrixLength = new ReaderMatrixLength();
+        int rows = readerMatrixLength.readRows(System.in, System.out,
+                                               ReaderMatrixLength.MSG_ENTER_MATRIX_ROWS);
+        int columns = readerMatrixLength.readColumns(System.in, System.out,
+                                                     ReaderMatrixLength.MSG_ENTER_MATRIX_COLUMNS);
 
-        MatrixInts matrix = new MatrixInts(new HelperFiller().getArray(
+        HelperMatrixFiller fillerMatrix = new HelperMatrixFiller();
+
+        MatrixInts matrix = new MatrixInts(fillerMatrix.getArray(
                 new FillingMatrixRandomPrimitiveIntegers(), rows, columns,
-                HelperFiller.INT_ZERO, HelperFiller.INT_POSITIVE_ONE));
+                HelperFillerValues.INT_ZERO,
+                HelperFillerValues.INT_POSITIVE_ONE));
 
         System.out.println("Matrix : \n" + matrix + "\n");
 
-        Helper.EXECUTOR.execute(() -> compressMatrix(matrix),
-                                new OutputExecutionResultToConsole(),
-                                Helper.RESULT_MATRIX,
-                                new OutputExecutionTimeToConsole());
+        new Executor().execute(() -> compressMatrix(matrix),
+                               new OutputExecutionResultToConsole(),
+                               OutputExecutionResultToConsole.RESULT_MATRIX,
+                               new OutputExecutionTimeToConsole());
 
     }
 

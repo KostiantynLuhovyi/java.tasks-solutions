@@ -1,11 +1,13 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.calculateMatrixDeterminant;
 
+import com.lugowoy.helper.execution.Executor;
 import com.lugowoy.helper.execution.OutputExecutionResultToConsole;
 import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
 import com.lugowoy.helper.filling.matrix.numbers.primitives.FillingMatrixRandomPrimitiveIntegers;
 import com.lugowoy.helper.models.matrices.MatrixInts;
-import com.lugowoy.tasks.solutions.helper.Helper;
-import com.lugowoy.tasks.solutions.helper.HelperFiller;
+import com.lugowoy.helper.utils.HelperFillerValues;
+import com.lugowoy.helper.utils.HelperMatrixFiller;
+import com.lugowoy.helper.utils.ReaderMatrixLength;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
@@ -24,20 +26,25 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int rows = Helper.readConsoleMatrixRows();
-        int columns = Helper.readConsoleMatrixColumns();
+        ReaderMatrixLength readerMatrixLength = new ReaderMatrixLength();
+        int rows = readerMatrixLength.readRows(System.in, System.out,
+                                               ReaderMatrixLength.MSG_ENTER_MATRIX_ROWS);
+        int columns = readerMatrixLength.readColumns(System.in, System.out,
+                                                     ReaderMatrixLength.MSG_ENTER_MATRIX_COLUMNS);
 
-        MatrixInts matrix = new MatrixInts(new HelperFiller().getArray(
+        HelperMatrixFiller fillerMatrix = new HelperMatrixFiller();
+
+        MatrixInts matrix = new MatrixInts(fillerMatrix.getArray(
                 new FillingMatrixRandomPrimitiveIntegers(), rows, columns,
-                HelperFiller.INT_NEGATIVE_THOUSAND,
-                HelperFiller.INT_POSITIVE_THOUSAND));
+                HelperFillerValues.INT_NEGATIVE_THOUSAND,
+                HelperFillerValues.INT_POSITIVE_THOUSAND));
 
         System.out.println("Matrix :\n" + matrix + "\n");
 
-        Helper.EXECUTOR.execute(() -> calculateDeterminantOfMatrix(matrix),
-                                new OutputExecutionResultToConsole(),
-                                MSG_DETERMINANT_RESULT,
-                                new OutputExecutionTimeToConsole());
+        new Executor().execute(() -> calculateDeterminantOfMatrix(matrix),
+                               new OutputExecutionResultToConsole(),
+                               MSG_DETERMINANT_RESULT,
+                               new OutputExecutionTimeToConsole());
 
     }
 
@@ -62,7 +69,8 @@ public class Main {
                 }
             }
             resultMatrixDeterminant += matrix.getElement(0, i) * pow(-1, i)
-                                       * calculateDeterminantOfMatrix(tmpMatrix);
+                                       * calculateDeterminantOfMatrix(
+                    tmpMatrix);
         }
         return resultMatrixDeterminant;
     }
