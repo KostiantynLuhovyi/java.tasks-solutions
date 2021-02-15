@@ -21,7 +21,8 @@ If you have any questions about this repository or the solution of the tasks in 
 
 **com.lugowoy.tasks.solutions** <br> 
 * **arrays**
-    * multidimensional
+    * <details>
+        <summary>multidimensional</summary><br>
         * <details>
             <summary>calculateMatrixDeterminant</summary><br>
                 • Calculate the matrix determinant.<br>
@@ -54,6 +55,7 @@ If you have any questions about this repository or the solution of the tasks in 
                 • Преобразуйте строки матрицы так, чтобы элементы, равные нулю,
                 были расположены после всех остальных.<br>
           </details>
+      </details>
     * onedimensional
 * **core**
 
