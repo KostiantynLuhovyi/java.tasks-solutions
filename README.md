@@ -55,6 +55,16 @@ If you have any questions about this repository or the solution of the tasks in 
                 • Преобразуйте строки матрицы так, чтобы элементы, равные нулю,
                 были расположены после всех остальных.<br>
         </details>
+        <details>
+            <summary>findAllLocalMaximumsOfMatrixAndTheirNumber</summary>
+                <blockquote>• Find all local maximums of the matrix and their number.</blockquote>
+                <blockquote>• Найти все локальные максимумы матрицы и их количество.</blockquote>
+        </details>
+        <details>
+            <summary>findAllLocalMinimumsOfMatrixAndTheirNumber</summary>
+                <blockquote>• Find all local minimums of the matrix and their number.</blockquote>
+                <blockquote>• Найти все локальные минимумы матрицы и их количество.</blockquote>
+        </details>
       </details>
     * onedimensional
 * **core**
