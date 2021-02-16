@@ -1,10 +1,12 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.findAllLocalMaximumsOfMatrixAndTheirNumber;
 
+import com.lugowoy.helper.execution.Executor;
 import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
 import com.lugowoy.helper.filling.matrix.numbers.primitives.FillingMatrixRandomPrimitiveIntegers;
 import com.lugowoy.helper.models.matrices.MatrixInts;
-import com.lugowoy.tasks.solutions.helper.Helper;
-import com.lugowoy.tasks.solutions.helper.HelperFiller;
+import com.lugowoy.helper.utils.HelperFillerValues;
+import com.lugowoy.helper.utils.HelperMatrixFiller;
+import com.lugowoy.helper.utils.ReaderMatrixLength;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
@@ -18,22 +20,27 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int rows = Helper.readConsoleMatrixRows();
-        int columns = Helper.readConsoleMatrixColumns();
+        ReaderMatrixLength readerMatrixLength = new ReaderMatrixLength();
+        int rows = readerMatrixLength.readRows(System.in, System.out,
+                                               ReaderMatrixLength.MSG_ENTER_MATRIX_ROWS);
+        int columns = readerMatrixLength.readColumns(System.in, System.out,
+                                                     ReaderMatrixLength.MSG_ENTER_MATRIX_COLUMNS);
 
-        MatrixInts matrix = new MatrixInts(new HelperFiller().getArray(
+        HelperMatrixFiller fillerMatrix = new HelperMatrixFiller();
+
+        MatrixInts matrix = new MatrixInts(fillerMatrix.getArray(
                 new FillingMatrixRandomPrimitiveIntegers(), rows, columns,
-                HelperFiller.INT_ZERO, HelperFiller.INT_POSITIVE_TEN));
+                HelperFillerValues.INT_ZERO,
+                HelperFillerValues.INT_POSITIVE_TEN));
 
         System.out.println("Matrix : \n" + matrix + "\n");
 
-        Helper.EXECUTOR.execute(
-                () -> findAllLocalMaximumsOfMatrixAndTheirNumber(matrix),
-                new OutputExecutionTimeToConsole());
+        new Executor().execute(() -> findAllLocalMaximumsOfMatrix(matrix),
+                               new OutputExecutionTimeToConsole());
 
     }
 
-    private static void findAllLocalMaximumsOfMatrixAndTheirNumber(
+    private static void findAllLocalMaximumsOfMatrix(
             @NotNull final MatrixInts matrix) {
         Objects.requireNonNull(matrix, "Matrix is null");
         int countLocalMaximum = 0;
