@@ -1,12 +1,15 @@
-package com.lugowoy.tasks.solutions.arrays.multidimensional.moveMinimumMatrixElementToSpecifiedLocationUsingPermutationOfRowsAndColumns;
+package com.lugowoy.tasks.solutions.arrays.multidimensional.moveMinimumElementIUsingPermutationOfRowsAndColumns;
 
+import com.lugowoy.helper.execution.Executor;
 import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
 import com.lugowoy.helper.filling.matrix.numbers.primitives.FillingMatrixRandomPrimitiveIntegers;
 import com.lugowoy.helper.models.matrices.MatrixInts;
+import com.lugowoy.helper.utils.HelperFillerValues;
+import com.lugowoy.helper.utils.HelperMatrixFiller;
 import com.lugowoy.helper.utils.ReaderConsole;
-import com.lugowoy.tasks.solutions.helper.Helper;
-import com.lugowoy.tasks.solutions.helper.HelperFiller;
+import com.lugowoy.helper.utils.ReaderMatrixLength;
 import org.jetbrains.annotations.NotNull;
+
 import java.util.Objects;
 
 /**
@@ -21,12 +24,16 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int rows = Helper.readConsoleMatrixRows();
-        int columns = Helper.readConsoleMatrixColumns();
+        ReaderMatrixLength readerMatrixLength = new ReaderMatrixLength();
+        int rows = readerMatrixLength.readRows(System.in, System.out,
+                                               ReaderMatrixLength.MSG_ENTER_MATRIX_ROWS);
+        int columns = readerMatrixLength.readColumns(System.in, System.out,
+                                                     ReaderMatrixLength.MSG_ENTER_MATRIX_COLUMNS);
 
-        MatrixInts matrix = new MatrixInts(new HelperFiller().getArray(
+        HelperMatrixFiller fillerMatrix = new HelperMatrixFiller();
+        MatrixInts matrix = new MatrixInts(fillerMatrix.getArray(
                 new FillingMatrixRandomPrimitiveIntegers(), rows, columns,
-                HelperFiller.INT_ZERO, BOUND));
+                HelperFillerValues.INT_ZERO, BOUND));
 
         System.out.println("Original matrix : \n" + matrix + "\n");
 
@@ -36,11 +43,12 @@ public class Main {
         System.out.println("Enter the number of column for move : ");
         int indexColumnToMove = readerConsole.readInt();
 
-        Helper.EXECUTOR.execute(() -> {
+        new Executor().execute(() -> {
             IndexMinElement indexMinElement = new IndexMinElement();
             indexMinElement.findAndSetIndexesMinElement(matrix);
             int indexRowMinElement = indexMinElement.getIndexRowMinElement();
-            int indexColumnMinElement = indexMinElement.getIndexColumnMinElement();
+            int indexColumnMinElement =
+                    indexMinElement.getIndexColumnMinElement();
 
             moveMinimumMatrixElementToSpecifiedLocation(matrix,
                                                         indexRowMinElement,
@@ -60,8 +68,8 @@ public class Main {
             final int indexColumnMinElement, final int indexRowToMove,
             final int indexColumnToMove) {
         Objects.requireNonNull(matrix, "Matrix is null");
-        if (indexRowToMove <= matrix.getRows()
-                && indexColumnToMove <= matrix.getColumns()) {
+        if (indexRowToMove <= matrix.getRows() && indexColumnToMove <= matrix
+                .getColumns()) {
             moveByRows(matrix, indexRowMinElement, indexRowToMove);
             moveByColumns(matrix, indexColumnMinElement, indexColumnToMove);
         } else {
@@ -98,7 +106,8 @@ public class Main {
         private int indexRowMinElement = 0;
         private int indexColumnMinElement = 0;
 
-        public void findAndSetIndexesMinElement(@NotNull final MatrixInts matrix) {
+        public void findAndSetIndexesMinElement(
+                @NotNull final MatrixInts matrix) {
             Objects.requireNonNull(matrix, "Matrix is null");
             int minElement = Integer.MAX_VALUE;
             for (int i = 0; i < matrix.getRows(); i++) {
