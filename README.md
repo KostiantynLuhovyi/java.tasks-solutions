@@ -28,59 +28,82 @@ use the spoilers indicated by the symbol ► ._
         <summary>multidimensional</summary><br>
         <details>
             <summary>1) calculateMatrixDeterminant</summary>
-                <blockquote> Calculate the matrix determinant.</blockquote>
-                <blockquote> Рассчитать определитель матрицы.</blockquote>
+            <blockquote> Calculate the matrix determinant.</blockquote>
+            <blockquote> Рассчитать определитель матрицы.</blockquote>
         </details>
         <details>
             <summary>2) calculateNormsOfMatrix</summary>
-                <blockquote> Calculate norms of the matrix.</blockquote>
-                <blockquote> Рассчитать нормы матрицы.</blockquote>
+            <blockquote> Calculate norms of the matrix.</blockquote>
+            <blockquote> Рассчитать нормы матрицы.</blockquote>
         </details>
         <details>
             <summary>3) compressMatrixByDeletingRowsAndColumnsWithZeros</summary><br>
-                <blockquote> Compress the matrix by deleting rows and columns filled with zeros from it.</blockquote>
-                <blockquote> Сжать матрицу, удалив из нее строки и столбцы, заполненные нулями.</blockquote>
+            <blockquote> Compress the matrix by deleting rows and columns filled with zeros from it.</blockquote>
+            <blockquote> Сжать матрицу, удалив из нее строки и столбцы, заполненные нулями.</blockquote>
         </details>
         <details>
             <summary>4) constructPascalTriangle</summary><br>
-                <blockquote> Write a program that builds a Pascal triangle to a depth of 12.
+            <blockquote> Write a program that builds a Pascal triangle to a depth of 12.
                 Each number of a triangle is stored in an array of the appropriate length,
                 and the array of rows is stored in an array, the elements of which are 12 arrays of type int.</blockquote>
-                <blockquote> Напишите программу, которая строит треугольник Паскаля на глубину до 12.
+            <blockquote> Напишите программу, которая строит треугольник Паскаля на глубину до 12.
                 Каждое число треугольника сохраняется в массиве соответствующей длины,
                 а массив строк хранится в массиве, элементами которого являются 12 массивов типа int.</blockquote>
         </details>
         <details>
             <summary>5) convertMatrixRowsSoThatZeroLocatedAfterAllOthers</summary><br>
-                <blockquote> Convert the rows of the matrix so that the elements equal to zero are located
-                after all the others.</blockquote>
-                <blockquote> Преобразуйте строки матрицы так, чтобы элементы, равные нулю,
-                были расположены после всех остальных.</blockquote>
+            <blockquote> Convert the rows of the matrix so that the elements equal to zero are located after all the others.</blockquote>
+            <blockquote> Преобразуйте строки матрицы так, чтобы элементы, равные нулю, были расположены после всех остальных.</blockquote>
         </details>
         <details>
             <summary>6) findAllLocalMaximumsOfMatrixAndTheirNumber</summary>
-                <blockquote> Find all local maximums of the matrix and their number.</blockquote>
-                <blockquote> Найти все локальные максимумы матрицы и их количество.</blockquote>
+            <blockquote> Find all local maximums of the matrix and their number.</blockquote>
+            <blockquote> Найти все локальные максимумы матрицы и их количество.</blockquote>
         </details>
         <details>
             <summary>7) findAllLocalMinimumsOfMatrixAndTheirNumber</summary>
-                <blockquote> Find all local minimums of the matrix and their number.</blockquote>
-                <blockquote> Найти все локальные минимумы матрицы и их количество.</blockquote>
+            <blockquote> Find all local minimums of the matrix and their number.</blockquote>
+            <blockquote> Найти все локальные минимумы матрицы и их количество.</blockquote>
         </details>
         <details>
             <summary>8) findLargestNumberOfDecreasingElementsOfMatrix</summary>
-                <blockquote> Find and display the largest number of consecutive descending matrix elements.</blockquote>
-                <blockquote> Найдите и отобразите наибольшее количество убывающих элементов	матрицы, идущих подряд.</blockquote>
+            <blockquote> Find and display the largest number of consecutive descending matrix elements.</blockquote>
+            <blockquote> Найдите и отобразите наибольшее количество убывающих элементов	матрицы, идущих подряд.</blockquote>
         </details>
         <details>
             <summary>9) findLargestNumberOfIncreasingElementsOfMatrix</summary>
-                <blockquote> Find and display the largest number of consecutive ascending matrix elements.</blockquote>
-                <blockquote> Найдите и отобразите наибольшее количество возрастающих элементов матрицы, идущих подряд.</blockquote>
+            <blockquote> Find and display the largest number of consecutive ascending matrix elements.</blockquote>
+            <blockquote> Найдите и отобразите наибольшее количество возрастающих элементов матрицы, идущих подряд.</blockquote>
         </details>
         <details>
             <summary>10) findNumberOfAllSaddlePointsOfMatrix</summary>
-                <blockquote> Find the number of all saddle points of the matrix.</blockquote>
-                <blockquote> Найти количество всех седловых точек матрицы.</blockquote>
+            <blockquote> Find the number of all saddle points of the matrix.</blockquote>
+            <blockquote> Найти количество всех седловых точек матрицы.</blockquote>
+        </details>
+        <details>
+            <summary>11) findSumBetweenFirstAndSecondPositiveElementsInRows</summary>
+            <blockquote>Find the sum of matrix elements located between the first and second positive elements of each row.</blockquote>
+            <blockquote>Найти сумму матричных элементов, расположенных между первым и вторым положительными элементами каждой строки.</blockquote>
+        </details>
+        <details>
+            <summary>12) firstFormationOfSquareMatrixOfOrderUsingTemplate</summary>
+            <blockquote>Form a square matrix of order n according to a given pattern.</blockquote>
+            <blockquote>Сформируйте квадратную матрицу порядка n в соответствии с заданным шаблоном.</blockquote>
+        </details>
+        <details>
+            <summary>13) moveMinimumElementIUsingPermutationOfRowsAndColumns</summary>
+            <blockquote>Move the minimum matrix element to the specified location using permutation of rows and columns.</blockquote>
+            <blockquote>Переместите минимальный матричный элемент в указанное место, используя перестановку строк и столбцов.</blockquote>
+        </details>
+        <details>
+            <summary>14) performCyclicShiftOfGivenMatrixByCertainNumber</summary>
+            <blockquote>Perform a cyclic shift of a given matrix by a certain number of positions to the right (left, up, down).</blockquote>
+            <blockquote>Выполните циклический сдвиг данной матрицы на определенное количество позиций вправо (влево, вверх, вниз).</blockquote>
+        </details>
+        <details>
+            <summary>15) rearrangeElementsOfMatrixInAscendingOrderAlongDiagonal</summary>
+            <blockquote>Rearrange the elements of a square real matrix in ascending order along the diagonal.</blockquote>
+            <blockquote>Переставьте элементы квадратной вещественной матрицы в возрастающем порядке по диагонали.</blockquote>
         </details>
       </details>
     * onedimensional
