@@ -1,8 +1,8 @@
-package com.lugowoy.tasks.solutions.arrays.multidimensional.secondTaskForFormationOfSquareMatrixAccordingToGivenPattern;
+package com.lugowoy.tasks.solutions.arrays.multidimensional.secondFormationOfSquareMatrixOfOrderUsingTemplate;
 
+import com.lugowoy.helper.execution.Executor;
 import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
 import com.lugowoy.helper.utils.ReaderConsole;
-import com.lugowoy.tasks.solutions.helper.Helper;
 
 /**
  * Form a square matrix of order n according to a given pattern:
@@ -26,7 +26,7 @@ public class Main {
 
         int[][] array = new int[n][n];
 
-        Helper.EXECUTOR.execute(() -> {
+        new Executor().execute(() -> {
             int indexNum = array.length - 1, num = 1;
             for (int i = 0; i < array.length; i++) {
                 array[i][indexNum] = num;

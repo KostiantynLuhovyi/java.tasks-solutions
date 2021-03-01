@@ -1,12 +1,15 @@
-package com.lugowoy.tasks.solutions.arrays.multidimensional.rebuildMatrixBySubtractingFromElementsOfEachRowOfMatrixArithmeticMeanOfElementsOfRow;
+package com.lugowoy.tasks.solutions.arrays.multidimensional.rebuildMatrixBySubtractingArithmeticMeanFromRowElements;
 
+import com.lugowoy.helper.execution.Executor;
 import com.lugowoy.helper.execution.OutputExecutionResultToConsole;
 import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
 import com.lugowoy.helper.filling.matrix.numbers.primitives.FillingMatrixRandomPrimitiveDoubles;
 import com.lugowoy.helper.models.matrices.MatrixDoubles;
-import com.lugowoy.tasks.solutions.helper.Helper;
-import com.lugowoy.tasks.solutions.helper.HelperFiller;
+import com.lugowoy.helper.utils.HelperFillerValues;
+import com.lugowoy.helper.utils.HelperMatrixFiller;
+import com.lugowoy.helper.utils.ReaderMatrixLength;
 import org.jetbrains.annotations.NotNull;
+
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -22,29 +25,36 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int rows = Helper.readConsoleMatrixRows();
-        int columns = Helper.readConsoleMatrixColumns();
+        ReaderMatrixLength readerMatrixLength = new ReaderMatrixLength();
+        int rows = readerMatrixLength.readRows(System.in, System.out,
+                                               ReaderMatrixLength.MSG_ENTER_MATRIX_ROWS);
+        int columns = readerMatrixLength.readColumns(System.in, System.out,
+                                                     ReaderMatrixLength.MSG_ENTER_MATRIX_COLUMNS);
 
-        MatrixDoubles matrix = new MatrixDoubles(new HelperFiller().getArray(
+        HelperMatrixFiller fillerMatrix = new HelperMatrixFiller();
+
+        MatrixDoubles matrix = new MatrixDoubles(fillerMatrix.getArray(
                 new FillingMatrixRandomPrimitiveDoubles(), rows, columns,
-                HelperFiller.DOUBLE_ZERO, HelperFiller.DOUBLE_POSITIVE_TEN));
+                HelperFillerValues.DOUBLE_ZERO,
+                HelperFillerValues.DOUBLE_POSITIVE_TEN));
 
         System.out.println("Matrix : \n" + matrix + "\n");
 
-        Helper.EXECUTOR.execute(
-                () -> subtractArithmeticAverageValueFromEachMatrixElement(matrix),
-                new OutputExecutionResultToConsole(), Helper.RESULT_MATRIX,
+        new Executor().execute(
+                () -> subtractArithmeticMeanFromRowElements(matrix),
+                new OutputExecutionResultToConsole(),
+                OutputExecutionResultToConsole.RESULT_MATRIX,
                 new OutputExecutionTimeToConsole());
 
     }
 
-    private static MatrixDoubles subtractArithmeticAverageValueFromEachMatrixElement(
+    private static MatrixDoubles subtractArithmeticMeanFromRowElements(
             @NotNull final MatrixDoubles matrix) {
         Objects.requireNonNull(matrix, "Matrix is null");
         int scale = 2;
         double arithmeticAverageValue;
         for (int i = 0; i < matrix.getRows(); i++) {
-            arithmeticAverageValue = calculateArithmeticAverageOfMatrixRow(matrix, i);
+            arithmeticAverageValue = calculateArithmeticMeanOfMatrixRowElements(matrix, i);
             for (int j = 0; j < matrix.getColumns(); j++) {
                 double element = matrix.getElement(i, j);
                 BigDecimal newValue = new BigDecimal(
@@ -55,7 +65,7 @@ public class Main {
         return matrix;
     }
 
-    private static double calculateArithmeticAverageOfMatrixRow(
+    private static double calculateArithmeticMeanOfMatrixRowElements(
             MatrixDoubles matrix, int indexRow) {
         double resultArithmeticAverage = 0;
         for (int j = 0; j < matrix.getColumns(); j++) {

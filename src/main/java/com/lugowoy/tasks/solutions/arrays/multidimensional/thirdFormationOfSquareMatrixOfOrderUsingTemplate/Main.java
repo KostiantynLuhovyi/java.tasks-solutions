@@ -1,8 +1,9 @@
-package com.lugowoy.tasks.solutions.arrays.multidimensional.thirdTaskForFormationOfSquareMatrixAccordingToGivenPattern;
+package com.lugowoy.tasks.solutions.arrays.multidimensional.thirdFormationOfSquareMatrixOfOrderUsingTemplate;
 
+import com.lugowoy.helper.execution.Executor;
 import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
 import com.lugowoy.helper.utils.ReaderConsole;
-import com.lugowoy.tasks.solutions.helper.Helper;
+
 import java.math.BigDecimal;
 
 /**
@@ -37,7 +38,7 @@ public class Main {
 
         System.out.println("Matrix : \n" + matrix + "\n");
 
-        Helper.EXECUTOR.execute(() -> {
+        new Executor().execute(() -> {
             System.out.println("Result matrix : ");
             for (int i = 0; i < matrix.length; i++) {
                 for (int j = 0; j < matrix[i].length; j++) {

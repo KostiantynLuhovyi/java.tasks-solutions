@@ -1,15 +1,16 @@
-package com.lugowoy.tasks.solutions.arrays.multidimensional.rearrangeElementsOfSquareRealMatrixInDescendingOrderAlongDiagonal;
+package com.lugowoy.tasks.solutions.arrays.multidimensional.rearrangeElementsOfMatrixInDescendingOrderAlongDiagonal;
 
+import com.lugowoy.helper.execution.Executor;
 import com.lugowoy.helper.execution.OutputExecutionResultToConsole;
 import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
 import com.lugowoy.helper.filling.matrix.numbers.primitives.FillingMatrixRandomPrimitiveDoubles;
 import com.lugowoy.helper.models.matrices.MatrixDoubles;
-import com.lugowoy.tasks.solutions.helper.Helper;
-import com.lugowoy.tasks.solutions.helper.HelperFiller;
+import com.lugowoy.helper.utils.HelperFillerValues;
+import com.lugowoy.helper.utils.HelperMatrixFiller;
+import com.lugowoy.helper.utils.ReaderMatrixLength;
 import org.jetbrains.annotations.NotNull;
-import java.util.Objects;
 
-import static com.lugowoy.tasks.solutions.helper.Helper.RESULT_MATRIX;
+import java.util.Objects;
 
 /**
  * Rearrange the elements of a square real matrix in descending order along the
@@ -21,19 +22,25 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int rows = Helper.readConsoleMatrixRows();
-        int columns = Helper.readConsoleMatrixColumns();
+        ReaderMatrixLength readerMatrixLength = new ReaderMatrixLength();
+        int rows = readerMatrixLength.readRows(System.in, System.out,
+                                               ReaderMatrixLength.MSG_ENTER_MATRIX_ROWS);
+        int columns = readerMatrixLength.readColumns(System.in, System.out,
+                                                     ReaderMatrixLength.MSG_ENTER_MATRIX_COLUMNS);
 
-        MatrixDoubles matrix = new MatrixDoubles(new HelperFiller().getArray(
+        HelperMatrixFiller fillerMatrix = new HelperMatrixFiller();
+
+        MatrixDoubles matrix = new MatrixDoubles(fillerMatrix.getArray(
                 new FillingMatrixRandomPrimitiveDoubles(), rows, columns,
-                HelperFiller.DOUBLE_ZERO, HelperFiller.DOUBLE_POSITIVE_TEN));
+                HelperFillerValues.DOUBLE_ZERO,
+                HelperFillerValues.DOUBLE_POSITIVE_TEN));
 
-        System.out.println("Original matrix : ");
-        System.out.println(matrix);
+        System.out.println("Original matrix : \n" + matrix + "\n");
 
-        Helper.EXECUTOR.execute(
+        new Executor().execute(
                 () -> rearrangeMatrixInDescendingOrderAlongDiagonal(matrix),
-                new OutputExecutionResultToConsole(), RESULT_MATRIX,
+                new OutputExecutionResultToConsole(),
+                OutputExecutionResultToConsole.RESULT_MATRIX,
                 new OutputExecutionTimeToConsole());
 
     }

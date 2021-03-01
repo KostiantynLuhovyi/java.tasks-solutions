@@ -1,54 +1,64 @@
-package com.lugowoy.tasks.solutions.arrays.multidimensional.sortColumnsOfMatrixInAscendingOrderOfValuesOfElementsOfKthRow;
+package com.lugowoy.tasks.solutions.arrays.multidimensional.sortColumnsInDescendingOrderOfKthRowElements;
 
+import com.lugowoy.helper.execution.Executor;
 import com.lugowoy.helper.execution.OutputExecutionResultToConsole;
 import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
 import com.lugowoy.helper.filling.matrix.numbers.primitives.FillingMatrixRandomPrimitiveIntegers;
 import com.lugowoy.helper.models.matrices.MatrixInts;
+import com.lugowoy.helper.utils.HelperFillerValues;
+import com.lugowoy.helper.utils.HelperMatrixFiller;
 import com.lugowoy.helper.utils.ReaderConsole;
-import com.lugowoy.tasks.solutions.helper.Helper;
-import com.lugowoy.tasks.solutions.helper.HelperFiller;
+import com.lugowoy.helper.utils.ReaderMatrixLength;
 import org.jetbrains.annotations.NotNull;
+
 import java.util.Objects;
 
-import static com.lugowoy.tasks.solutions.helper.Helper.RESULT_MATRIX;
-
 /**
- * Sort the columns in ascending order of values of the elements of k-th row.
+ * Sort the columns in descending order of values of the elements of k-th row.
  *
  * <p>Created by Konstantin Lugowoy on 27.10.2018.
  */
+
 public class Main {
 
     private static final int BOUND = 20;
 
     public static void main(String[] args) {
 
-        int rows = Helper.readConsoleMatrixRows();
-        int columns = Helper.readConsoleMatrixColumns();
+        ReaderMatrixLength readerMatrixLength = new ReaderMatrixLength();
+        int rows = readerMatrixLength.readRows(System.in, System.out,
+                                               ReaderMatrixLength.MSG_ENTER_MATRIX_ROWS);
+        int columns = readerMatrixLength.readColumns(System.in, System.out,
+                                                     ReaderMatrixLength.MSG_ENTER_MATRIX_COLUMNS);
 
-        MatrixInts matrix = new MatrixInts(new HelperFiller().getArray(
+        HelperMatrixFiller fillerMatrix = new HelperMatrixFiller();
+
+        MatrixInts matrix = new MatrixInts(fillerMatrix.getArray(
                 new FillingMatrixRandomPrimitiveIntegers(), rows, columns,
-                HelperFiller.INT_ZERO, BOUND));
+                HelperFillerValues.INT_ZERO, BOUND));
 
         int indexColumnToSort = enterIndexColumnToSort(matrix.getColumns());
 
-        Helper.EXECUTOR.execute(
-                () -> sortColumnsOfMatrixInAscendingOrderOfValuesOfElementsOfKthRow(
-                        matrix, indexColumnToSort),
-                new OutputExecutionResultToConsole(), RESULT_MATRIX,
-                new OutputExecutionTimeToConsole());
+        System.out.println("Matrix : \n" + matrix + "\n");
 
+        new Executor().execute(
+                () -> sortColumnsOfMatrixInDescendingOrderOfValuesOfElementsOfKthRow(
+                        matrix, indexColumnToSort),
+                new OutputExecutionResultToConsole(),
+                OutputExecutionResultToConsole.RESULT_MATRIX,
+                new OutputExecutionTimeToConsole());
 
     }
 
-    private static MatrixInts sortColumnsOfMatrixInAscendingOrderOfValuesOfElementsOfKthRow(
+    private static MatrixInts sortColumnsOfMatrixInDescendingOrderOfValuesOfElementsOfKthRow(
             @NotNull final MatrixInts matrix, final int indexColumnToSort) {
         Objects.requireNonNull(matrix, "Matrix is null");
-        int[][] ints = matrix.toMatrix(new int[matrix.getRows()][matrix.getColumns()]);
+        int[][] ints = matrix.toMatrix(
+                new int[matrix.getRows()][matrix.getColumns()]);
         for (int i = 0; i < ints.length; i++) {
             for (int j = 0; j < ints[i].length - 1; j++) {
                 if (ints[indexColumnToSort][j + 1]
-                        < ints[indexColumnToSort][j]) {
+                    > ints[indexColumnToSort][j]) {
                     for (int k = 0; k < ints[i].length; k++) {
                         int tmp = ints[k][j];
                         ints[k][j] = ints[k][j + 1];
@@ -63,13 +73,14 @@ public class Main {
 
     private static int enterIndexColumnToSort(final int rows) {
         int resultIndexRow;
+        ReaderConsole reader = new ReaderConsole();
         System.out.println("Enter the column number to sort : ");
         while (true) {
-            resultIndexRow = new ReaderConsole().readInt();
+            resultIndexRow = reader.readInt();
             if (resultIndexRow >= 0 && resultIndexRow <= rows) {
                 break;
             } else {
-                System.out.println("Incorrect number.");
+                System.out.println("Incorrect number. Re-enter : ");
             }
         }
         return resultIndexRow;
