@@ -1,6 +1,7 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.calculateSumMaxAndMinElementOfSpecialSubarray;
 
 import com.lugowoy.helper.checkers.CheckerArray;
+import com.lugowoy.helper.models.arrays.AbstractArray;
 import com.lugowoy.helper.models.arrays.ArrayInts;
 import com.lugowoy.helper.utils.Capacity;
 import org.jetbrains.annotations.NotNull;
@@ -9,9 +10,9 @@ import org.jetbrains.annotations.NotNull;
  * <p>Created by Konstantin Lugowoy on 09.01.2021.
  */
 @FunctionalInterface
-public interface DeterminantSubarray {
+public interface DeterminantSubarray<T extends AbstractArray> {
 
-    ArrayInts determine(@NotNull ArrayInts sequence);
+    T determine(@NotNull final T array);
 
     static ArrayInts determineEvenSubarray(@NotNull final ArrayInts array) {
         CheckerArray.check(array, Capacity.UPPER.get());

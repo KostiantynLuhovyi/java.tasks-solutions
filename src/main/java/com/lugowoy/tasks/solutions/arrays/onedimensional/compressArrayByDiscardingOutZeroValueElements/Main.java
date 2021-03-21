@@ -1,37 +1,41 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.compressArrayByDiscardingOutZeroValueElements;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
-import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.storages.arrays.ArrayInts;
-import com.lugowoy.helper.utils.ArrayLengthReader;
-import com.lugowoy.helper.utils.checking.CheckerArray;
-import com.lugowoy.helper.utils.execution.ExecutionTimeOutputToConsole;
-import com.lugowoy.helper.utils.execution.Executor;
-import com.lugowoy.tasks.solutions.arrays.onedimensional.compressArrayByDiscardingEverySecondElement.CompressingArray;
-
-import static com.lugowoy.helper.filling.ValuesToFilling.INT_LOWER_BOUND;
-import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
+import com.lugowoy.helper.execution.Executor;
+import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
+import com.lugowoy.helper.filling.array.numbers.primitives.FillingArrayRandomPrimitiveIntegers;
+import com.lugowoy.helper.models.arrays.ArrayInts;
+import com.lugowoy.helper.utils.HelperArrayFiller;
+import com.lugowoy.helper.utils.HelperFillerValues;
+import com.lugowoy.helper.utils.ReaderArrayLength;
 
 /**
- * An array containing integers is specified.
- * Compress it, throwing out the zero elements.
- * <p> Created by Konstantin Lugowoy on 16.03.2017.
+ * An array containing integers is specified. Compress it, throwing out the zero
+ * elements.
+ *
+ * <p>Created by Konstantin Lugowoy on 16.03.2017.
  */
 public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Enter length of the array : ");
-        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
+        ReaderArrayLength readerArrayLength = new ReaderArrayLength();
+        int lengthArray = readerArrayLength.read(System.in, System.out,
+                                                 ReaderArrayLength.MSG_ENTER_ARRAY_LENGTH);
 
-        FillingArrayRandomPrimitiveIntegers filler = new FillingArrayRandomPrimitiveIntegers();
+        HelperArrayFiller fillerArray = new HelperArrayFiller();
 
-        ArrayInts array = new ArrayInts(filler.fill(lengthOfArray, INT_LOWER_BOUND, INT_UPPER_BOUND));
+        ArrayInts array = new ArrayInts(fillerArray.getArray(
+                new FillingArrayRandomPrimitiveIntegers(), lengthArray,
+                HelperFillerValues.INT_NEGATIVE_TEN,
+                HelperFillerValues.INT_POSITIVE_TEN));
 
         System.out.println("Original array : " + array);
 
-        Executor.execute(() -> CompressingArray.compressArrayDiscardingZeroValueElements(array),
-                                                                     ExecutionTimeOutputToConsole::outputExecutionTime);
+        new Executor().execute(() -> {
+            CompressingArray<ArrayInts> compression =
+                    CompressingArray::compressByRemovingZeroElements;
+            compression.compress(array);
+        }, new OutputExecutionTimeToConsole());
 
     }
 

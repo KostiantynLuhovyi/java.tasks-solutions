@@ -1,6 +1,7 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.changeArrayByMultiplyingElementsByNumbersByRule;
 
 import com.lugowoy.helper.checkers.CheckerArray;
+import com.lugowoy.helper.models.arrays.AbstractArray;
 import com.lugowoy.helper.models.arrays.ArrayInts;
 import com.lugowoy.helper.utils.Capacity;
 import org.jetbrains.annotations.NotNull;
@@ -9,11 +10,9 @@ import org.jetbrains.annotations.NotNull;
  * Created by Konstantin Lugowoy on 25.03.2017.
  */
 @FunctionalInterface
-public interface MultiplyingArrayElements {
+public interface MultiplyingArrayElements<T extends AbstractArray, V> {
 
-    ArrayInts multiply(@NotNull final ArrayInts array,
-                       final int minValue,
-                       final int maxValue);
+    T multiply(@NotNull final T array, final V minValue, final V maxValue);
 
     static ArrayInts multiplyElementsBySquareMinOrMaxValue(
             @NotNull final ArrayInts array, final int minValue, final int maxValue) {

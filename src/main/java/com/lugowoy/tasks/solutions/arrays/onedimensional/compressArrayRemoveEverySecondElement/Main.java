@@ -1,11 +1,12 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.compressArrayRemoveEverySecondElement;
 
+import com.lugowoy.helper.execution.Executor;
 import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
 import com.lugowoy.helper.filling.array.numbers.primitives.FillingArrayRandomPrimitiveIntegers;
 import com.lugowoy.helper.models.arrays.ArrayInts;
-import com.lugowoy.helper.utils.Capacity;
-import com.lugowoy.tasks.solutions.helper.Helper;
-import com.lugowoy.tasks.solutions.helper.HelperFiller;
+import com.lugowoy.helper.utils.HelperArrayFiller;
+import com.lugowoy.helper.utils.HelperFillerValues;
+import com.lugowoy.helper.utils.ReaderArrayLength;
 
 /**
  * Given an array with the number of n elements. Compress the array, throwing
@@ -16,23 +17,26 @@ import com.lugowoy.tasks.solutions.helper.HelperFiller;
 public class Main {
 
     public static void main(String[] args) {
-        int lengthArray = Helper.readConsoleArrayLength(
-                Helper.INPUT_LENGTH_ARRAY, Capacity.UPPER.get());
 
-        ArrayInts array = new ArrayInts(new HelperFiller().getArray(
+        ReaderArrayLength readerArrayLength = new ReaderArrayLength();
+        int lengthArray = readerArrayLength.read(System.in, System.out,
+                                                 ReaderArrayLength.MSG_ENTER_ARRAY_LENGTH);
+
+        HelperArrayFiller fillerArray = new HelperArrayFiller();
+
+        ArrayInts array = new ArrayInts(fillerArray.getArray(
                 new FillingArrayRandomPrimitiveIntegers(), lengthArray,
-                HelperFiller.INT_NEGATIVE_TEN, HelperFiller.INT_POSITIVE_TEN));
+                HelperFillerValues.INT_NEGATIVE_TEN,
+                HelperFillerValues.INT_POSITIVE_TEN));
 
-        System.out.println("Array : " + array);
+        System.out.println("Array : \n" + array + "\n");
 
-        Helper.EXECUTOR.execute(() -> {
-
-            CompressingArray compress =
+        new Executor().execute(() -> {
+            CompressingArray<ArrayInts> compress =
                     CompressingArray::compressArrayRemoveEverySecondElement;
             compress.compress(array);
 
-            System.out.println("Array after compression : " + array);
-
+            System.out.println("Array after compression : \n" + array + "\n");
         }, new OutputExecutionTimeToConsole());
 
     }

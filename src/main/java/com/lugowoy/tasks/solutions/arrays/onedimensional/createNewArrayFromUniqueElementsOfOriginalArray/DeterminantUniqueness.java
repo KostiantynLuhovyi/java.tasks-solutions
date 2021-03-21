@@ -1,35 +1,38 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.createNewArrayFromUniqueElementsOfOriginalArray;
 
-import com.lugowoy.helper.models.storages.arrays.ArrayInts;
-import com.lugowoy.helper.utils.checking.CheckerArray;
+import com.lugowoy.helper.checkers.CheckerArray;
+import com.lugowoy.helper.models.arrays.AbstractArray;
+import com.lugowoy.helper.models.arrays.ArrayInts;
+import com.lugowoy.helper.utils.Capacity;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Created by Konstantin Lugowoy on 29.05.2017.
  */
 @FunctionalInterface
-public interface DeterminantUniqueness {
+public interface DeterminantUniqueness<T extends AbstractArray> {
 
     int CRITICAL_COUNT_UNIQUE = 2;
 
-    ArrayInts determineUniqueness(ArrayInts array);
+    T determineUniqueness(@NotNull final T array);
 
-    static ArrayInts determineTheUniqueElementsOfTheOriginalArray(ArrayInts array) {
-        ArrayInts tmpArray = new ArrayInts(0);
+    static ArrayInts determineUniqueElementsOfArray(
+            @NotNull final ArrayInts array) {
+        CheckerArray.check(array, Capacity.UPPER.get());
         int countUnique = 0;
-        if (CheckerArray.checkLengthInArray(array)) {
-            for (int i = 0; i < array.size(); i++) {
-                for (int j = 0; j < array.size(); j++) {
-                    if ((array.get(i) == (array.get(j)))) {
-                        countUnique++;
-                    }
+        ArrayInts resultArray = new ArrayInts(0);
+        for (int i = 0; i < array.size(); i++) {
+            for (int j = 0; j < array.size(); j++) {
+                if ((array.get(i) == (array.get(j)))) {
+                    countUnique++;
                 }
-                if (countUnique < CRITICAL_COUNT_UNIQUE) {
-                    tmpArray.add(array.get(i));
-                }
-                countUnique = 0;
             }
+            if (countUnique < CRITICAL_COUNT_UNIQUE) {
+                resultArray.add(array.get(i));
+            }
+            countUnique = 0;
         }
-        return tmpArray;
+        return resultArray;
     }
 
 }

@@ -1,6 +1,7 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.changeArrayByMultiplyingElementsByNumbersByRule;
 
 import com.lugowoy.helper.checkers.CheckerArray;
+import com.lugowoy.helper.models.arrays.AbstractArray;
 import com.lugowoy.helper.models.arrays.ArrayInts;
 import com.lugowoy.helper.utils.Capacity;
 import org.jetbrains.annotations.NotNull;
@@ -9,9 +10,9 @@ import org.jetbrains.annotations.NotNull;
  * Created by Konstantin Lugowoy on 25.03.2017.
  */
 @FunctionalInterface
-public interface DeterminantElementArray {
+public interface DeterminantElementArray<T extends AbstractArray> {
 
-    int determine(@NotNull final ArrayInts array);
+    int determine(@NotNull final T array);
 
     static int determineMinElement(@NotNull final ArrayInts array) {
         CheckerArray.check(array, Capacity.UPPER.get());

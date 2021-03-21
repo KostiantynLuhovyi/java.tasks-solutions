@@ -1,11 +1,12 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.compareModulesOfProductOfDifferentNumbersInArray;
 
+import com.lugowoy.helper.execution.Executor;
 import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
 import com.lugowoy.helper.filling.array.numbers.primitives.FillingArrayRandomPrimitiveIntegers;
 import com.lugowoy.helper.models.arrays.ArrayInts;
-import com.lugowoy.helper.utils.Capacity;
-import com.lugowoy.tasks.solutions.helper.Helper;
-import com.lugowoy.tasks.solutions.helper.HelperFiller;
+import com.lugowoy.helper.utils.HelperArrayFiller;
+import com.lugowoy.helper.utils.HelperFillerValues;
+import com.lugowoy.helper.utils.ReaderArrayLength;
 
 /**
  * In the sequence of integers a1, a2, ..., an, there are positive and negative
@@ -19,31 +20,37 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int lengthArray = Helper.readConsoleArrayLength(
-                Helper.INPUT_LENGTH_ARRAY, Capacity.UPPER.get());
+        ReaderArrayLength readerArrayLength = new ReaderArrayLength();
+        int lengthArray = readerArrayLength.read(System.in, System.out,
+                                                 ReaderArrayLength.MSG_ENTER_ARRAY_LENGTH);
 
-        ArrayInts array = new ArrayInts(new HelperFiller().getArray(
+        HelperArrayFiller fillerArray = new HelperArrayFiller();
+
+        ArrayInts array = new ArrayInts(fillerArray.getArray(
                 new FillingArrayRandomPrimitiveIntegers(), lengthArray,
-                HelperFiller.INT_NEGATIVE_TEN, HelperFiller.INT_POSITIVE_TEN));
+                HelperFillerValues.INT_NEGATIVE_TEN,
+                HelperFillerValues.INT_POSITIVE_TEN));
 
         System.out.println("Array : " + array + "\n");
 
-        Helper.EXECUTOR.execute(() -> {
-
-            ProductArrayNumbers product = ProductArrayNumbers::productNegativeNumbers;
+        new Executor().execute(() -> {
+            ProductArrayNumbers<ArrayInts> product =
+                    ProductArrayNumbers::productNegativeNumbers;
             int moduleNegativeNumbersArray = Math.abs(product.product(array));
 
             product = ProductArrayNumbers::productPositiveNumbers;
             int modulePositiveNumbersArray = Math.abs(product.product(array));
 
             if (moduleNegativeNumbersArray > modulePositiveNumbersArray) {
-                System.out.println("Module product negative numbers of the array"
-                                   + "is larger module product positive numbers.");
-            } else if (modulePositiveNumbersArray > moduleNegativeNumbersArray) {
-                System.out.println("Module product positive numbers of the array"
-                                   + "is larger module product negative numbers.");
+                System.out.println(
+                        "Module product negative numbers of the array"
+                        + "is larger module product positive numbers.");
+            } else if (modulePositiveNumbersArray
+                       > moduleNegativeNumbersArray) {
+                System.out.println(
+                        "Module product positive numbers of the array"
+                        + "is larger module product negative numbers.");
             }
-
         }, new OutputExecutionTimeToConsole());
 
     }

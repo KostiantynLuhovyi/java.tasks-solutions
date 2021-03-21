@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.solutions.arrays.onedimensional.countApplicantsWithAssessmentIsNotAllowedForSecondExam;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.countApplicantsNotAdmittedToSecondExam;
 
 import java.io.Serializable;
 

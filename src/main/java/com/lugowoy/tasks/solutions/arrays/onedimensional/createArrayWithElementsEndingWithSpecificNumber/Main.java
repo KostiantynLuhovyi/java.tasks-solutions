@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.solutions.arrays.onedimensional.createArrayOfEvenNumbersBasedOnAnotherArray;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.createArrayWithElementsEndingWithSpecificNumber;
 
 import com.lugowoy.helper.checkers.CheckerArray;
 import com.lugowoy.helper.execution.Executor;
@@ -7,17 +7,20 @@ import com.lugowoy.helper.filling.array.numbers.primitives.FillingArrayRandomPri
 import com.lugowoy.helper.models.arrays.ArrayInts;
 import com.lugowoy.helper.utils.Capacity;
 import com.lugowoy.helper.utils.HelperArrayFiller;
-import com.lugowoy.helper.utils.HelperFillerValues;
 import com.lugowoy.helper.utils.ReaderArrayLength;
+import com.lugowoy.helper.utils.ReaderConsole;
+import org.jetbrains.annotations.NotNull;
 
 /**
- * Given a array of positive numbers a1, a2, ..., an. Create an array of even
- * numbers of this array.
+ * Create a new array whose elements will be elements of the source code ending
+ * in a certain number.
  *
- * <p>Created by Konstantin Lugowoy on 13-Feb-17.
+ * <p>Created by Konstantin Lugowoy on 27.03.2017.
  */
-
 public class Main {
+
+    private static final int START_BOUND = -10000;
+    private static final int END_BOUND = 10000;
 
     public static void main(String[] args) {
 
@@ -31,25 +34,34 @@ public class Main {
 
         ArrayInts array = new ArrayInts(fillerArray.getArray(
                 new FillingArrayRandomPrimitiveIntegers(), lengthArray,
-                HelperFillerValues.INT_ZERO,
-                HelperFillerValues.INT_POSITIVE_HUNDRED));
+                START_BOUND, END_BOUND));
 
-        System.out.println("Array : \n" + array + "\n");
+        System.out.println("Array : " + array + "\n");
+
+        System.out.println("Enter specific ending number : ");
+        int specificEndingNumber = new ReaderConsole().readInt();
 
         new Executor().execute(() -> {
-            ArrayInts evenNumbersArray = getArrayWithEvenNumbers(array);
+            ArrayInts resultArray = selectElementsEndingSpecificValue(array,
+                                                                      specificEndingNumber);
 
-            System.out.println(
-                    "Even numbers of original array : \n" + evenNumbersArray);
+            if (resultArray.size() != 0) {
+                System.out.println("New array : " + resultArray);
+                System.out.println();
+            } else {
+                System.out.println(
+                        "No values were found with the specified ending.");
+            }
         }, new OutputExecutionTimeToConsole());
 
     }
 
-    private static ArrayInts getArrayWithEvenNumbers(ArrayInts array) {
+    private static ArrayInts selectElementsEndingSpecificValue(
+            @NotNull final ArrayInts array, final int specificEndingValue) {
         ArrayInts resultArray = new ArrayInts(0);
         CheckerArray.check(array, Capacity.UPPER.get());
         for (int i = 0; i < array.size(); i++) {
-            if (array.get(i) % 2 == 0) {
+            if (Math.abs(array.get(i)) % 10 == specificEndingValue) {
                 resultArray.add(array.get(i));
             }
         }

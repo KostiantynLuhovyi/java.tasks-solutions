@@ -1,35 +1,50 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.createNewArrayFromUniqueElementsOfOriginalArray;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
-import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.storages.arrays.ArrayInts;
-import com.lugowoy.helper.utils.ArrayLengthReader;
-import com.lugowoy.tasks.solutions.Helper;
-
-import static com.lugowoy.helper.filling.ValuesToFilling.INT_LOWER_BOUND;
-import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
+import com.lugowoy.helper.execution.Executor;
+import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
+import com.lugowoy.helper.filling.array.numbers.primitives.FillingArrayRandomPrimitiveIntegers;
+import com.lugowoy.helper.models.arrays.ArrayInts;
+import com.lugowoy.helper.utils.Capacity;
+import com.lugowoy.helper.utils.HelperArrayFiller;
+import com.lugowoy.helper.utils.HelperFillerValues;
+import com.lugowoy.helper.utils.ReaderArrayLength;
 
 /**
- * Given a one-dimensional array of numbers, among the elements of which are the same.
- * Create a new array from the various elements of the original array.
- * <p> Created by Konstantin Lugowoy on 29.05.2017.
+ * Given a one-dimensional array of numbers, among the elements of which are the
+ * same. Create a new array from the various elements of the original array.
+ *
+ * <p>Created by Konstantin Lugowoy on 29.05.2017.
  */
 public class Main {
 
-    private static final DeterminantUniqueness DETERMINANT = DeterminantUniqueness::determineTheUniqueElementsOfTheOriginalArray;
+    private static final DeterminantUniqueness<ArrayInts> DETERMINANT =
+            DeterminantUniqueness::determineUniqueElementsOfArray;
 
     public static void main(String[] args) {
 
-        int lengthOfArray = Helper.enterArrayLengthToConsole();
+        ReaderArrayLength readerArrayLength = new ReaderArrayLength();
+        int lengthArray = readerArrayLength.read(System.in,
+                                                 Capacity.UPPER.get(),
+                                                 System.out,
+                                                 ReaderArrayLength.MSG_ENTER_ARRAY_LENGTH);
 
-        ArrayInts array = new ArrayInts(Helper.FILLING_ARRAY_INTS.fill(lengthOfArray, INT_LOWER_BOUND, INT_UPPER_BOUND));
+        HelperArrayFiller fillerArray = new HelperArrayFiller();
 
-        System.out.println("Original array : " + array);
+        ArrayInts array = new ArrayInts(fillerArray.getArray(
+                new FillingArrayRandomPrimitiveIntegers(), lengthArray,
+                HelperFillerValues.INT_NEGATIVE_TEN,
+                HelperFillerValues.INT_POSITIVE_TEN));
 
-        ArrayInts newArrayFromTheUniqueElements = DETERMINANT.determineUniqueness(array);
+        System.out.println("Array : \n" + array + "\n");
 
-        System.out.println("New array from the unique elements : " + newArrayFromTheUniqueElements);
+        new Executor().execute(() -> {
+            ArrayInts newArrayFromTheUniqueElements =
+                    DETERMINANT.determineUniqueness(array);
 
+            System.out.println("New array from the unique elements : \n"
+                               + newArrayFromTheUniqueElements);
+
+        }, new OutputExecutionTimeToConsole());
     }
 
 }

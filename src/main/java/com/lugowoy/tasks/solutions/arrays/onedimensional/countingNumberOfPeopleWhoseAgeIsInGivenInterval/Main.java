@@ -1,8 +1,6 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.countingNumberOfPeopleWhoseAgeIsInGivenInterval;
 
-import com.lugowoy.helper.io.reading.Reader;
-import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.tasks.solutions.arrays.onedimensional.countingNumberOfPeopleWhoseAgeIsInGivenInterval.ArrayOfHumans;
+import com.lugowoy.helper.utils.ReaderConsole;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -10,13 +8,13 @@ import java.util.Random;
 /**
  * Write a program whose input is the age of n people.
  * The program counting the number of people whose age is in the specified interval.
- * <p> Created by Konstantin Lugowoy on 14.05.2017.
+ *
+ * <p>Created by Konstantin Lugowoy on 14.05.2017.
  */
 public class Main {
 
+    private static final ReaderConsole READER_CONSOLE = new ReaderConsole();
     private static final Random RANDOM_AGE = new Random();
-
-    private static final Reader READER = new Reader(new ReadingConsole());
 
     public static void main(String[] args) {
 
@@ -28,7 +26,7 @@ public class Main {
 
         showHumans(humans);
 
-        Counting counting = Counting::countingTheNumberOfPeopleWithAgeInGivenInterval;
+        Counting counting = Counting::countNumberOfPeopleWithAgeInGivenInterval;
         counting.counting(humans, startAgeInterval, finishAgeInterval);
 
     }
@@ -37,7 +35,7 @@ public class Main {
         System.out.println("Enter finish age interval : ");
         int finishAgeInterval;
         while(true) {
-            finishAgeInterval = READER.readInt();
+            finishAgeInterval = READER_CONSOLE.readInt();
             if ((finishAgeInterval > 0) && (finishAgeInterval <= 150)) {
                 break;
             } else {
@@ -51,7 +49,7 @@ public class Main {
         System.out.println("Enter start age interval : ");
         int startAgeInterval;
         while(true) {
-            startAgeInterval = READER.readInt();
+            startAgeInterval = READER_CONSOLE.readInt();
             if ((startAgeInterval >= 0 ) && (startAgeInterval <= 140)) {
                 break;
             } else {
@@ -65,7 +63,7 @@ public class Main {
         ArrayOfHumans humans;
         System.out.println("Enter the number of people to count : ");
         while(true) {
-            int numberOfPeople = READER.readInt();
+            int numberOfPeople = READER_CONSOLE.readInt();
             if (numberOfPeople > 0) {
                 humans = createArrayOfHumans(numberOfPeople);
                 break;
