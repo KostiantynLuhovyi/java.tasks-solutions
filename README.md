@@ -191,7 +191,79 @@ use the spoilers indicated by the symbol ► ._
             <blockquote>Транспонировать квадратную матрицу.</blockquote>
         </details>
       </details>
-    * onedimensional
+    * <details>
+        <summary>onedimensional</summary>
+        <details>
+            <summary>1) calculateSumBetweenMinAndMaxElementsArrayInclusive</summary>
+            <blockquote>Calculate the sum of array elements located between the minimum and maximum elements inclusive.</blockquote>
+            <blockquote>Вычислить сумму элементов массива, расположенных между минимальным и максимальным элементами включительно.</blockquote>
+        </details>
+        <details>
+            <summary>2) calculateSumMaxAndMinElementOfSpecialSubarray</summary>
+            <blockquote>Given onedimensional array A[n]. Find: max(a2, a4, ..., a2k) + min(a1, a3, ..., a2k-1).</blockquote>
+            <blockquote>Дан одномерный массив A [n]. Найти: max (a2, a4, ..., a2k) + min (a1, a3, ..., a2k-1).</blockquote>
+        </details>
+        <details>
+            <summary>3) changeArrayByMultiplyingElementsByNumbersByRule</summary>
+            <blockquote>Given integers a1, a2, ..., an. It is required to multiply all the terms of the sequence a1, a2, ... by the square of its smallest term, if ak ≥ 0, and the square of its largest term, if ak ≤ 0.</blockquote>
+            <blockquote>Даны целые числа a1, a2, ..., an. Требуется умножить все члены последовательности a1, a2, ... на квадрат его наименьшего члена, если ak ≥ 0, и квадрат его наибольшего члена, если ak ≤ 0.</blockquote>
+        </details>
+        <details>
+            <summary>4) compareModulesOfProductOfDifferentNumbersInArray</summary>
+            <blockquote>In the sequence of integers a1, a2, ..., an, there are positive and negative elements. Calculate the multiplication of negative elements P1 and the multiplication of positive elements P2. Compare the module P2 with the module P1 and indicate which of the products is larger modulo.</blockquote>
+            <blockquote>В последовательности целых чисел a1, a2, ..., an присутствуют положительные и отрицательные элементы. Рассчитать умножение отрицательных элементов P1 и умножение положительных элементов P2. Сравните модуль P2 с модулем P1 и укажите, какой из продуктов больше по модулю.</blockquote>
+        </details>
+        <details>
+            <summary>5) compressArrayByDiscardingOutZeroValueElements</summary>
+            <blockquote>An array containing integers is specified. Compress it, throwing out the zero elements.</blockquote>
+            <blockquote>Указан массив, содержащий целые числа. Сожмите его, выбросив нулевые элементы.</blockquote>
+        </details>
+        <details>
+            <summary>6) compressArrayRemoveEverySecondElement</summary>
+            <blockquote>Given an array with the number of n elements. Compress the array, throwing out every second element from it.</blockquote>
+            <blockquote>Дан массив с количеством n элементов. Сжать массив, выбрасывая каждый второй элемент из него.</blockquote>
+        </details>
+        <details>
+            <summary>7) convertFirstArrayUsingValuesOfSecondArray</summary>
+            <blockquote>Given integers a1, a2, ..., an and b1, b2, ..., bn. Convert the sequence bl, b2, ..., bn by the rule: if ai ≤ 0, then bi is increased by a factor of 10 otherwise bi is replaced by zero.</blockquote>
+            <blockquote>Даны целые числа a1, a2, ..., an и b1, b2, ..., bn. Преобразуйте последовательность bl, b2, ..., bn по правилу: если ai ≤ 0, то bi увеличивается в 10 раз, иначе bi заменяется на ноль.</blockquote>
+        </details>
+        <details>
+            <summary>8) countApplicantsNotAdmittedToSecondExam</summary>
+            <blockquote>On admission to university entrants who have received "two" in the first exam, the second is not allowed. The array A[n] written assessment exams obtained in the first test. Calculate how much a person is not admitted to the second exam.</blockquote>
+            <blockquote>При поступлении в абитуриенты, которые получили «два» на первом экзамене, второй не допускается. Массив A [n] письменных оценочных экзаменов, полученных в первом тесте. Подсчитайте, сколько человек не допущено ко второму экзамену.</blockquote>
+        </details>
+        <details>
+            <summary>9) countingNumberOfPeopleWhoseAgeIsInGivenInterval</summary>
+            <blockquote>Write a program whose input is the age of n people. The program counter the number of people whose age is in the specified interval.</blockquote>
+            <blockquote>Напишите программу, в которой учитывается возраст n человек. Программа подсчета количества людей, чей возраст находится в указанном интервале.</blockquote>
+        </details>
+        <details>
+            <summary>10) countPositiveAndNegativeAndZeroElementsInArray</summary>
+            <blockquote>Given an array of integer numbers, whose dimension is N. Counting how much it negative, positive and zero elements.</blockquote>
+            <blockquote>Дан массив целых чисел, размерность которого равна N. Подсчет сколько это отрицательных, положительных и нулевых элементов.</blockquote>
+        </details>
+        <details>
+            <summary>11) createArrayOfEvenNumbersBasedOnAnotherArray</summary>
+            <blockquote>Дан массив положительных чисел a1, a2, ..., an. Создайте массив четных чисел этого массива.</blockquote>
+            <blockquote>Given an array of positive numbers a1, a2, ..., an. Create an array of even numbers of this array.</blockquote>
+        </details>
+        <details>
+            <summary>12) createArrayOfZeroElementsOfAnotherArray</summary>
+            <blockquote>There are zero elements in an integer array. Create an array of the index of these elements.</blockquote>
+            <blockquote>В целочисленном массиве есть нулевые элементы. Создайте массив индексов этих элементов.</blockquote>
+        </details>
+        <details>
+            <summary>13) createNewArrayFromUniqueElementsOfOriginalArray</summary>
+            <blockquote>Given a one-dimensional array of numbers, among the elements of which are the same. Create a new array from the various elements of the original array.</blockquote>
+            <blockquote>Дан одномерный массив чисел, среди которых элементы одинаковы. Создать новый массив из различных элементов исходного массива.</blockquote>
+        </details>
+        <details>
+            <summary>14) createArrayWithElementsEndingWithSpecificNumber</summary>
+            <blockquote>Create a new array whose elements will be elements of the source code ending in a certain number.</blockquote>
+            <blockquote>Создать новый массив, элементы которого будут элементами исходного кода, заканчивающимися на определенное число.</blockquote>
+        </details>
+      </details>
 * **core**
 
 * **oop**
