@@ -254,14 +254,19 @@ use the spoilers indicated by the symbol ► ._
             <blockquote>В целочисленном массиве есть нулевые элементы. Создайте массив индексов этих элементов.</blockquote>
         </details>
         <details>
-            <summary>13) createNewArrayFromUniqueElementsOfOriginalArray</summary>
+            <summary>13) createArrayWithElementsEndingWithSpecificNumber</summary>
+            <blockquote>Create a new array whose elements will be elements of the source code ending in a certain number.</blockquote>
+            <blockquote>Создать новый массив, элементы которого будут элементами исходного кода, заканчивающимися на определенное число.</blockquote>
+        </details>
+        <details>
+            <summary>14) createNewArrayFromUniqueElementsOfOriginalArray</summary>
             <blockquote>Given a one-dimensional array of numbers, among the elements of which are the same. Create a new array from the various elements of the original array.</blockquote>
             <blockquote>Дан одномерный массив чисел, среди которых элементы одинаковы. Создать новый массив из различных элементов исходного массива.</blockquote>
         </details>
         <details>
-            <summary>14) createArrayWithElementsEndingWithSpecificNumber</summary>
-            <blockquote>Create a new array whose elements will be elements of the source code ending in a certain number.</blockquote>
-            <blockquote>Создать новый массив, элементы которого будут элементами исходного кода, заканчивающимися на определенное число.</blockquote>
+            <summary>15) createOrderedArrayFromElementsOfOtherArrays</summary>
+            <blockquote>Given two ordered arrays A and B. Form from the elements of these arrays an ordered array C.</blockquote>
+            <blockquote>Даны два упорядоченных массива A и B. Формируют из элементов этих массивов упорядоченный массив C.</blockquote>
         </details>
       </details>
 * **core**
