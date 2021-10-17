@@ -69,8 +69,7 @@ public class Main {
                 }
             }
             resultMatrixDeterminant += matrix.getElement(0, i) * pow(-1, i)
-                                       * calculateDeterminantOfMatrix(
-                    tmpMatrix);
+                                       * calculateDeterminantOfMatrix(tmpMatrix);
         }
         return resultMatrixDeterminant;
     }

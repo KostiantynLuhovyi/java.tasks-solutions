@@ -16,8 +16,7 @@ import com.lugowoy.helper.utils.ReaderMatrixLength;
 public class Main {
 
     private static final String MSG_RESULT_ROWS_NORM = "Norm of rows : %.3f";
-    private static final String MSG_RESULT_COLUMNS_NORM =
-            "Norm of columns : %.3f";
+    private static final String MSG_RESULT_COLUMNS_NORM = "Norm of columns : %.3f";
 
     public static void main(String[] args) {
 
