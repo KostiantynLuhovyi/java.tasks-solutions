@@ -21,8 +21,7 @@ import static java.lang.Math.pow;
  */
 public class Main {
 
-    private static final String MSG_DETERMINANT_RESULT =
-            "Matrix determinant : %.3f\n";
+    private static final String MSG_DETERMINANT_RESULT = "Matrix determinant : %.3f\n";
 
     public static void main(String[] args) {
 
@@ -41,58 +40,14 @@ public class Main {
 
         System.out.println("Matrix :\n" + matrix + "\n");
 
-        new Executor().execute(() -> calculateDeterminantOfMatrix(matrix),
+        CalculatorMatrixDeterminant<Double, MatrixInts> calculator =
+                CalculatorMatrixDeterminant::calculateDeterminantMatrix;
+
+        new Executor().execute(() -> calculator.calculate(matrix),
                                new OutputExecutionResultToConsole(),
                                MSG_DETERMINANT_RESULT,
                                new OutputExecutionTimeToConsole());
 
-    }
-
-    private static double calculateDeterminantOfMatrix(
-            @NotNull final MatrixInts matrix) {
-        Objects.requireNonNull(matrix, "Matrix is null");
-        MatrixInts tmpMatrix;
-        double resultMatrixDeterminant = 0;
-        resultMatrixDeterminant = calculateDeterminantMatrixWithOneRow(matrix);
-        resultMatrixDeterminant = calculateDeterminantMatrixWithTwoRows(matrix);
-        for (int i = 0; i < matrix.getRows(); i++) {
-            tmpMatrix = new MatrixInts(matrix.getRows() - 1,
-                                       matrix.getColumns() - 1);
-            for (int j = 1; j < matrix.getRows(); j++) {
-                for (int k = 0; k < matrix.getColumns(); k++) {
-                    if (k < i) {
-                        tmpMatrix.setElement(j - 1, k, matrix.getElement(j, k));
-                    } else if (k > i) {
-                        tmpMatrix.setElement(j - 1, k - 1,
-                                             matrix.getElement(j, k));
-                    }
-                }
-            }
-            resultMatrixDeterminant += matrix.getElement(0, i) * pow(-1, i)
-                                       * calculateDeterminantOfMatrix(tmpMatrix);
-        }
-        return resultMatrixDeterminant;
-    }
-
-    private static double calculateDeterminantMatrixWithOneRow(
-            @NotNull final MatrixInts matrix) {
-        Objects.requireNonNull(matrix, "Matrix is null");
-        double result = 0;
-        if (matrix.getRows() == 1) {
-            result = matrix.getElement(0, 0);
-        }
-        return result;
-    }
-
-    private static double calculateDeterminantMatrixWithTwoRows(
-            @NotNull final MatrixInts matrix) {
-        Objects.requireNonNull(matrix, "Matrix is null");
-        double result = 0;
-        if (matrix.getRows() == 2) {
-            result = (matrix.getElement(0, 0) * matrix.getElement(1, 1)) - (
-                    matrix.getElement(0, 1) * matrix.getElement(1, 0));
-        }
-        return result;
     }
 
 }
