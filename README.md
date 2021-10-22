@@ -33,7 +33,7 @@ use the spoilers indicated by the symbol ► ._
         </details>
         <details>
             <summary>calculateNormsOfMatrix</summary>
-            <blockquote> Calculate norms of the matrix.</blockquote>
+            <blockquote> Calculate matrix norms.</blockquote>
             <blockquote> Рассчитать нормы матрицы.</blockquote>
         </details>
         <details>
