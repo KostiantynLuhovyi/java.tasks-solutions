@@ -1,10 +1,10 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.calculateMatrixDeterminant;
 
+import com.lugowoy.helper.checkers.CheckerMatrix;
 import com.lugowoy.helper.models.matrices.AbstractMatrix;
 import com.lugowoy.helper.models.matrices.MatrixInts;
+import com.lugowoy.helper.utils.Capacity;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.Objects;
 
 import static java.lang.Math.pow;
 
@@ -17,7 +17,7 @@ public interface CalculatorMatrixDeterminant<T extends Number, M extends Abstrac
     T calculate(@NotNull final M matrix);
 
     static double calculateDeterminantMatrix(@NotNull final MatrixInts matrix) {
-        Objects.requireNonNull(matrix, "Matrix is null");
+        CheckerMatrix.check(matrix, Capacity.UPPER.get(), Capacity.UPPER.get());
         MatrixInts tmpMatrix;
         double resultDeterminant = 0;
         resultDeterminant = calculateDeterminantMatrixWithOneRow(matrix);
@@ -40,7 +40,6 @@ public interface CalculatorMatrixDeterminant<T extends Number, M extends Abstrac
     }
 
     private static double calculateDeterminantMatrixWithOneRow(@NotNull final MatrixInts matrix) {
-        Objects.requireNonNull(matrix, "Matrix is null");
         double result = 0;
         if (matrix.getRows() == 1) {
             result = matrix.getElement(0, 0);
@@ -49,7 +48,6 @@ public interface CalculatorMatrixDeterminant<T extends Number, M extends Abstrac
     }
 
     private static double calculateDeterminantMatrixWithTwoRows(@NotNull final MatrixInts matrix) {
-        Objects.requireNonNull(matrix, "Matrix is null");
         double result = 0;
         if (matrix.getRows() == 2) {
             result = (matrix.getElement(0, 0) * matrix.getElement(1, 1))

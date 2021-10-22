@@ -8,11 +8,6 @@ import com.lugowoy.helper.models.matrices.MatrixInts;
 import com.lugowoy.helper.utils.HelperFillerValues;
 import com.lugowoy.helper.utils.HelperMatrixFiller;
 import com.lugowoy.helper.utils.ReaderMatrixLength;
-import org.jetbrains.annotations.NotNull;
-
-import java.util.Objects;
-
-import static java.lang.Math.pow;
 
 /**
  * Calculate the matrix determinant.
