@@ -16,7 +16,7 @@ public interface CalculatorMatrixNorms {
     double calculate(@NotNull final MatrixDoubles matrix);
 
     static double calculateNormMatrixColumns(@NotNull final MatrixDoubles matrix) {
-        CheckerMatrix.check(matrix, Capacity.LOWER.get(), Capacity.UPPER.get());
+        CheckerMatrix.check(matrix, Capacity.UPPER.get(), Capacity.UPPER.get());
         double resultNormColumns = 0;
         for (int i = 0; i < matrix.getRows(); i++) {
             double sum = 0;
