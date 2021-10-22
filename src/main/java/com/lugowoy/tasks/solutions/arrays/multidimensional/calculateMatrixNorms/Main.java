@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.solutions.arrays.multidimensional.calculateNormsOfMatrix;
+package com.lugowoy.tasks.solutions.arrays.multidimensional.calculateMatrixNorms;
 
 import com.lugowoy.helper.execution.Executor;
 import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
@@ -9,7 +9,7 @@ import com.lugowoy.helper.utils.HelperMatrixFiller;
 import com.lugowoy.helper.utils.ReaderMatrixLength;
 
 /**
- * Calculate norms of the matrix.
+ * Calculate matrix norms.
  *
  * <p>Created by Konstantin Lugowoy on 30.10.2018.
  */
@@ -21,6 +21,7 @@ public class Main {
     public static void main(String[] args) {
 
         ReaderMatrixLength readerMatrixLength = new ReaderMatrixLength();
+
         int rows = readerMatrixLength.readRows(System.in, System.out,
                                                ReaderMatrixLength.MSG_ENTER_MATRIX_ROWS);
         int columns = readerMatrixLength.readColumns(System.in, System.out,
@@ -37,14 +38,11 @@ public class Main {
 
         new Executor().execute(() -> {
             CalculatorMatrixNorms calculatorMatrixNorms =
-                    CalculatorMatrixNorms::calculateMatrixRowsNorm;
-            double normMatrixRows = calculatorMatrixNorms.calculateMatrixNorm(
-                    matrix);
+                    CalculatorMatrixNorms::calculateNormMatrixRows;
+            double normMatrixRows = calculatorMatrixNorms.calculate(matrix);
 
-            calculatorMatrixNorms =
-                    CalculatorMatrixNorms::calculateMatrixColumnsNorm;
-            double normMatrixColumns =
-                    calculatorMatrixNorms.calculateMatrixNorm(matrix);
+            calculatorMatrixNorms = CalculatorMatrixNorms::calculateNormMatrixColumns;
+            double normMatrixColumns = calculatorMatrixNorms.calculate(matrix);
 
             System.out.printf(MSG_RESULT_ROWS_NORM, normMatrixRows);
             System.out.println();
