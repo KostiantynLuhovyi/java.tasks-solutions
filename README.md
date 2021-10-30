@@ -4,7 +4,7 @@ This repository contains solutions to problems written in the Java programming l
 
 Themes separated by packages. The names of packages with classes that solve a specific problem contain a brief description of the task that must be solved. Also, a description of the tasks that need to be solved can be found in the comments in the Main class (which is in every package with tasks that need to be solved).
 
-Many of the functional solutions used to solve problems implemented in the classes of the java-helper library. A detailed description of the functionality contained in the java-helper library can be found in the repository at: https://github.com/LugowoyKonstantin/java-helper.tasks-solution.
+Many of the functional solutions used to solve problems implemented in the classes of the java-helper library. A detailed description of the functionality contained in the java-helper library can be found in the repository at: https://github.com/LugowoyKonstantin/java-helper.
 
 ---
 
