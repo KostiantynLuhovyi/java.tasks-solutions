@@ -1,17 +1,18 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.rebuildMatrixBySubtractingArithmeticMeanFromRowElements;
 
+import com.lugowoy.helper.checkers.CheckerMatrix;
 import com.lugowoy.helper.execution.Executor;
 import com.lugowoy.helper.execution.OutputExecutionResultToConsole;
 import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
 import com.lugowoy.helper.filling.matrix.numbers.primitives.FillingMatrixRandomPrimitiveDoubles;
 import com.lugowoy.helper.models.matrices.MatrixDoubles;
+import com.lugowoy.helper.utils.Capacity;
 import com.lugowoy.helper.utils.HelperFillerValues;
 import com.lugowoy.helper.utils.HelperMatrixFiller;
 import com.lugowoy.helper.utils.ReaderMatrixLength;
 import org.jetbrains.annotations.NotNull;
 
 import java.math.BigDecimal;
-import java.util.Objects;
 
 import static java.math.RoundingMode.HALF_DOWN;
 
@@ -50,7 +51,7 @@ public class Main {
 
     private static MatrixDoubles subtractArithmeticMeanFromRowElements(
             @NotNull final MatrixDoubles matrix) {
-        Objects.requireNonNull(matrix, "Matrix is null");
+        CheckerMatrix.check(matrix, Capacity.UPPER.get(), Capacity.UPPER.get());
         int scale = 2;
         double arithmeticAverageValue;
         for (int i = 0; i < matrix.getRows(); i++) {
@@ -66,7 +67,7 @@ public class Main {
     }
 
     private static double calculateArithmeticMeanOfMatrixRowElements(
-            MatrixDoubles matrix, int indexRow) {
+            @NotNull final MatrixDoubles matrix, int indexRow) {
         double resultArithmeticAverage = 0;
         for (int j = 0; j < matrix.getColumns(); j++) {
             resultArithmeticAverage += matrix.getElement(indexRow, j);

@@ -33,8 +33,7 @@ public class Main {
 
         System.out.println("Matrix : \n" + matrix + "\n");
 
-        RotatorMatrix rotatorMatrix =
-                RotatorMatrixIntegerClockwise::rotateMatrixTo90Degrees;
+        RotatorMatrix rotatorMatrix = RotatorMatrixIntegerClockwise::rotateMatrixTo90Degrees;
 
         new Executor().execute(() -> rotatorMatrix.rotateMatrix(matrix),
                                new OutputExecutionResultToConsole(),

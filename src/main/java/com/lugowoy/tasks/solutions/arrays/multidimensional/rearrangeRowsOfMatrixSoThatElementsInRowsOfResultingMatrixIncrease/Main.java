@@ -1,10 +1,12 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.rearrangeRowsOfMatrixSoThatElementsInRowsOfResultingMatrixIncrease;
 
+import com.lugowoy.helper.checkers.CheckerMatrix;
 import com.lugowoy.helper.execution.Executor;
 import com.lugowoy.helper.execution.OutputExecutionResultToConsole;
 import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
 import com.lugowoy.helper.filling.matrix.numbers.primitives.FillingMatrixRandomPrimitiveIntegers;
 import com.lugowoy.helper.models.matrices.MatrixInts;
+import com.lugowoy.helper.utils.Capacity;
 import com.lugowoy.helper.utils.HelperFillerValues;
 import com.lugowoy.helper.utils.HelperMatrixFiller;
 import com.lugowoy.helper.utils.ReaderMatrixLength;
@@ -45,9 +47,8 @@ public class Main {
     }
 
     private static MatrixInts rebuildMatrix(@NotNull final MatrixInts matrix) {
-        Objects.requireNonNull(matrix, "Matrix is null");
-        int[][] matrixSort = matrix.toMatrix(
-                new int[matrix.getRows()][matrix.getColumns()]);
+        CheckerMatrix.check(matrix, Capacity.UPPER.get(), Capacity.UPPER.get());
+        int[][] matrixSort = matrix.toMatrix(new int[matrix.getRows()][matrix.getColumns()]);
         for (int i = 0; i < matrix.getRows(); i++) {
             for (int j = 0; j < matrix.getColumns() - i - 1; j++) {
                 if (sumLine(matrixSort, j) > sumLine(matrixSort, j + 1)) {

@@ -1,10 +1,12 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.removeFromMatrixAllRowsAndColumnsContainingMaximumElement;
 
+import com.lugowoy.helper.checkers.CheckerMatrix;
 import com.lugowoy.helper.execution.Executor;
 import com.lugowoy.helper.execution.OutputExecutionResultToConsole;
 import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
 import com.lugowoy.helper.filling.matrix.numbers.primitives.FillingMatrixRandomPrimitiveIntegers;
 import com.lugowoy.helper.models.matrices.MatrixInts;
+import com.lugowoy.helper.utils.Capacity;
 import com.lugowoy.helper.utils.HelperFillerValues;
 import com.lugowoy.helper.utils.HelperMatrixFiller;
 import com.lugowoy.helper.utils.ReaderMatrixLength;
@@ -55,9 +57,8 @@ public class Main {
     private static MatrixInts removeFromMatrixAllRowsAndColumnsContainingMaximumElement(
             @NotNull final MatrixInts matrix, final int indexMatrixRow,
             final int indexMatrixColumn) {
-        Objects.requireNonNull(matrix, "Matrix is null");
-        int[][] tmpInts =
-                new int[matrix.getRows() - 1][matrix.getColumns() - 1];
+        CheckerMatrix.check(matrix, Capacity.UPPER.get(), Capacity.UPPER.get());
+        int[][] tmpInts = new int[matrix.getRows() - 1][matrix.getColumns() - 1];
         int row = 0;
         for (int i = 0; i < matrix.getRows() - 1; i++) {
             if (i > indexMatrixRow - 1) {
@@ -77,7 +78,7 @@ public class Main {
 
     private static class IndexMaximumMatrixElement {
 
-        private MatrixInts matrix;
+        private final MatrixInts matrix;
 
         private int indexMaxElementMatrixRow;
         private int indexMaxElementMatrixColumn;

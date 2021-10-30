@@ -1,9 +1,11 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.moveMinimumElementIUsingPermutationOfRowsAndColumns;
 
+import com.lugowoy.helper.checkers.CheckerMatrix;
 import com.lugowoy.helper.execution.Executor;
 import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
 import com.lugowoy.helper.filling.matrix.numbers.primitives.FillingMatrixRandomPrimitiveIntegers;
 import com.lugowoy.helper.models.matrices.MatrixInts;
+import com.lugowoy.helper.utils.Capacity;
 import com.lugowoy.helper.utils.HelperFillerValues;
 import com.lugowoy.helper.utils.HelperMatrixFiller;
 import com.lugowoy.helper.utils.ReaderConsole;
@@ -25,12 +27,14 @@ public class Main {
     public static void main(String[] args) {
 
         ReaderMatrixLength readerMatrixLength = new ReaderMatrixLength();
+
         int rows = readerMatrixLength.readRows(System.in, System.out,
                                                ReaderMatrixLength.MSG_ENTER_MATRIX_ROWS);
         int columns = readerMatrixLength.readColumns(System.in, System.out,
                                                      ReaderMatrixLength.MSG_ENTER_MATRIX_COLUMNS);
 
         HelperMatrixFiller fillerMatrix = new HelperMatrixFiller();
+
         MatrixInts matrix = new MatrixInts(fillerMatrix.getArray(
                 new FillingMatrixRandomPrimitiveIntegers(), rows, columns,
                 HelperFillerValues.INT_ZERO, BOUND));
@@ -38,17 +42,18 @@ public class Main {
         System.out.println("Original matrix : \n" + matrix + "\n");
 
         ReaderConsole readerConsole = new ReaderConsole();
+
         System.out.println("Enter the number of row for move : ");
         int indexRowToMove = readerConsole.readInt();
+
         System.out.println("Enter the number of column for move : ");
         int indexColumnToMove = readerConsole.readInt();
 
         new Executor().execute(() -> {
             IndexMinElement indexMinElement = new IndexMinElement();
-            indexMinElement.findAndSetIndexesMinElement(matrix);
+            indexMinElement.findIndexesMinElement(matrix);
             int indexRowMinElement = indexMinElement.getIndexRowMinElement();
-            int indexColumnMinElement =
-                    indexMinElement.getIndexColumnMinElement();
+            int indexColumnMinElement = indexMinElement.getIndexColumnMinElement();
 
             moveMinimumMatrixElementToSpecifiedLocation(matrix,
                                                         indexRowMinElement,
@@ -67,7 +72,7 @@ public class Main {
             @NotNull final MatrixInts matrix, final int indexRowMinElement,
             final int indexColumnMinElement, final int indexRowToMove,
             final int indexColumnToMove) {
-        Objects.requireNonNull(matrix, "Matrix is null");
+        CheckerMatrix.check(matrix, Capacity.UPPER.get(), Capacity.UPPER.get());
         if (indexRowToMove <= matrix.getRows() && indexColumnToMove <= matrix
                 .getColumns()) {
             moveByRows(matrix, indexRowMinElement, indexRowToMove);
@@ -80,7 +85,7 @@ public class Main {
     private static void moveByColumns(final @NotNull MatrixInts matrix,
                                       final int indexColumnMinElement,
                                       final int indexColumnToMove) {
-        Objects.requireNonNull(matrix, "Matrix is null");
+        CheckerMatrix.check(matrix, Capacity.UPPER.get(), Capacity.UPPER.get());
         for (int i = 0; i < matrix.getColumns(); i++) {
             int tmp = matrix.getElement(i, indexColumnMinElement);
             matrix.setElement(i, indexColumnMinElement,
@@ -106,7 +111,7 @@ public class Main {
         private int indexRowMinElement = 0;
         private int indexColumnMinElement = 0;
 
-        public void findAndSetIndexesMinElement(
+        public void findIndexesMinElement(
                 @NotNull final MatrixInts matrix) {
             Objects.requireNonNull(matrix, "Matrix is null");
             int minElement = Integer.MAX_VALUE;
@@ -115,11 +120,19 @@ public class Main {
                     int element = matrix.getElement(i, j);
                     if (element < minElement) {
                         minElement = element;
-                        this.indexRowMinElement = i;
-                        this.indexColumnMinElement = j;
+                        this.setIndexRowMinElement(i);
+                        this.setIndexColumnMinElement(j);
                     }
                 }
             }
+        }
+
+        public void setIndexRowMinElement(final int index) {
+            this.indexRowMinElement = index;
+        }
+
+        public void setIndexColumnMinElement(final int index) {
+            this.indexColumnMinElement = index;
         }
 
         public int getIndexRowMinElement() {

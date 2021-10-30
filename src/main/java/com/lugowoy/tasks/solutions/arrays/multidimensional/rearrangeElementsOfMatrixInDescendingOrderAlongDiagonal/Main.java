@@ -1,10 +1,12 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.rearrangeElementsOfMatrixInDescendingOrderAlongDiagonal;
 
+import com.lugowoy.helper.checkers.CheckerMatrix;
 import com.lugowoy.helper.execution.Executor;
 import com.lugowoy.helper.execution.OutputExecutionResultToConsole;
 import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
 import com.lugowoy.helper.filling.matrix.numbers.primitives.FillingMatrixRandomPrimitiveDoubles;
 import com.lugowoy.helper.models.matrices.MatrixDoubles;
+import com.lugowoy.helper.utils.Capacity;
 import com.lugowoy.helper.utils.HelperFillerValues;
 import com.lugowoy.helper.utils.HelperMatrixFiller;
 import com.lugowoy.helper.utils.ReaderMatrixLength;
@@ -47,7 +49,7 @@ public class Main {
 
     private static MatrixDoubles rearrangeMatrixInDescendingOrderAlongDiagonal(
             @NotNull final MatrixDoubles matrix) {
-        Objects.requireNonNull(matrix, "Matrix is null");
+        CheckerMatrix.check(matrix, Capacity.UPPER.get(), Capacity.UPPER.get());
         int length = matrix.getRows();
         for (int n = 0; n < length; n++) {
             int row = 0, col = 0;

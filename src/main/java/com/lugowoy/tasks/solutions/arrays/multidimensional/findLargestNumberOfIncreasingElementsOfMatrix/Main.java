@@ -1,11 +1,13 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.findLargestNumberOfIncreasingElementsOfMatrix;
 
+import com.lugowoy.helper.checkers.CheckerMatrix;
 import com.lugowoy.helper.execution.Executor;
 import com.lugowoy.helper.execution.OutputExecutionResultToConsole;
 import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
 import com.lugowoy.helper.filling.matrix.numbers.primitives.FillingMatrixRandomPrimitiveIntegers;
 import com.lugowoy.helper.models.arrays.ArrayInts;
 import com.lugowoy.helper.models.matrices.MatrixInts;
+import com.lugowoy.helper.utils.Capacity;
 import com.lugowoy.helper.utils.HelperMatrixFiller;
 import com.lugowoy.helper.utils.ReaderMatrixLength;
 import org.jetbrains.annotations.NotNull;
@@ -48,8 +50,8 @@ public class Main {
 
     private static ArrayInts findLargestNumberOfIncreasingElementsGoingInRow(
             @NotNull final MatrixInts matrix) {
-        Objects.requireNonNull(matrix, "Matrix is null");
-        ArrayInts tmpArray = convertMatrixIntoArray(matrix);
+        CheckerMatrix.check(matrix, Capacity.UPPER.get(), Capacity.UPPER.get());
+        ArrayInts tmpArray = convertMatrixToArray(matrix);
         int countIncreasingElements = 0;
         int maxSequence = 0;
         int indexLastIncreasingElement = 0;
@@ -71,9 +73,9 @@ public class Main {
         return new ArrayInts(ints);
     }
 
-    private static ArrayInts convertMatrixIntoArray(
+    private static ArrayInts convertMatrixToArray(
             @NotNull final MatrixInts matrix) {
-        Objects.requireNonNull(matrix, "Matrix is null");
+        CheckerMatrix.check(matrix, Capacity.UPPER.get(), Capacity.UPPER.get());
         ArrayInts resultArray = new ArrayInts();
         for (int i = 0; i < matrix.getRows(); i++) {
             for (int j = 0; j < matrix.getColumns(); j++) {

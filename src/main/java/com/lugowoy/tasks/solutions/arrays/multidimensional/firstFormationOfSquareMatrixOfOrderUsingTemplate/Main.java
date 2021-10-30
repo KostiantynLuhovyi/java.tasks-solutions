@@ -26,8 +26,7 @@ public class Main {
         int n = reader.readInt();
 
         new Executor().execute(() -> {
-            System.out.println("Result matrix by pattern : \n"
-                               + createMatrixByPattern(n));
+            System.out.println("Result matrix by pattern : \n" + createMatrixByPattern(n));
         }, new OutputExecutionTimeToConsole());
 
     }

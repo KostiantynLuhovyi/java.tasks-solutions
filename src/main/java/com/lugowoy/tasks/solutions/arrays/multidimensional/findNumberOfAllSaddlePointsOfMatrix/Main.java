@@ -1,9 +1,11 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.findNumberOfAllSaddlePointsOfMatrix;
 
+import com.lugowoy.helper.checkers.CheckerMatrix;
 import com.lugowoy.helper.execution.Executor;
 import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
 import com.lugowoy.helper.filling.matrix.numbers.primitives.FillingMatrixRandomPrimitiveIntegers;
 import com.lugowoy.helper.models.matrices.MatrixInts;
+import com.lugowoy.helper.utils.Capacity;
 import com.lugowoy.helper.utils.HelperFillerValues;
 import com.lugowoy.helper.utils.HelperMatrixFiller;
 import com.lugowoy.helper.utils.ReaderMatrixLength;
@@ -34,14 +36,14 @@ public class Main {
 
         System.out.println("Matrix : \n" + matrix + "\n");
 
-        new Executor().execute(() -> findSaddleNumbersOfMatrix(matrix),
+        new Executor().execute(() -> findNumberSaddlePointsMatrix(matrix),
                                new OutputExecutionTimeToConsole());
 
     }
 
-    private static void findSaddleNumbersOfMatrix(
+    private static void findNumberSaddlePointsMatrix(
             @NotNull final MatrixInts matrix) {
-        Objects.requireNonNull(matrix, "Matrix is null");
+        CheckerMatrix.check(matrix, Capacity.UPPER.get(), Capacity.UPPER.get());
         int counterResult = 0;
         for (int i = 0; i < matrix.getRows(); i++) {
             for (int j = 0; j < matrix.getColumns(); j++) {

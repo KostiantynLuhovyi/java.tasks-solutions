@@ -16,9 +16,9 @@ public class FinderMatrixElements {
     public FinderMatrixElements() {
     }
 
-    public int indexFirstPositiveMatrixElementInRow(
-            @NotNull final MatrixInts matrix, final int indexRow) {
-        Objects.requireNonNull(matrix, "Matrix is null");
+    public int indexFirstPositiveMatrixElementInRow(@NotNull final MatrixInts matrix,
+                                                    final int indexRow) {
+        CheckerMatrix.check(matrix, Capacity.UPPER.get(), Capacity.UPPER.get());
         CheckerMatrix.checkRows(indexRow, Capacity.LOWER.get(), matrix.getRows());
         int index = 0;
         while (index < matrix.getColumns()) {
@@ -31,9 +31,9 @@ public class FinderMatrixElements {
         return index;
     }
 
-    public int indexSecondPositiveMatrixElementInRow(
-            @NotNull final MatrixInts matrix, final int indexRow) {
-        Objects.requireNonNull(matrix, "Matrix is null");
+    public int indexSecondPositiveMatrixElementInRow(@NotNull final MatrixInts matrix,
+                                                     final int indexRow) {
+        CheckerMatrix.check(matrix, Capacity.UPPER.get(), Capacity.UPPER.get());
         CheckerMatrix.checkRows(indexRow, Capacity.LOWER.get(), matrix.getRows());
         int indexPositiveElement = 0;
         int index = 0;

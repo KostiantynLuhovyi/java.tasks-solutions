@@ -23,6 +23,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
 
         ReaderMatrixLength readerMatrixLength = new ReaderMatrixLength();
+
         int rows = readerMatrixLength.readRows(System.in, System.out,
                                                ReaderMatrixLength.MSG_ENTER_MATRIX_ROWS);
         int columns = readerMatrixLength.readColumns(System.in, System.out,
@@ -37,33 +38,15 @@ public class Main {
 
         System.out.println("Original matrix :\n" + matrix + "\n");
 
+        ConverterMatrix<MatrixInts> converter =
+                ConverterMatrix::convertMatrixSoThatRowsWithZerosAreAtEnd;
+
         new Executor().execute(
-                () -> convertMatrixRowsSoThatZeroLocatedAfterAllOther(matrix),
-                new OutputExecutionResultToConsole(),
-                OutputExecutionResultToConsole.RESULT_MATRIX,
-                new OutputExecutionTimeToConsole());
+                () -> {
+                    converter.convert(matrix);
+                    System.out.println("Matrix after conversion\n" + matrix + "\n");
+                }, new OutputExecutionTimeToConsole());
 
-    }
-
-    private static MatrixInts convertMatrixRowsSoThatZeroLocatedAfterAllOther(
-            @NotNull final MatrixInts matrix) {
-        Objects.requireNonNull(matrix, "Matrix is null");
-        int indexElementOfRow = 0;
-        for (int i = 0; i < matrix.getRows(); i++) {
-            int[] tmp = new int[matrix.getRows()];
-            for (int j = 0; j < matrix.getColumns(); j++) {
-                int element = matrix.getElement(i, j);
-                if (element != 0) {
-                    tmp[indexElementOfRow] = element;
-                } else {
-                    continue;
-                }
-                indexElementOfRow++;
-            }
-            matrix.setRowFromArray(tmp, i);
-            indexElementOfRow = 0;
-        }
-        return matrix;
     }
 
 }

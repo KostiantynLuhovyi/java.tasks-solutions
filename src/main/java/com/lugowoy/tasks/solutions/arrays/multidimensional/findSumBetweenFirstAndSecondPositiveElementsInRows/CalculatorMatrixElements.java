@@ -19,7 +19,7 @@ public class CalculatorMatrixElements {
     public int calculateSumBetweenFirstAndSecondPositiveElementsInRow(
             @NotNull final MatrixInts matrix, final int indexRow,
             final int indexFirstPositive, final int indexSecondPositive) {
-        Objects.requireNonNull(matrix, "Matrix is null");
+        CheckerMatrix.check(matrix, Capacity.UPPER.get(), Capacity.UPPER.get());
         CheckerMatrix.checkRows(indexRow, Capacity.LOWER.get(), matrix.getRows());
         CheckerIndex.checkInRange(indexFirstPositive, matrix.getColumns());
         CheckerIndex.checkInRange(indexSecondPositive, matrix.getColumns());

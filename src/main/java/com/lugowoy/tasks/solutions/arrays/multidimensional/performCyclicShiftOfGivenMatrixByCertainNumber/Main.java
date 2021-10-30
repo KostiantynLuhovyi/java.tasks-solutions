@@ -22,6 +22,7 @@ public class Main {
     public static void main(String[] args) {
 
         ReaderMatrixLength readerMatrixLength = new ReaderMatrixLength();
+
         int rows = readerMatrixLength.readRows(System.in, System.out,
                                                ReaderMatrixLength.MSG_ENTER_MATRIX_ROWS);
         int columns = readerMatrixLength.readColumns(System.in, System.out,

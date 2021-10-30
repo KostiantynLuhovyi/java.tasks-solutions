@@ -1,10 +1,12 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.rearrangeMatrixRowsSoThatCharacteristicsOfRowsIncrease;
 
+import com.lugowoy.helper.checkers.CheckerMatrix;
 import com.lugowoy.helper.execution.Executor;
 import com.lugowoy.helper.execution.OutputExecutionResultToConsole;
 import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
 import com.lugowoy.helper.filling.matrix.numbers.primitives.FillingMatrixRandomPrimitiveIntegers;
 import com.lugowoy.helper.models.matrices.MatrixInts;
+import com.lugowoy.helper.utils.Capacity;
 import com.lugowoy.helper.utils.HelperFillerValues;
 import com.lugowoy.helper.utils.HelperMatrixFiller;
 import com.lugowoy.helper.utils.ReaderMatrixLength;
@@ -47,7 +49,7 @@ public class Main {
 
     private static MatrixInts rebuildMatrixBySortingRowsAscendingCharacteristics(
             @NotNull final MatrixInts matrix) {
-        Objects.requireNonNull(matrix, "Matrix is null");
+        CheckerMatrix.check(matrix, Capacity.UPPER.get(), Capacity.UPPER.get());
         for (int i = 0; i < matrix.getRows(); i++) {
             for (int j = 0; j < matrix.getColumns() - i - 1; j++) {
                 if (calculateSumRowElement(matrix, j) < calculateSumRowElement(
@@ -66,6 +68,7 @@ public class Main {
 
     private static int calculateSumRowElement(@NotNull final MatrixInts matrix,
                                               final int indexRow) {
+        CheckerMatrix.check(matrix, Capacity.UPPER.get(), Capacity.UPPER.get());
         int result = 0;
         for (int i = 0; i < matrix.getRows(); i++) {
             result = result + Math.abs(matrix.getElement(indexRow, i));

@@ -1,17 +1,17 @@
 package com.lugowoy.tasks.solutions.arrays.multidimensional.sortRowsInDescendingOrderOfKthColumnElements;
 
+import com.lugowoy.helper.checkers.CheckerMatrix;
 import com.lugowoy.helper.execution.Executor;
 import com.lugowoy.helper.execution.OutputExecutionResultToConsole;
 import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
 import com.lugowoy.helper.filling.matrix.numbers.primitives.FillingMatrixRandomPrimitiveIntegers;
 import com.lugowoy.helper.models.matrices.MatrixInts;
+import com.lugowoy.helper.utils.Capacity;
 import com.lugowoy.helper.utils.HelperFillerValues;
 import com.lugowoy.helper.utils.HelperMatrixFiller;
 import com.lugowoy.helper.utils.ReaderConsole;
 import com.lugowoy.helper.utils.ReaderMatrixLength;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.Objects;
 
 /**
  * Sort the rows of matrix in descending order of values of the elements of k-th
@@ -52,7 +52,7 @@ public class Main {
 
     private static MatrixInts sortRowsOfMatrixInDescendingOrderOfValuesOfElementsOfKthColumn(
             @NotNull final MatrixInts matrix, final int indexRowToSort) {
-        Objects.requireNonNull(matrix, "Matrix is null");
+        CheckerMatrix.check(matrix, Capacity.UPPER.get(), Capacity.UPPER.get());
         int[][] ints = matrix.toMatrix(
                 new int[matrix.getRows()][matrix.getColumns()]);
         for (int i = 0; i < ints.length; i++) {
