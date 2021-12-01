@@ -37,17 +37,16 @@ public class Main {
         new Executor().execute(() -> {
             DeterminantArrayElementIndex<ArrayInts> determinant =
                     DeterminantArrayElementIndex::determineMinElementIndex;
-            int indexMinElement = determinant.determineArrayElementIndex(array);
+            int indexMinElement = determinant.determine(array);
             System.out.println("Index min element in the array is : " + indexMinElement);
 
             determinant = DeterminantArrayElementIndex::determineMaxElementIndex;
-            int indexMaxElement = determinant.determineArrayElementIndex(array);
+            int indexMaxElement = determinant.determine(array);
             System.out.println("Index max element in the array is : " + indexMaxElement);
 
-            CalculationSumBetweenElementsArray calc = new CalculationSumBetweenElementsArray();
-            int resultSum = calc.calculateSumBetweenMinAndMaxInclusive(array,
-                                                                       indexMinElement,
-                                                                       indexMaxElement);
+            CalculationSumArrayElements<Integer, ArrayInts> calc =
+                    CalculationSumArrayElements::calculateSumBetweenMinAndMaxArrayElement;
+            int resultSum = calc.calculate(array, indexMinElement, indexMaxElement);
 
             System.out.printf(RESULT_SUM_BETWEEN_MIN_AND_MAX_ELEMENTS, resultSum);
         }, new OutputExecutionTimeToConsole());

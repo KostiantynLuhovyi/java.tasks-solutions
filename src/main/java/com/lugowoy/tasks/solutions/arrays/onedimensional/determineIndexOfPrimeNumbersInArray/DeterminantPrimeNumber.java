@@ -3,12 +3,9 @@ package com.lugowoy.tasks.solutions.arrays.onedimensional.determineIndexOfPrimeN
 /**
  * Created by Konstantin Lugowoy on 22.05.2017.
  */
-@FunctionalInterface
-public interface Determinant<T extends Number> {
+public class DeterminantPrimeNumber {
 
-    boolean determine(T number);
-
-    static boolean determineIndexOfPrimesInArray(int number) {
+    public boolean determine(int number) {
         boolean isPrimeNumber = true;
         if (number != 0) {
             if (number == 1) {

@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 @FunctionalInterface
 public interface DeterminantArrayElementIndex<T extends AbstractArray> {
 
-    int determineArrayElementIndex(@NotNull final T t);
+    int determine(@NotNull final T t);
 
     static int determineMinElementIndex(@NotNull final ArrayInts array) {
         CheckerArray.check(array, Capacity.UPPER.get());

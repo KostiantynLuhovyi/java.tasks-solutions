@@ -35,8 +35,7 @@ public class Human implements Serializable, Cloneable {
     public String toString() {
         return "Human[" +
                 "name='" + name + '\'' +
-                ", age=" + age +
-                ']';
+                ", age=" + age + ']';
     }
 
     @Override

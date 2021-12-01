@@ -1,36 +1,43 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.determineNumberOfDifferentElementsInOneDimensionalArray;
 
-import com.lugowoy.helper.filling.ValuesToFilling;
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
-import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.storages.arrays.ArrayInts;
-import com.lugowoy.helper.utils.ArrayLengthReader;
-
-import static com.lugowoy.helper.filling.ValuesToFilling.INT_LOWER_BOUND;
-import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
+import com.lugowoy.helper.execution.Executor;
+import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
+import com.lugowoy.helper.filling.array.numbers.primitives.FillingArrayRandomPrimitiveIntegers;
+import com.lugowoy.helper.models.arrays.ArrayInts;
+import com.lugowoy.helper.utils.HelperArrayFiller;
+import com.lugowoy.helper.utils.HelperFillerValues;
+import com.lugowoy.helper.utils.ReaderArrayLength;
 
 /**
- * Given a one-dimensional array of numbers. Find the number of different numbers in this array.
- * <p> Created by Konstantin Lugowoy on 28.05.2017.
+ * Given a one-dimensional array of numbers. Find the number of different
+ * numbers in this array.
+ *
+ * <p>Created by Konstantin Lugowoy on 28.05.2017.
  */
 public class Main {
 
-    private static final Determinant DETERMINANT = Determinant::determineTheNumberOfDifferentElementsInOneDimensionalArray;
+    private static final Determinant<ArrayInts> DETERMINANT =
+            Determinant::determineNumberDifferentElementsInArray;
 
     public static void main(String[] args) {
 
-        System.out.println("Enter length of the array : ");
-        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
+        ReaderArrayLength readerLength = new ReaderArrayLength();
+        int lengthArray = readerLength.read(System.in, System.out,
+                                            ReaderArrayLength.MSG_ENTER_ARRAY_LENGTH);
 
-        FillingArrayRandomPrimitiveIntegers filler = new FillingArrayRandomPrimitiveIntegers();
+        HelperArrayFiller fillerArray = new HelperArrayFiller();
 
-        ArrayInts array = new ArrayInts(filler.fill(lengthOfArray, INT_LOWER_BOUND, INT_UPPER_BOUND));
+        ArrayInts array = new ArrayInts(fillerArray.getArray(
+                new FillingArrayRandomPrimitiveIntegers(), lengthArray,
+                HelperFillerValues.INT_NEGATIVE_TEN,
+                HelperFillerValues.INT_POSITIVE_TEN));
 
         System.out.println(array);
 
-        int numberOfDifferentElements = DETERMINANT.determine(array);
-
-        System.out.printf("In a one-dimensional array of %d different elements.", numberOfDifferentElements);
+        new Executor().execute(() -> {
+            int differentElements = DETERMINANT.determine(array);
+            System.out.printf("In a array of %d different elements.", differentElements);
+        }, new OutputExecutionTimeToConsole());
 
     }
 

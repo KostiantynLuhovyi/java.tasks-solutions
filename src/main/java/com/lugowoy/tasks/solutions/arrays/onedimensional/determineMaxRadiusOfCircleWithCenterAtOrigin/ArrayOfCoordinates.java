@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.solutions.arrays.onedimensional.determineMaxRadiusOfCircleWithCenterAtOriginWhichContainsAllPoints;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.determineMaxRadiusOfCircleWithCenterAtOrigin;
 
 /**
  * Created by Konstantin Lugowoy on 14.05.2017.

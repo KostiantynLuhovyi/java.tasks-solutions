@@ -14,8 +14,9 @@ public interface MultiplyingArrayElements<T extends AbstractArray, V> {
 
     T multiply(@NotNull final T array, final V minValue, final V maxValue);
 
-    static ArrayInts multiplyElementsBySquareMinOrMaxValue(
-            @NotNull final ArrayInts array, final int minValue, final int maxValue) {
+    static ArrayInts multiplyElementsBySquareMinOrMaxValue(@NotNull final ArrayInts array,
+                                                           final int minValue,
+                                                           final int maxValue) {
         CheckerArray.check(array, Capacity.UPPER.get());
         for (int i = 0; i < array.size(); i++) {
             if (array.get(i) >= 0) {
@@ -27,8 +28,7 @@ public interface MultiplyingArrayElements<T extends AbstractArray, V> {
         return array;
     }
 
-    private static int multiplyBySquareNumber(final int element,
-                                              final int squareNumber) {
+    private static int multiplyBySquareNumber(final int element, final int squareNumber) {
         return element * squareNumber;
     }
 

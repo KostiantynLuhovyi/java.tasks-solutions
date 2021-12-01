@@ -15,9 +15,7 @@ public class Applicant implements Serializable, Cloneable {
 
     @Override
     public String toString() {
-        return "Applicant[" +
-                "rating=" + rating +
-                ']';
+        return "Applicant[" + "rating=" + rating + ']';
     }
 
     public int getRating() {

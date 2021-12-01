@@ -28,8 +28,7 @@ public class Main {
         System.out.print("The number of applicants not admitted to exam : ");
         System.out.println(Arrays.stream(applicantsArray)
                                  .filter(applicant -> applicant.getRating() == 1
-                                                      || applicant.getRating()
-                                                         == 2).count());
+                                                      || applicant.getRating() == 2).count());
     }
 
 }

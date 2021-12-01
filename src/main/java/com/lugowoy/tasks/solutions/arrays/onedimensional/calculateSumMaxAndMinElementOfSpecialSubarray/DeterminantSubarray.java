@@ -7,7 +7,7 @@ import com.lugowoy.helper.utils.Capacity;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * <p>Created by Konstantin Lugowoy on 09.01.2021.
+ * Created by Konstantin Lugowoy on 09.01.2021.
  */
 @FunctionalInterface
 public interface DeterminantSubarray<T extends AbstractArray> {

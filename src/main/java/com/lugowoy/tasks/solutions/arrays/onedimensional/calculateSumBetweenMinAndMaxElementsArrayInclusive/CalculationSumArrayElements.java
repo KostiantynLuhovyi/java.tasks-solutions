@@ -2,6 +2,7 @@ package com.lugowoy.tasks.solutions.arrays.onedimensional.calculateSumBetweenMin
 
 import com.lugowoy.helper.checkers.CheckerArray;
 import com.lugowoy.helper.checkers.CheckerIndex;
+import com.lugowoy.helper.models.arrays.AbstractArray;
 import com.lugowoy.helper.models.arrays.ArrayInts;
 import com.lugowoy.helper.utils.Capacity;
 import org.jetbrains.annotations.NotNull;
@@ -9,15 +10,15 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Created by Konstantin Lugowoy on 27.03.2017.
  */
-public class CalculationSumBetweenElementsArray {
+@FunctionalInterface
+public interface CalculationSumArrayElements<T extends Number, A extends AbstractArray> {
 
-    public CalculationSumBetweenElementsArray() {
-        super();
-    }
+    T calculate(@NotNull final A a, final int firstIndex, final int secondIndex);
 
-    public int calculateSumBetweenMinAndMaxInclusive(
-            @NotNull final ArrayInts array, final int indexMinElement,
-            final int indexMaxElement) {
+
+    static Integer calculateSumBetweenMinAndMaxArrayElement(@NotNull final ArrayInts array,
+                                                            final int indexMinElement,
+                                                            final int indexMaxElement) {
         CheckerArray.check(array, Capacity.UPPER.get());
         CheckerIndex.checkInRange(indexMinElement, array.size());
         CheckerIndex.checkInRange(indexMaxElement, array.size());

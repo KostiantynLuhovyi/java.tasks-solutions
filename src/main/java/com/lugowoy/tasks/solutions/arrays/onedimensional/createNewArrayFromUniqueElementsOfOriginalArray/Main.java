@@ -23,10 +23,8 @@ public class Main {
     public static void main(String[] args) {
 
         ReaderArrayLength readerArrayLength = new ReaderArrayLength();
-        int lengthArray = readerArrayLength.read(System.in,
-                                                 Capacity.UPPER.get(),
-                                                 System.out,
-                                                 ReaderArrayLength.MSG_ENTER_ARRAY_LENGTH);
+        int lengthArray = readerArrayLength.read(System.in, Capacity.UPPER.get(),
+                                                 System.out, ReaderArrayLength.MSG_ENTER_ARRAY_LENGTH);
 
         HelperArrayFiller fillerArray = new HelperArrayFiller();
 
@@ -38,12 +36,9 @@ public class Main {
         System.out.println("Array : \n" + array + "\n");
 
         new Executor().execute(() -> {
-            ArrayInts newArrayFromTheUniqueElements =
-                    DETERMINANT.determineUniqueness(array);
-
+            ArrayInts newArrayFromTheUniqueElements = DETERMINANT.determineUniqueness(array);
             System.out.println("New array from the unique elements : \n"
                                + newArrayFromTheUniqueElements);
-
         }, new OutputExecutionTimeToConsole());
     }
 

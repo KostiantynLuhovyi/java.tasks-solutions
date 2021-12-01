@@ -37,7 +37,6 @@ public class Main {
 
         new Executor().execute(() -> {
             ArrayInts resultArray = FILLING.fillArray(array);
-
             if (resultArray.size() != 0) {
                 System.out.print("Index of zero elements of the original array : ");
                 for (int i = 0; i < resultArray.size(); i++) {

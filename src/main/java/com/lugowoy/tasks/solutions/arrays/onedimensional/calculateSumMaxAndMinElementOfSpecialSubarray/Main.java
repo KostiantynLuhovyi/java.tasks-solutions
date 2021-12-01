@@ -39,16 +39,14 @@ public class Main {
             determinantSubarray = DeterminantSubarray::determineOddSubarray;
             ArrayInts oddSubarray = determinantSubarray.determine(array);
 
-            DeterminantElementArray<ArrayInts> determinant =
+            DeterminantElementArray<ArrayInts> determinantElement =
                     DeterminantElementArray::determineMaxElement;
-            int maxElement = determinant.determine(evenSubarray);
-            System.out.println("Max element in the even numbers subarray is "
-                               + maxElement);
+            int maxElement = determinantElement.determine(evenSubarray);
+            System.out.println("Max element in the even numbers subarray is " + maxElement);
 
-            determinant = DeterminantElementArray::determineMinElement;
-            int minElement = determinant.determine(oddSubarray);
-            System.out.println("Min element in the odd numbers subarray is "
-                               + minElement);
+            determinantElement = DeterminantElementArray::determineMinElement;
+            int minElement = determinantElement.determine(oddSubarray);
+            System.out.println("Min element in the odd numbers subarray is " + minElement);
 
             System.out.println();
             System.out.println("Result summation : " + (maxElement + minElement));

@@ -1,43 +1,55 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.cyclicallyShiftElementsOfArrayElementsToRightOrLeft;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
-import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.storages.arrays.ArrayInts;
-import com.lugowoy.helper.utils.ArrayLengthReader;
-import com.lugowoy.tasks.solutions.Helper;
+import com.lugowoy.helper.execution.Executor;
+import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
+import com.lugowoy.helper.filling.array.numbers.primitives.FillingArrayRandomPrimitiveIntegers;
+import com.lugowoy.helper.models.arrays.ArrayInts;
+import com.lugowoy.helper.utils.Capacity;
+import com.lugowoy.helper.utils.HelperArrayFiller;
+import com.lugowoy.helper.utils.HelperFillerValues;
+import com.lugowoy.helper.utils.ReaderArrayLength;
+import com.lugowoy.helper.utils.ReaderConsole;
 
 /**
- * Given an array A. Cyclically shift the elements of the array to K elements to the right (to the left).
- * <p> Created by Konstantin Lugowoy on 19.06.2017.
+ * Given an array A. Cyclically shift the elements of the array to K elements to
+ * the right (to the left).
+ *
+ * <p>Created by Konstantin Lugowoy on 19.06.2017.
  */
 public class Main {
 
-    private static final Shifting SHIFTING = Shifting::shiftElementsOfArrayElementsToRightOrLeft;
+    private static final Shifting SHIFTING =
+            Shifting::shiftElementsOfArrayElementsToRightOrLeft;
 
     private static final int BOUND = 100;
 
     public static void main(String[] args) {
 
-        int lengthOfArray = Helper.enterArrayLengthToConsole();
+        ReaderArrayLength readerArrayLength = new ReaderArrayLength();
 
-        ArrayInts array = new ArrayInts(Helper.FILLING_ARRAY_INTS.fill(lengthOfArray, BOUND));
+        int lengthArray = readerArrayLength.read(System.in, Capacity.UPPER.get(),
+                                                 System.out, ReaderArrayLength.MSG_ENTER_ARRAY_LENGTH);
+
+        ArrayInts array = new ArrayInts(new HelperArrayFiller().getArray(
+                new FillingArrayRandomPrimitiveIntegers(),
+                lengthArray, HelperFillerValues.INT_ZERO, BOUND));
 
         System.out.println("Original : " + array);
 
         int numberK = enterNumberK(array.size());
 
-        SHIFTING.shift(array, numberK);
-
-        System.out.println("Result after shifting elements : " + array);
-
+        new Executor().execute(() -> {
+            SHIFTING.shift(array, numberK);
+            System.out.println("Result after shifting elements : " + array);
+        }, new OutputExecutionTimeToConsole());
     }
 
     private static int enterNumberK(int sizeArray) {
         System.out.println("Enter integer number : ");
-        ReadingConsole readingConsole = new ReadingConsole();
+        ReaderConsole readerConsole = new ReaderConsole();
         int numberK;
         while (true) {
-            numberK = readingConsole.readInt();
+            numberK = readerConsole.readInt();
             if ((numberK >= sizeArray) || (numberK > -sizeArray)) {
                 break;
             } else if (numberK == 0) {

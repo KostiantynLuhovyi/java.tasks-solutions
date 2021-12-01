@@ -22,10 +22,8 @@ public class Main {
     public static void main(String[] args) {
 
         ReaderArrayLength readerArrayLength = new ReaderArrayLength();
-        int lengthArray = readerArrayLength.read(System.in,
-                                                 Capacity.UPPER.get(),
-                                                 System.out,
-                                                 ReaderArrayLength.MSG_ENTER_ARRAY_LENGTH);
+        int lengthArray = readerArrayLength.read(System.in, Capacity.UPPER.get(),
+                                                 System.out, ReaderArrayLength.MSG_ENTER_ARRAY_LENGTH);
 
         HelperArrayFiller fillerArray = new HelperArrayFiller();
 
@@ -38,9 +36,7 @@ public class Main {
 
         new Executor().execute(() -> {
             ArrayInts evenNumbersArray = getArrayWithEvenNumbers(array);
-
-            System.out.println(
-                    "Even numbers of original array : \n" + evenNumbersArray);
+            System.out.println("Even numbers of original array : \n" + evenNumbersArray);
         }, new OutputExecutionTimeToConsole());
 
     }

@@ -13,9 +13,9 @@ public interface Counting {
     void counting(ArrayOfHumans humans, int startAgeInterval,
                   int finishAgeInterval);
 
-    static void countNumberOfPeopleWithAgeInGivenInterval(
-            @NotNull final ArrayOfHumans humans, final int startAgeInterval,
-            final int finishAgeInterval) {
+    static void countNumberOfPeopleWithAgeInGivenInterval(@NotNull final ArrayOfHumans humans,
+                                                          final int startAgeInterval,
+                                                          final int finishAgeInterval) {
         Objects.requireNonNull(humans, "Array humans is null");
         int resultCount = 0;
         if ((startAgeInterval >= 0) && (finishAgeInterval <= 150)) {

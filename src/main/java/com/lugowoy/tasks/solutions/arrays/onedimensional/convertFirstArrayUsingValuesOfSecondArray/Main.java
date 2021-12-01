@@ -51,8 +51,7 @@ public class Main {
             } else {
                 throw new IllegalArgumentException("Sizes of arrays are not equal.");
             }
-            System.out.println(
-                    "Result second array after converting : \n" + secondArray);
+            System.out.println("Result second array after converting : \n" + secondArray);
         }, new OutputExecutionTimeToConsole());
     }
 

@@ -25,10 +25,8 @@ public class Main {
     public static void main(String[] args) {
 
         ReaderArrayLength readerArrayLength = new ReaderArrayLength();
-        int lengthArray = readerArrayLength.read(System.in,
-                                                 Capacity.UPPER.get(),
-                                                 System.out,
-                                                 ReaderArrayLength.MSG_ENTER_ARRAY_LENGTH);
+        int lengthArray = readerArrayLength.read(System.in, Capacity.UPPER.get(),
+                                                 System.out, ReaderArrayLength.MSG_ENTER_ARRAY_LENGTH);
 
         HelperArrayFiller fillerArray = new HelperArrayFiller();
 
@@ -42,15 +40,12 @@ public class Main {
         int specificEndingNumber = new ReaderConsole().readInt();
 
         new Executor().execute(() -> {
-            ArrayInts resultArray = selectElementsEndingSpecificValue(array,
-                                                                      specificEndingNumber);
-
+            ArrayInts resultArray = selectElementsEndingSpecificValue(array, specificEndingNumber);
             if (resultArray.size() != 0) {
                 System.out.println("New array : " + resultArray);
                 System.out.println();
             } else {
-                System.out.println(
-                        "No values were found with the specified ending.");
+                System.out.println("No values were found with the specified ending.");
             }
         }, new OutputExecutionTimeToConsole());
 

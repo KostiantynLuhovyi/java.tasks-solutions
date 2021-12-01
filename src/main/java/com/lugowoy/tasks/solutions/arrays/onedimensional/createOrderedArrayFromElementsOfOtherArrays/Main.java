@@ -27,30 +27,28 @@ public class Main {
     public static void main(String[] args) {
 
         ReaderArrayLength readerArrayLength = new ReaderArrayLength();
-        int lengthFirstArray = readerArrayLength.read(System.in,
-                                                      Capacity.UPPER.get(),
-                                                      System.out,
-                                                      MSG_ENTER_FIRST_ARRAY_LENGTH);
 
-        int lengthSecondArray = readerArrayLength.read(System.in,
-                                                       Capacity.UPPER.get(),
-                                                       System.out,
-                                                       MSG_ENTER_SECOND_ARRAY_LENGTH);
+        int lengthFirstArray = readerArrayLength.read(System.in, Capacity.UPPER.get(),
+                                                      System.out, MSG_ENTER_FIRST_ARRAY_LENGTH);
+
+        int lengthSecondArray = readerArrayLength.read(System.in, Capacity.UPPER.get(),
+                                                       System.out, MSG_ENTER_SECOND_ARRAY_LENGTH);
 
         HelperArrayFiller fillerArray = new HelperArrayFiller();
 
-        int[] firstInts = fillerArray.getArray(
-                new FillingArrayRandomPrimitiveIntegers(), lengthFirstArray,
-                HelperFillerValues.INT_NEGATIVE_TEN,
-                HelperFillerValues.INT_POSITIVE_TEN);
+        int[] firstInts = fillerArray.getArray(new FillingArrayRandomPrimitiveIntegers(),
+                                               lengthFirstArray,
+                                               HelperFillerValues.INT_NEGATIVE_TEN,
+                                               HelperFillerValues.INT_POSITIVE_TEN);
         Arrays.sort(firstInts);
         ArrayInts firstArray = new ArrayInts(firstInts);
         System.out.println("First array : \n" + firstArray + "\n");
 
-        int[] secondInts = fillerArray.getArray(
-                new FillingArrayRandomPrimitiveIntegers(), lengthSecondArray,
-                HelperFillerValues.INT_NEGATIVE_TEN,
-                HelperFillerValues.INT_POSITIVE_TEN);
+        int[] secondInts = fillerArray.getArray(new FillingArrayRandomPrimitiveIntegers(),
+                                                lengthSecondArray,
+                                                HelperFillerValues.INT_NEGATIVE_TEN,
+                                                HelperFillerValues.INT_POSITIVE_TEN);
+
         Arrays.sort(secondInts);
         ArrayInts secondArray = new ArrayInts(secondInts);
         System.out.println("Second array : \n" + secondArray + "\n");

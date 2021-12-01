@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.countingNumberOfPeopleWhoseAgeIsInGivenInterval;
 
+import com.lugowoy.helper.execution.Executor;
+import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
 import com.lugowoy.helper.utils.ReaderConsole;
 
 import java.util.Arrays;
@@ -27,7 +29,10 @@ public class Main {
         showHumans(humans);
 
         Counting counting = Counting::countNumberOfPeopleWithAgeInGivenInterval;
-        counting.counting(humans, startAgeInterval, finishAgeInterval);
+
+        new Executor().execute(() -> {
+            counting.counting(humans, startAgeInterval, finishAgeInterval);
+        }, new OutputExecutionTimeToConsole());
 
     }
 

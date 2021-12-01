@@ -1,32 +1,40 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.determineNumbersWithEvenIndexesIfThereIsNumberWithOddIndexForHim;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
-import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.storages.arrays.ArrayInts;
-import com.lugowoy.helper.utils.ArrayLengthReader;
-
-import static com.lugowoy.helper.filling.ValuesToFilling.INT_LOWER_BOUND;
-import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
+import com.lugowoy.helper.execution.Executor;
+import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
+import com.lugowoy.helper.filling.array.numbers.primitives.FillingArrayRandomPrimitiveIntegers;
+import com.lugowoy.helper.models.arrays.ArrayInts;
+import com.lugowoy.helper.utils.HelperArrayFiller;
+import com.lugowoy.helper.utils.HelperFillerValues;
+import com.lugowoy.helper.utils.ReaderArrayLength;
 
 /**
- * Write a program that enter a sequence of integers and prints numbers with even indexes if there is an equal number with an odd index.
- * <p> Created by Konstantin Lugowoy on 07.05.2018.
+ * Write a program that enter a sequence of integers and prints numbers with
+ * even indexes if there is an equal number with an odd index.
+ *
+ * <p>Created by Konstantin Lugowoy on 07.05.2018.
  */
 public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Enter length of the array : ");
-        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
+        ReaderArrayLength readerLength = new ReaderArrayLength();
+        int lengthArray = readerLength.read(System.in, System.out,
+                                            ReaderArrayLength.MSG_ENTER_ARRAY_LENGTH);
 
-        FillingArrayRandomPrimitiveIntegers filler = new FillingArrayRandomPrimitiveIntegers();
+        HelperArrayFiller filler = new HelperArrayFiller();
+        ArrayInts array = new ArrayInts(filler.getArray(new FillingArrayRandomPrimitiveIntegers(),
+                                                        lengthArray,
+                                                        HelperFillerValues.INT_NEGATIVE_HUNDRED,
+                                                        HelperFillerValues.INT_POSITIVE_HUNDRED));
 
-        ArrayInts array = new ArrayInts(filler.fill(lengthOfArray, INT_LOWER_BOUND, INT_UPPER_BOUND));
+        System.out.println("Original array:" + array + "\n");
 
-        System.out.println(array);
-
-        Determinant determinant = Determinant::determineNumbersWithEvenIndexesIfThereIsNumberWithOddIndexForHim;
-        determinant.determine(array);
+        new Executor().execute(() -> {
+            Determinant<ArrayInts> determinant =
+                    Determinant::determineNumbersWithEvenIndexesIfThereIsNumberWithOddIndex;
+            determinant.determine(array);
+        }, new OutputExecutionTimeToConsole());
 
     }
 

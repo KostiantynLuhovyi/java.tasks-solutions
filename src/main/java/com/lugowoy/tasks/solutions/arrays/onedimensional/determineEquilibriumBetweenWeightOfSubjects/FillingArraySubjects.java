@@ -1,94 +1,90 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.determineEquilibriumBetweenWeightOfSubjects;
 
+import com.lugowoy.helper.checkers.CheckerArray;
 import com.lugowoy.helper.filling.array.FillingArray;
-import com.lugowoy.helper.models.storages.arrays.AbstractArray;
-import com.lugowoy.helper.models.storages.arrays.Array;
-import com.lugowoy.helper.utils.checking.CheckerArray;
-import com.lugowoy.tasks.solutions.arrays.onedimensional.determineEquilibriumBetweenWeightOfSubjects.Subject;
-
-import java.util.Arrays;
+import com.lugowoy.helper.models.arrays.Array;
+import com.lugowoy.helper.utils.Capacity;
+import com.lugowoy.helper.utils.RandomNumber;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Created by Konstantin Lugowoy on 27.05.2018.
  *
  * @author Konstantin Lugowoy
  * @version 1.0
- * @since 1.0
- *
- * The class provides functionality to fill an object of the {@link Array} class and classical arrays
- *  with data of the object of the {@link Subject} class type.
- *
  * @see com.lugowoy.helper.filling.Filling
  * @see com.lugowoy.helper.filling.array.FillingArray
+ * @since 1.0
+ * <p>
+ * The class provides functionality to fill an object of the {@link
+ * com.lugowoy.helper.models.arrays.Array} class and classical arrays with data
+ * of the object of the {@link Subject} class type.
  */
 public class FillingArraySubjects implements FillingArray<Subject> {
 
-    private Array<Integer> numbersArray;
+    private final int boundSubjectValue;
 
-    /**
-     * Constructs a new object of {@link FillingArraySubjects} class, initializing the object with an array of integers.
-     *  The values of the integer array are used to initialize the objects of the {@link Subject} class.
-     *
-     * @param numbersArray An array with integer values.
-     * */
-    public FillingArraySubjects(Array<Integer> numbersArray) {
-        this.numbersArray = numbersArray;
+    public FillingArraySubjects(final int boundSubjectValue) {
+        this.boundSubjectValue = boundSubjectValue;
     }
 
     /**
-     * Fills an object of the {@link Array} class with data of the object of the {@link Subject} class.
+     * Fills an object of the {@link Array} class with data of the object of the
+     * {@link Subject} class.
      *
-     * @param array The object of the {@link Array} class to be filled with data of the object of the {@link Subject} class.
-     *
-     * @throws IllegalArgumentException If object of the {@link Array} class argument is null.
-     * */
+     * @param array The object of the {@link Array} class to be filled with data
+     * of the object of the {@link Subject} class.
+     * @throws IllegalArgumentException If object of the {@link Array} class
+     * argument is null.
+     */
     @Override
-    public void fill(Array<Subject> array) {
-        if (CheckerArray.checkLengthInArray(array)) {
-            Subject[] subjects = new Subject[array.size()];
-            this.initializeArrayElements(subjects, this.numbersArray);
-            array.setArray(subjects);
-        }
+    public void fill(@NotNull final Array<Subject> array) {
+        CheckerArray.check(array, Capacity.UPPER.get());
+        Subject[] subjects = new Subject[array.size()];
+        this.initializeArrayElements(subjects);
+        array.setArray(subjects);
     }
 
     /**
      * Fills an array with data of the object of the {@link Subject} class.
      *
-     * @param subjects The array to be filled with data of the object {@link Subject} class.
-     *
+     * @param subjects The array to be filled with data of the object {@link
+     * Subject} class.
      * @throws IllegalArgumentException If the array argument is null.
-     * */
+     */
     @Override
     public void fill(Subject[] subjects) {
-        if (CheckerArray.checkLengthInArray(subjects)) {
-            this.initializeArrayElements(subjects, this.numbersArray);
-        }
+        CheckerArray.check(subjects, Capacity.UPPER.get());
+        this.initializeArrayElements(subjects);
     }
 
     /**
      * Fills an array with data of the object of the {@link Subject} class.
      * <p>The array is created based on the "lengthArray" parameter.
-     * The parameter "lengthArray" determines the length(size) of the created array.
-     * If the value of "lengthArray" is less than "0" or is greatest than "32767", created array of length {@link Array#DEFAULT_LENGTH}.
+     * The parameter "lengthArray" determines the length(size) of the created
+     * array. If the value of "lengthArray" is less than {@link Capacity#LOWER}
+     * or is greatest than {@link Capacity#UPPER}, created array of length
+     * {@link com.lugowoy.helper.models.arrays.AbstractArray#DEFAULT_CAPACITY}.
      *
-     * @param lengthArray The length(size) of the array to be filled with data of the object of the {@link Subject} class type.
-     *
-     * @return Created and filled array with data of the object of the {@link Subject} class type.
-     * */
+     * @param lengthArray The length(size) of the array to be filled with data
+     * of the object of the {@link Subject} class type.
+     * @return Created and filled array with data of the object of the {@link
+     * Subject} class type.
+     */
     @Override
     public Subject[] fill(int lengthArray) {
-        Subject[] subjects = null;
-        if (CheckerArray.checkLengthArray(lengthArray)) {
-            subjects = new Subject[lengthArray];
-            this.initializeArrayElements(subjects, this.numbersArray);
-        }
+        CheckerArray.check(lengthArray);
+        Subject[] subjects = new Subject[lengthArray];
+        this.initializeArrayElements(subjects);
         return subjects;
     }
 
-    private void initializeArrayElements(Subject[] subjectArray, Array<Integer> numbersArray) {
+    private void initializeArrayElements(Subject[] arraySubjects) {
         int idCounter = 1;
-        for (int i = 0; i < subjectArray.length; i++) {
-            subjectArray[i] = new Subject(idCounter, numbersArray.get(i));
+        RandomNumber randomNumber = new RandomNumber();
+        for (int i = 0; i < arraySubjects.length; i++) {
+            arraySubjects[i] = new Subject(idCounter,
+                                           randomNumber.generateInt(this.boundSubjectValue));
             idCounter++;
         }
     }

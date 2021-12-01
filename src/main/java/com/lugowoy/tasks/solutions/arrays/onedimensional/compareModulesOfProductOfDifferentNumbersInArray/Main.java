@@ -42,14 +42,11 @@ public class Main {
             int modulePositiveNumbersArray = Math.abs(product.product(array));
 
             if (moduleNegativeNumbersArray > modulePositiveNumbersArray) {
-                System.out.println(
-                        "Module product negative numbers of the array"
-                        + "is larger module product positive numbers.");
-            } else if (modulePositiveNumbersArray
-                       > moduleNegativeNumbersArray) {
-                System.out.println(
-                        "Module product positive numbers of the array"
-                        + "is larger module product negative numbers.");
+                System.out.println("Module product negative numbers of the array"
+                                   + "is larger module product positive numbers.");
+            } else if (modulePositiveNumbersArray > moduleNegativeNumbersArray) {
+                System.out.println("Module product positive numbers of the array"
+                                   + "is larger module product negative numbers.");
             }
         }, new OutputExecutionTimeToConsole());
 

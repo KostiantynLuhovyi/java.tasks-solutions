@@ -11,6 +11,7 @@ import com.lugowoy.helper.utils.ReaderArrayLength;
 /**
  * Given an array of integer numbers, whose dimension is N. Counting how much it
  * negative, positive and zero elements.
+ *
  * <p> Created by Konstantin Lugowoy on 13-Feb-17.
  */
 public class Main {
@@ -22,6 +23,7 @@ public class Main {
                                                  ReaderArrayLength.MSG_ENTER_ARRAY_LENGTH);
 
         HelperArrayFiller fillerArray = new HelperArrayFiller();
+
         ArrayInts array = new ArrayInts(fillerArray.getArray(
                 new FillingArrayRandomPrimitiveIntegers(), lengthArray,
                 HelperFillerValues.INT_NEGATIVE_TEN,
