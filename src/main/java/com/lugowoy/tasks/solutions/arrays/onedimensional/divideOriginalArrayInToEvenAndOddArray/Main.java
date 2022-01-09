@@ -1,14 +1,18 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.divideOriginalArrayInToEvenAndOddArray;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
-import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.storages.arrays.ArrayInts;
-import com.lugowoy.helper.utils.ArrayLengthReader;
+import com.lugowoy.helper.execution.Executor;
+import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
+import com.lugowoy.helper.filling.array.numbers.primitives.FillingArrayRandomPrimitiveIntegers;
+import com.lugowoy.helper.models.arrays.ArrayInts;
+import com.lugowoy.helper.utils.HelperArrayFiller;
+import com.lugowoy.helper.utils.HelperFillerValues;
+import com.lugowoy.helper.utils.ReaderArrayLength;
 
 /**
  * Given an array with the number of elements of N.
  * Form two arrays: the first include elements of the original array with even numbers, and in the second - with odd numbers.
- * <p> Created by Konstantin Lugowoy on 16.03.2017.
+ *
+ * <p>Created by Konstantin Lugowoy on 16.03.2017.
  */
 public class Main {
 
@@ -16,23 +20,27 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Enter length of the array : ");
-        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
+        ReaderArrayLength readerLength = new ReaderArrayLength();
+        int lengthArray = readerLength.read(System.in, System.out,
+                                              ReaderArrayLength.MSG_ENTER_ARRAY_LENGTH);
 
-        FillingArrayRandomPrimitiveIntegers filler = new FillingArrayRandomPrimitiveIntegers();
+        HelperArrayFiller fillerArray = new HelperArrayFiller();
 
-        ArrayInts originalArray = new ArrayInts(filler.fill(lengthOfArray, BOUND));
+        ArrayInts originalArray = new ArrayInts(fillerArray.getArray(
+                new FillingArrayRandomPrimitiveIntegers(), lengthArray,
+                HelperFillerValues.INT_ZERO, BOUND));
 
-        System.out.println("Original array : " + originalArray);
+        System.out.println("Original array : " + originalArray + "\n");
 
-        Selecting<ArrayInts> selecting = Selecting::selectArray;
+        new Executor().execute(() -> {
+            SelectingArray<ArrayInts> selecting = SelectingArray::selectArray;
 
-        ArrayInts evenNumbersArray = selecting.select(originalArray, Selecting.STATUS_EVEN_NUMBERS);
-        ArrayInts oddNumbersArray = selecting.select(originalArray, Selecting.STATUS_ODD_NUMBERS);
+            ArrayInts evenNumbersArray = selecting.select(originalArray, SelectingArray.STATUS_EVEN_NUMBERS);
+            ArrayInts oddNumbersArray = selecting.select(originalArray, SelectingArray.STATUS_ODD_NUMBERS);
 
-        System.out.println("Even number array created based on the original array : " + evenNumbersArray);
-
-        System.out.println("Odd number array created based on the original array : " + oddNumbersArray);
+            System.out.println("Even number array created based on the original array : " + evenNumbersArray);
+            System.out.println("Odd number array created based on the original array : " + oddNumbersArray);
+        }, new OutputExecutionTimeToConsole());
 
     }
 

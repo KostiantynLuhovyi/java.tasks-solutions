@@ -1,40 +1,49 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.determinePairsOfNumbersFromSequenceWhoseSumIsEqualToEnteredNumber;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
-import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.storages.arrays.ArrayInts;
-import com.lugowoy.helper.utils.ArrayLengthReader;
+import com.lugowoy.helper.execution.Executor;
+import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
+import com.lugowoy.helper.filling.array.numbers.primitives.FillingArrayRandomPrimitiveIntegers;
+import com.lugowoy.helper.models.arrays.ArrayInts;
+import com.lugowoy.helper.utils.HelperArrayFiller;
+import com.lugowoy.helper.utils.HelperFillerValues;
+import com.lugowoy.helper.utils.ReaderArrayLength;
+import com.lugowoy.helper.utils.ReaderConsole;
 
 /**
- * Given a sequence of integers a1, a2, ..., an. Indicate pairs of numbers ai, aj such that ai + aj = m.
- * <p> Created by Konstantin Lugowoy on 19.03.2017.
+ * Given a sequence of integers a1, a2, ..., an. Indicate pairs of numbers ai,
+ * aj such that ai + aj = m.
+ *
+ * <p>Created by Konstantin Lugowoy on 19.03.2017.
  */
 public class Main {
-
-    private static final Determinant<Integer> DETERMINANT = Determinant::determinePairsOfNumbersFromTheSequenceWhoseSumIsEqualToEnteredNumber;
 
     private static final int BOUND = 100;
 
     public static void main(String[] args) {
 
-        System.out.println("Enter length of the array : ");
-        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
+        ReaderArrayLength readerLength = new ReaderArrayLength();
+        int lengthArray = readerLength.read(System.in, System.out,
+                                            ReaderArrayLength.MSG_ENTER_ARRAY_LENGTH);
 
-        FillingArrayRandomPrimitiveIntegers filler = new FillingArrayRandomPrimitiveIntegers();
+        HelperArrayFiller filler = new HelperArrayFiller();
+        ArrayInts array = new ArrayInts(
+                filler.getArray(new FillingArrayRandomPrimitiveIntegers(),
+                                lengthArray, HelperFillerValues.INT_ZERO,
+                                BOUND));
 
-        ArrayInts array = new ArrayInts(filler.fill(lengthOfArray, BOUND));
+        System.out.println("Array: " + array + "\n");
 
-        System.out.println(array);
-
-        int sumNumber = enterNumber();
-
-        DETERMINANT.determine(array, sumNumber);
+        new Executor().execute(() -> {
+            DeterminantNumbersEqualNumber<ArrayInts, Integer> determinant =
+                    DeterminantNumbersEqualNumber::determineNumbersWhoseSumEqualNumber;
+            determinant.determine(array, enterNumber());
+        }, new OutputExecutionTimeToConsole());
 
     }
 
     private static int enterNumber() {
         System.out.println("Enter number : ");
-        return new ReadingConsole().readInt();
+        return new ReaderConsole().readInt();
     }
 
 }
