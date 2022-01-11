@@ -1,18 +1,22 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.findSegmentOfArrayIsPolindrome;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
-import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.storages.arrays.ArrayInts;
-import com.lugowoy.helper.utils.ArrayLengthReader;
+import com.lugowoy.helper.execution.Executor;
+import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
+import com.lugowoy.helper.filling.array.numbers.primitives.FillingArrayRandomPrimitiveIntegers;
+import com.lugowoy.helper.models.arrays.ArrayInts;
+import com.lugowoy.helper.utils.HelperArrayFiller;
+import com.lugowoy.helper.utils.HelperFillerValues;
+import com.lugowoy.helper.utils.ReaderArrayLength;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
-import java.util.Objects;
 
 /**
  * Given an array A. Find the segment of the maximum length array in which the first number equals the last,
- * the second the penultimate, and so on.
+ * the second number equal the penultimate, and so on.
  * Output this segment and its length.
- * <p> Created by Konstantin Lugowoy on 18.06.2017.
+ *
+ * <p>Created by Konstantin Lugowoy on 18.06.2017.
  */
 public class Main {
 
@@ -20,20 +24,25 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Enter length of the array : ");
-        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
+        ReaderArrayLength readerLength = new ReaderArrayLength();
+        int lengthArray = readerLength.read(System.in, System.out,
+                                            ReaderArrayLength.MSG_ENTER_ARRAY_LENGTH);
 
-        FillingArrayRandomPrimitiveIntegers filler = new FillingArrayRandomPrimitiveIntegers();
+        HelperArrayFiller filler = new HelperArrayFiller();
 
-        ArrayInts array = new ArrayInts(filler.fill(lengthOfArray, BOUND));
+        ArrayInts array = new ArrayInts(filler.getArray(
+                new FillingArrayRandomPrimitiveIntegers(), lengthArray,
+                HelperFillerValues.INT_ZERO, BOUND));
 
-        System.out.println("Original array : " + array);
+        System.out.println("Array : " + array + "\n");
 
-        getPalindromeAndLength(array);
+        new Executor().execute(() -> {
+            findSegmentOfArrayThatIsPalindrome(array);
+        }, new OutputExecutionTimeToConsole());
 
     }
 
-    private static void getPalindromeAndLength(ArrayInts array) {
+    private static void findSegmentOfArrayThatIsPalindrome(@NotNull final ArrayInts array) {
         int count = 1;
         for (int i = 0; i < count; i++) {
             boolean isPalindrome = false;
@@ -51,9 +60,11 @@ public class Main {
                 }
             }
             if (isPalindrome) {
-                int[] temp = Arrays.copyOfRange(array.toArray(new int[array.size()]), i, array.size() - count + i + 1);
+                int[] temp = Arrays.copyOfRange(array.toArray(
+                        new int[array.size()]), i, array.size() - count + i + 1);
                 if (temp.length > 1) {
-                    System.out.println(Arrays.toString(temp) + ", length is equal " + temp.length);
+                    System.out.println(Arrays.toString(temp) +
+                                       ", length is equal " + temp.length);
                     return;
                 } else {
                     System.out.println("In the array there is no segment that is a palindrome.");

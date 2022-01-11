@@ -4,6 +4,7 @@ import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveInteg
 import com.lugowoy.helper.io.reading.ReadingConsole;
 import com.lugowoy.helper.models.storages.arrays.ArrayInts;
 import com.lugowoy.helper.utils.ArrayLengthReader;
+import com.lugowoy.helper.utils.ReaderArrayLength;
 
 import java.util.Arrays;
 
@@ -20,10 +21,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Enter length of the array : ");
-        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
+        ReaderArrayLength readerLength = new ReaderArrayLength();
+        int lengthArray = readerLength.read();
 
-        ArrayInts array = new ArrayInts(new FillingArrayRandomPrimitiveIntegers().fill(lengthOfArray, START_BOUND, END_BOUND));
+        ArrayInts array = new ArrayInts(new FillingArrayRandomPrimitiveIntegers().fill(lengthArray, START_BOUND, END_BOUND));
 
         System.out.println("Original array : " + array);
         System.out.println();

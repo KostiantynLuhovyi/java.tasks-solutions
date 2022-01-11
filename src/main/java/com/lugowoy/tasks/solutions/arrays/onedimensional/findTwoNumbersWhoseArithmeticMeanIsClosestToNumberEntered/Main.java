@@ -1,9 +1,13 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.findTwoNumbersWhoseArithmeticMeanIsClosestToNumberEntered;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveDoubles;
-import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.storages.arrays.ArrayDoubles;
-import com.lugowoy.helper.utils.ArrayLengthReader;
+import com.lugowoy.helper.execution.Executor;
+import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
+import com.lugowoy.helper.filling.array.numbers.primitives.FillingArrayRandomPrimitiveDoubles;
+import com.lugowoy.helper.models.arrays.ArrayDoubles;
+import com.lugowoy.helper.utils.HelperArrayFiller;
+import com.lugowoy.helper.utils.HelperFillerValues;
+import com.lugowoy.helper.utils.ReaderArrayLength;
+import com.lugowoy.helper.utils.ReaderConsole;
 
 /**
  * Given a real number x and an array A [n].
@@ -16,20 +20,26 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Enter length of the array : ");
-        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
+        ReaderArrayLength readerLength = new ReaderArrayLength();
+        int lengthArray = readerLength.read(System.in, System.out,
+                                            ReaderArrayLength.MSG_ENTER_ARRAY_LENGTH);
 
-        FillingArrayRandomPrimitiveDoubles filler = new FillingArrayRandomPrimitiveDoubles();
+        HelperArrayFiller filler = new HelperArrayFiller();
 
-        ArrayDoubles array = new ArrayDoubles(filler.fill(lengthOfArray, BOUND));
+        ArrayDoubles array = new ArrayDoubles(filler.getArray(
+                new FillingArrayRandomPrimitiveDoubles(), lengthArray,
+                HelperFillerValues.INT_ZERO, BOUND));
 
-        System.out.println("Original array : " + array);
+        System.out.println("Array : " + array + "\n");
 
-        System.out.println("Enter real number : ");
-        double enterNumber = new ReadingConsole().readDouble();
+        System.out.println("Enter number : ");
+        double enterNumber = new ReaderConsole().readDouble();
 
-        Finding<Double, ArrayDoubles> findable = Finding::findTwoNumbersWhoseArithmeticMeanIsClosestToNumber;
-        findable.find(enterNumber, array);
+        new Executor().execute(() -> {
+            Finding<ArrayDoubles, Double> finding =
+                    Finding::findTwoNumbersWhoseArithmeticMeanIsClosestToNumber;
+            finding.find(array, enterNumber);
+        }, new OutputExecutionTimeToConsole());
 
     }
 
