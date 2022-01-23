@@ -5,7 +5,8 @@ import java.util.Random;
 
 /**
  * Given integer numbers a1, a2, ..., an. Interchange the maximum and minimum elements.
- * <p> Created by Konstantin Lugowoy on 14-Feb-17.
+ *
+ * <p>Created by Konstantin Lugowoy on 14-Feb-17.
  */
 public class Main {
 
@@ -17,7 +18,9 @@ public class Main {
     public static void main(String[] args) {
 
         Numbers numbers = new Numbers(MAX_RANDOM_NUMBER, MIN_RANDOM_NUMBER,
-                                      Arrays.stream(new Integer[20]).mapToInt(value -> RANDOM.nextInt(100)).toArray());
+                                      Arrays.stream(new Integer[20])
+                                            .mapToInt(value -> RANDOM.nextInt(100))
+                                            .toArray());
 
         System.out.println("Original array : ");
         Arrays.stream(numbers.getNumbers()).forEachOrdered(value -> System.out.print(value + " "));
@@ -36,14 +39,17 @@ public class Main {
     private static final Interchanging INTERCHANGING = numbers -> {
         int indexMaxElement = 0, indexMinElement = 0;
 
-        GetMaxAndMinElement getMaxAndMinElement = new GetMaxAndMinElement(numbers, indexMaxElement, indexMinElement).invoke();
+        GetMaxAndMinElement getMaxAndMinElement =
+                new GetMaxAndMinElement(numbers, indexMaxElement, indexMinElement).invoke();
         indexMaxElement = getMaxAndMinElement.getIndexMaxElement();
         indexMinElement = getMaxAndMinElement.getIndexMinElement();
 
         exchangeMinAndMaxElementInTheArray(numbers, indexMaxElement, indexMinElement);
     };
 
-    private static void exchangeMinAndMaxElementInTheArray(Numbers numbers, int indexMaxElement, int indexMinElement) {
+    private static void exchangeMinAndMaxElementInTheArray(Numbers numbers,
+                                                           int indexMaxElement,
+                                                           int indexMinElement) {
         for (int index = 0; index < numbers.getNumbers().length; index++) {
             if (index == indexMaxElement) {
                 numbers.getNumbers()[index] = numbers.getMinElement();

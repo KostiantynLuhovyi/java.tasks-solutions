@@ -1,11 +1,9 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.interchangeElementsStandingOnOddAndEvenPositionsInArray;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
+import com.lugowoy.helper.filling.array.numbers.primitives.FillingArrayRandomPrimitiveIntegers;
+import com.lugowoy.helper.utils.HelperFillerValues;
 
 import java.util.Arrays;
-
-import static com.lugowoy.helper.filling.ValuesToFilling.INT_LOWER_BOUND;
-import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 
 /**
  * The specified one-dimensional array interchange the adjacent elements standing on even places,
@@ -21,9 +19,11 @@ public class Main {
     public static void main(String[] args) {
 
         Numbers numbers = new Numbers();
-        numbers.setNumbers(new FillingArrayRandomPrimitiveIntegers().fill(LENGTH_ARRAY, INT_LOWER_BOUND, INT_UPPER_BOUND));
+        numbers.setNumbers(new FillingArrayRandomPrimitiveIntegers().fill(LENGTH_ARRAY,
+                                                                          HelperFillerValues.INT_ZERO,
+                                                                          HelperFillerValues.INT_POSITIVE_HUNDRED));
 
-        System.out.println("Original array : ");
+        System.out.println("Array : ");
         Arrays.stream(numbers.getNumbers()).forEachOrdered(value -> System.out.print(value + " "));
         System.out.println();
 

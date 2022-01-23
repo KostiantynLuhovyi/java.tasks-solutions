@@ -1,7 +1,6 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.locateSnailOnTreeAfterThirtyDays;
 
-import com.lugowoy.helper.io.reading.Reader;
-import com.lugowoy.helper.io.reading.ReadingConsole;
+import com.lugowoy.helper.utils.ReaderConsole;
 import com.lugowoy.tasks.solutions.arrays.onedimensional.locateSnailOnTreeAfterThirtyDays.entity.Snail;
 import com.lugowoy.tasks.solutions.arrays.onedimensional.locateSnailOnTreeAfterThirtyDays.entity.Tree;
 import com.lugowoy.tasks.solutions.arrays.onedimensional.locateSnailOnTreeAfterThirtyDays.entity.Weather;
@@ -15,11 +14,12 @@ import java.util.Random;
  * At the beginning of observation, the snail is A cm from the ground on a B-meter tree.
  * There is a 30-element array containing information about whether the corresponding observation day was cloudy or sunny.
  * Write a program that determines the location of the cochlea at the end of the 30th day of observation.
- * <p> Created by Konstantin Lugowoy on 11.05.2017.
+ *
+ * <p>Created by Konstantin Lugowoy on 11.05.2017.
  */
 public class Main {
 
-    private static final Reader READER = new Reader(new ReadingConsole());
+    private static final ReaderConsole READER = new ReaderConsole();
 
     public static void main(String[] args) {
 

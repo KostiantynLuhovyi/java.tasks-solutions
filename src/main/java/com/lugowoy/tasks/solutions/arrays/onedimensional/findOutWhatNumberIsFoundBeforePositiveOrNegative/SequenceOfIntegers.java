@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.solutions.arrays.onedimensional.numberOfPreviouslyFoundPositiveOrNegative;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.findOutWhatNumberIsFoundBeforePositiveOrNegative;
 
 /**
  * Created by Konstantin Lugowoy on 12-Feb-17.
