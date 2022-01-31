@@ -1,24 +1,21 @@
-package com.lugowoy.tasks.solutions.arrays.onedimensional.openLockOnDoorByLookingThroughPlayingDice;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.openLockOnDoorByPlayingDice;
 
-import com.lugowoy.helper.io.reading.Reader;
-import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.utils.generating.GeneratorRandomNumber;
+import com.lugowoy.helper.utils.RandomNumber;
 
 import java.util.Arrays;
 
-import static com.lugowoy.tasks.solutions.arrays.onedimensional.openLockOnDoorByLookingThroughPlayingDice.PlayingDice.LOWER_VALUE_PLAYING_DICE;
-import static com.lugowoy.tasks.solutions.arrays.onedimensional.openLockOnDoorByLookingThroughPlayingDice.PlayingDice.UPPER_VALUE_PLAYING_DICE;
+import static com.lugowoy.tasks.solutions.arrays.onedimensional.openLockOnDoorByPlayingDice.PlayingDice.LOWER_VALUE_PLAYING_DICE;
+import static com.lugowoy.tasks.solutions.arrays.onedimensional.openLockOnDoorByPlayingDice.PlayingDice.UPPER_VALUE_PLAYING_DICE;
 
 /**
  * The secret lock for the safe consists of 10 cells arranged in a row, into which it is necessary to insert the playing dice.
  * But the door is opened only if in any three neighboring cells the sum of the points on the front faces of the cubes is 10.
  * (The dice has 1 to 6 dots on each face.)
  * Write a program that unravels the lock code, provided that two dice already inserted in the cells.
- * <p> Created by Konstantin Lugowoy on 27.03.2017.
+ *
+ * <p>Created by Konstantin Lugowoy on 27.03.2017.
  */
 public class Main {
-
-    private static final Reader READER = new Reader(new ReadingConsole());
 
     private static final Opening OPENING = Opening::openDoorLock;
 
@@ -41,12 +38,14 @@ public class Main {
     }
 
     private static PlayingDice[] createStartPlayingDicesArray() {
+        RandomNumber random = new RandomNumber();
         int amountPlayingDice = 10;
         PlayingDice[] playingDices = new PlayingDice[amountPlayingDice];
         int countPlayingDice = 0;
         while (countPlayingDice < 2) {
-            int randomIndex = GeneratorRandomNumber.generateInt(amountPlayingDice - 1);
-            int diceValue = GeneratorRandomNumber.generateInt(LOWER_VALUE_PLAYING_DICE, UPPER_VALUE_PLAYING_DICE);
+            int randomIndex = random.generateInt(amountPlayingDice - 1);
+            int diceValue = random.generateInt(LOWER_VALUE_PLAYING_DICE,
+                                               UPPER_VALUE_PLAYING_DICE);
             playingDices[randomIndex] = new PlayingDice(diceValue);
             countPlayingDice++;
         }

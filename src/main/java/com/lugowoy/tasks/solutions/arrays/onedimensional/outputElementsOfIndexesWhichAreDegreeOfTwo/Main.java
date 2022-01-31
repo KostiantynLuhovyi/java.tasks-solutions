@@ -1,27 +1,28 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.outputElementsOfIndexesWhichAreDegreeOfTwo;
 
 import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegers;
-import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.utils.ArrayLengthReader;
+import com.lugowoy.helper.utils.HelperFillerValues;
+import com.lugowoy.helper.utils.ReaderArrayLength;
 
 import java.util.Arrays;
-
-import static com.lugowoy.helper.filling.ValuesToFilling.INT_LOWER_BOUND;
-import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 
 /**
  * Given an array with the number of n elements.
  * Print those elements whose indices are degree of two (1, 2, 4, 8, 16, ...).
+ *
  * <p> Created by Konstantin Lugowoy on 01.03.2017.
  */
 public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Enter length of the array : ");
-        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
+        ReaderArrayLength readerLength = new ReaderArrayLength();
+        int lengthArray = readerLength.read(System.in, System.out,
+                                              ReaderArrayLength.MSG_ENTER_ARRAY_LENGTH);
 
-        Integer[] integersArray = new FillingArrayRandomIntegers().fill(lengthOfArray, INT_LOWER_BOUND, INT_UPPER_BOUND);
+        Integer[] integersArray = new FillingArrayRandomIntegers().fill(lengthArray,
+                                                                        HelperFillerValues.INT_NEGATIVE_HUNDRED,
+                                                                        HelperFillerValues.INT_POSITIVE_HUNDRED);
 
         System.out.println("Original : ");
         Arrays.stream(integersArray).forEachOrdered(integer -> System.out.print(integer + " "));

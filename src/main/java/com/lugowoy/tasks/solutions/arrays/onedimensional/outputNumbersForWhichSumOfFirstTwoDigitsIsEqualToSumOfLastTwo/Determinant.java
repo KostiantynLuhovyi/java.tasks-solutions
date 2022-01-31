@@ -6,24 +6,24 @@ package com.lugowoy.tasks.solutions.arrays.onedimensional.outputNumbersForWhichS
 @FunctionalInterface
 public interface Determinant {
 
-    boolean determine(int number);
+    boolean determine(final int number);
 
-    static boolean determineNumbersForWhichTheSumOfTheFirstTwoDigitsIsEqualToTheSumOfTheLastTwo(int number) {
+    static boolean determineFirstTwoDigitsIsEqualLastTwo(final int number) {
         boolean result = false;
-
+        int tmpNumber = number;
         String stringNumber = Integer.toString(number);
         if (stringNumber.length() == 4) {
 
-            int rightPartOfNumber = number % 10;
-            number /= 10;
-            rightPartOfNumber = rightPartOfNumber + number % 10;
-            number /= 10;
+            int rightPartNumber = number % 10;
+            tmpNumber /= 10;
+            rightPartNumber = rightPartNumber + number % 10;
+            tmpNumber /= 10;
 
             int leftPartOfNumber = number % 10;
-            number /= 10;
+            tmpNumber /= 10;
             leftPartOfNumber += number;
 
-            if (rightPartOfNumber == leftPartOfNumber) {
+            if (rightPartNumber == leftPartOfNumber) {
                 result = true;
             }
         }
