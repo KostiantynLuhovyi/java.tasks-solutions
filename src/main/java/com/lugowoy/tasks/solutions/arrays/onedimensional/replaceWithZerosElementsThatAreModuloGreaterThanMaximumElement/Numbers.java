@@ -1,4 +1,4 @@
-package com.lugowoy.tasks.solutions.arrays.onedimensional.replaceWithZerosElementsThatAreModuloGreaterThanTheMaximumElement;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.replaceWithZerosElementsThatAreModuloGreaterThanMaximumElement;
 
 /**
  * Created by Konstantin Lugowoy on 11.03.2017.

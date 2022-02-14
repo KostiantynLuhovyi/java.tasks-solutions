@@ -1,5 +1,7 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.replaceSmallestNumberInSequenceByArithmeticMeanOfNumbers;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Arrays;
 import java.util.Random;
 
@@ -7,11 +9,13 @@ import java.util.Random;
  * Given integers a1, a2, ..., an.
  * The smallest member of this sequence is replaced by the integer part of the arithmetic mean of all terms, leaving the remaining terms unchanged.
  * If there are several smaller terms in the sequence, then replace the last one in order.
- * <p> Created by Konstantin Lugowoy on 25.03.2017.
+ *
+ * <p>Created by Konstantin Lugowoy on 25.03.2017.
  */
 public class Main {
 
-    private static final Replacement<Integer> REPLACEMENT = Replacement::replaceTheSmallestNumberInTheSequence;
+    private static final Replacement<Integer> REPLACEMENT =
+            Replacement::replaceSmallestNumberInSequence;
 
     private static final Random RANDOM = new Random();
 
@@ -22,31 +26,31 @@ public class Main {
                                                           .boxed()
                                                           .toArray(Integer[]::new));
 
-        System.out.println("Original sequence : ");
+        System.out.println("Original sequence: ");
         Arrays.stream(sequence.getSequence()).forEachOrdered(integer -> System.out.print(integer + " "));
         System.out.println();
 
-        int resultIntegerPartOfArithmeticMeanNumberOfTheSequence = getArithmeticMeanNumbersOfTheSequence(sequence);
-        System.out.printf("Arithmetic mean number of the sequence is : %d", resultIntegerPartOfArithmeticMeanNumberOfTheSequence);
+        int resultArithmeticMeanOfSequence = getArithmeticMeanNumbersOfSequence(sequence);
+        System.out.printf("Arithmetic mean number of the sequence is: %d", resultArithmeticMeanOfSequence);
         System.out.println();
 
-        REPLACEMENT.replace(sequence, resultIntegerPartOfArithmeticMeanNumberOfTheSequence);
+        REPLACEMENT.replace(sequence, resultArithmeticMeanOfSequence);
 
-        System.out.println("Sequence after replacement : ");
+        System.out.println("Sequence after replacement: ");
         Arrays.stream(sequence.getSequence()).forEachOrdered(value -> System.out.print(value + " "));
         System.out.println();
 
     }
 
-    private static int getArithmeticMeanNumbersOfTheSequence(Sequence<Integer> sequence) {
-        double resultArithmeticMeanNumberOfTheSequence = 0;
+    private static int getArithmeticMeanNumbersOfSequence(@NotNull final  Sequence<Integer> sequence) {
+        double resultArithmeticMean = 0;
 
         double sumAllNumber = 0;
         for (int i = 0; i < sequence.getSequence().length; i++) {
             sumAllNumber += sequence.getSequence()[i];
-            resultArithmeticMeanNumberOfTheSequence = sumAllNumber / sequence.getSequence().length;
+            resultArithmeticMean = sumAllNumber / sequence.getSequence().length;
         }
-        return (int)resultArithmeticMeanNumberOfTheSequence;
+        return (int)resultArithmeticMean;
     }
 
 }

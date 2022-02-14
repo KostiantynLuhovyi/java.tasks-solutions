@@ -1,10 +1,15 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.findIndicesOfMostRemoteAndLeastDistantPoints;
 
-import com.lugowoy.helper.io.reading.ReadingConsole;
+import com.lugowoy.helper.checkers.CheckerArray;
+import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomIntegers;
+import com.lugowoy.helper.models.arrays.Array;
 import com.lugowoy.helper.models.points.Point2D;
-import com.lugowoy.helper.models.storages.arrays.Array;
-import com.lugowoy.helper.utils.checking.CheckerArray;
-import com.lugowoy.helper.utils.generating.GeneratorRandomNumber;
+import com.lugowoy.helper.utils.Capacity;
+import com.lugowoy.helper.utils.HelperArrayFiller;
+import com.lugowoy.helper.utils.HelperFillerValues;
+import com.lugowoy.helper.utils.RandomNumber;
+import com.lugowoy.helper.utils.ReaderArrayLength;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 
@@ -12,15 +17,23 @@ import java.util.Arrays;
  * In a one-dimensional array with an even number of elements (2N) there are coordinates of N points of the plane.
  * They are arranged in the following order: x1, y1, x2, y2, x3, y3, etc.
  * Find the numbers of the most distant points and the points that are the least distant from each other.
- * <p> Created by Konstantin Lugowoy on 03.07.2017.
+ *
+ * <p>Created by Konstantin Lugowoy on 03.07.2017.
  */
 public class Main {
 
     public static void main(String[] args) {
 
-        int numberPointOfPlane = getNumberQuantityPointsOfPlane();
+        int lengthArray = readEvenLengthArray();
 
-        Array<Point2D<Double>> pointsArray = new Array<>(numberPointOfPlane);
+        HelperArrayFiller fillerArray = new HelperArrayFiller();
+
+        Array<Integer> integerArray = new Array<>(fillerArray.getArray(
+                new FillingArrayRandomIntegers(), lengthArray,
+                HelperFillerValues.INT_NEGATIVE_HUNDRED,
+                HelperFillerValues.INT_POSITIVE_HUNDRED));
+
+        Array<Point2D<Double>> pointsArray = new Array<>();
 
         fillArrayPoints(pointsArray);
 
@@ -38,30 +51,30 @@ public class Main {
 
     }
 
-    private static int getNumberQuantityPointsOfPlane() {
-        System.out.println("Enter the number points of the plane : ");
-        ReadingConsole reader = new ReadingConsole();
-        int numberQuantityPointOfPlane;
-        while (true) {
-            numberQuantityPointOfPlane = reader.readInt();
-            if ((numberQuantityPointOfPlane > 0) && (numberQuantityPointOfPlane % 2 == 0)) {
-                break;
-            } else {
-                System.out.println("The number points of the plane a must be positive and even number.");
-                System.out.println("Re-enter : ");
-            }
+    private static void fillArrayPoints(@NotNull final Array<Point2D<Double>> pointArray) {
+        CheckerArray.check(pointArray, Capacity.UPPER.get());
+        RandomNumber randomNumber = new RandomNumber();
+        for (int i = 0; i < pointArray.size(); i++) {
+            double coordinateX = randomNumber.generateDouble(HelperFillerValues.DOUBLE_POSITIVE_THOUSAND);
+            double coordinateY = randomNumber.generateDouble(HelperFillerValues.DOUBLE_POSITIVE_THOUSAND);
+            pointArray.set(i, new Point2D<>(coordinateX, coordinateY));
         }
-        return numberQuantityPointOfPlane;
+
     }
 
-    private static void fillArrayPoints(Array<Point2D<Double>> pointArray) {
-        if (CheckerArray.checkLengthInArray(pointArray)) {
-            for (int i = 0; i < pointArray.size(); i++) {
-                double coordinateX = GeneratorRandomNumber.generateDouble();
-                double coordinateY = GeneratorRandomNumber.generateDouble();
-                pointArray.set(i, new Point2D<>(coordinateX, coordinateY));
+    private static int readEvenLengthArray() {
+        ReaderArrayLength readerLength = new ReaderArrayLength();
+        int resultEvenLength = 0;
+        while (true) {
+            resultEvenLength = readerLength.read(System.in, System.out,
+                                                 "Enter even number length of the array : ");
+            if (resultEvenLength > 0 && ((resultEvenLength % 2) == 0)) {
+                break;
+            } else {
+                System.out.println("Incorrect length. Repeat:");
             }
         }
+        return resultEvenLength;
     }
 
 }

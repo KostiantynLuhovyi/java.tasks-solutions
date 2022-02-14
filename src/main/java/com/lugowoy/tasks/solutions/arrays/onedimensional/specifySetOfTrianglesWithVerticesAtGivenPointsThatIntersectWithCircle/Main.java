@@ -1,11 +1,9 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.specifySetOfTrianglesWithVerticesAtGivenPointsThatIntersectWithCircle;
 
 import com.lugowoy.helper.filling.array.points.FillingArrayPoints2DRandomIntegers;
-import com.lugowoy.helper.filling.array.points.FillingArrayPoints2DReadIntegers;
-import com.lugowoy.helper.io.reading.Reader;
-import com.lugowoy.helper.io.reading.ReadingConsole;
+import com.lugowoy.helper.models.arrays.Array;
 import com.lugowoy.helper.models.points.Point2D;
-import com.lugowoy.helper.models.storages.arrays.Array;
+import com.lugowoy.helper.utils.ReaderConsole;
 
 import java.util.Arrays;
 
@@ -13,11 +11,12 @@ import java.util.Arrays;
  * On the n-plane the points are given by their coordinates and a circle of radius R with center at the origin is also given.
  * Specify the set of all triangles with vertices at given points intersecting a circle;
  * The set of all triangles contained inside the circle.
- * <p> Created by Konstantin Lugowoy on 02.07.2017.
+ *
+ * <p>Created by Konstantin Lugowoy on 02.07.2017.
  */
 public class Main {
 
-    private static final Reader READER = new Reader(new ReadingConsole());
+    private static final ReaderConsole READER = new ReaderConsole();
 
     private static final int LOWER_BOUND_COORDINATE = -200;
     private static final int UPPER_BOUND_COORDINATE = 200;
@@ -28,7 +27,10 @@ public class Main {
 
         FillingArrayPoints2DRandomIntegers filler = new FillingArrayPoints2DRandomIntegers();
 
-        Array<Point2D<Integer>> pointsArray = new Array<>(filler.fill(numberOfPoints, LOWER_BOUND_COORDINATE, UPPER_BOUND_COORDINATE));
+        Array<Point2D<Integer>> pointsArray =
+                new Array<>(filler.fill(numberOfPoints,
+                                        LOWER_BOUND_COORDINATE,
+                                        UPPER_BOUND_COORDINATE));
 
         System.out.println("Points : ");
         Arrays.stream(pointsArray.toArray()).forEachOrdered(System.out::println);

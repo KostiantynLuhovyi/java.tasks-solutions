@@ -1,34 +1,42 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.sortArrayInAscendingOrderWithoutChangingTheirRelativePosition;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
-import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.models.storages.arrays.ArrayInts;
-import com.lugowoy.helper.utils.ArrayLengthReader;
-
-import static com.lugowoy.helper.filling.ValuesToFilling.INT_LOWER_BOUND;
-import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
+import com.lugowoy.helper.execution.Executor;
+import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
+import com.lugowoy.helper.filling.array.numbers.primitives.FillingArrayRandomPrimitiveIntegers;
+import com.lugowoy.helper.models.arrays.ArrayInts;
+import com.lugowoy.helper.utils.HelperArrayFiller;
+import com.lugowoy.helper.utils.HelperFillerValues;
+import com.lugowoy.helper.utils.ReaderArrayLength;
 
 /**
  * In a one-dimensional array, rearrange the elements so that negative elements are first located, then zero, and then positive.
  * The relative arrangement of the elements does not change.
- * <p> Created by Konstantin Lugowoy on 14.05.2017.
+ *
+ * <p>Created by Konstantin Lugowoy on 14.05.2017.
  */
 public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Enter length of the array : ");
-        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
+        ReaderArrayLength readerLength = new ReaderArrayLength();
+        int lengthArray = readerLength.read(System.in, System.out,
+                                            ReaderArrayLength.MSG_ENTER_ARRAY_LENGTH);
 
-        ArrayInts array = new ArrayInts(new FillingArrayRandomPrimitiveIntegers().fill(lengthOfArray, INT_LOWER_BOUND, INT_UPPER_BOUND));
+        HelperArrayFiller filler = new HelperArrayFiller();
 
-        System.out.println("Original array : " + array);
+        ArrayInts array = new ArrayInts(filler.getArray(
+                new FillingArrayRandomPrimitiveIntegers(), lengthArray,
+                HelperFillerValues.INT_NEGATIVE_HUNDRED,
+                HelperFillerValues.INT_POSITIVE_HUNDRED));
 
-        Sorting sorting = Sorting::sortAnArrayInAscendingOrderWithoutChangingTheirRelativePosition;
-        sorting.sort(array);
+        System.out.println("Array : " + array + "\n");
 
-        System.out.println();
-        System.out.println("After sorting : " + array);
+        new Executor().execute(() -> {
+            Sorting sorting = Sorting::sortArrayInAscendingOrderWithoutChangingTheirRelativePosition;
+            sorting.sort(array);
+
+            System.out.println("After sorting : " + array);
+        }, new OutputExecutionTimeToConsole());
 
     }
 

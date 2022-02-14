@@ -1,34 +1,35 @@
-package com.lugowoy.tasks.solutions.arrays.onedimensional.replaceTheArrayNumbersOfLargerZ;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.replaceArrayNumbersOfLargerZ;
 
-import com.lugowoy.helper.filling.array.numbers.FillingArrayRandomPrimitiveIntegers;
-import com.lugowoy.helper.io.reading.Reader;
-import com.lugowoy.helper.io.reading.ReadingConsole;
-import com.lugowoy.helper.utils.ArrayLengthReader;
+import com.lugowoy.helper.filling.array.numbers.primitives.FillingArrayRandomPrimitiveIntegers;
+import com.lugowoy.helper.utils.HelperFillerValues;
+import com.lugowoy.helper.utils.ReaderArrayLength;
+import com.lugowoy.helper.utils.ReaderConsole;
 
 import java.util.Arrays;
-
-import static com.lugowoy.helper.filling.ValuesToFilling.INT_LOWER_BOUND;
-import static com.lugowoy.helper.filling.ValuesToFilling.INT_UPPER_BOUND;
 
 /**
  * Given a sequence of integer numbers a1, a2, ..., an.
  * Replace all of its members, of the Z larger, this number. Count the number of substitutions.
- * <p> Created by Konstantin Lugowoy on 13-Feb-17.
+ *
+ * <p>Created by Konstantin Lugowoy on 13-Feb-17.
  */
 public class Main {
 
-    private static final Reader READER = new Reader(new ReadingConsole());
-
     public static void main(String[] args) {
 
-        System.out.println("Enter length of the array : ");
-        int lengthOfArray = ArrayLengthReader.readLength(new ReadingConsole());
+        ReaderArrayLength readerLength = new ReaderArrayLength();
+        int lengthArray = readerLength.read(System.in, System.out,
+                                            ReaderArrayLength.MSG_ENTER_ARRAY_LENGTH);
+
+        FillingArrayRandomPrimitiveIntegers filling = new FillingArrayRandomPrimitiveIntegers();
 
         Numbers numbersSequence = new Numbers();
-        numbersSequence.setNumbers(new FillingArrayRandomPrimitiveIntegers().fill(lengthOfArray, INT_LOWER_BOUND, INT_UPPER_BOUND));
+        numbersSequence.setNumbers(filling.fill(lengthArray,
+                                                HelperFillerValues.INT_NEGATIVE_HUNDRED,
+                                                HelperFillerValues.INT_POSITIVE_HUNDRED));
 
         System.out.println("Enter number of replace : ");
-        int numberToReplace = READER.readInt();
+        int numberToReplace = new ReaderConsole().readInt();
 
         System.out.println("Original array : ");
         Arrays.stream(numbersSequence.getNumbers()).forEachOrdered(value -> System.out.print(value + " "));
@@ -48,6 +49,7 @@ public class Main {
         numbersReplacement.replace(numbersSequence, numberToReplace);
 
         System.out.println();
+
         System.out.println("Result replace : ");
         Arrays.stream(numbersSequence.getNumbers()).forEachOrdered(value -> System.out.print(value + " "));
 

@@ -1,11 +1,15 @@
 package com.lugowoy.tasks.solutions.arrays.onedimensional.outputNumbersUpToAndIncludingZero;
 
+import com.lugowoy.helper.execution.Executor;
+import com.lugowoy.helper.execution.OutputExecutionTimeToConsole;
+
 import java.util.Arrays;
 import java.util.Random;
 
 /**
  * Given a sequence of numbers. Print out all the numbers up to and including zero.
- * <p> Created by Konstantin Lugowoy on 22-Feb-17. */
+ *
+ * <p>Created by Konstantin Lugowoy on 22-Feb-17. */
 public class Main {
 
     public static void main(String[] args) {
@@ -16,12 +20,14 @@ public class Main {
                                  .nextInt(50))
                                  .toArray());
 
-        System.out.println("Original array : ");
+        System.out.println("Original array: ");
         Arrays.stream(numbers.getNumbers()).forEachOrdered(value -> System.out.print(value + " "));
         System.out.println();
 
-        System.out.println("Result : ");
-        outputNumbersUpToAndIncludingZero(numbers);
+        new Executor().execute(() -> {
+            System.out.println("Result: ");
+            outputNumbersUpToAndIncludingZero(numbers);
+        }, new OutputExecutionTimeToConsole());
 
     }
 

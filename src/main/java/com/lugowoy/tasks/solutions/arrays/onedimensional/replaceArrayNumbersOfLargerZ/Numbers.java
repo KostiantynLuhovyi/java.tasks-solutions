@@ -1,11 +1,14 @@
-package com.lugowoy.tasks.solutions.arrays.onedimensional.outputToDisplayNumberForParticularCondition;
+package com.lugowoy.tasks.solutions.arrays.onedimensional.replaceArrayNumbersOfLargerZ;
 
 /**
- * Created by Konstantin Lugowoy on 14-Feb-17.
+ * Created by Konstantin Lugowoy on 13-Feb-17.
  */
 public class Numbers {
 
     private int[] numbers;
+
+    public Numbers() {
+    }
 
     public Numbers(int[] numbers) {
         this.numbers = numbers;
